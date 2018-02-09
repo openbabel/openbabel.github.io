@@ -10,7 +10,7 @@ References
 
 `@Article{bs93,`
 ` author = {B. L. Bush and R. P. Sheridan},`
-` title = {{PATTY}: {A} {P}rogrammable {A}tom {T}yper and {L}anguage for {A}utomatic `
+` title = PATTY: {A} {P}rogrammable {A}tom {T}yper and {L}anguage for {A}utomatic `
 `          {C}lassification of {A}toms in {M}olecular {D}atabases.},`
 ` journal = {J. Chem. Inf. Comput. Sci.},`
 ` year = {1993},`
