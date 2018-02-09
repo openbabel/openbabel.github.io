@@ -35,7 +35,7 @@ Select the required Options
 
 The check and edit boxes appropriate to the requested conversion are displayed in the centre. The ones at the top are general and relate to the type of chemical object (molecule or reaction) being converted. Below these are options specific to the input and the output formats.
 
-These options are generated from the help text in a way described in About OBGUI accessed from the Control Menu (top left hand corner of the title bar).
+These options are generated from the help text in a way described in About OBGUI accessed from the Control Menu (top left hand corner of the title bar). The command line interface has been developing fairly quickly recently and the GUI has not always been able to keep up, so that there are some features which are not available (audit messages, using a molecule in a file as a target in fastsearch format) or a bit cumbersome to use (batch conversion).
 
 Click Convert to carry out the conversion
 -----------------------------------------

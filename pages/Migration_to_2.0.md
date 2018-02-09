@@ -88,7 +88,7 @@ For more information, see the [OBConversion](http://openbabel.sourceforge.net/de
 Iterator Classes
 ----------------
 
-To facilitate iteration through all atoms, bonds, residues, etc, without resorting to index access (which may change in the future) or the various OBMol::BeginAtom() and OBAtom::NextAtom() methods, which are somewhat more complicated, new classes and macros were added.
+To facilitate iteration through all atoms, bonds, residues, etc, without resorting to index access (which may change in the future) or the various OBMol::BeginAtom() and OBAtom::NextAtom() methods, which are somewhat more complicated and may be deprecated in the future, new classes and macros were added.
 
 It is **highly recommended** to use the new STL-style iterator classes introduced into Open Babel 2.0 -- the old methods may disappear in a future 3.0 release.
 
@@ -179,3 +179,5 @@ becomes...
          // String access doesn't need to be changed at all
          if (mol.HasData("Author"))
            ...
+
+[Category:Developer](/Category:Developer "wikilink")

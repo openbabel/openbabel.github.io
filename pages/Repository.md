@@ -8,11 +8,13 @@ Open File Format Repository
 
 Open Babel is a project designed to pick up where Babel left off, as a cross-platform program and library designed to interconvert between many file formats used in molecular modeling and computational chemistry, and many related areas.
 
-Many file formats have formal, published specifications (e.g., [CML](http://cml.sourceforge.net/) or [PDB](http://http://www.rcsb.org/pdb/)) but realistically, such specifications evolve, many files are passed around which do not adhere to these specifications, and without example reference files, the details of file format specifications are not always clear.
+Many file formats have formal, published specifications (e.g., [CML](/CML "wikilink") or [PDB](/PDB "wikilink")) but realistically, such specifications evolve, many files are passed around which do not adhere to these specifications, and without example reference files, the details of file format specifications are not always clear.
 
 This repository is an open resource of test files in various chemical file formats. All have been made available either under the [GNU General Public License (GPL)](http://www.gnu.org/copyleft/gpl.html) or a [Creative Commons](http://creativecommons.org/) license which permits reuse and distribution (with attribution).
 
 *Importantly* these files can be used for testing import/export routines in many chemical programs, not just Open Babel. By providing such a resource, we hope that developers of chemical software will minimize bugs when translating chemical and molecular data between different file formats and different representations. Additionally, we hope to encourage the community of chemical software developers to support open, well-defined file formats to facilitate interconversion and collaboration in the chemical sciences.
+
+The repository is performed in combination with this website, which includes a full [file format database](/:Category:Formats "wikilink") including as much information as known on various chemical file formats, including some example files and descriptions of the assumed format used by Open Babel for such informal formats as [XYZ](/XYZ "wikilink") or [Free Form Fractional](/Free_Form_Fractional "wikilink").
 
 Discussion of this project and announcements of new files and releases of the repository will occur on the [OpenBabel-Repository](http://sourceforge.net/mailarchive/forum.php?forum_id=45088) mailing list. To subscribe to the mailing list, go to the [list information](http://lists.sourceforge.net/lists/listinfo/openbabel-repository) page. We intend to release a version of the repository at least twice per year (in early January and early June).
 

@@ -22,7 +22,7 @@ Your choice. It's probably easier to call it Open Babel since that's what it is-
 
 ### How does this relate to the original Babel and OELib, the “next” Babel?
 
-The original Babel was written by Pat Walters and Matt Stahl, based on the “convert” program by Ajay Shah, and is still a remarkable application. Both Pat and Matt have moved on to other work. The original Babel is hosted by Smog.com on a [Babel homepage](http://smog.com/chem/babel/), by the [Computational Chemistry List (CCL)](http://ccl.net/cca/software/UNIX/babel/index.shtml) and of course by [Open Babel at SourceForge.net](http://sourceforge.net/project/showfiles.php?group_id=40728&package_id=100796).
+The original Babel was written by Pat Walters and Matt Stahl, based on the “convert” program by Ajay Shah, and is still a remarkable application. Both Pat and Matt have moved on to other work. The original Babel is hosted by Smog.com on a [Babel homepage](http://smog.com/chem/babel/), by the [Computational Chemistry List (CCL)](http://ccl.net/cca/software/UNIX/babel/) and of course by [Open Babel at SourceForge.net](http://sourceforge.net/project/showfiles.php?group_id=40728&package_id=100796).
 
 Along the way, the two original authors started a rewrite of Babel into C++ they called OBabel, which was never really publicly released. But Matt used some of these ideas in OELib, which was generously released under the GNU GPL by his employer, OpenEye Software, and the last known version of this OELib is still available from our [file repository.](http://sourceforge.net/project/showfiles.php?group_id=40728&package_id=100796)
 
@@ -32,13 +32,22 @@ Open Babel has evolved quite a lot in since 2001, when it was born.
 
 ### What's the latest version?
 
-As of this writing, the latest version is [2.0](http://openbabel.sourceforge.net/RELEASE.shtml), which represents a stable version for widespread use and development.
+As of this writing, the latest version is [Open Babel 2.2.2](/Open_Babel_2.2.2 "wikilink"), which represents a stable version for widespread use and development.
 
 ### Can I use Open Babel code in a personal project?
 
 One common misconception about the GNU GPL license for Open Babel is that it requires users to release any code that uses the Open Babel library. This is completely untrue. There are no restrictions on use of Open Babel code for personal projects, regardless of where you work (academia, industry, ... wherever).
 
 **However**, if you intend on releasing a software package that uses Open Babel code, the GPL requires that your package be released under the GNU GPL license. The distinction is between **use** and **distribution**. See section 3 of this FAQ for more on the licensing issues and why you might want to contribute.
+
+### How do I cite Open Babel in a paper?
+
+If you would like to reference Open Babel in an academic paper, we suggest using both of the following references at the moment:
+
+-   N M O'Boyle, M Banck, C A James, C Morley, T Vandermeersch, and G R Hutchison. “Open Babel: An open chemical toolbox.” *J. Cheminf.* **(2011)**, *3*, 33. [<DOI:10.1186/1758-2946-3-33>](http://www.jcheminf.com/content/3/1/33)
+-   The Open Babel Package, version 2.3.1 <http://openbabel.org> (accessed Oct 2011)
+
+The first is a paper describing Open Babel. The second is one way to cite a software package at a particular URL. Obviously, you should include the version number of Open Babel you used, and the date you downloaded the software or installed Open Babel.
 
 Features, Formats, Roadmap:
 ---------------------------
@@ -52,6 +61,10 @@ The file formats currently supported are some of the more common file formats an
 -   example files in the new file format and in some other format
 
 The latter obviously is the easiest with text file formats. Binary files take some time to reverse engineer without documentation or working code. Also consider pointing developers to this FAQ and the “What's in it for me?” section.
+
+### When I convert from SMILES to MOL2/PDB/etc., why are all of the coordinates zero?
+
+The SMILES format contains 2D information on the molecule. That is, it says which atoms are connected to which other atoms, and what type of bonds are present. MOL2, PDB and several other formats contain 3D coordinate information not present in the SMILES format. Since Open Babel does not attempt to generate 3D structure by default, all of the coordinates are set to zero. However, it is possible to generate 3D structure with the release of [Open Babel 2.2.0](/Open_Babel_2.2.0 "wikilink") using the --gen3d option.
 
 ### What doesn't Open Babel support yet?
 

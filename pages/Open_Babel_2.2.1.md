@@ -1,0 +1,33 @@
+---
+title: Open Babel 2.2.1
+permalink: /Open_Babel_2.2.1/
+---
+
+Open Babel 2.2.1 was released on 2009-03-01.
+
+Release Notice
+--------------
+
+This release represents a major bug-fix release and is a stable upgrade, strongly recommended for all users of Open Babel. While there may not be many new features, many crashes and other bugs have been fixed since 2.2.0.
+
+What's New from 2.2.0
+---------------------
+
+-   Improved scripting interfaces, including Python 3 support and improved Java and C\# support.
+-   Added support for MACCS fingerprints. Thanks to the RDKit project.
+-   Many fixes and enhancements to the force field code. In particular, the UFF force field implementation should handle many more molecules.
+-   Improved 3D coordinate generation, particularly with ring fragments. You can give this a try with the obgen utility.
+-   Fixed a variety of PDB import errors with atom types.
+-   Added support for reading charges and radii from PQR file formats.
+-   Added support for reading and writing unit cells in PDB formats.
+-   New “output” file format for taking generic “.out”, “.log”, and “.dat” files and reading with appropriate file type based on contents. Currently works extremely well for quantum chemistry packages.
+-   Added improved error handling and reporting when unable to load file formats.
+-   Improved CIF file format support.
+-   Many, many, many additional bug fixes and small enhancements.
+
+New File Formats
+----------------
+
+-   Generic “output” format for reading from quantum chemistry files.
+
+[Category:Releases](/Category:Releases "wikilink")
