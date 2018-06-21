@@ -9,10 +9,6 @@
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: Open Babel
 email: openbabel-devel@lists.sourceforge.net
 description: >- # this means to ignore newlines until "baseurl:"
@@ -23,6 +19,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://openbabel.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: openbabel_org
 github_username:  openbabel
+repository: openbabel/openbabel.github.io 
 
 remote_theme: "mmistakes/minimal-mistakes"
 
@@ -31,6 +28,16 @@ markdown: kramdown
 plugins:
   - jekyll-feed
 
+twitter:
+  username:   openbabel_org
+
+defaults:
+  # everything
+  - scope:
+      path: ""
+    values:
+      layout: single
+      share: true
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
