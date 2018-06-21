@@ -1,6 +1,5 @@
 ---
 title: Open Babel 2.2.1
-permalink: /Open_Babel_2.2.1/
 ---
 
 Open Babel 2.2.1 was released on 2009-03-01.

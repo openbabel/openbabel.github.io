@@ -1,6 +1,5 @@
 ---
 title: Open Babel 1.99
-permalink: /Open_Babel_1.99/
 ---
 
 Open Babel 1.99 was released on 2002-1-29

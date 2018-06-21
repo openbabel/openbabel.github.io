@@ -1,6 +1,5 @@
 ---
 title: Open Babel 1.100.2
-permalink: /Open_Babel_1.100.2/
 ---
 
 Open Babel 1.100.2 was released on 2004-2-22.

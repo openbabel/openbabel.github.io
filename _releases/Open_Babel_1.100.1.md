@@ -1,6 +1,5 @@
 ---
 title: Open Babel 1.100.1
-permalink: /Open_Babel_1.100.1/
 ---
 
 Open Babel 1.100.1 was released on 2003-6-24.

@@ -1,6 +1,5 @@
 ---
 title: Open Babel 2.0.0
-permalink: /Open_Babel_2.0.0/
 ---
 
 Open Babel 2.0.0 was released on 2005-11-26, one day after the 4th anniversary of the formation of the Open Babel project.
