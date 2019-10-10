@@ -27,6 +27,7 @@ remote_theme: "mmistakes/minimal-mistakes"
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-include_cache
 
 twitter:
   username:   openbabel_org
