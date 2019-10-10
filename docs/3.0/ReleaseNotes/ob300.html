@@ -1,0 +1,415 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Open Babel 3.0.0 &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Open Babel 2.4.0" href="ob240.html" />
+    <link rel="prev" title="Release Notes" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ob240.html" title="Open Babel 2.4.0"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Release Notes"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Open Babel 3.0.0</a><ul>
+<li><a class="reference internal" href="#notable-changes">Notable changes</a></li>
+<li><a class="reference internal" href="#new-file-formats">New file formats</a></li>
+<li><a class="reference internal" href="#new-file-format-capabilities-and-options">New file format capabilities and options</a></li>
+<li><a class="reference internal" href="#other-new-features-and-improvements">Other new features and improvements</a></li>
+<li><a class="reference internal" href="#development-build-install-improvements">Development/Build/Install Improvements</a></li>
+<li><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li><a class="reference internal" href="#cast-of-contributors">Cast of contributors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Release Notes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ob240.html"
+                        title="next chapter">Open Babel 2.4.0</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/ReleaseNotes/ob300.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="open-babel-3-0-0">
+<h1>Open Babel 3.0.0<a class="headerlink" href="#open-babel-3-0-0" title="Permalink to this headline">¶</a></h1>
+<p>Released 2019/10/nn.</p>
+<p>This is a major release. It fixes some long-standing issues affecting performance in terms of chemical accuracy and speed, and all users are recommended to upgrade. It also removes deprecated components and breaks the API in a few places. For information on migrating from the previous version, please see <a class="reference internal" href="../UseTheLibrary/migration.html#migrating-to-3-0"><span class="std std-ref">Updating to Open Babel 3.0 from 2.x</span></a>.</p>
+<div class="section" id="notable-changes">
+<h2>Notable changes<a class="headerlink" href="#notable-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The babel program has been removed, and the replacement obabel should be used instead. The obabel program fixes some flaws with the original babel (not least that the user could accidentally overwrite an input file) and so has been preferred for many years.</li>
+<li>The Python bindings are now accessed via “from openbabel import pybel” or “from openbabel import openbabel”.</li>
+<li>Under the hood, the code for handling implicit hydrogens and kekulization has been entirely replaced in order to address problems with the original approach that had resulted in multiple bug reports over the years. As well as being accurate, the new approach is much faster.</li>
+<li>The speed of reading and writing SMILES has been improved by more than 50-fold.</li>
+<li>New functionality in the API:<ul>
+<li>A new class for managing reactions stored as OBMols (OBReactionFacade)</li>
+<li>A new method to copy part of an OBMol into a new OBMol (OBMol::CopySubstructure)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="new-file-formats">
+<h2>New file formats<a class="headerlink" href="#new-file-formats" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Add basic support for RInChI (Reaction InChI) (by baoilleach, PR#1667)</li>
+<li>Added basic ADF Band and ADF DFTB readers (by psavery, PR#1793)</li>
+<li>Add support for COF format (Culgi object file) plus tests (by pbecherer, PR#1944)</li>
+<li>Add maeparser support to openbabel  (by lorton, PR#1993)</li>
+</ul>
+</div>
+<div class="section" id="new-file-format-capabilities-and-options">
+<h2>New file format capabilities and options<a class="headerlink" href="#new-file-format-capabilities-and-options" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Improve svg ball and stick (by ghutchis, PR#360)</li>
+<li>Add an option to the canonical SMILES format to specify the timeout. (by timvdm, PR#386)</li>
+<li>Allow to set space group origin in PDB CRYST1 section (by afonari, PR#1558)</li>
+<li>Parse _space_group_symop_operation_xyz in mmcif (by afonari, PR#1578)</li>
+<li>Improve performance of SMILES parser (by baoilleach, PR#1589)</li>
+<li>Handle undervalent atoms and radicals in Mol files and Smiles (by baoilleach, PR#1626)</li>
+<li>Add support for agents to RXN file format (by baoilleach, PR#1656)</li>
+<li>Allow RSMI format to read partial reactions (by baoilleach, PR#1660)</li>
+<li>Add support for %(NNN) notation for SMILES ring closures (by baoilleach, PR#1677)</li>
+<li>By default, don’t perceive stereo when reading SMILES, but have the option (by baoilleach, PR#1696)</li>
+<li>Speed up the SMILES writer (by baoilleach, PR#1699)</li>
+<li>Faster SMILES: Replace std::endl by “n” (by baoilleach, PR#1706)</li>
+<li>Speed up SMILES writer by replacement of SSSR in SMILES writer with a bounded BFS (by baoilleach, PR#1715)</li>
+<li>Speed up SMILES reading: don’t pre-scan the SMILES string for illegal characters (by baoilleach, PR#1716)</li>
+<li>Minor speedup in SMILES: avoid repeated calls to IsOption by caching some options (by baoilleach, PR#1718)</li>
+<li>Read reaction map from ChemDraw CDX files (by CamAnNguyen, PR#1720)</li>
+<li>Two minor SMILES speed improvements (by baoilleach, PR#1725)</li>
+<li>Speed up SMILES reading: Moved more inside the switch statement for SMILES parsing (by baoilleach, PR#1727)</li>
+<li>Speed up SMILES reading: In the SMILES reader, avoid allocating a BUFSIZE buffer, and the associated string copy (by baoilleach, PR#1728)</li>
+<li>Speed up SMILES writing: Make generation of the SMILES atom order vector optional (by baoilleach, PR#1712)</li>
+<li>Add support for using atom classes as Tinker atom types. (by ghutchis, PR#1734)</li>
+<li>Gaussformat reading electrostatic potentials (by mmghahremanpour, PR#1748)</li>
+<li>Reading Exact Polairzability from Gaussian log file (by mmghahremanpour, PR#1751)</li>
+<li>Gaussformat reading multiple charge models (by mmghahremanpour, PR#1752)</li>
+<li>Write atom occupancy (if present) to PDB (by afonari, PR#1799)</li>
+<li>Update reaction support in ChemDraw (by baoilleach, PR#1878)</li>
+<li>ADF DFTB: Add new detection string for ADF 2018 (by psavery, PR#1888)</li>
+<li>Update Gaussian format (by e-kwsm, PR#1969)</li>
+<li>Update URLs of specification of gromacs (by e-kwsm, PR#1974)</li>
+<li>Update URL of specification of MDL MOL (by e-kwsm, PR#1980)</li>
+<li>Add SMILES support for elements specified by 3-digit number, e.g. [#101] (by baoilleach, PR#1997)</li>
+</ul>
+</div>
+<div class="section" id="other-new-features-and-improvements">
+<h2>Other new features and improvements<a class="headerlink" href="#other-new-features-and-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Include original when there are zero rotatable bonds in confab (by cowsandmilk, PR#370)</li>
+<li>Improve thread safety for global objects (by baoilleach, PR#381)</li>
+<li>Change the OBAromTyper from using SMARTS patterns to a switch statement (rebased) (by baoilleach, PR#1545)</li>
+<li>Keep count of implicit hydrogens instead of inferring them (by baoilleach, PR#1576)</li>
+<li>Obthermo update patch (by mmghahremanpour, PR#1598)</li>
+<li>Improve performance of element handling (by baoilleach, PR#1601)</li>
+<li>Implement the Daylight aromaticity model as described by John Mayfield (by baoilleach, PR#1638)</li>
+<li>Allow multiple agents in OBReaction (by baoilleach, PR#1640)</li>
+<li>Clarify python examples (by theavey, PR#1657)</li>
+<li>Add support for wrapping GetRGB() call to return r, g, b params. (by ghutchis, PR#1670)</li>
+<li>Adding missing manpages (by merkys, PR#1678)</li>
+<li>Expose obfunctions api through python bindings (by cstein, PR#1697)</li>
+<li>Avoid logging messages that are taking time (by baoilleach, PR#1714)</li>
+<li>warning/error messages for fastindex when the structure file is compressed (by adalke, PR#1733)</li>
+<li>Refactor atom class to being data on an atom rather than on a molecule (by baoilleach, PR#1741)</li>
+<li>Add Molecule.make2D function (by eloyfelix, PR#1765)</li>
+<li>Change the behavior of OBMol.Separate so that it preserves atom order (by baoilleach, PR#1773)</li>
+<li>When calling OBMol.Separate, preserve whether aromaticity has been perceived (by baoilleach, PR#1800)</li>
+<li>Add OBMol::CopySubstructure (by baoilleach, PR#1811)</li>
+<li>Add OBMol::SetChainsPerceived(false) (by baoilleach, PR#1813)</li>
+<li>Add stereo + obfunctions + kekulize to ruby binding (by CamAnNguyen, PR#1824)</li>
+<li>Generate useful error messages if plugins can’t be found. (by dkoes, PR#1826)</li>
+<li>Allow public access to retrieve gradients (by ghutchis, PR#1833)</li>
+<li>Re-enable vector.clear() to allow wrapped std::vectors to be reused (by baoilleach, PR#1834)</li>
+<li>Implement reaction handling as part of OBMol (by baoilleach, PR#1836)</li>
+<li>Added rotors as a descriptor/filter. (by ghutchis, PR#1846)</li>
+<li>Keep aromaticity in EndModify() (by baoilleach, PR#1847)</li>
+<li>Fragment-based coordinate generation (by n-yoshikawa, PR#1850)</li>
+<li>Rebuild OBMM tool for interactive MM optimization (by ghutchis, PR#1873)</li>
+<li>Update fragment based builder (by n-yoshikawa, PR#1931)</li>
+<li>Refactor python bindings so that openbabel.py and pybel.py are within an openbabel folder (by baoilleach, PR#1946)</li>
+<li>Tidy setting/unsetting of molecule perception flags (by baoilleach, PR#1951)</li>
+<li>Remove outdated stereo code (by baoilleach, PR#1967)</li>
+<li>Remove OBBond::GetBO() and SetBO() (by baoilleach, PR#1953)</li>
+<li>Remove OBRandom from the public API (by baoilleach, PR#1954)</li>
+<li>Remove miscellanous headers from mol.h, atom.h and bond.h (by baoilleach, PR#1958)</li>
+<li>enhancements to obrms to support optimization of pose alignment (by dkoes, PR#1961)</li>
+<li>Remove GetGenericValueDef from OBGenericData (by baoilleach, PR#1964)</li>
+<li>Remove low-hanging deprecated methods (by baoilleach, PR#1968)</li>
+<li>Improve python script (by e-kwsm, PR#1970)</li>
+<li>Make <cite>pybel.Outputfile</cite> compatible with <cite>with</cite> statment (by yishutu, PR#1971)</li>
+<li>Obrms enhancement (by dkoes, PR#1978)</li>
+<li>Move to a single function for setting/unsetting bond and atom flags (by baoilleach, PR#1965)</li>
+<li>Rename/add valence and degree methods (by baoilleach, PR#1975)</li>
+<li>Do not stoke around the (svg) text (by Artoria2e5, PR#2012)</li>
+<li>Add a warning message when both -p and -h options are set (by yishutu, PR#2031)</li>
+<li>“Bye bye babel” - remove the babel binary (by baoilleach, PR#1976)</li>
+<li>Add force field support for dielectric constants in charge terms. (by ghutchis, PR#2022)</li>
+</ul>
+</div>
+<div class="section" id="development-build-install-improvements">
+<h2>Development/Build/Install Improvements<a class="headerlink" href="#development-build-install-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Change default build type to RELEASE and add -O3 switch (by baoilleach, PR#352)</li>
+<li>Add a default issue template for Open Babel - Suggestions welcome (by ghutchis, PR#383)</li>
+<li>Compile position independent code for shared libraries. (by susilehtola, PR#1575)</li>
+<li>Introduce std:isnan for older versions of MSVC (by mwojcikowski, PR#1586)</li>
+<li>Prepend to LD_LIBRARY_PATH instead of overwrite (by barrymoo, PR#1588)</li>
+<li>Changes needed to compile with C++17 (by arkose, PR#1619)</li>
+<li>Compiler version parsing and comparison from CMake 2.8 (by cowsandmilk, PR#1630)</li>
+<li>Create CODE_OF_CONDUCT.md (by ghutchis, PR#1671)</li>
+<li>Clarify option needed to generate SWIG bindings. (by jeffjanes, PR#1686)</li>
+<li>Correct spelling of file name for Perl bindings (by jeffjanes, PR#1687)</li>
+<li>In the Python bindings, avoid adding methods from the iterated object to the iterator itself (by baoilleach, PR#1729)</li>
+<li>Ensure portability to ARM platforms (by baoilleach, PR#1744)</li>
+<li>Switch to rapidjson library for JSON parsing/writing (by mcs07, PR#1776)</li>
+<li>Fix linking of python bindings on Mac (by mcs07, PR#1807)</li>
+<li>Using pillow instead of PIL (by hille721, PR#1822)</li>
+<li>Ignore compile warnings on inchi directory. (by ghutchis, PR#1864)</li>
+<li>Compile project in Cygwin without xtcformat (by bbucior, PR#1894)</li>
+<li>Hyperlink DOIs to preferred resolver (by katrinleinweber, PR#1909)</li>
+<li>For Travis builds, include output for build failures (by baoilleach, PR#1959)</li>
+<li>Add __init__.py to gitignore (by yishutu, PR#1972)</li>
+<li>Ignore in-source installation (by RMeli, PR#2027)</li>
+<li>Add a GitHub funding link to the open collective page. (by ghutchis, PR#2042)</li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fix for missing ZLIB on win32 (by philthiel, PR#357)</li>
+<li>Depict headers were missing in the installation (by tgaudin, PR#359)</li>
+<li>Avoid IndexError for plugins with empty names (by langner, PR#361)</li>
+<li>Fixed a few errors in space-groups.txt (by psavery, PR#367)</li>
+<li>SF #909 - Fix segfault when ReadMolecule() called with PubChem document but file extension was generic .xml (by derekharmon, PR#369)</li>
+<li>Preserve triple bond when reading SMILES with a triple bond in an aromatic ring (by baoilleach, PR#371)</li>
+<li>Fix bug #368: Python3.6 openbabel: No module named ‘DLFCN’ (by hseara, PR#372)</li>
+<li>Fastsearch 64 fix (by dkoes, PR#1546)</li>
+<li>Don’t try to install aromatic.txt as it is no longer present (by baoilleach, PR#1547)</li>
+<li>Make sure to add conformers <em>after</em> performing bond perception. (by ghutchis, PR#1549)</li>
+<li>Set default coordinates before doing bond perception. (by ghutchis, PR#1550)</li>
+<li>Ignore some non-functioning python SWIG bindings. (by djhogan, PR#1554)</li>
+<li>Remove delete statement. (by djhogan, PR#1556)</li>
+<li>Link libinchi with math library (by nsoranzo, PR#1564)</li>
+<li>Fix segfault in OBMol::GetSpacedFormula (by bbucior, PR#1565)</li>
+<li>Fix regression + minor cppcheck report (by serval2412, PR#1567)</li>
+<li>Convert tabs to spaces in testpdbformat.py (by adamjstewart, PR#1568)</li>
+<li>cppcheck: Condition ‘1==0’ is always false (by serval2412, PR#1572)</li>
+<li>UFF: Fix conversion constant (by aandi, PR#1579)</li>
+<li>Remove the change in resonance structure from the vinylogous carboxylic acid pH model (by kyle-roberts-arzeda, PR#1580)</li>
+<li>Fix wedge/hash in cyclopropyl (by fredrikw, PR#1582)</li>
+<li>Fix multifragment depiction (by fredrikw, PR#1585)</li>
+<li>Fix wrong spin multiplicity assignment (by nakatamaho, PR#1592)</li>
+<li>Change silicon to correct MM3 atom type (by keipertk, PR#1593)</li>
+<li>Fix pubchem JSON handling of enum types as ints (by mcs07, PR#1596)</li>
+<li>Correct MM3 carboxyl oxygen atom type definition (by keipertk, PR#1599)</li>
+<li>Fix for calculating implicit H count when reading SMILES (by baoilleach, PR#1606)</li>
+<li>Fix some small misspellings in the csharp bindings (by cmanion, PR#1608)</li>
+<li>Tweak the handling of implicit Hs when reading SMILES (by baoilleach, PR#1609)</li>
+<li>Fix underflow causing a noticeable delay when e.g. writing a molfile (by baoilleach, PR#1610)</li>
+<li>Fix install regression with element data (by bbucior, PR#1617)</li>
+<li>Added some missing formats to the static build (by psavery, PR#1622)</li>
+<li>In SiestaFormat, print warnings to cerr (by psavery, PR#1623)</li>
+<li>For SIESTA format, use obErrorLog instead of cerr (by psavery, PR#1627)</li>
+<li>Correct the spelling of the Frerejacque number in a comment (by baoilleach, PR#1629)</li>
+<li>Lowercase second element letter in PDB and test (by cowsandmilk, PR#1631)</li>
+<li>Remove erroneous -1 in switch statement (by baoilleach, PR#1632)</li>
+<li>Make sure to handle molecular total charge by default for keywords (by ghutchis, PR#1634)</li>
+<li>Added fix for OBMolAtomBFSIter in Python3 (by oititov, PR#1637)</li>
+<li>space-groups.txt: correct Hall symbol for C -4 2 b (by wojdyr, PR#1645)</li>
+<li>Reset path to empty in kekulization code (potential segfault) (by baoilleach, PR#1650)</li>
+<li>Correct handling of stereo when writing InChIs (by baoilleach, PR#1652)</li>
+<li>ECFP Fixup (by johnmay, PR#1653)</li>
+<li>Fix “folding” for fingerprints to larger bit sizes - #1654. (by ghutchis, PR#1658)</li>
+<li>Fix reading atom symbols from XSF file (by sencer, PR#1663)</li>
+<li>Minor fixes in the nwchem format reader (by xomachine, PR#1666)</li>
+<li>use isinstance to test if filename is bytes (by cowsandmilk, PR#1673)</li>
+<li>Fix bug found due to MSVC warning (by baoilleach, PR#1674)</li>
+<li>Fix MSVC warning about unused variable (by baoilleach, PR#1675)</li>
+<li>Correct handling of atom maps (by baoilleach, PR#1698)</li>
+<li>Fix #1701 - a GCC compiler error (by baoilleach, PR#1704)</li>
+<li>Remove some audit messages (by baoilleach, PR#1707)</li>
+<li>Fix bug when copying stereo during obmol += obmolB (by baoilleach, PR#1719)</li>
+<li>Fix uninitialized read in kekulize.cpp found by Dr Memory. (by baoilleach, PR#1721)</li>
+<li>Fixes for ring closure parsing (by baoilleach, PR#1723)</li>
+<li>Make sure that OBAtom::IsInRing always triggers ring perception if not set as perceived (by baoilleach, PR#1724)</li>
+<li>Fix code error found from &#64;baoilleach compiler warnings (by ghutchis, PR#1736)</li>
+<li>Fix Python3 compatibility (by ghutchis, PR#1737)</li>
+<li>Fix ChemDraw CDX incremental value (by CamAnNguyen, PR#1743)</li>
+<li>Fix error in VASPformat found by static code analysis (by baoilleach, PR#1745)</li>
+<li>Fix for 1731. Store atom classes in CML atomids by appending _ATOMCLASS. (by baoilleach, PR#1746)</li>
+<li>Fix GCC warnings (by baoilleach, PR#1747)</li>
+<li>Fix warning in fastsearch substructure fingerprint screen (by baoilleach, PR#1749)</li>
+<li>Fix #1684  - string comparison does not work with numeric sd titles (by cowsandmilk, PR#1750)</li>
+<li>Fixing minor things for reading ESP from log files (by mmghahremanpour, PR#1753)</li>
+<li>Fix #1569 - OB 2.4.1 loses the second molecule in a HIN file (by yishutu, PR#1755)</li>
+<li>Fix TESTDIR definition to allow space in path (by mcs07, PR#1757)</li>
+<li>Fix regression. Ensure that asterisk is unbracketed when writing a SMILES string (by baoilleach, PR#1759)</li>
+<li>Fix MSVC warning about type conversion (by baoilleach, PR#1762)</li>
+<li>Fix SMILES parsing fuzz test failures from AFL (by baoilleach, PR#1770)</li>
+<li>Fix warning about size_t versus int cast (by baoilleach, PR#1771)</li>
+<li>A small improvement of a bugfix solving segfault when reading GAMESS output with vibrations (by boryszef, PR#1772)</li>
+<li>In the Python bindings, reset the DL open flags after importing _openbabel (by baoilleach, PR#1775)</li>
+<li>fix cdxml stereo bonds (by JasonYCHuang, PR#1777)</li>
+<li>Install obabel target if using static build (by torcolvin, PR#1779)</li>
+<li>Fix #1769 by correctly handling the mass difference field in MDL mol files (by baoilleach, PR#1784)</li>
+<li>Kekulize hypervalent aromatic N and S (by baoilleach, PR#1787)</li>
+<li>Pdbqt fix (by dkoes, PR#1790)</li>
+<li>Raise a warning when coordinate is NaN (by n-yoshikawa, PR#1792)</li>
+<li>Use the InChI values for the average atomic mass when reading/writing isotopes (by baoilleach, PR#1795)</li>
+<li>Fix compile failure after recent Molden commit (by baoilleach, PR#1796)</li>
+<li>Fix segfault due to running off the start of an iterator in PDBQT format (by baoilleach, PR#1797)</li>
+<li>Fix#1768: Segfault upon reading GAMESS outputs of DFTB3 calculations (by serval2412, PR#1798)</li>
+<li>Always ensure hybridization (by ghutchis, PR#1801)</li>
+<li>Fix #1786 by changing the return value of OBResidue::GetNum() (by baoilleach, PR#1804)</li>
+<li>Apply fixes from Benoit Leblanc to address int/double type warnings. (by baoilleach, PR#1806)</li>
+<li>Fix#1607: check dynamic cast return (by serval2412, PR#1815)</li>
+<li>Fixes #1282: check format input is provided (by serval2412, PR#1818)</li>
+<li>Fix#1331: avoid crash with Q-Chem fragment (by serval2412, PR#1820)</li>
+<li>Set default to read CIFs with specified coordinates, no wrapping. (by ghutchis, PR#1823)</li>
+<li>Fix#1056: remove a debug output (by serval2412, PR#1825)</li>
+<li>Get ECFP working (by baoilleach, PR#1829)</li>
+<li>Fix cdxml upside down format (by JasonYCHuang, PR#1831)</li>
+<li>Fix to CopySubstructure found when running over ChEMBL (by baoilleach, PR#1832)</li>
+<li>Fix#192: parse and use ‘-a’ flag for obrotate (by serval2412, PR#1835)</li>
+<li>Ensure carbonyl groups are checked at both 0 and 180. (by ghutchis, PR#1845)</li>
+<li>Ensure that the check for OBBond::IsInRing obeys the OBMol perception flags (by baoilleach, PR#1848)</li>
+<li>Simplify/fix behavior of OBAtom::GetResidue so that it behaves like other lazy properties (by baoilleach, PR#1849)</li>
+<li>Fixes #1851: check some limits when converting smi to sdf using –gen2D (by serval2412, PR#1852)</li>
+<li>Modify cleaning blank line behaviors (by yishutu, PR#1855)</li>
+<li>Ring membership of atoms and bonds was not being reset during perception (by baoilleach, PR#1856)</li>
+<li>Update qeq.txt (by mkrykunov, PR#1882)</li>
+<li>Support lone pair stereo on nitrogen as well as sulfur (by baoilleach, PR#1885)</li>
+<li>Changed indexing of fragments, should fix #1889 (by fredrikw, PR#1890)</li>
+<li>Avoid out-of-range access in OBMolBondBFSIter (by baoilleach, PR#1892)</li>
+<li>Fix OBChemTsfm wrapping of implicit H counts (by baoilleach, PR#1896)</li>
+<li>Updated the coordinate generation from templates.  (by fredrikw, PR#1902)</li>
+<li>Fix incorrect use of <cite>memcpy</cite>. (by sunoru, PR#1908)</li>
+<li>Add SetChainsPerceived() after EndModify() in formats that add residues (by baoilleach, PR#1914)</li>
+<li>define isfinite removed. (by orex, PR#1928)</li>
+<li>Teach the isomorphism mapper to respect atom identity (by johnmay, PR#1939)</li>
+<li>Fix memory leak in OBSmartsPattern::Init() (by n-yoshikawa, PR#1945)</li>
+<li>Address CMake build warning about policy CMP0005 being set to OLD (by baoilleach, PR#1948)</li>
+<li>Fix clang warning about in-class init of a non-static data member (by baoilleach, PR#1949)</li>
+<li>Update bindings for changes to headers (by baoilleach, PR#1963)</li>
+<li>Fix randomly failing Python gradient test (by baoilleach, PR#1966)</li>
+<li>Exit with non-zero if an error occurs (by e-kwsm, PR#1973)</li>
+<li>Avoid non-finite bond vectors (by dkoes, PR#1981)</li>
+<li>Include babelconfig in vector3.h  (by dkoes, PR#1985)</li>
+<li>Fix #1987: CMake failing at FindRapidJSON (by RMeli, PR#1988)</li>
+<li>fpsformat.cpp: compile bugfix header added. (by orex, PR#1991)</li>
+<li>Address Ubuntu bug in defining python install dir (by dkoes, PR#1992)</li>
+<li>PDB and PDBQT Insertion Code Fixes (by RMeli, PR#1998)</li>
+<li>Make pybel compatible with #1975 (by yishutu, PR#2005)</li>
+<li>H vector fix (by dkoes, PR#2010)</li>
+<li>Change forcefield.cpp so that steepest descent and conjugate gradient update maxgrad (by PeaWagon, PR#2017)</li>
+<li>Update coordinates in the fast option of obabel (by n-yoshikawa, PR#2026)</li>
+<li>Update the CSharp bindings (by baoilleach, PR#2032)</li>
+<li>Don’t make kekule SMILES the default in the GUI (by baoilleach, PR#2039)</li>
+<li>Bumping the major version requires more changes throughout the library. (by baoilleach, PR#2036)</li>
+<li>Fix reading of uninitialized data. (by dkoes, PR#2038)</li>
+<li>Remove minor version from some names (by baoilleach, PR#2040)</li>
+<li>Fixed alias expansion for files with multiple aliases (by fredrikw, PR#2035)</li>
+<li>Update doc (by e-kwsm, PR#1979)</li>
+<li>Fix compilation with GCC 4.8 (standard compiler on CentOS 7.5) (by baoilleach, PR#2047)</li>
+<li>Some tests (by dkoes, PR#2008)</li>
+</ul>
+</div>
+<div class="section" id="cast-of-contributors">
+<h2>Cast of contributors<a class="headerlink" href="#cast-of-contributors" title="Permalink to this headline">¶</a></h2>
+<p>aandi, adalke (Andrew Dalke), adamjstewart (Adam J. Stewart), afonari (Alexandr Fonari), artoria2e5 (Mingye Wang), baoilleach (Noel O’Boyle), barrymoo (Barry Moore), bbucior (Ben Bucior), boryszef (Borys Szefczyk), camannguyen (An Nguyen), cmanion (Charles A. Manion), cowsandmilk (David Hall), cstein (Casper Steinmann), derekharmon (Derek Harmon), djhogan (Daniel Hogan), dkoes (David Koes), e-kwsm (Eisuke Kawashima), eloyfelix (Eloy Felix), fredrikw (Fredrik Wallner), ghutchis (Geoff Hutchison), hille721 (Christoph Hille), hseara (Hector Martinez-Seara), jasonychuang (Jason Huang), jeffjanes (Jeff Janes), johnmay (John Mayfield), katrinleinweber (Katrin Leinweber), keipertk (Kristopher Keipert), kyle-roberts-arzeda, langner (Karol M. Langner), lorton (Pat Lorton), mcs07 (Matt Swain), merkys (Andrius Merkys), mkrykunov, mmghahremanpour (Mohammad Ghahremanpour), mwojcikowski (Maciej Wójcikowski), n-yoshikawa (Naruki Yoshikawa), nakatamaho (Nakata Maho), nsoranzo (Nicola Soranzo), oititov (Titov Oleg), orex (Kirill Okhotnikov), pbecherer (Paul Becherer), peawagon (Jen), philthiel (Philipp Thiel), psavery (Patrick Avery), rmeli (Rocco Meli), serval2412 (Julien Nabet), sunoru, susilehtola (Susi Lehtola), tgaudin (Théophile Gaudin), theavey (Thomas Heavey), timvdm (Tim Vandermeersch), torcolvin (Tor Colvin), wojdyr (Marcin Wojdyr), xomachine (Dmitriy Fomichev), yishutu (Yi-Shu Tu)</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ob240.html" title="Open Babel 2.4.0"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Release Notes"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

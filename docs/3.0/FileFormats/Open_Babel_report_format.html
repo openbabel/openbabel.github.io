@@ -1,0 +1,240 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Open Babel report format (report) &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Outputs nothing (nul)" href="Outputs_nothing.html" />
+    <link rel="prev" title="Open Babel molecule report (molreport)" href="Open_Babel_molecule_report.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Outputs_nothing.html" title="Outputs nothing (nul)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Open_Babel_molecule_report.html" title="Open Babel molecule report (molreport)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Utility_Formats.html" accesskey="U">Utility formats</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Open_Babel_molecule_report.html"
+                        title="previous chapter">Open Babel molecule report (molreport)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Outputs_nothing.html"
+                        title="next chapter">Outputs nothing (nul)</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/FileFormats/Open_Babel_report_format.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="open-babel-report-format-report">
+<span id="open-babel-report-format"></span><h1>Open Babel report format (report)<a class="headerlink" href="#open-babel-report-format-report" title="Permalink to this headline">¶</a></h1>
+<p><strong>A detailed report on the geometry of a molecule</strong></p>
+<p>The report format presents a report of various molecular information,
+including:</p>
+<ul class="simple">
+<li>Filename / molecule title</li>
+<li>Molecular formula</li>
+<li>Mass</li>
+<li>Exact mass (i.e., for high-resolution mass spectrometry, the mass of the most abundant elements)</li>
+<li>Total charge (if not electrically neutral)</li>
+<li>Total spin (if not singlet)</li>
+<li>Interatomic distances</li>
+<li>Atomic charges</li>
+<li>Bond angles</li>
+<li>Dihedral angles</li>
+<li>Chirality information (including which atoms are chiral)</li>
+<li>Additional comments in the input file</li>
+</ul>
+<p>Example for benzene:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FILENAME</span><span class="p">:</span> <span class="n">benzene</span><span class="o">.</span><span class="n">report</span>
+<span class="n">FORMULA</span><span class="p">:</span> <span class="n">C6H6</span>
+<span class="n">MASS</span><span class="p">:</span> <span class="mf">78.1118</span>
+<span class="n">EXACT</span> <span class="n">MASS</span><span class="p">:</span> <span class="mf">78.0469502</span>
+<span class="n">INTERATOMIC</span> <span class="n">DISTANCES</span>
+
+              <span class="n">C</span>   <span class="mi">1</span>      <span class="n">C</span>   <span class="mi">2</span>      <span class="n">C</span>   <span class="mi">3</span>      <span class="n">C</span>   <span class="mi">4</span>      <span class="n">C</span>   <span class="mi">5</span>      <span class="n">C</span>   <span class="mi">6</span>
+              <span class="o">------------------------------------------------------------------</span>
+   <span class="n">C</span>   <span class="mi">1</span>    <span class="mf">0.0000</span>
+   <span class="n">C</span>   <span class="mi">2</span>    <span class="mf">1.3958</span>     <span class="mf">0.0000</span>
+   <span class="n">C</span>   <span class="mi">3</span>    <span class="mf">2.4176</span>     <span class="mf">1.3958</span>     <span class="mf">0.0000</span>
+   <span class="n">C</span>   <span class="mi">4</span>    <span class="mf">2.7916</span>     <span class="mf">2.4176</span>     <span class="mf">1.3958</span>     <span class="mf">0.0000</span>
+   <span class="n">C</span>   <span class="mi">5</span>    <span class="mf">2.4176</span>     <span class="mf">2.7916</span>     <span class="mf">2.4176</span>     <span class="mf">1.3958</span>     <span class="mf">0.0000</span>
+   <span class="n">C</span>   <span class="mi">6</span>    <span class="mf">1.3958</span>     <span class="mf">2.4176</span>     <span class="mf">2.7916</span>     <span class="mf">2.4176</span>     <span class="mf">1.3958</span>     <span class="mf">0.0000</span>
+   <span class="n">H</span>   <span class="mi">7</span>    <span class="mf">1.0846</span>     <span class="mf">2.1537</span>     <span class="mf">3.4003</span>     <span class="mf">3.8761</span>     <span class="mf">3.4003</span>     <span class="mf">2.1537</span>
+   <span class="n">H</span>   <span class="mi">8</span>    <span class="mf">2.1537</span>     <span class="mf">1.0846</span>     <span class="mf">2.1537</span>     <span class="mf">3.4003</span>     <span class="mf">3.8761</span>     <span class="mf">3.4003</span>
+   <span class="n">H</span>   <span class="mi">9</span>    <span class="mf">3.4003</span>     <span class="mf">2.1537</span>     <span class="mf">1.0846</span>     <span class="mf">2.1537</span>     <span class="mf">3.4003</span>     <span class="mf">3.8761</span>
+   <span class="n">H</span>  <span class="mi">10</span>    <span class="mf">3.8761</span>     <span class="mf">3.4003</span>     <span class="mf">2.1537</span>     <span class="mf">1.0846</span>     <span class="mf">2.1537</span>     <span class="mf">3.4003</span>
+   <span class="n">H</span>  <span class="mi">11</span>    <span class="mf">3.4003</span>     <span class="mf">3.8761</span>     <span class="mf">3.4003</span>     <span class="mf">2.1537</span>     <span class="mf">1.0846</span>     <span class="mf">2.1537</span>
+   <span class="n">H</span>  <span class="mi">12</span>    <span class="mf">2.1537</span>     <span class="mf">3.4003</span>     <span class="mf">3.8761</span>     <span class="mf">3.4003</span>     <span class="mf">2.1537</span>     <span class="mf">1.0846</span>
+
+              <span class="n">H</span>   <span class="mi">7</span>      <span class="n">H</span>   <span class="mi">8</span>      <span class="n">H</span>   <span class="mi">9</span>      <span class="n">H</span>  <span class="mi">10</span>      <span class="n">H</span>  <span class="mi">11</span>      <span class="n">H</span>  <span class="mi">12</span>
+              <span class="o">------------------------------------------------------------------</span>
+   <span class="n">H</span>   <span class="mi">7</span>    <span class="mf">0.0000</span>
+   <span class="n">H</span>   <span class="mi">8</span>    <span class="mf">2.4803</span>     <span class="mf">0.0000</span>
+   <span class="n">H</span>   <span class="mi">9</span>    <span class="mf">4.2961</span>     <span class="mf">2.4804</span>     <span class="mf">0.0000</span>
+   <span class="n">H</span>  <span class="mi">10</span>    <span class="mf">4.9607</span>     <span class="mf">4.2961</span>     <span class="mf">2.4803</span>     <span class="mf">0.0000</span>
+   <span class="n">H</span>  <span class="mi">11</span>    <span class="mf">4.2961</span>     <span class="mf">4.9607</span>     <span class="mf">4.2961</span>     <span class="mf">2.4803</span>     <span class="mf">0.0000</span>
+   <span class="n">H</span>  <span class="mi">12</span>    <span class="mf">2.4803</span>     <span class="mf">4.2961</span>     <span class="mf">4.9607</span>     <span class="mf">4.2961</span>     <span class="mf">2.4804</span>     <span class="mf">0.0000</span>
+
+<span class="n">ATOMIC</span> <span class="n">CHARGES</span>
+   <span class="n">C</span>   <span class="mi">1</span>   <span class="o">-</span><span class="mf">0.1000000000</span>
+   <span class="n">C</span>   <span class="mi">2</span>   <span class="o">-</span><span class="mf">0.1000000000</span>
+   <span class="n">C</span>   <span class="mi">3</span>   <span class="o">-</span><span class="mf">0.1000000000</span>
+   <span class="n">C</span>   <span class="mi">4</span>   <span class="o">-</span><span class="mf">0.1000000000</span>
+   <span class="n">C</span>   <span class="mi">5</span>   <span class="o">-</span><span class="mf">0.1000000000</span>
+   <span class="n">C</span>   <span class="mi">6</span>   <span class="o">-</span><span class="mf">0.1000000000</span>
+   <span class="n">H</span>   <span class="mi">7</span>    <span class="mf">0.1000000000</span>
+   <span class="n">H</span>   <span class="mi">8</span>    <span class="mf">0.1000000000</span>
+   <span class="n">H</span>   <span class="mi">9</span>    <span class="mf">0.1000000000</span>
+   <span class="n">H</span>  <span class="mi">10</span>    <span class="mf">0.1000000000</span>
+   <span class="n">H</span>  <span class="mi">11</span>    <span class="mf">0.1000000000</span>
+   <span class="n">H</span>  <span class="mi">12</span>    <span class="mf">0.1000000000</span>
+
+<span class="n">BOND</span> <span class="n">ANGLES</span>
+   <span class="mi">7</span>    <span class="mi">1</span>    <span class="mi">2</span>   <span class="n">HC</span>  <span class="n">Car</span>  <span class="n">Car</span>    <span class="mf">120.000</span>
+   <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>  <span class="n">Car</span>  <span class="n">Car</span>  <span class="n">Car</span>    <span class="mf">120.000</span>
+   <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">8</span>  <span class="n">Car</span>  <span class="n">Car</span>   <span class="n">HC</span>    <span class="mf">120.000</span>
+   <span class="mi">8</span>    <span class="mi">2</span>    <span class="mi">3</span>   <span class="n">HC</span>  <span class="n">Car</span>  <span class="n">Car</span>    <span class="mf">120.000</span>
+   <span class="mi">2</span>    <span class="mi">3</span>    <span class="mi">4</span>  <span class="n">Car</span>  <span class="n">Car</span>  <span class="n">Car</span>    <span class="mf">120.000</span>
+   <span class="mi">2</span>    <span class="mi">3</span>    <span class="mi">9</span>  <span class="n">Car</span>  <span class="n">Car</span>   <span class="n">HC</span>    <span class="mf">120.000</span>
+   <span class="mi">9</span>    <span class="mi">3</span>    <span class="mi">4</span>   <span class="n">HC</span>  <span class="n">Car</span>  <span class="n">Car</span>    <span class="mf">120.000</span>
+   <span class="mi">3</span>    <span class="mi">4</span>    <span class="mi">5</span>  <span class="n">Car</span>  <span class="n">Car</span>  <span class="n">Car</span>    <span class="mf">120.000</span>
+   <span class="mi">3</span>    <span class="mi">4</span>   <span class="mi">10</span>  <span class="n">Car</span>  <span class="n">Car</span>   <span class="n">HC</span>    <span class="mf">120.000</span>
+  <span class="mi">10</span>    <span class="mi">4</span>    <span class="mi">5</span>   <span class="n">HC</span>  <span class="n">Car</span>  <span class="n">Car</span>    <span class="mf">120.000</span>
+   <span class="mi">4</span>    <span class="mi">5</span>    <span class="mi">6</span>  <span class="n">Car</span>  <span class="n">Car</span>  <span class="n">Car</span>    <span class="mf">120.000</span>
+   <span class="mi">4</span>    <span class="mi">5</span>   <span class="mi">11</span>  <span class="n">Car</span>  <span class="n">Car</span>   <span class="n">HC</span>    <span class="mf">120.000</span>
+  <span class="mi">11</span>    <span class="mi">5</span>    <span class="mi">6</span>   <span class="n">HC</span>  <span class="n">Car</span>  <span class="n">Car</span>    <span class="mf">120.000</span>
+   <span class="mi">5</span>    <span class="mi">6</span>    <span class="mi">1</span>  <span class="n">Car</span>  <span class="n">Car</span>  <span class="n">Car</span>    <span class="mf">120.000</span>
+   <span class="mi">5</span>    <span class="mi">6</span>   <span class="mi">12</span>  <span class="n">Car</span>  <span class="n">Car</span>   <span class="n">HC</span>    <span class="mf">120.000</span>
+  <span class="mi">12</span>    <span class="mi">6</span>    <span class="mi">1</span>   <span class="n">HC</span>  <span class="n">Car</span>  <span class="n">Car</span>    <span class="mf">120.000</span>
+   <span class="mi">6</span>    <span class="mi">1</span>    <span class="mi">2</span>  <span class="n">Car</span>  <span class="n">Car</span>  <span class="n">Car</span>    <span class="mf">120.000</span>
+   <span class="mi">6</span>    <span class="mi">1</span>    <span class="mi">7</span>  <span class="n">Car</span>  <span class="n">Car</span>   <span class="n">HC</span>    <span class="mf">120.000</span>
+   <span class="mi">2</span>    <span class="mi">1</span>    <span class="mi">7</span>  <span class="n">Car</span>  <span class="n">Car</span>   <span class="n">HC</span>    <span class="mf">120.000</span>
+   <span class="mi">3</span>    <span class="mi">2</span>    <span class="mi">8</span>  <span class="n">Car</span>  <span class="n">Car</span>   <span class="n">HC</span>    <span class="mf">120.000</span>
+   <span class="mi">4</span>    <span class="mi">3</span>    <span class="mi">9</span>  <span class="n">Car</span>  <span class="n">Car</span>   <span class="n">HC</span>    <span class="mf">120.000</span>
+   <span class="mi">5</span>    <span class="mi">4</span>   <span class="mi">10</span>  <span class="n">Car</span>  <span class="n">Car</span>   <span class="n">HC</span>    <span class="mf">120.000</span>
+   <span class="mi">6</span>    <span class="mi">5</span>   <span class="mi">11</span>  <span class="n">Car</span>  <span class="n">Car</span>   <span class="n">HC</span>    <span class="mf">120.000</span>
+   <span class="mi">1</span>    <span class="mi">6</span>   <span class="mi">12</span>  <span class="n">Car</span>  <span class="n">Car</span>   <span class="n">HC</span>    <span class="mf">120.000</span>
+
+<span class="n">TORSION</span> <span class="n">ANGLES</span>
+   <span class="mi">6</span>    <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>      <span class="mf">0.026</span>
+   <span class="mi">6</span>    <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">8</span>   <span class="o">-</span><span class="mf">179.974</span>
+   <span class="mi">7</span>    <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>    <span class="mf">179.974</span>
+   <span class="mi">7</span>    <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">8</span>     <span class="o">-</span><span class="mf">0.026</span>
+   <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>    <span class="mi">4</span>     <span class="o">-</span><span class="mf">0.026</span>
+   <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>    <span class="mi">9</span>   <span class="o">-</span><span class="mf">179.974</span>
+   <span class="mi">8</span>    <span class="mi">2</span>    <span class="mi">3</span>    <span class="mi">4</span>    <span class="mf">179.974</span>
+   <span class="mi">8</span>    <span class="mi">2</span>    <span class="mi">3</span>    <span class="mi">9</span>      <span class="mf">0.026</span>
+   <span class="mi">2</span>    <span class="mi">3</span>    <span class="mi">4</span>    <span class="mi">5</span>      <span class="mf">0.026</span>
+   <span class="mi">2</span>    <span class="mi">3</span>    <span class="mi">4</span>   <span class="mi">10</span>    <span class="mf">179.974</span>
+   <span class="mi">9</span>    <span class="mi">3</span>    <span class="mi">4</span>    <span class="mi">5</span>    <span class="mf">179.974</span>
+   <span class="mi">9</span>    <span class="mi">3</span>    <span class="mi">4</span>   <span class="mi">10</span>     <span class="o">-</span><span class="mf">0.026</span>
+   <span class="mi">3</span>    <span class="mi">4</span>    <span class="mi">5</span>    <span class="mi">6</span>     <span class="o">-</span><span class="mf">0.026</span>
+   <span class="mi">3</span>    <span class="mi">4</span>    <span class="mi">5</span>   <span class="mi">11</span>    <span class="mf">179.974</span>
+  <span class="mi">10</span>    <span class="mi">4</span>    <span class="mi">5</span>    <span class="mi">6</span>   <span class="o">-</span><span class="mf">179.974</span>
+  <span class="mi">10</span>    <span class="mi">4</span>    <span class="mi">5</span>   <span class="mi">11</span>      <span class="mf">0.026</span>
+   <span class="mi">4</span>    <span class="mi">5</span>    <span class="mi">6</span>    <span class="mi">1</span>      <span class="mf">0.026</span>
+   <span class="mi">4</span>    <span class="mi">5</span>    <span class="mi">6</span>   <span class="mi">12</span>    <span class="mf">179.974</span>
+  <span class="mi">11</span>    <span class="mi">5</span>    <span class="mi">6</span>    <span class="mi">1</span>   <span class="o">-</span><span class="mf">179.974</span>
+  <span class="mi">11</span>    <span class="mi">5</span>    <span class="mi">6</span>   <span class="mi">12</span>     <span class="o">-</span><span class="mf">0.026</span>
+   <span class="mi">5</span>    <span class="mi">6</span>    <span class="mi">1</span>    <span class="mi">2</span>     <span class="o">-</span><span class="mf">0.026</span>
+   <span class="mi">5</span>    <span class="mi">6</span>    <span class="mi">1</span>    <span class="mi">7</span>   <span class="o">-</span><span class="mf">179.974</span>
+  <span class="mi">12</span>    <span class="mi">6</span>    <span class="mi">1</span>    <span class="mi">2</span>    <span class="mf">179.974</span>
+  <span class="mi">12</span>    <span class="mi">6</span>    <span class="mi">1</span>    <span class="mi">7</span>      <span class="mf">0.026</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="Open_Babel_molecule_report.html#open-babel-molecule-report"><span class="std std-ref">Open Babel molecule report (molreport)</span></a></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a write-only format.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Outputs_nothing.html" title="Outputs nothing (nul)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Open_Babel_molecule_report.html" title="Open Babel molecule report (molreport)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Utility_Formats.html" >Utility formats</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

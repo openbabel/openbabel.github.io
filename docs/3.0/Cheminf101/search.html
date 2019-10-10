@@ -1,0 +1,225 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Substructure Searching with Indexes &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Molecular Similarity" href="similarity.html" />
+    <link rel="prev" title="Representing Molecules" href="represent.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="similarity.html" title="Molecular Similarity"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="represent.html" title="Representing Molecules"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Cheminformatics 101</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Substructure Searching with Indexes</a><ul>
+<li><a class="reference internal" href="#what-is-indexing">What is Indexing?</a></li>
+<li><a class="reference internal" href="#indexes-for-chemicals">Indexes for Chemicals</a></li>
+<li><a class="reference internal" href="#np-complete-a-little-about-computability">NP-Complete - A Little about Computability</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="represent.html"
+                        title="previous chapter">Representing Molecules</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="similarity.html"
+                        title="next chapter">Molecular Similarity</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Cheminf101/search.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="substructure-searching-with-indexes">
+<h1>Substructure Searching with Indexes<a class="headerlink" href="#substructure-searching-with-indexes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-indexing">
+<h2>What is Indexing?<a class="headerlink" href="#what-is-indexing" title="Permalink to this headline">¶</a></h2>
+<p>Indexing is pre-computing the answers to portions of expected
+questions <em>before</em> they’re asked, so that when the question comes,
+it can be answered quickly.</p>
+<p>Take your favorite search engine (AOL, Yahoo!, Google, MSN, …)
+for example. Without indexing, they might wait until you ask for
+“John Hartford Bluegrass”, then start searching the web, and in a
+year or two find all the web pages about the deceased banjo/fiddle
+player and steamboat captain. That would probably not impress you.</p>
+<p>Instead, these search engines search the web <em>before</em> you ask your
+question, and build an <em>index</em> of the words they find. When you
+type in “Bluegrass John Hartford”, they already know all of the
+pages that have “John”, all of the pages with “Hartford”, and all
+of the pages with “Bluegrass”. Instead of searching, they examine
+their index, and find pages that are on <em>all three</em> lists, and
+quickly find your results. (NB: It’s actually a lot more complex,
+but this illustrates the main idea of indexing.)</p>
+</div>
+<div class="section" id="indexes-for-chemicals">
+<h2>Indexes for Chemicals<a class="headerlink" href="#indexes-for-chemicals" title="Permalink to this headline">¶</a></h2>
+<p>Instead of indexing words, cheminformatics systems index
+<em>substructures</em>. Although there are many schemes for doing this,
+cheminformatics systems all use the same fundamental principle:
+they <em>decompose the molecule</em> into smaller bits, and index those.</p>
+<div class="figure">
+<img alt="../_images/steroid_substruct_keys.png" src="../_images/steroid_substruct_keys.png" />
+</div>
+<p>Roughly speaking, a cheminformatics system will index each of the
+substructures (fragments) above, so that every molecule that
+contains each fragment is known.</p>
+<p>When a query is entered, the cheminformatics system breaks apart
+the query using the same technique, to find all of the fragments in
+the query. It then checks its index for each fragment, and combines
+the lists it finds to get only those molecules that have <em>all</em> of
+those fragments.</p>
+<p>This doesn’t mean that all molecules returned by the index actually
+are matches. In the language of databases, we say the index will
+return <em>false positives</em>, candidate molecules that don’t actually
+match the substructure search.</p>
+<p>Consider our example of searching for “John Hartford” - the index
+might return many pages that have both “John” and “Hartford”, yet
+have nothing to do with bluegrass music or steamboats. For example,
+it might return a page containing, “President John F. Kennedy
+visited Hartford, Connecticut today…”. To confirm that the search
+system has found something relevant, it must check the pages return
+from the index to ensure that the specific phrase “John Hartford”
+is present. However, notice that this is <em>much</em> faster than
+searching every page, since the overwhelming majority of web pages
+were instantly rejected because they have neither “John” nor
+“Hartford” on them.</p>
+<p>Similarly, a chemical fragment index serves to find only the most
+<em>likely</em> molecules for our substructure match - anything that the
+index didn’t find is definitely not a match. But we still have to
+examine each of the molecules returned by the indexing system and
+verify that the complete substructure for which we are searching is
+present.</p>
+</div>
+<div class="section" id="np-complete-a-little-about-computability">
+<h2>NP-Complete - A Little about Computability<a class="headerlink" href="#np-complete-a-little-about-computability" title="Permalink to this headline">¶</a></h2>
+<p>Searching through a page of text for the words “John Hartford” is
+pretty easy for a modern computer. Although false positives
+returned by the index are a nuisance and impair performance, they
+are not a catastrophe. Not so for substructure matching.
+Unfortunately, substructure matching falls into a category of
+“hard” mathematical problems, which means false positives from the
+index are a big problem.</p>
+<p>Substructure matching (finding a certain functional group within a
+molecule) is an example of what mathematicians call
+<a class="reference external" href="http://planetmath.org/?op=getobj&amp;from=objects&amp;id=1708">graph isomorphism</a>,
+and is in a class of problems called
+<a class="reference external" href="http://en.wikipedia.org/wiki/Np_complete">NP Complete</a>.
+Roughly speaking, this means the time it takes to do a substructure
+search is non-polynomial, i.e. exponential in the number of atoms
+and bonds. To see why this is a computational disaster, compare two
+tasks, one that takes polynomial time,
+k<sub>1</sub>*N<sup>2</sup>, versus one that takes exponential
+time k<sub>2</sub>*2<sup>N</sup>. Our polynomial task is bad
+enough: If we double N, it takes <em>four times</em> as long to solve. But
+the exponential task is worse:
+<em>Every time we add an atom it doubles</em>. So going from one atom to
+two doubles the time, and going from 100 atoms to 101 atoms doubles
+the time. Even if we can get k<sub>2</sub> down to a millionth of
+k<sub>1</sub>, we’re still in trouble - a million is just
+2<sup>20</sup> or twenty atoms away.</p>
+<p>It has been mathematically proven that substructure searching is in
+the set of NP Complete problems, so there’s no point wasting our
+time searching for a polynomial algorithm. The good news is that
+most molecules have “low connectivity”, meaning most atoms have
+fewer than four bonds, unlike the weird and twisted graphs that
+mathematicians consider. In practice, most substructure matching
+can be done in polynomial time around N<sup>2</sup> or
+N<sup>3</sup>. But even with this improvement, substructure
+matching is an “expensive” time-consuming task for a computer.</p>
+<p>The key point is that indexing is particularly important for
+cheminformatics systems. The typical modern computer can only
+examine a few thousand molecules per second, so examining millions
+of molecules one-by-one is out of the question. The indexing done
+by a modern cheminformatics system is the key to its performance.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="similarity.html" title="Molecular Similarity"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="represent.html" title="Representing Molecules"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Cheminformatics 101</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

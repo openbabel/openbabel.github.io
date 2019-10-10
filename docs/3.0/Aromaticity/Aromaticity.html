@@ -1,0 +1,174 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Handling of aromaticity &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Radicals and SMILES extensions" href="../Features/Radicals.html" />
+    <link rel="prev" title="Chemical Registration Systems" href="../Cheminf101/registration.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../Features/Radicals.html" title="Radicals and SMILES extensions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Cheminf101/registration.html" title="Chemical Registration Systems"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Handling of aromaticity</a><ul>
+<li><a class="reference internal" href="#how-is-aromaticity-information-stored">How is aromaticity information stored?</a></li>
+<li><a class="reference internal" href="#perception-of-aromaticity">Perception of aromaticity</a></li>
+<li><a class="reference internal" href="#smiles-reading-and-writing">SMILES reading and writing</a></li>
+<li><a class="reference internal" href="#effect-of-modifying-the-structure">Effect of modifying the structure</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Cheminf101/registration.html"
+                        title="previous chapter">Chemical Registration Systems</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Features/Radicals.html"
+                        title="next chapter">Radicals and SMILES extensions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Aromaticity/Aromaticity.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="handling-of-aromaticity">
+<h1>Handling of aromaticity<a class="headerlink" href="#handling-of-aromaticity" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this section is to give an overview of how Open Babel handles aromaticity. Given that atoms can be aromatic, bonds can be aromatic, and that molecules have a flag for aromaticity perceived, it’s important to understand how these all work together.</p>
+<div class="section" id="how-is-aromaticity-information-stored">
+<h2>How is aromaticity information stored?<a class="headerlink" href="#how-is-aromaticity-information-stored" title="Permalink to this headline">¶</a></h2>
+<p>Like many other toolkits, Open Babel stores aromaticity information separate from bond order information. This means that there isn’t a special bond order to indicate aromatic bond. Instead, aromaticity is stored as a flag on an atom as well as a flag on a bond. You can access and set this information using the following API functions:</p>
+<ul class="simple">
+<li>OBAtom::IsAromatic(), OBAtom::SetAromatic(), OBBond::UnsetAromatic()</li>
+<li>OBBond::IsAromatic(), OBBond::SetAromatic(), OBBond::UnsetAromatic()</li>
+</ul>
+<p>There is a catch though, or rather a key point to note. OBMols have a flag to indicate whether aromaticity has been perceived. This is set via the following API functions:</p>
+<ul class="simple">
+<li>OBMol::SetAromaticPerceived(), OBMol::UnsetAromaticPerceived()</li>
+</ul>
+<p>The value of this flag determines the behaviour of the OBAtom and OBBond IsAromatic() functions.</p>
+<ul class="simple">
+<li>If the flag is set, then IsAromatic() simply returns the corresponding value of the atom or bond flag.</li>
+<li>If unset, then IsAromatic() triggers aromaticity perception (from scratch), and then returns the value of the flag.</li>
+</ul>
+</div>
+<div class="section" id="perception-of-aromaticity">
+<h2>Perception of aromaticity<a class="headerlink" href="#perception-of-aromaticity" title="Permalink to this headline">¶</a></h2>
+<p>It’s convenient to use the term “perception”, but what we mean is to apply an aromaticity model. Currently Open Babel only has a single aromaticity model, which is close to the Daylight aromaticity model. An aromaticity model describes how many pi electrons are contributed by each atom; if this sums to 4n+2 within a cycle, then all atoms and bonds in that cycle will be marked as aromatic.</p>
+<p>Applying a model involves creating an instance of OBAromaticTyper(), and calling AssignAromaticFlags() passing an OBMol as a parameter. This wipes any existing flags, sets the atom and bond flags according to the model, and marks the aromaticity as perceived.</p>
+<p>If you wish (and know what you are doing), you can apply your own aromaticity model by setting various atoms and bonds as aromatic and then marking the molecule as having aromaticity perceived. Naturally, not all models will make sense chemically. Even more problematic is the situation where no Kekulé form exists that corresponds to the aromatic form. And finally, there is the philosophical question of the meaning of an aromatic atom without aromatic bonds, and vice versa.</p>
+</div>
+<div class="section" id="smiles-reading-and-writing">
+<h2>SMILES reading and writing<a class="headerlink" href="#smiles-reading-and-writing" title="Permalink to this headline">¶</a></h2>
+<p>Putting the pieces together, let’s look at the interaction between SMILES reading/writing and the handling of aromaticity.</p>
+<p class="rubric">Writing SMILES</p>
+<p>Unless Kekulé SMILES are requested (via the <code class="docutils literal notranslate"><span class="pre">k</span></code> output option), the SMILES writer will always write an aromatic SMILES string. IsAromatic() will be called on atoms and bonds to determine whether to use lowercase letters. As described earlier, this will trigger aromaticity perception according to the default model if the molecules is not marked as having its aromaticity perceived.</p>
+<p class="rubric">Reading SMILES</p>
+<p>The situation when reading SMILES is a bit more involved. If the SMILES string contains lowercase characters and aromatic bonds, this information is used to mark atoms and bonds as aromatic. The molecule is then kekulized to assign bond orders to aromatic bonds. Next, unless the <code class="docutils literal notranslate"><span class="pre">a</span></code> option is supplied, the molecule is marked as having its aromaticity unperceived.</p>
+<p>That last step might seem strange. Why, after going to the trouble of reading the aromaticity and using it to kekulize, do we then effectively ignore it?</p>
+<p>The reason is simply this: when writing an aromatic SMILES, we usually want to use our own aromaticity model and not that present in the input SMILES string. Otherwise, SMILES strings for the same molecule from different sources (that may use different aromaticity models) would not yield the same canonical SMILES string.</p>
+<p>Of course, if the SMILES string came from Open Babel in the first place, we are doing unnecessary work when we keep reapplying the same aromaticity model. In this case, you can speed things up by using the <code class="docutils literal notranslate"><span class="pre">a</span></code> option, so that the aromaticity information present in the input is retained. The following examples show this in action:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ obabel -:cc -osmi
+C=C
+$ obabel -:cc -osmi -aa
+cc
+</pre></div>
+</div>
+</div>
+<div class="section" id="effect-of-modifying-the-structure">
+<h2>Effect of modifying the structure<a class="headerlink" href="#effect-of-modifying-the-structure" title="Permalink to this headline">¶</a></h2>
+<p>Perhaps surprisingly, modifying the structure has no effect on the existing aromaticity flags; deleting an atom does not mark aromaticity as unperceived, nor indeed does any other change to the structure such as changing the atomic number of an atom or setting its charge; nor does the use of Begin/EndModify() affect the aromaticity flags. The only way to ensure that aromaticity is reperceived after modifying the structure is to explicitly mark it as unperceived.</p>
+<p>The rationale for this is that an efficient toolkit should avoid unnecessary work. The toolkit does not know if a particular modification invalidates any aromaticity already perceived, or even if it did know, it cannot know whether the user actually wishes to invalidate it. It’s up to the user to tell the toolkit. This places more responsibility in the hands of the user, but also more power.</p>
+<p>To illustrate, let’s consider what happens when the user reads benzene from the SMILES string <code class="docutils literal notranslate"><span class="pre">c1ccccc1</span></code>, and then modifies the structure by deleting an aromatic atom.</p>
+<p>As this is an aromatic SMILES string, the SMILES reader will mark all atoms and bonds as aromatic. Next, the molecule itself is marked as not having aromaticity perceived (see previous section). After reading, we can trigger aromaticity perception by calling IsAromatic() on an atom; now, in addition to the atoms and bonds being marked as aromatic, the molecule itself will be marked as having aromaticity perceived.</p>
+<p>If at this point we delete a carbon and write out a SMILES string, what will the result be? You may expect something like <code class="docutils literal notranslate"><span class="pre">[CH]=CC=C[CH]</span></code> (or <code class="docutils literal notranslate"><span class="pre">C=CC=CC</span></code> if we also adjust the hydrogen count on the neighbor atoms) but instead it will be <code class="docutils literal notranslate"><span class="pre">[cH]ccc[cH]</span></code> (or <code class="docutils literal notranslate"><span class="pre">ccccc</span></code> if hydrogens were adjusted).</p>
+<p>This follows from the discussion above - structural modifications have no effect on aromaticity flags. If instead the user wishes the SMILES writer to reperceive aromaticity, all that is necessary is to mark the molecule as not having aromaticity perceived, in which case the Kekulé form will instead be obtained.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../Features/Radicals.html" title="Radicals and SMILES extensions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Cheminf101/registration.html" title="Chemical Registration Systems"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

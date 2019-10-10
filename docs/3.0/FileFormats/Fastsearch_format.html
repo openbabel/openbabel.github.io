@@ -1,0 +1,215 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Fastsearch format (fs) &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fingerprint format (fpt)" href="Fingerprint_format.html" />
+    <link rel="prev" title="FPS text fingerprint format (Dalke) (fps)" href="FPS_text_fingerprint_format_(Dalke).html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Fingerprint_format.html" title="Fingerprint format (fpt)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="FPS_text_fingerprint_format_(Dalke).html" title="FPS text fingerprint format (Dalke) (fps)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Molecular_fingerprint_Formats.html" accesskey="U">Molecular fingerprint formats</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Fastsearch format (fs)</a><ul>
+<li><a class="reference internal" href="#read-options">Read Options</a></li>
+<li><a class="reference internal" href="#write-options">Write Options</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="FPS_text_fingerprint_format_(Dalke).html"
+                        title="previous chapter">FPS text fingerprint format (Dalke) (fps)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Fingerprint_format.html"
+                        title="next chapter">Fingerprint format (fpt)</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/FileFormats/Fastsearch_format.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fastsearch-format-fs">
+<span id="fastsearch-format"></span><h1>Fastsearch format (fs)<a class="headerlink" href="#fastsearch-format-fs" title="Permalink to this headline">¶</a></h1>
+<p><strong>Fingerprint-aided substructure and similarity searching</strong></p>
+<p>Writing to the fs format makes an index of a multi-molecule datafile:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">dataset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">ofs</span>
+</pre></div>
+</div>
+<p>This prepares an index <code class="file docutils literal notranslate"><span class="pre">dataset.fs</span></code> with default parameters, and is slow
+(~30 minutes for a 250,000 molecule file).</p>
+<p>However, when reading from the fs format searches are much faster, a few seconds,
+and so can be done interactively.</p>
+<p>The search target is the parameter of the <code class="docutils literal notranslate"><span class="pre">-s</span></code> option and can be
+slightly extended SMILES (with <code class="docutils literal notranslate"><span class="pre">[#n]</span></code> atoms and <code class="docutils literal notranslate"><span class="pre">~</span></code> bonds) or
+the name of a file containing a molecule.</p>
+<p>Several types of searches are possible:</p>
+<ul>
+<li><p class="first">Identical molecule:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">index</span><span class="o">.</span><span class="n">fs</span> <span class="o">-</span><span class="n">O</span> <span class="n">outfile</span><span class="o">.</span><span class="n">yyy</span> <span class="o">-</span><span class="n">s</span> <span class="n">SMILES</span> <span class="n">exact</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Substructure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">index</span><span class="o">.</span><span class="n">fs</span> <span class="o">-</span><span class="n">O</span> <span class="n">outfile</span><span class="o">.</span><span class="n">yyy</span>  <span class="o">-</span><span class="n">s</span> <span class="n">SMILES</span>   <span class="ow">or</span>
+<span class="n">obabel</span> <span class="n">index</span><span class="o">.</span><span class="n">fs</span> <span class="o">-</span><span class="n">O</span> <span class="n">outfile</span><span class="o">.</span><span class="n">yyy</span>  <span class="o">-</span><span class="n">s</span> <span class="n">filename</span><span class="o">.</span><span class="n">xxx</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">xxx</span></code> is a format id known to OpenBabel, e.g. sdf</p>
+</li>
+<li><p class="first">Molecular similarity based on Tanimoto coefficient:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">index</span><span class="o">.</span><span class="n">fs</span> <span class="o">-</span><span class="n">O</span> <span class="n">outfile</span><span class="o">.</span><span class="n">yyy</span> <span class="o">-</span><span class="n">at15</span>  <span class="o">-</span><span class="n">sSMILES</span>  <span class="c1"># best 15 molecules</span>
+<span class="n">obabel</span> <span class="n">index</span><span class="o">.</span><span class="n">fs</span> <span class="o">-</span><span class="n">O</span> <span class="n">outfile</span><span class="o">.</span><span class="n">yyy</span> <span class="o">-</span><span class="n">at0</span><span class="o">.</span><span class="mi">7</span> <span class="o">-</span><span class="n">sSMILES</span>  <span class="c1"># Tanimoto &gt;0.7</span>
+<span class="n">obabel</span> <span class="n">index</span><span class="o">.</span><span class="n">fs</span> <span class="o">-</span><span class="n">O</span> <span class="n">outfile</span><span class="o">.</span><span class="n">yyy</span> <span class="o">-</span><span class="n">at0</span><span class="o">.</span><span class="mi">7</span><span class="p">,</span><span class="mf">0.9</span> <span class="o">-</span><span class="n">sSMILES</span>
+<span class="c1">#     Tanimoto &gt;0.7 &amp;&amp; Tanimoto &lt; 0.9</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>The datafile plus the <code class="docutils literal notranslate"><span class="pre">-ifs</span></code> option can be used instead of the index file.</p>
+<p>NOTE on 32-bit systems the datafile MUST NOT be larger than 4GB.</p>
+<p>Dative bonds like -[N+][O-](=O) are indexed as -N(=O)(=O), and when searching
+the target molecule should be in the second form.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="../Fingerprints/intro.html#fingerprints"><span class="std std-ref">Molecular fingerprints and similarity searching</span></a></p>
+</div>
+<div class="section" id="read-options">
+<h2>Read Options<a class="headerlink" href="#read-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">t <var>&lt;num&gt;</var></span></kbd></td>
+<td><em>Do similarity search:&lt;num&gt;mols or &lt;num&gt; as min Tanimoto</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">a</span></kbd></td>
+<td><em>Add Tanimoto coeff to title in similarity search</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">l <var>&lt;num&gt;</var></span></kbd></td>
+<td><em>Maximum number of candidates. Default&lt;4000&gt;</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">e</span></kbd></td>
+<td><p class="first"><em>Exact match</em></p>
+<p class="last">Alternative to using exact in <code class="docutils literal notranslate"><span class="pre">-s</span></code> parameter, see above</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">n</span></kbd></td>
+<td><em>No further SMARTS filtering after fingerprint phase</em></td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="write-options">
+<h2>Write Options<a class="headerlink" href="#write-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">f <var>&lt;num&gt;</var></span></kbd></td>
+<td><p class="first"><em>Fingerprint type</em></p>
+<p class="last">If not specified, the default fingerprint (currently FP2) is used</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">N <var>&lt;num&gt;</var></span></kbd></td>
+<td><em>Fold fingerprint to &lt;num&gt; bits</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">u</span></kbd></td>
+<td><em>Update an existing index</em></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Fingerprint_format.html" title="Fingerprint format (fpt)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="FPS_text_fingerprint_format_(Dalke).html" title="FPS text fingerprint format (Dalke) (fps)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Molecular_fingerprint_Formats.html" >Molecular fingerprint formats</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

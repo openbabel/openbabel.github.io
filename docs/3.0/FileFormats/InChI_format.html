@@ -1,0 +1,260 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>InChI format (inchi) &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="InChIKey (inchikey)" href="InChIKey.html" />
+    <link rel="prev" title="Chemical Markup Language (cml, mrv)" href="Chemical_Markup_Language.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="InChIKey.html" title="InChIKey (inchikey)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Chemical_Markup_Language.html" title="Chemical Markup Language (cml, mrv)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Common_cheminformatics_Formats.html" accesskey="U">Common cheminformatics formats</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">InChI format (inchi)</a><ul>
+<li><a class="reference internal" href="#read-options">Read Options</a></li>
+<li><a class="reference internal" href="#write-options">Write Options</a></li>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Chemical_Markup_Language.html"
+                        title="previous chapter">Chemical Markup Language (cml, mrv)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="InChIKey.html"
+                        title="next chapter">InChIKey (inchikey)</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/FileFormats/InChI_format.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="inchi-format-inchi">
+<span id="inchi-format"></span><h1>InChI format (inchi)<a class="headerlink" href="#inchi-format-inchi" title="Permalink to this headline">¶</a></h1>
+<p><strong>IUPAC/NIST molecular identifier</strong></p>
+<div class="section" id="read-options">
+<h2>Read Options<a class="headerlink" href="#read-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">X <var>&lt;Option string&gt;</var></span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td><em>List of InChI options</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">n</span></kbd></td>
+<td><em>molecule name follows InChI on same line</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">a</span></kbd></td>
+<td><em>add InChI string to molecule name</em></td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="write-options">
+<h2>Write Options<a class="headerlink" href="#write-options" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>Standard InChI is written unless certain InChI options are used</div></blockquote>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">K</span></kbd></td>
+<td><em>output InChIKey only</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">t</span></kbd></td>
+<td><em>add molecule name after InChI</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">w</span></kbd></td>
+<td><p class="first"><em>ignore less important warnings</em></p>
+<p class="last">These are:
+‘Omitted undefined stereo’
+‘Charges were rearranged’
+‘Proton(s) added/removed’
+‘Metal was disconnected’</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">a</span></kbd></td>
+<td><em>output auxiliary information</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">l</span></kbd></td>
+<td><em>display InChI log</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">r</span></kbd></td>
+<td><em>recalculate InChI; normally an input InChI is reused</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">s</span></kbd></td>
+<td><p class="first"><em>recalculate wedge and hash bonds(2D structures only)</em></p>
+<p class="last"><strong>Uniqueness options</strong> (see also <code class="docutils literal notranslate"><span class="pre">--unique</span></code> and <code class="docutils literal notranslate"><span class="pre">--sort</span></code> which are more versatile)</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">u</span></kbd></td>
+<td><em>output only unique molecules</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">U</span></kbd></td>
+<td><em>output only unique molecules and sort them</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">e</span></kbd></td>
+<td><p class="first"><em>compare first molecule to others</em></p>
+<p>This can also be done with <a class="reference internal" href="Compare_molecules_using_InChI.html#compare-molecules-using-inchi"><span class="std std-ref">InChICompare format</span></a>:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">first</span><span class="o">.</span><span class="n">smi</span> <span class="n">second</span><span class="o">.</span><span class="n">mol</span> <span class="n">third</span><span class="o">.</span><span class="n">cml</span> <span class="o">-</span><span class="n">ok</span>
+</pre></div>
+</div>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">T <var>&lt;param&gt;</var></span></kbd></td>
+<td><p class="first"><em>truncate InChI according to various parameters</em></p>
+<p class="last">See below for possible truncation parameters.</p>
+</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">X <var>&lt;Option string&gt;</var></span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td><p class="first"><em>Additional InChI options</em></p>
+<p>See InChI documentation.
+These options should be space delimited in a single quoted string.</p>
+<ul class="simple">
+<li>Structure perception (compatible with stdInChI): <code class="docutils literal notranslate"><span class="pre">NEWPSOFF</span></code>, <code class="docutils literal notranslate"><span class="pre">DoNotAddH</span></code>, <code class="docutils literal notranslate"><span class="pre">SNon</span></code></li>
+<li>Stereo interpretation (produces non-standard InChI): <code class="docutils literal notranslate"><span class="pre">SRel</span></code>, <code class="docutils literal notranslate"><span class="pre">SRac</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SUCF</span></code>, <code class="docutils literal notranslate"><span class="pre">ChiralFlagON</span></code>, <code class="docutils literal notranslate"><span class="pre">ChiralFlagOFF</span></code></li>
+<li>InChI creation options (produces non-standard InChI): <code class="docutils literal notranslate"><span class="pre">SUU</span></code>, <code class="docutils literal notranslate"><span class="pre">SLUUD</span></code>,
+<code class="docutils literal notranslate"><span class="pre">FixedH</span></code>, <code class="docutils literal notranslate"><span class="pre">RecMet</span></code>, <code class="docutils literal notranslate"><span class="pre">KET</span></code>, <code class="docutils literal notranslate"><span class="pre">15T</span></code></li>
+</ul>
+<p class="last">The following options are for convenience, e.g. <code class="docutils literal notranslate"><span class="pre">-xF</span></code>
+but produce non-standard InChI.</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">F</span></kbd></td>
+<td><em>include fixed hydrogen layer</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">M</span></kbd></td>
+<td><em>include bonds to metal</em></td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<p>Truncation parameters used with <code class="docutils literal notranslate"><span class="pre">-xT</span></code>:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">/formula</span></kbd></td>
+<td>formula only</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">/connect</span></kbd></td>
+<td>formula and connectivity only</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">/nostereo</span></kbd></td>
+<td>ignore E/Z and sp3 stereochemistry</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">/nosp3</span></kbd></td>
+<td>ignore sp3 stereochemistry</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">/noEZ</span></kbd></td>
+<td>ignore E/Z steroeochemistry</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">/nochg</span></kbd></td>
+<td>ignore charge and protonation</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">/noiso</span></kbd></td>
+<td>ignore isotopes</td></tr>
+</tbody>
+</table>
+<p>Note that these can also be combined, e.g. <code class="docutils literal notranslate"><span class="pre">/nochg/noiso</span></code></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="InChIKey.html" title="InChIKey (inchikey)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Chemical_Markup_Language.html" title="Chemical Markup Language (cml, mrv)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Common_cheminformatics_Formats.html" >Common cheminformatics formats</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

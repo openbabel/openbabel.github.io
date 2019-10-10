@@ -1,0 +1,170 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Write software using the Open Babel library &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Open Babel API" href="CppAPI.html" />
+    <link rel="prev" title="Universal Force Field (uff)" href="../Forcefields/uff.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CppAPI.html" title="The Open Babel API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Forcefields/uff.html" title="Universal Force Field (uff)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Forcefields/uff.html"
+                        title="previous chapter">Universal Force Field (uff)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="CppAPI.html"
+                        title="next chapter">The Open Babel API</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/UseTheLibrary/intro.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="write-software-using-the-open-babel-library">
+<h1>Write software using the Open Babel library<a class="headerlink" href="#write-software-using-the-open-babel-library" title="Permalink to this headline">¶</a></h1>
+<p>Behind the <strong class="command">obabel</strong> command line program lies a complete cheminformatics toolkit, the Open Babel library. Using this library, you can write your own custom scripts and software for yourself or others.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Any software that uses the Open Babel library must abide by terms of the <a class="reference external" href="http://www.gnu.org/licenses/gpl-2.0.html">GNU Public License version 2</a>. This includes all of the supporting language bindings (for example, Python scripts) as well as C++ programs. To summarise, if you are considering distributing your software to other people, you must make your source code available to them on request.</p>
+</div>
+<p>Open Babel is a C++ library and can easily be used from C++. In addition it can be accessed from Python, Perl, Ruby, CSharp and Java. These are referred to as language bindings (the Python bindings, etc.) and they were automatically generated from the C++ library using <a class="reference external" href="http://swig.org">SWIG</a>. For Python we also provide a module (Pybel) that makes it easier to access features of the bindings.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CppAPI.html">The Open Babel API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CppExamples.html">C++</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CppExamples.html#quickstart-example">Quickstart example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CppExamples.html#how-to-compile-against-the-open-babel-library">How to compile against the Open Babel library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CppExamples.html#further-examples">Further examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PythonIntro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PythonInstall.html">Install Python bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PythonDoc.html">The openbabel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_Pybel.html">Pybel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_PybelAPI.html">Pybel API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PythonExamples.html">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Java.html">Java</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Java.html#quickstart-example">Quickstart Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Java.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Java.html#api">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Perl.html">Perl</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Perl.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Perl.html#using-chemistry-openbabel">Using Chemistry::OpenBabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Perl.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CSharp.html">CSharp and OBDotNet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CSharp.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSharp.html#obdotnet-api">OBDotNet API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSharp.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Ruby.html">Ruby</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Updating to Open Babel 3.0 from 2.x</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#removal-of-babel">Removal of babel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#python-module">Python module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#handling-of-elements-and-related-information">Handling of elements and related information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#atom-classes">Atom classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#obatom-valence-and-degree-methods">OBAtom valence and degree methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#molecule-atom-and-bond-flags">Molecule, atom and bond flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#removal-of-deprecated-methods">Removal of deprecated methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#handling-of-implicit-hydrogens">Handling of implicit hydrogens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#handling-of-aromaticity">Handling of aromaticity</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CppAPI.html" title="The Open Babel API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Forcefields/uff.html" title="Universal Force Field (uff)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

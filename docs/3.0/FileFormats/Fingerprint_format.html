@@ -1,0 +1,209 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Fingerprint format (fpt) &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Crystallography formats" href="Crystallography_Formats.html" />
+    <link rel="prev" title="Fastsearch format (fs)" href="Fastsearch_format.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Crystallography_Formats.html" title="Crystallography formats"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Fastsearch_format.html" title="Fastsearch format (fs)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Molecular_fingerprint_Formats.html" accesskey="U">Molecular fingerprint formats</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Fingerprint format (fpt)</a><ul>
+<li><a class="reference internal" href="#write-options">Write Options</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Fastsearch_format.html"
+                        title="previous chapter">Fastsearch format (fs)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Crystallography_Formats.html"
+                        title="next chapter">Crystallography formats</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/FileFormats/Fingerprint_format.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fingerprint-format-fpt">
+<span id="fingerprint-format"></span><h1>Fingerprint format (fpt)<a class="headerlink" href="#fingerprint-format-fpt" title="Permalink to this headline">¶</a></h1>
+<p><strong>Generate or display molecular fingerprints.</strong></p>
+<p>This format constructs and displays fingerprints and (for multiple input
+objects) the Tanimoto coefficient and whether a superstructure of the first
+object.</p>
+<p>A list of available fingerprint types can be obtained by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="o">-</span><span class="n">L</span> <span class="n">fingerprints</span>
+</pre></div>
+</div>
+<p>The current default type FP2 is is of the Daylight type, indexing a molecule
+based on the occurrence of linear fragment up to 7 atoms in length. To use a
+fingerprint type other than the default, use the <code class="docutils literal notranslate"><span class="pre">-xf</span></code> option, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">infile</span><span class="o">.</span><span class="n">xxx</span> <span class="o">-</span><span class="n">ofpt</span> <span class="o">-</span><span class="n">xfFP3</span>
+</pre></div>
+</div>
+<p>For a single molecule the fingerprint is output in hexadecimal form
+(intended mainly for debugging).</p>
+<p>With multiple molecules the hexadecimal form is output only if the <code class="docutils literal notranslate"><span class="pre">-xh</span></code>
+option is specified. But in addition the Tanimoto coefficient between the
+first molecule and each of the subsequent ones is displayed. If the first
+molecule is a substructure of the target molecule a note saying this is
+also displayed.</p>
+<p>The Tanimoto coefficient is defined as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Number</span> <span class="n">of</span> <span class="n">bits</span> <span class="nb">set</span> <span class="ow">in</span> <span class="p">(</span><span class="n">patternFP</span> <span class="o">&amp;</span> <span class="n">targetFP</span><span class="p">)</span> <span class="o">/</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">bits</span> <span class="ow">in</span> <span class="p">(</span><span class="n">patternFP</span> <span class="o">|</span> <span class="n">targetFP</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where the boolean operations between the fingerprints are bitwise.</p>
+<p>The Tanimoto coefficient has no absolute meaning and depends on the design of the fingerprint.</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">-xs</span></code> option to describe the bits that are set in the fingerprint.
+The output depends on the fingerprint type. For Fingerprint FP4, each bit
+corresponds to a particular chemical feature, which are specified as SMARTS
+patterns in <code class="file docutils literal notranslate"><span class="pre">SMARTS_InteLigand.txt</span></code>, and the output is a tab-separated
+list of the features of a molecule. For instance, a well-known molecule
+gives:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Primary_carbon</span><span class="p">:</span> <span class="n">Carboxylic_acid</span><span class="p">:</span> <span class="n">Carboxylic_ester</span><span class="p">:</span> <span class="n">Carboxylic_acid_derivative</span><span class="p">:</span>
+<span class="n">Vinylogous_carbonyl_or_carboxyl_derivative</span><span class="p">:</span> <span class="n">Vinylogous_ester</span><span class="p">:</span> <span class="n">Aromatic</span><span class="p">:</span>
+<span class="n">Conjugated_double_bond</span><span class="p">:</span> <span class="n">C_ONS_bond</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="o">-</span><span class="n">Tautomerizable</span><span class="p">:</span> <span class="n">Rotatable_bond</span><span class="p">:</span> <span class="n">CH</span><span class="o">-</span><span class="n">acidic</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>For the path-based fingerprint FP2, the output from the <code class="docutils literal notranslate"><span class="pre">-xs</span></code> option is
+instead a list of the chemical fragments used to set bits, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ obabel -:&quot;CCC(=O)Cl&quot; -ofpt -xs -xf FP2
+&gt;
+0 6 1 6 &lt;670&gt;
+0 6 1 6 1 6 &lt;260&gt;
+0 8 2 6 &lt;623&gt;
+...etc
+</pre></div>
+</div>
+<p>where the first digit is 0 for linear fragments but is a bond order
+for cyclic fragments. The remaining digits indicate the atomic number
+and bond order alternatively. Note that a bond order of 5 is used for
+aromatic bonds. For example, bit 623 above is the linear fragment O=C
+(8 for oxygen, 2 for double bond and 6 for carbon).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a write-only format.</p>
+</div>
+<div class="section" id="write-options">
+<h2>Write Options<a class="headerlink" href="#write-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">f <var>&lt;id&gt;</var></span></kbd></td>
+<td><em>fingerprint type</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">N <var>&lt;num&gt;</var></span></kbd></td>
+<td><em>fold to specified number of bits, 32, 64, 128, etc.</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">h</span></kbd></td>
+<td><em>hex output when multiple molecules</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">o</span></kbd></td>
+<td><em>hex output only</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">s</span></kbd></td>
+<td><em>describe each set bit</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">u</span></kbd></td>
+<td><em>describe each unset bit</em></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Crystallography_Formats.html" title="Crystallography formats"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Fastsearch_format.html" title="Fastsearch format (fs)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Molecular_fingerprint_Formats.html" >Molecular fingerprint formats</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,266 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>The Open Babel GUI &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial on using the GUI" href="../GUITutorial/GUITutorial.html" />
+    <link rel="prev" title="obabel - Convert, Filter and Manipulate Chemical Data" href="../Command-line_tools/babel.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../GUITutorial/GUITutorial.html" title="Tutorial on using the GUI"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Command-line_tools/babel.html" title="obabel - Convert, Filter and Manipulate Chemical Data"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The Open Babel GUI</a><ul>
+<li><a class="reference internal" href="#basic-operation">Basic operation</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#multiple-input-files">Multiple input files</a></li>
+<li><a class="reference internal" href="#wildcards-in-filenames">Wildcards in filenames</a></li>
+<li><a class="reference internal" href="#local-input">Local input</a></li>
+<li><a class="reference internal" href="#output-file">Output file</a></li>
+<li><a class="reference internal" href="#graphical-display">Graphical display</a></li>
+<li><a class="reference internal" href="#using-a-restricted-set-of-formats">Using a restricted set of formats</a></li>
+<li><a class="reference internal" href="#other-features">Other features</a></li>
+<li><a class="reference internal" href="#example-files">Example files</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Command-line_tools/babel.html"
+                        title="previous chapter">obabel - Convert, Filter and Manipulate Chemical Data</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../GUITutorial/GUITutorial.html"
+                        title="next chapter">Tutorial on using the GUI</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/GUI/GUI.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-open-babel-gui">
+<span id="gui"></span><h1>The Open Babel GUI<a class="headerlink" href="#the-open-babel-gui" title="Permalink to this headline">¶</a></h1>
+<p>The <strong class="command">obabel</strong> command line program converts chemical objects (currently molecules or reactions) from one file format to another. The Open Babel graphical user interface (GUI) is an
+alternative to using the command line and has the same capabilities. Since Open Babel 2.3, the GUI is available cross-platform on Windows, Linux and MacOSX. On Windows, you can find it in the Start Menu in the Open Babel folder; on Linux and MacOSX, the GUI can be started with the <strong class="command">obgui</strong> command.</p>
+<p>Since the functionality of the GUI mirrors that of <strong class="command">obabel</strong>, you should consult the <a class="reference internal" href="../Command-line_tools/babel.html#obabel"><span class="std std-ref">previous chapter</span></a> to learn about available features and how to use them. This chapter describes the general use of the GUI and then focuses on features that are specific to the GUI.</p>
+<div class="section" id="basic-operation">
+<h2>Basic operation<a class="headerlink" href="#basic-operation" title="Permalink to this headline">¶</a></h2>
+<p>Although the GUI presents many options, the basic operation is straightforward:</p>
+<ul class="simple">
+<li>Select the type of the type of the input file from the dropdown list.</li>
+<li>Click the “<span class="guilabel">…</span>” button and select the file. Its contents are displayed in the textbox below.</li>
+<li>Choose the output format and file in a similar way. You can merely display the output without saving it by not selecting an output file or by checking “<span class="guilabel">Output below only..</span>”.</li>
+<li>Click the “<span class="guilabel">Convert</span>” button.</li>
+</ul>
+<p>The message window below the button gives the number of molecules
+converted, and the contents of the output file are displayed.</p>
+<p>By default, all the molecules in an input file are converted if the
+output format allows multiple molecules.</p>
+<div class="figure align-center" id="id1">
+<img alt="../_images/ScreenshotOfGui-BioLinux6.0-Ubuntu10.04deriv.png" src="../_images/ScreenshotOfGui-BioLinux6.0-Ubuntu10.04deriv.png" />
+<p class="caption"><span class="caption-text"><strong>Screenshot of GUI running on BioLinux 6.0, an Ubuntu derivative</strong></span></p>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p>The options in the middle are those appropriate for the type of
+chemical object being converted (molecule or reaction) and the
+input and output formats. They are derived from the description
+text that is displayed with the <code class="docutils literal notranslate"><span class="pre">-Hxxx</span></code> option in the command line
+interface and with the “<span class="guilabel">Format info</span>” buttons here. You can switch
+off the display of any of the various types of option using the
+<span class="guilabel">View</span> menu if the screen is getting too cluttered.</p>
+</div>
+<div class="section" id="multiple-input-files">
+<h2>Multiple input files<a class="headerlink" href="#multiple-input-files" title="Permalink to this headline">¶</a></h2>
+<p>You can select multiple input files in the input file dialog in the
+normal way (for example, using the Control key in Windows). In the input
+filename box, each filename is displayed relative to the path shown
+just above the box, which is the path of the first file. You can
+display any of the files by moving the highlight with Tab/Shift
+Tab, Page Up/Down, the mouse wheel, or by double clicking.</p>
+<p>Selecting one or more new file names normally removes those already
+present, but they can instead be appended by holding the Control
+key down when leaving the file selection dialog.</p>
+<p>Files can be also be dragged and dropped (e.g. from Windows
+Explorer), adding the file when the Control key is pressed,
+replacing the existing files when it is not.</p>
+<p>Normally each file is converted according to its extension and the
+input files do not have to be all the same, but if you want to use
+non-standard file names set the checkbox “<span class="guilabel">Use this format for all
+input files…</span>”</p>
+<p>If you want to combine multiple molecules (from one or more files)
+into a single molecule with disconnected parts, use option “<span class="guilabel">Join
+all input molecules…</span>”</p>
+</div>
+<div class="section" id="wildcards-in-filenames">
+<h2>Wildcards in filenames<a class="headerlink" href="#wildcards-in-filenames" title="Permalink to this headline">¶</a></h2>
+<p>When input filenames are typed in directly, any of them can
+contain the wildcard characters <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">?</span></code>. Typing Enter will replace
+these by a list of the matching files. The wildcarded names can be
+restored by typing Enter while holding down the Shift key. The
+original or the expanded versions will behave the same when the
+“<span class="guilabel">Convert</span>” button is pressed.</p>
+<p>By including the wildcard <code class="docutils literal notranslate"><span class="pre">*</span></code> in both the input and output
+filenames you can carry out batch conversion. Suppose there were
+files <code class="file docutils literal notranslate"><span class="pre">first.smi</span></code>, <code class="file docutils literal notranslate"><span class="pre">second.smi</span></code>, <code class="file docutils literal notranslate"><span class="pre">third.smi</span></code>. Using <code class="docutils literal notranslate"><span class="pre">*.smi</span></code> as the input
+filename and <code class="docutils literal notranslate"><span class="pre">*.mol</span></code> as the output filename would produce three
+files <code class="file docutils literal notranslate"><span class="pre">first.mol</span></code>, <code class="file docutils literal notranslate"><span class="pre">second.mol</span></code> and <code class="file docutils literal notranslate"><span class="pre">third.mol</span></code>. If the output filename
+was <code class="docutils literal notranslate"><span class="pre">NEW_*.mol</span></code>, then the output files would be <code class="file docutils literal notranslate"><span class="pre">NEW_first.mol</span></code>, etc.</p>
+</div>
+<div class="section" id="local-input">
+<h2>Local input<a class="headerlink" href="#local-input" title="Permalink to this headline">¶</a></h2>
+<p>By checking the “<span class="guilabel">Input below…</span>” checkbox you can type the input
+text directly. The text box changes colour to remind you that it is
+this text and not the contents of any files that will be
+converted.</p>
+</div>
+<div class="section" id="output-file">
+<h2>Output file<a class="headerlink" href="#output-file" title="Permalink to this headline">¶</a></h2>
+<p>The output file name can be fully specified with a path, but if it
+is not, then it is considered to be relative to the input file
+path.</p>
+</div>
+<div class="section" id="graphical-display">
+<h2>Graphical display<a class="headerlink" href="#graphical-display" title="Permalink to this headline">¶</a></h2>
+<p>The chemical structures being converted can be displayed (as SVG)
+in an external program. By default this is Firefox but it can be
+changed from an item on the <span class="guilabel">View</span> menu (for instance, Opera and
+Chrome work fine). When “<span class="guilabel">Display in firefox</span>” (under the output file
+name) is checked, the structures will be shown in a new Firefox
+tab. With multiple molecules the display can be zoomed (mousewheel)
+and panned (dragging with mouse button depressed). Up to 100
+molecules are easily handled but with more the system may be slow
+to manipulate. It may also be slow to generate, especially if 2D
+atom coordinates have to be calculated (e.g.from SMILES). A new
+Firefox tab is opened each time <span class="guilabel">Convert</span> is pressed.</p>
+</div>
+<div class="section" id="using-a-restricted-set-of-formats">
+<h2>Using a restricted set of formats<a class="headerlink" href="#using-a-restricted-set-of-formats" title="Permalink to this headline">¶</a></h2>
+<p>It is likely that you will only be interested in a subset of the large range of formats handled by Open Babel.
+You can restrict
+the choice offered in the dropdown boxes, which makes routine
+selection easier. Clicking “<span class="guilabel">Select set of formats</span>” on the <span class="guilabel">View</span> menu
+allows the formats to be displayed to be selected. Subsequently,
+clicking “<span class="guilabel">Use restricted set of formats</span>” on the <span class="guilabel">View</span> menu toggles
+this facility on and off.</p>
+<p>Using a restricted set overcomes an irritating bug in the Windows
+version. In the file <span class="guilabel">Open</span> and <span class="guilabel">Save</span> dialogs the files displayed can
+be filtered by the <em>current format</em>, <em>All Chemical Formats</em>, or <em>All
+Files</em>. The <em>All Chemical Formats</em> filter will only display the first
+30 possible formats (alphabetically). The <em>All Files</em> will indeed
+display all files and the conversion processes are unaffected.</p>
+</div>
+<div class="section" id="other-features">
+<h2>Other features<a class="headerlink" href="#other-features" title="Permalink to this headline">¶</a></h2>
+<p>Most of the interface parameters, such as the selected format and
+the window size and position, are remembered between sessions.</p>
+<p>Using the <span class="guilabel">View</span> menu, the input and output text boxes can be set not
+to wrap the text. At present you have to restart the program for
+this to take effect.</p>
+<p>The message box at the top of the output text window receives
+program output on error and audit logging, and some progress
+reports. It can be expanded by dragging down the divider between
+the windows.</p>
+</div>
+<div class="section" id="example-files">
+<h2>Example files<a class="headerlink" href="#example-files" title="Permalink to this headline">¶</a></h2>
+<p>In the Windows distribution, there are three chemical files included to try out:</p>
+<ul>
+<li><p class="first"><strong>serotonin.mol</strong> which has 3D atom coordinates</p>
+</li>
+<li><p class="first"><strong>oxamide.cml</strong> which is 2D and has a large number of properties that will be seen when converting to SDF</p>
+</li>
+<li><p class="first"><strong>FourSmallMols.cml</strong> which (unsurprisingly) contains four molecules with no atom coordinates and can be used to illustrate the handling of multiple molecules:</p>
+<p>Setting the output format to SMI (which is easy to see), you can convert only the second and third molecules by entering <code class="docutils literal notranslate"><span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code> in the appropriate option boxes. Or convert only molecules with C-O single bonds by entering <code class="docutils literal notranslate"><span class="pre">CO</span></code> in the SMARTS option box.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../GUITutorial/GUITutorial.html" title="Tutorial on using the GUI"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Command-line_tools/babel.html" title="obabel - Convert, Filter and Manipulate Chemical Data"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,216 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MDL MOL format (mol, mdl, sdf, sd) &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Protein Data Bank format (pdb, ent)" href="Protein_Data_Bank_format.html" />
+    <link rel="prev" title="InChIKey (inchikey)" href="InChIKey.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Protein_Data_Bank_format.html" title="Protein Data Bank format (pdb, ent)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="InChIKey.html" title="InChIKey (inchikey)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Common_cheminformatics_Formats.html" accesskey="U">Common cheminformatics formats</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">MDL MOL format (mol, mdl, sdf, sd)</a><ul>
+<li><a class="reference internal" href="#read-options">Read Options</a></li>
+<li><a class="reference internal" href="#write-options">Write Options</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="InChIKey.html"
+                        title="previous chapter">InChIKey (inchikey)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Protein_Data_Bank_format.html"
+                        title="next chapter">Protein Data Bank format (pdb, ent)</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/FileFormats/MDL_MOL_format.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mdl-mol-format-mol-mdl-sdf-sd">
+<span id="mdl-mol-format"></span><h1>MDL MOL format (mol, mdl, sdf, sd)<a class="headerlink" href="#mdl-mol-format-mol-mdl-sdf-sd" title="Permalink to this headline">¶</a></h1>
+<p><strong>Reads and writes V2000 and V3000 versions</strong></p>
+<p>Open Babel supports an extension to the MOL file standard
+that allows cis/trans and tetrahedral stereochemistry to be
+stored in 0D MOL files. The tetrahedral stereochemistry is
+stored as the atom parity, while the cis/trans stereochemistry
+is stored using Up and Down bonds similar to how it is
+represented in a SMILES string. Use the <code class="docutils literal notranslate"><span class="pre">S</span></code> option
+when reading or writing if you want to avoid storing
+or interpreting stereochemistry in 0D MOL files.</p>
+<div class="section" id="read-options">
+<h2>Read Options<a class="headerlink" href="#read-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">s</span></kbd></td>
+<td><p class="first"><em>determine chirality from atom parity flags</em></p>
+<p class="last">The default setting for 2D and 3D is to ignore atom parity and
+work out the chirality based on the bond
+stereochemistry (2D) or coordinates (3D).
+For 0D the default is already to determine the chirality
+from the atom parity.</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">S</span></kbd></td>
+<td><p class="first"><em>do not read stereochemistry from 0D MOL files</em></p>
+<p class="last">Open Babel supports reading and writing cis/trans
+and tetrahedral stereochemistry to 0D MOL files.
+This is an extension to the standard which you can
+turn off using this option.</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">T</span></kbd></td>
+<td><em>read title only</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">P</span></kbd></td>
+<td><p class="first"><em>read title and properties only</em></p>
+<p class="last">When filtering an sdf file on title or properties
+only, avoid lengthy chemical interpretation by
+using the <code class="docutils literal notranslate"><span class="pre">T</span></code> or <code class="docutils literal notranslate"><span class="pre">P</span></code> option together with the
+<a class="reference internal" href="Copy_raw_text.html#copy-raw-text"><span class="std std-ref">copy format</span></a>.</p>
+</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="write-options">
+<h2>Write Options<a class="headerlink" href="#write-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">3</span></kbd></td>
+<td><em>output V3000 not V2000 (used for &gt;999 atoms/bonds)</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">a</span></kbd></td>
+<td><em>write atomclass if available</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">m</span></kbd></td>
+<td><em>write no properties</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">w</span></kbd></td>
+<td><em>use wedge and hash bonds from input (2D only)</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">v</span></kbd></td>
+<td><p class="first"><em>always specify the valence in the valence field</em></p>
+<p class="last">The default behavior is to only specify the valence if it
+is not consistent with the MDL valence model.
+So, for CH4 we don’t specify it, but we do for CH3.
+This option may be useful to preserve the correct number of
+implicit hydrogens if a downstream tool does not correctly
+implement the MDL valence model (but does honor the valence
+field).</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">S</span></kbd></td>
+<td><em>do not store cis/trans stereochemistry in 0D MOL files</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">A</span></kbd></td>
+<td><em>output in Alias form, e.g. Ph, if present</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">E</span></kbd></td>
+<td><em>add an ASCII depiction of the molecule as a property</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">H</span></kbd></td>
+<td><em>use HYD extension (always on if mol contains zero-order bonds)</em></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Protein_Data_Bank_format.html" title="Protein Data Bank format (pdb, ent)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="InChIKey.html" title="InChIKey (inchikey)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Common_cheminformatics_Formats.html" >Common cheminformatics formats</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

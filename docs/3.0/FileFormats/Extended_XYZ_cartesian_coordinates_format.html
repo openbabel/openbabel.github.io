@@ -1,0 +1,179 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Extended XYZ cartesian coordinates format (exyz) &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="FHIaims XYZ format (fhiaims)" href="FHIaims_XYZ_format.html" />
+    <link rel="prev" title="DMol3 coordinates format (outmol, dmol)" href="DMol3_coordinates_format.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="FHIaims_XYZ_format.html" title="FHIaims XYZ format (fhiaims)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="DMol3_coordinates_format.html" title="DMol3 coordinates format (outmol, dmol)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Computational_chemistry_Formats.html" accesskey="U">Computational chemistry formats</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Extended XYZ cartesian coordinates format (exyz)</a><ul>
+<li><a class="reference internal" href="#read-options">Read Options</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="DMol3_coordinates_format.html"
+                        title="previous chapter">DMol3 coordinates format (outmol, dmol)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="FHIaims_XYZ_format.html"
+                        title="next chapter">FHIaims XYZ format (fhiaims)</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/FileFormats/Extended_XYZ_cartesian_coordinates_format.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="extended-xyz-cartesian-coordinates-format-exyz">
+<span id="extended-xyz-cartesian-coordinates-format"></span><h1>Extended XYZ cartesian coordinates format (exyz)<a class="headerlink" href="#extended-xyz-cartesian-coordinates-format-exyz" title="Permalink to this headline">¶</a></h1>
+<p><strong>A format used by ORCA-AICCM</strong></p>
+<p>The “EXYZ” chemical file format is an extended version of the standard
+“XYZ” chemical file format with additional keywords and informations about
+the unit cell and virtual atoms.</p>
+<ul class="simple">
+<li>Line one of the file contains the number of atoms in the file.</li>
+<li>Line two of the file contains a title, comment, filename and/or the
+following keywords: <code class="docutils literal notranslate"><span class="pre">%PBC</span></code> or <code class="docutils literal notranslate"><span class="pre">%VIRTUAL</span></code></li>
+</ul>
+<p>Any remaining lines are parsed for atom information until a blank line. These
+lines start with the element symbol, followed by X, Y, and Z coordinates in
+angstroms separated by whitespace and - if <code class="docutils literal notranslate"><span class="pre">%VIRTUAL</span></code> is specified - the
+optional word <code class="docutils literal notranslate"><span class="pre">VIRTUAL</span></code> to mark virtual atoms. If <code class="docutils literal notranslate"><span class="pre">%PBC</span></code> is specified
+a second block will be present containing the 3 vectors for the unit cell
+in angstrom and the offset as shown in the example below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span>
+<span class="o">%</span><span class="n">PBC</span>
+   <span class="n">C</span>        <span class="mf">0.00000</span>        <span class="mf">1.40272</span>        <span class="mf">0.00000</span>
+   <span class="n">H</span>        <span class="mf">0.00000</span>        <span class="mf">2.49029</span>        <span class="mf">0.00000</span>
+   <span class="n">C</span>       <span class="o">-</span><span class="mf">1.21479</span>        <span class="mf">0.70136</span>        <span class="mf">0.00000</span>
+   <span class="n">H</span>       <span class="o">-</span><span class="mf">2.15666</span>        <span class="mf">1.24515</span>        <span class="mf">0.00000</span>
+
+<span class="n">Vector1</span>    <span class="mf">2.445200</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>
+<span class="n">Vector2</span>    <span class="mf">0.000000</span>    <span class="mf">1.000000</span>    <span class="mf">0.000000</span>
+<span class="n">Vector3</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">1.000000</span>
+<span class="n">Offset</span>     <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>
+</pre></div>
+</div>
+<p>On <strong>output</strong>, the first line written is the number of atoms in the molecule.
+Line two is the title of the molecule or the filename if no title is defined.
+Remaining lines define the atoms in the file. The first column is the atomic
+symbol (right-aligned on the third character), followed by the XYZ coordinates
+in “15.5” format separated by an addition whitespace, in angstroms. This means
+that all coordinates are printed with five decimal places.</p>
+<p>The next block starts with a blank line to separate the coordinates from the
+unit cell vectors followed by the vectors of the unit cell marked with the
+keywords Vector1/2/3. The vectors themselves are written in the same format
+as the atom coordinates. The last line contains the keyword Offset and the
+offset of the unit cell. The unit is always angstrom.</p>
+<div class="section" id="read-options">
+<h2>Read Options<a class="headerlink" href="#read-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">s</span></kbd></td>
+<td><em>Output single bonds only</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">b</span></kbd></td>
+<td><em>Disable bonding entirely</em></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="FHIaims_XYZ_format.html" title="FHIaims XYZ format (fhiaims)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="DMol3_coordinates_format.html" title="DMol3 coordinates format (outmol, dmol)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Computational_chemistry_Formats.html" >Computational chemistry formats</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

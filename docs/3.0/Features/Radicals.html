@@ -1,0 +1,281 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Radicals and SMILES extensions &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing to Open Babel" href="../Contributing/Contributing.html" />
+    <link rel="prev" title="Handling of aromaticity" href="../Aromaticity/Aromaticity.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../Contributing/Contributing.html" title="Contributing to Open Babel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Aromaticity/Aromaticity.html" title="Handling of aromaticity"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Radicals and SMILES extensions</a><ul>
+<li><a class="reference internal" href="#the-need-for-radicals-and-implicit-hydrogen-to-coexist">The need for radicals and implicit hydrogen to coexist</a></li>
+<li><a class="reference internal" href="#how-open-babel-does-it">How Open Babel does it</a></li>
+<li><a class="reference internal" href="#in-radicals-either-the-hydrogen-or-the-spin-multiplicity-can-be-implicit">In radicals either the hydrogen or the spin multiplicity can be implicit</a></li>
+<li><a class="reference internal" href="#smiles-extensions-for-radicals">SMILES extensions for radicals</a></li>
+<li><a class="reference internal" href="#other-supported-extensions">Other Supported Extensions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Aromaticity/Aromaticity.html"
+                        title="previous chapter">Handling of aromaticity</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Contributing/Contributing.html"
+                        title="next chapter">Contributing to Open Babel</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Features/Radicals.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="radicals-and-smiles-extensions">
+<h1>Radicals and SMILES extensions<a class="headerlink" href="#radicals-and-smiles-extensions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-need-for-radicals-and-implicit-hydrogen-to-coexist">
+<h2>The need for radicals and implicit hydrogen to coexist<a class="headerlink" href="#the-need-for-radicals-and-implicit-hydrogen-to-coexist" title="Permalink to this headline">¶</a></h2>
+<p>Hydrogen deficient molecules, radicals, carbenes, etc., are not
+well catered for by chemical software aimed at pharmaceuticals. But
+radicals are important reaction intermediates in living systems as
+well as many other fields, such as polymers, paints, oils,
+combustion and atmospheric chemistry. The examples given here are
+small molecules, relevant to the last two applications.</p>
+<p>Chemistry software to handle radicals is complicated by the common
+use of implicit hydrogen when describing molecules. How is the
+program to know when you type “O” whether you mean an oxygen atom
+or water? This ambiguity leads some to say that hydrogens should
+always be explicit in any chemical description. But this is not the
+way that most chemists work. A straight paraffinic chain from which
+a hydrogen had been abstracted might commonly be represented by
+something like: <img alt="3-pentyl radical" src="../_images/Zigzag.png" /></p>
+<p>This uses implicit hydrogens and an explicit radical centre. But
+sometimes the hydrogens are explicit and the radical centre
+implicit, as when CH<sub>3</sub>is used to represent the methyl radical.</p>
+</div>
+<div class="section" id="how-open-babel-does-it">
+<h2>How Open Babel does it<a class="headerlink" href="#how-open-babel-does-it" title="Permalink to this headline">¶</a></h2>
+<p>Open Babel accepts molecules with explicit or implicit hydrogens and
+can convert between the two. It will also handle radicals (and
+other hydrogen-deficient species) with implicit hydrogen by using
+internally a property of an atom, <cite>_spinmultiplicity</cite>, modelled on
+the RAD property in MDL MOL files and also used in CML. This can be
+regarded in the present context as a measure of the hydrogen
+deficiency of an atom. Its value is:</p>
+<ul class="simple">
+<li>0 for normal atoms,</li>
+<li>2 for radical (missing one hydrogen) and</li>
+<li>1 or 3 for carbenes and nitrenes (missing two hydrogens).</li>
+</ul>
+<p>It happens that for some doubly deficient species, like carbene
+CH<sub>2</sub> and oxygen atoms, the singlet and triplet species are fairly close
+in energy and both may be significant in certain applications such
+as combustion, atmospheric or preparative organic chemistry, so it
+is convenient that they can be described separately. There are of
+course an infinity of other electronic configurations of molecules
+but Open Babel has no special descriptors for them. However, even
+more hydrogen-deficient atoms are indicated by the highest possible
+value of spinmultiplicity (C atom has spin multiplicity of 5).
+(This extends MDL’s RAD property which has a maximum value of 3.)</p>
+<p>If the spin multiplicity of an atom is not input explicitly, it is
+set (in <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml#ad85ec95d1f909843737b67d70638f3c9">OBMol::AssignSpinMultiplicity()</a>) when the input format is
+MOL, SMI, CML or Therm. This routine is called after all the atoms
+and bonds of the molecule are known. It detects hydrogen deficiency
+in an atom and assigns spin multiplicity appropriately. But because
+hydrogen may be implicit it only does this for atoms which have at
+least one explicit hydrogen or on atoms which have had
+<a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBAtom.shtml#a1a92c9eb656eb9ef43f03c717a38adc3">ForceNoH()</a> called for them - which is effectively zero explicit
+hydrogens. The latter is used, for instance, when SMILES inputs <code class="docutils literal notranslate"><span class="pre">[O]</span></code>
+to ensure that it is seen as an oxygen atom (spin multiplicity=3)
+rather than water. Otherwise, atoms with no explicit hydrogen are
+assumed to have a spin multiplicity of 0, i.e with full complement
+of implicit hydrogens.</p>
+<p>In deciding which atoms should be have spin multiplicity assigned,
+hydrogen atoms which have an isotope specification (D,T or even 1H)
+do not count. So SMILES <code class="docutils literal notranslate"><span class="pre">N[2H]</span></code> is NH<sub>2</sub>D (spin multiplicity
+left at 0, so with a full content of implicit hydrogens), whereas
+<code class="docutils literal notranslate"><span class="pre">N[H]</span></code> is NH (spin multiplicity=3). A deuterated radical like NHD is
+represented by <code class="docutils literal notranslate"><span class="pre">[NH][2H]</span></code>.</p>
+</div>
+<div class="section" id="in-radicals-either-the-hydrogen-or-the-spin-multiplicity-can-be-implicit">
+<h2>In radicals either the hydrogen or the spin multiplicity can be implicit<a class="headerlink" href="#in-radicals-either-the-hydrogen-or-the-spin-multiplicity-can-be-implicit" title="Permalink to this headline">¶</a></h2>
+<p>Once the spin multiplicity has been set on an atom, the hydrogens
+can be implicit even if it is a radical. For instance, the
+following mol file, with explicit hydrogens, is one way of
+representing the ethyl radical:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ethyl</span> <span class="n">radical</span>
+ <span class="n">OpenBabel04010617172D</span>
+<span class="n">Has</span> <span class="n">explicit</span> <span class="n">hydrogen</span> <span class="ow">and</span> <span class="n">implicit</span> <span class="n">spin</span> <span class="n">multiplicity</span>
+  <span class="mi">7</span>  <span class="mi">6</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0999</span> <span class="n">V2000</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">C</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">C</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">H</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">H</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">H</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">H</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">H</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+  <span class="mi">1</span>  <span class="mi">3</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+  <span class="mi">1</span>  <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+  <span class="mi">1</span>  <span class="mi">5</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+  <span class="mi">2</span>  <span class="mi">6</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+  <span class="mi">2</span>  <span class="mi">7</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+<span class="n">M</span>  <span class="n">END</span>
+</pre></div>
+</div>
+<p>When read by Open Babel the spinmultiplicity is set to 2 on the C
+atom 2. If the hydrogens are made implicit, perhaps by the <code class="docutils literal notranslate"><span class="pre">-d</span></code>
+option, and the molecule output again, an alternative
+representation is produced:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ethyl</span> <span class="n">radical</span>
+ <span class="n">OpenBabel04010617192D</span>
+<span class="n">Has</span> <span class="n">explicit</span> <span class="n">spin</span> <span class="n">multiplicity</span> <span class="ow">and</span> <span class="n">implicit</span> <span class="n">hydrogen</span>
+  <span class="mi">2</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0999</span> <span class="n">V2000</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">C</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">C</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+<span class="n">M</span>  <span class="n">RAD</span>  <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">2</span>
+<span class="n">M</span>  <span class="n">END</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="smiles-extensions-for-radicals">
+<h2>SMILES extensions for radicals<a class="headerlink" href="#smiles-extensions-for-radicals" title="Permalink to this headline">¶</a></h2>
+<p>Although radical structures can be represented in SMILES by
+specifying the hydrogens explicitly, e.g. <code class="docutils literal notranslate"><span class="pre">[CH3]</span></code> is the methyl
+radical, some chemists have apparently felt the need to devise
+non-standard extensions that represent the radical centre
+explicitly. Open Babel will recognize <code class="docutils literal notranslate"><span class="pre">C[O.]</span></code> as well as <code class="docutils literal notranslate"><span class="pre">C[O]</span></code> as the
+methoxy radical CH<sub>3</sub>O during input, but the non-standard
+form is not supported in output.</p>
+<p>By default, radical centres are output in explict hydrogen form,
+e.g. <code class="docutils literal notranslate"><span class="pre">C[CH2]</span></code> for the ethyl radical. All the atoms will be in explict
+H form, i.e. <code class="docutils literal notranslate"><span class="pre">[CH3][CH2]</span></code>, if <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml#ad3bab31bf64ff6cb18f6ee259b3b8c11">AddHydrogens()</a> or the <code class="docutils literal notranslate"><span class="pre">-h</span></code> option has
+been specified. The output is always standard SMILES, although
+other programs may not interpret radicals correctly.</p>
+<p>Open Babel supports another SMILES extension for both input and
+output: the use of lower case atomic symbols to represent radical
+centres. (This is supported on the ACCORD Chemistry Control and
+maybe elsewhere.) So the ethyl radical is <code class="docutils literal notranslate"><span class="pre">Cc</span></code> and the methoxy radical
+is <code class="docutils literal notranslate"><span class="pre">Co</span></code>. This form is input transparently and can be output by using
+the <code class="docutils literal notranslate"><span class="pre">-xr</span></code> option “radicals lower case”. It is a useful shorthand in
+writing radicals, and in many cases is easier to read since the
+emphasis is on the radical centre rather than the number of
+hydrogens which is less chemically significant.</p>
+<p>In addition, this extension interprets multiple lower case <code class="docutils literal notranslate"><span class="pre">c</span></code>
+without ring closure as a conjugated carbon chain, so that <code class="docutils literal notranslate"><span class="pre">cccc</span></code> is
+input as 1,3-butadiene. Lycopene (the red in tomatoes) is
+<code class="docutils literal notranslate"><span class="pre">Cc(C)cCCc(C)cccc(C)cccc(C)ccccc(C)cccc(C)cccc(C)CCcc(C)C</span></code> (without
+the stereochemical specifications). This conjugated chain form is
+not used on output - except in the standard SMILES aromatic form,
+<code class="docutils literal notranslate"><span class="pre">c1ccccc1</span></code> benzene.</p>
+<p>It is interesting to note that the lower case extension actually improves
+the chemical representation in a few cases. The allyl radical C<sub>3</sub>H<sub>5</sub>
+would be conventionally <code class="docutils literal notranslate"><span class="pre">[CH2]=[CH][CH2]</span></code> (in its explict H form),
+but could be represented as <code class="docutils literal notranslate"><span class="pre">ccc</span></code> with the extended syntax. The
+latter more accurately represents the symmetry of the molecule
+caused by delocalisation.</p>
+<p>This extension is not as robust or as carefully considered as standard
+SMILES and should be used with restraint. A structure that uses <code class="docutils literal notranslate"><span class="pre">c</span></code>
+as a radical centre close to aromatic carbons can be confusing to
+read, and Open Babel’s SMILES parser can also be confused. For example, it
+recognizes <code class="docutils literal notranslate"><span class="pre">c1ccccc1c</span></code> as the benzyl radical, but it doesn’t like
+<code class="docutils literal notranslate"><span class="pre">c1cc(c)ccc1</span></code>. Radical centres should not be involved in ring
+closure: for cyclohexyl radical <code class="docutils literal notranslate"><span class="pre">C1cCCCC1</span></code> is ok, but <code class="docutils literal notranslate"><span class="pre">c1CCCCC1</span></code> is not.</p>
+</div>
+<div class="section" id="other-supported-extensions">
+<h2>Other Supported Extensions<a class="headerlink" href="#other-supported-extensions" title="Permalink to this headline">¶</a></h2>
+<p>Open Babel supports quadruple bonds <code class="docutils literal notranslate"><span class="pre">$</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">[Rh-](Cl)(Cl)(Cl)(Cl)$[Rh-](Cl)(Cl)(Cl)Cl</span></code>
+and aromatic <code class="docutils literal notranslate"><span class="pre">[te]</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">Cc1[te]ccc1</span></code>. In addition, ring closures
+up to 5 digits <code class="docutils literal notranslate"><span class="pre">%(N)</span></code> are supported, e.g. <code class="docutils literal notranslate"><span class="pre">C%(100)CC%(100)</span></code>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../Contributing/Contributing.html" title="Contributing to Open Babel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Aromaticity/Aromaticity.html" title="Handling of aromaticity"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>
