@@ -1,6 +1,6 @@
 ---
 title: What's available? Online help
-permalink: /What's_available?_Online_help/
+permalink: /What's_available_Online_help/
 ---
 
 ### Getting help information from the command line
