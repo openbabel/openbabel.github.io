@@ -27,7 +27,7 @@ remote_theme: "mmistakes/minimal-mistakes"
 markdown: kramdown
 plugins:
   - jekyll-feed
-  - jekyll-include_cache
+  - jekyll-include-cache
 
 twitter:
   username:   openbabel_org
@@ -39,5 +39,6 @@ defaults:
     values:
       layout: single
       share: true
-include:
-  - docs # don't exclude folders starting with underscores in docs
+include: # for Sphinx docs (see https://github.com/jekyll/jekyll/issues/1352)
+  - _static
+  - _images
