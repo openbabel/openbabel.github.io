@@ -1,0 +1,8 @@
+\form#0:$a$
+\form#1:$b$
+\form#2:$c$
+\form#3:$d$
+\form#4:$S_v$
+\form#5:\[ S_v = \left| \begin{array}{ccc} x_b - x_a & y_b - y_a & z_b - z_a \\ x_c - x_a & y_c - y_a & z_c - z_a \\ x_d - x_a & y_d - y_a & z_d - z_a \end{array} \right| \]
+\form#6:$S_t$
+\form#7:\[ S_t = (x_a - x_c) (y_b - y_c) - (y_a - y_c) (x_b - x_c) \]
