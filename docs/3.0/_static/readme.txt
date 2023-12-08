@@ -1,1 +1,0 @@
-PNGs are required (by LaTeX).
