@@ -1,0 +1,269 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Open Babel, or how I learned to love the chemistry file format &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="Introduction/intro.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Introduction/intro.html" title="Introduction"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Open Babel 3.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Introduction/intro.html"
+                        title="next chapter">Introduction</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="open-babel-or-how-i-learned-to-love-the-chemistry-file-format">
+<h1>Open Babel, or how I learned to love the chemistry file format<a class="headerlink" href="#open-babel-or-how-i-learned-to-love-the-chemistry-file-format" title="Permalink to this headline">¶</a></h1>
+<p>The latest version of this documentation is available in several formats from <a class="reference external" href="http://openbabel.org/docs/dev/">http://openbabel.org/docs/dev/</a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction/intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction/goals.html">Goals of the Open Babel project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction/thanks.html">Thanks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Installation/install.html">Install Open Babel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Installation/install.html#install-a-binary-package">Install a binary package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation/install.html#compiling-open-babel">Compiling Open Babel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Command-line_tools/babel.html">obabel - Convert, Filter and Manipulate Chemical Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/babel.html#synopsis">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/babel.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/babel.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/babel.html#format-options">Format Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/babel.html#append-property-values-to-the-title">Append property values to the title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/babel.html#generating-conformers-for-structures">Generating conformers for structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/babel.html#filtering-molecules-from-a-multimolecule-file">Filtering molecules from a multimolecule file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/babel.html#substructure-and-similarity-searching">Substructure and similarity searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/babel.html#sorting-molecules">Sorting molecules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/babel.html#remove-duplicate-molecules">Remove duplicate molecules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/babel.html#aliases-for-chemical-groups">Aliases for chemical groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/babel.html#forcefield-energy-and-minimization">Forcefield energy and minimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/babel.html#aligning-molecules-or-substructures">Aligning molecules or substructures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/babel.html#specifying-the-speed-of-3d-coordinate-generation">Specifying the speed of 3D coordinate generation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="GUI/GUI.html">The Open Babel GUI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="GUI/GUI.html#basic-operation">Basic operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI/GUI.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI/GUI.html#multiple-input-files">Multiple input files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI/GUI.html#wildcards-in-filenames">Wildcards in filenames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI/GUI.html#local-input">Local input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI/GUI.html#output-file">Output file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI/GUI.html#graphical-display">Graphical display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI/GUI.html#using-a-restricted-set-of-formats">Using a restricted set of formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI/GUI.html#other-features">Other features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI/GUI.html#example-files">Example files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="GUITutorial/GUITutorial.html">Tutorial on using the GUI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="GUITutorial/Conversion.html">Converting chemical file formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUITutorial/Filtering.html">Filtering structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUITutorial/Searching.html">Substructure and similarity searching a large dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Fingerprints/intro.html">Molecular fingerprints and similarity searching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Fingerprints/fingerprints.html">Fingerprint format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fingerprints/spectrophore.html">Spectrophores™</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Command-line_tools/Rosetta.html">obabel vs Chemistry Toolkit Rosetta</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/Rosetta.html#heavy-atom-counts-from-an-sd-file">Heavy atom counts from an SD file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/Rosetta.html#convert-a-smiles-string-to-canonical-smiles">Convert a SMILES string to canonical SMILES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/Rosetta.html#report-how-many-sd-file-records-are-within-a-certain-molecular-weight-range">Report how many SD file records are within a certain molecular weight range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/Rosetta.html#convert-smiles-file-to-sd-file">Convert SMILES file to SD file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/Rosetta.html#report-the-similarity-between-two-structures">Report the similarity between two structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/Rosetta.html#find-the-10-nearest-neighbors-in-a-data-set">Find the 10 nearest neighbors in a data set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/Rosetta.html#depict-a-compound-as-an-image">Depict a compound as an image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/Rosetta.html#highlight-a-substructure-in-the-depiction">Highlight a substructure in the depiction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/Rosetta.html#align-the-depiction-using-a-fixed-substructure">Align the depiction using a fixed substructure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/Rosetta.html#perform-a-substructure-search-on-an-sdf-file-and-report-the-number-of-false-positives">Perform a substructure search on an SDF file and report the number of false positives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/Rosetta.html#calculate-tpsa">Calculate TPSA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/Rosetta.html#working-with-sd-tag-data">Working with SD tag data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Command-line_tools/Rosetta.html#unattempted-tasks">Unattempted tasks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Depiction/depiction.html">2D Depiction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Depiction/depiction.html#molecular-graphics">Molecular graphics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3DStructureGen/Overview.html">3D Structure Generation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3DStructureGen/SingleConformer.html">Generate a single conformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3DStructureGen/multipleconformers.html">Generate multiple conformers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Forcefields/Overview.html">Molecular Mechanics and Force Fields</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Forcefields/gaff.html">Generalized Amber Force Field (gaff)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Forcefields/ghemical.html">Ghemical Force Field (ghemical)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Forcefields/mmff94.html">MMFF94 Force Field (mmff94)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Forcefields/uff.html">Universal Force Field (uff)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UseTheLibrary/intro.html">Write software using the Open Babel library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="UseTheLibrary/CppAPI.html">The Open Babel API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseTheLibrary/CppExamples.html">C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseTheLibrary/Python.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseTheLibrary/Java.html">Java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseTheLibrary/Perl.html">Perl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseTheLibrary/CSharp.html">CSharp and OBDotNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseTheLibrary/Ruby.html">Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UseTheLibrary/migration.html">Updating to Open Babel 3.0 from 2.x</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Cheminf101/index.html">Cheminformatics 101</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Cheminf101/basics.html">Cheminformatics Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Cheminf101/represent.html">Representing Molecules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Cheminf101/search.html">Substructure Searching with Indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Cheminf101/similarity.html">Molecular Similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Cheminf101/registration.html">Chemical Registration Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Aromaticity/Aromaticity.html">Handling of aromaticity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Aromaticity/Aromaticity.html#how-is-aromaticity-information-stored">How is aromaticity information stored?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Aromaticity/Aromaticity.html#perception-of-aromaticity">Perception of aromaticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Aromaticity/Aromaticity.html#smiles-reading-and-writing">SMILES reading and writing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Aromaticity/Aromaticity.html#effect-of-modifying-the-structure">Effect of modifying the structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Features/Radicals.html">Radicals and SMILES extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Features/Radicals.html#the-need-for-radicals-and-implicit-hydrogen-to-coexist">The need for radicals and implicit hydrogen to coexist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Features/Radicals.html#how-open-babel-does-it">How Open Babel does it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Features/Radicals.html#in-radicals-either-the-hydrogen-or-the-spin-multiplicity-can-be-implicit">In radicals either the hydrogen or the spin multiplicity can be implicit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Features/Radicals.html#smiles-extensions-for-radicals">SMILES extensions for radicals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Features/Radicals.html#other-supported-extensions">Other Supported Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing/Contributing.html">Contributing to Open Babel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Contributing/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributing/DevBestPractices.html">Developing Open Babel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributing/Documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributing/Testing.html">Adding a new test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contributing/SoftwareArchaeology.html">Software Archaeology</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="WritePlugins/index.html">Adding plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="WritePlugins/AddFileFormat.html">How to add a new file format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WritePlugins/AddingNewOptions.html">Adding new operations and options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WritePlugins/AddNewDescriptor.html">How to add a new descriptor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FileFormats/Overview.html">Supported File Formats and Options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/Common_cheminformatics_Formats.html">Common cheminformatics formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/Utility_Formats.html">Utility formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/Other_cheminformatics_Formats.html">Other cheminformatics formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/Computational_chemistry_Formats.html">Computational chemistry formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/Molecular_fingerprint_Formats.html">Molecular fingerprint formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/Crystallography_Formats.html">Crystallography formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/Reaction_Formats.html">Reaction formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/Image_Formats.html">Image formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/2D_drawing_Formats.html">2D drawing formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/3D_viewer_Formats.html">3D viewer formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/Kinetics_and_Thermodynamics_Formats.html">Kinetics and Thermodynamics formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/Molecular_dynamics_and_docking_Formats.html">Molecular dynamics and docking formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/Volume_data_Formats.html">Volume data formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/JSON_Formats.html">JSON formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/Miscellaneous_Formats.html">Miscellaneous formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/Biological_data_Formats.html">Biological data formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileFormats/Obscure_Formats.html">Obscure formats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Descriptors/descriptors.html">Descriptors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Descriptors/descriptors.html#numerical-descriptors">Numerical descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Descriptors/descriptors.html#textual-descriptors">Textual descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Descriptors/descriptors.html#descriptors-for-filtering">Descriptors for filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Charges/charges.html">Charge models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Charges/charges.html#cheminformatics-charge-models">Cheminformatics charge models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Charges/charges.html#special-charge-models">Special charge models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ReleaseNotes/index.html">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ReleaseNotes/ob300.html">Open Babel 3.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ReleaseNotes/ob240.html">Open Babel 2.4.0</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Introduction/intro.html" title="Introduction"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Open Babel 3.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

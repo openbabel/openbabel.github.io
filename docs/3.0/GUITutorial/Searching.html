@@ -1,0 +1,158 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Substructure and similarity searching a large dataset &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Molecular fingerprints and similarity searching" href="../Fingerprints/intro.html" />
+    <link rel="prev" title="Filtering structures" href="Filtering.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../Fingerprints/intro.html" title="Molecular fingerprints and similarity searching"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Filtering.html" title="Filtering structures"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="GUITutorial.html" accesskey="U">Tutorial on using the GUI</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Filtering.html"
+                        title="previous chapter">Filtering structures</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Fingerprints/intro.html"
+                        title="next chapter">Molecular fingerprints and similarity searching</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="substructure-and-similarity-searching-a-large-dataset">
+<h1>Substructure and similarity searching a large dataset<a class="headerlink" href="#substructure-and-similarity-searching-a-large-dataset" title="Permalink to this headline">¶</a></h1>
+<p>Open Babel provides a format called the <code class="docutils literal notranslate"><span class="pre">fs</span> <span class="pre">--</span> <span class="pre">fastsearch</span> <span class="pre">index</span></code> which should be used when searching large datasets (like ChEMBL) for molecules similar to a particular query. There are faster ways of searching (like using a chemical database) but FastSearch is convenient, and should give reasonable performance for most people.</p>
+<p>To demonstrate similarity searching, we will use the first 1000 molecules in the latest release of ChEMBL:</p>
+<ul class="simple">
+<li>Download the 2D SDF version of ChEMBL, <code class="file docutils literal notranslate"><span class="pre">chembl_nn.sdf.gz</span></code>, from the <a class="reference external" href="ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/latest/">ChEMBLdb download site</a> and save in your <cite>Work</cite> folder. (Note: this is a gzipped file, but Open Babel will handle this without problems.)</li>
+<li>Set up an SDF to SDF conversion, set <code class="file docutils literal notranslate"><span class="pre">chembl_nn.sdf.gz</span></code> as the input file and <code class="file docutils literal notranslate"><span class="pre">1000_chembl.sdf</span></code> as the output file.</li>
+<li>Only convert the first 1000 molecules by entering <code class="docutils literal notranslate"><span class="pre">1000</span></code> in the box <span class="guilabel">End import at molecule # specified</span>.</li>
+</ul>
+<div class="figure">
+<img alt="../_images/first1000.png" src="../_images/first1000.png" />
+</div>
+<ul class="simple">
+<li>Click <span class="guilabel">CONVERT</span></li>
+</ul>
+<p>We can going to use the following structure for substructure and similarity searching. It can be represented by the SMILES string <code class="docutils literal notranslate"><span class="pre">Nc1ccc(N)cc1</span></code>.</p>
+<div class="figure">
+<img alt="../_images/1,4-diamino-phenyl.png" src="../_images/1,4-diamino-phenyl.png" />
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">How the search works</p>
+<p class="last">Behind the scenes, the FastSearch index simply stores a path-based
+binary fingerprint for each molecule. When used to search, similarity
+is measured based on the Tanimoto coefficient. For exact search, hits
+are verified by Open Babel’s graph isomorphism matcher.</p>
+</div>
+<p>Next, we will create a FastSearch index for this dataset of 1000 molecules:</p>
+<ul class="simple">
+<li>Convert <code class="file docutils literal notranslate"><span class="pre">1000_chembl.sdf</span></code> from SDF to FS format, with an output filename of <code class="file docutils literal notranslate"><span class="pre">1000_chembl.fs</span></code></li>
+</ul>
+<p>By using this FastSearch index, the speed of substructure and similarity searching is much improved. First of all, let’s do a substructure search:</p>
+<ul class="simple">
+<li>Set up a conversion from FS to SMILES with <code class="file docutils literal notranslate"><span class="pre">1000_chembl.fs</span></code> as the input file. Tick the box for <span class="guilabel">Output below only</span> and <span class="guilabel">Display in Firefox</span></li>
+<li>Enter <code class="docutils literal notranslate"><span class="pre">Nc1ccc(N)cc1</span></code> into the box <span class="guilabel">Convert only if match SMARTS or mol in file</span></li>
+<li>Click <span class="guilabel">CONVERT</span></li>
+</ul>
+<ol class="upperalpha simple" start="17">
+<li>How does the speed of the substructure search compare to if you used <code class="file docutils literal notranslate"><span class="pre">1000_chembl.sdf</span></code> as the input file instead?</li>
+</ol>
+<p>Next, let’s find the 5 most similar molecules to the same query. The Tanimoto coefficient of a path-based fingerprint is used as the measurement of similarity. This has a value from 0.0 to 1.0 (maximum similarity) and we will display the value below each molecule:</p>
+<ul class="simple">
+<li>Set up the FS to SMILES conversion as before, and again enter <code class="docutils literal notranslate"><span class="pre">Nc1ccc(N)cc1</span></code> into the box <span class="guilabel">Convert only if match SMARTS or mol in file</span></li>
+<li>Enter <code class="docutils literal notranslate"><span class="pre">5</span></code> into the box <span class="guilabel">Do similarity search: #mols or # as min Tanimoto</span></li>
+<li>Tick the box <span class="guilabel">Add Tanimoto coefficient to title in similarity search</span></li>
+<li>Click <span class="guilabel">CONVERT</span></li>
+</ul>
+<div class="figure">
+<img alt="../_images/similarity.png" src="../_images/similarity.png" />
+</div>
+<ol class="upperalpha simple" start="17">
+<li>Look at the 5 most similar molecules. Can you tell why they were regarded as similar to the query?</li>
+</ol>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../Fingerprints/intro.html" title="Molecular fingerprints and similarity searching"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Filtering.html" title="Filtering structures"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="GUITutorial.html" >Tutorial on using the GUI</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

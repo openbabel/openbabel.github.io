@@ -1,0 +1,162 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MolPrint2D format (mpd) &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Multilevel Neighborhoods of Atoms (MNA) (mna)" href="Multilevel_Neighborhoods_of_Atoms_(MNA).html" />
+    <link rel="prev" title="Generic Output file format (dat, output, out, log)" href="Generic_Output_file_format.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Multilevel_Neighborhoods_of_Atoms_(MNA).html" title="Multilevel Neighborhoods of Atoms (MNA) (mna)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Generic_Output_file_format.html" title="Generic Output file format (dat, output, out, log)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Utility_Formats.html" accesskey="U">Utility formats</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">MolPrint2D format (mpd)</a><ul>
+<li><a class="reference internal" href="#write-options">Write Options</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Generic_Output_file_format.html"
+                        title="previous chapter">Generic Output file format (dat, output, out, log)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Multilevel_Neighborhoods_of_Atoms_(MNA).html"
+                        title="next chapter">Multilevel Neighborhoods of Atoms (MNA) (mna)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="molprint2d-format-mpd">
+<span id="molprint2d-format"></span><h1>MolPrint2D format (mpd)<a class="headerlink" href="#molprint2d-format-mpd" title="Permalink to this headline">¶</a></h1>
+<p><strong>An implementation of the circular fingerprint MolPrint2D</strong></p>
+<p>MolPrint2D is an atom-environment fingerprint developed by Bender et al <a class="reference internal" href="#bmg2004" id="id1">[bmg2004]</a>
+which has been used in QSAR studies and for measuring molecular similarity.</p>
+<p>The format of the output is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Molec_name</span><span class="p">]</span>\<span class="n">t</span><span class="p">[</span><span class="n">atomtype</span><span class="p">];[</span><span class="n">layer</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">frequency</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">neighbour_type</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Example for the SMILES string <code class="docutils literal notranslate"><span class="pre">CC(=O)Cl</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">acid</span> <span class="n">chloride</span>   <span class="mi">1</span><span class="p">;</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">9</span><span class="p">;</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">15</span><span class="p">;</span>   <span class="mi">2</span><span class="p">;</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">9</span><span class="p">;</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">15</span><span class="p">;</span>
+                <span class="mi">9</span><span class="p">;</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">15</span><span class="p">;</span>   <span class="mi">15</span><span class="p">;</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">9</span><span class="p">;</span>
+</pre></div>
+</div>
+<table class="docutils citation" frame="void" id="bmg2004" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[bmg2004]</a></td><td>Andreas Bender, Hamse Y. Mussa, and Robert C. Glen. <strong>Molecular
+Similarity Searching Using Atom Environments, Information-Based
+Feature Selection, and a Naive Bayesian Classifier.</strong>
+<em>J. Chem. Inf. Comput. Sci.</em> <strong>2004</strong>, <em>44</em>, 170-178.
+[<a class="reference external" href="https://doi.org/10.1021/ci034207y">Link</a>]</td></tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a write-only format.</p>
+</div>
+<div class="section" id="write-options">
+<h2>Write Options<a class="headerlink" href="#write-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">n</span></kbd></td>
+<td><em>prefix molecule names with name of file</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">c</span></kbd></td>
+<td><em>use XML style separators instead</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">i</span></kbd></td>
+<td><em>use IDX atom types of babel internal</em></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Multilevel_Neighborhoods_of_Atoms_(MNA).html" title="Multilevel Neighborhoods of Atoms (MNA) (mna)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Generic_Output_file_format.html" title="Generic Output file format (dat, output, out, log)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Utility_Formats.html" >Utility formats</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

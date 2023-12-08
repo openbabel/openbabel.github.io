@@ -1,0 +1,241 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Generate multiple conformers &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Molecular Mechanics and Force Fields" href="../Forcefields/Overview.html" />
+    <link rel="prev" title="Generate a single conformer" href="SingleConformer.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../Forcefields/Overview.html" title="Molecular Mechanics and Force Fields"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="SingleConformer.html" title="Generate a single conformer"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" accesskey="U">3D Structure Generation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Generate multiple conformers</a><ul>
+<li><a class="reference internal" href="#genetic-algorithm">Genetic algorithm</a></li>
+<li><a class="reference internal" href="#confab">Confab</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SingleConformer.html"
+                        title="previous chapter">Generate a single conformer</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Forcefields/Overview.html"
+                        title="next chapter">Molecular Mechanics and Force Fields</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="generate-multiple-conformers">
+<h1>Generate multiple conformers<a class="headerlink" href="#generate-multiple-conformers" title="Permalink to this headline">¶</a></h1>
+<p>In contrast to conformer searching, the goal of conformer generation is not simply to find a low energy conformation but to generate several different conformations. Such conformations may be required by another piece of software such as some protein-ligand docking and pharmacophore programs. They may also be useful if considering writing some sort of shape comparison method.</p>
+<p>Open Babel has two distinct conformer generating codes:</p>
+<ol class="arabic simple">
+<li>Confab: A systematic conformer generator that generates all diverse
+low-energy conformers.</li>
+<li>Genetic algorithm: This is a stochastic conformer generator that generates
+diverse conformers either on an energy or RMSD basis</li>
+</ol>
+<div class="section" id="genetic-algorithm">
+<h2>Genetic algorithm<a class="headerlink" href="#genetic-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>A genetic algorithm is a general computational method to find a globally optimum solution to some multiparameter problem. It involves a population of conformers which after a series of generations, iteratively arrive at an optimal solution in terms of either RMSD diversity or energy.</p>
+<p>Information about using this method is available at the command-line using: <code class="docutils literal notranslate"><span class="pre">obabel</span> <span class="pre">-L</span> <span class="pre">conformer</span></code>. Although labelled as “Conformer Searching”, if you choose the genetic algorithm method (which is the default) then you can save the conformers in the final generation using <code class="docutils literal notranslate"><span class="pre">--writeconformers</span></code>. For example, the following line creates 30 conformers optimized for RMSD diversity:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">startingConformer</span><span class="o">.</span><span class="n">mol</span> <span class="o">-</span><span class="n">O</span> <span class="n">ga_conformers</span><span class="o">.</span><span class="n">sdf</span> <span class="o">--</span><span class="n">conformer</span> <span class="o">--</span><span class="n">nconf</span> <span class="mi">30</span>
+       <span class="o">--</span><span class="n">score</span> <span class="n">rmsd</span> <span class="o">--</span><span class="n">writeconformers</span>
+</pre></div>
+</div>
+<p>In this case <code class="docutils literal notranslate"><span class="pre">--score</span> <span class="pre">rmsd</span></code> was not strictly necessary as RMSD diversity was the default in any case.</p>
+</div>
+<div class="section" id="confab">
+<span id="id1"></span><h2>Confab<a class="headerlink" href="#confab" title="Permalink to this headline">¶</a></h2>
+<p>Confab systematically generates all diverse low-energy conformers for molecules. To run Confab use the <code class="docutils literal notranslate"><span class="pre">--confab</span></code> operation, and to assess the results by calculating RMSDs to reference structures, use the <strong>confabreport</strong> output format.</p>
+<p class="rubric">confab operator</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">obabel</span> <span class="pre">&lt;inputfile&gt;</span> <span class="pre">-O</span> <span class="pre">&lt;outputfile&gt;</span> <span class="pre">--confab</span> <span class="pre">[confab</span> <span class="pre">options]</span></code> for typical usage</li>
+<li><code class="docutils literal notranslate"><span class="pre">obabel</span> <span class="pre">-L</span> <span class="pre">confab</span></code> for help text</li>
+</ul>
+<p>The <em>inputfile</em> should contain one or more 3D structures (note that 2D structures will generate erroneous results). Generated conformers are written to the <em>outputfile</em>. All of the conformers for a particular molecule will have the same title as the original molecule.</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--rcutoff <var>&lt;rmsd&gt;</var></span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>RMSD cutoff (default 0.5 Angstrom)</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--ecutoff <var>&lt;energy&gt;</var></span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Energy cutoff (default 50.0 kcal/mol)</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--conf <var>&lt;#confs&gt;</var></span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Max number of conformers to test (default is 1 million)</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--original</span></kbd></td>
+<td>Include the input conformation as the first conformer</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--verbose</span></kbd></td>
+<td>Verbose - display information on torsions found</td></tr>
+</tbody>
+</table>
+<p class="rubric">confabreport format</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">obabel</span> <span class="pre">&lt;inputfile&gt;</span> <span class="pre">[-O</span> <span class="pre">&lt;outputfile&gt;]</span> <span class="pre">-o</span> <span class="pre">confabreport</span> <span class="pre">-xf</span> <span class="pre">&lt;reference_file&gt;</span> <span class="pre">[-xr</span> <span class="pre">&lt;rmsd&gt;]</span></code> for typical usage</li>
+<li><code class="docutils literal notranslate"><span class="pre">obabel</span> <span class="pre">-L</span> <span class="pre">confabreport</span></code> for help text</li>
+</ul>
+<p>Once a file containing conformers has been generated by Confab, the result can be compared to the original input structures or a set of reference structures using this output format. Conformers are matched with reference structures using the molecule title. For every conformer, there should be a reference structure (but not necessarily <em>vice versa</em>).</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-f <var>&lt;filename&gt;</var></span></kbd></td>
+<td>File containing reference structures</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r <var>&lt;rmsd&gt;</var></span></kbd></td>
+<td><p class="first">RMSD cutoff (default 0.5 Angstrom)</p>
+<p class="last">The number of structures with conformers within this RMSD cutoff
+of the reference will be reported.</p>
+</td></tr>
+</tbody>
+</table>
+<p class="rubric">Example</p>
+<p>The example file, <a class="reference external" href="../_static/bostrom.sdf">bostrom.sdf</a>, contains 36 molecules which have from 1 to 11 rotatable bonds (see <em>Bostrom, Greenwood, Gottfries, J Mol Graph Model, 2003, 21, 449</em>).</p>
+<p>We can generate and test up to 100K conformers using Confab as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; obabel bostrom.sdf -O confs.sdf --confab --conf 100000
+
+**Starting Confab 1.1.0
+**To support, cite Journal of Cheminformatics, 2011, 3, 8.
+..Input format = sdf
+..Output format = sdf
+..RMSD cutoff = 0.5
+..Energy cutoff = 50
+..Conformer cutoff = 1000000
+..Write input conformation? False
+..Verbose? False
+
+**Molecule 1
+..title = 1a28_STR_1_A_1__C__
+..number of rotatable bonds = 1
+..tot conformations = 12
+..tot confs tested = 12
+..below energy threshold = 10
+..generated 3 conformers
+
+... etc, etc
+
+0 molecules converted
+</pre></div>
+</div>
+<p>To check how many of the generated conformers are within 1.0 A RMSD of the original structures, we can use the confabreport format as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">obabel</span> <span class="n">confs</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">oconfabreport</span> <span class="o">-</span><span class="n">xf</span> <span class="n">bostrom</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">xr</span> <span class="mf">1.0</span>
+
+<span class="o">**</span><span class="n">Generating</span> <span class="n">Confab</span> <span class="n">Report</span>
+<span class="o">..</span><span class="n">Reference</span> <span class="n">file</span> <span class="o">=</span> <span class="n">bostrom</span><span class="o">.</span><span class="n">sdf</span>
+<span class="o">..</span><span class="n">Conformer</span> <span class="n">file</span> <span class="o">=</span> <span class="n">confs</span><span class="o">.</span><span class="n">sdf</span>
+
+<span class="o">..</span><span class="n">Molecule</span> <span class="mi">1</span>
+<span class="o">..</span><span class="n">title</span> <span class="o">=</span> <span class="mi">1</span><span class="n">a28_STR_1_A_1__C__</span>
+<span class="o">..</span><span class="n">number</span> <span class="n">of</span> <span class="n">confs</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">..</span><span class="n">minimum</span> <span class="n">rmsd</span> <span class="o">=</span> <span class="mf">0.0644801</span>
+<span class="o">..</span><span class="n">confs</span> <span class="n">less</span> <span class="n">than</span> <span class="n">cutoffs</span><span class="p">:</span> <span class="mf">0.2</span> <span class="mf">0.5</span> <span class="mi">1</span> <span class="mf">1.5</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">100</span>
+<span class="o">..</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">3</span> <span class="mi">3</span> <span class="mi">3</span> <span class="mi">3</span> <span class="mi">3</span> <span class="mi">3</span>
+<span class="o">..</span><span class="n">cutoff</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">passed</span> <span class="o">=</span>  <span class="n">Yes</span>
+
+<span class="o">...</span> <span class="n">etc</span><span class="p">,</span> <span class="n">etc</span>
+
+<span class="o">**</span><span class="n">Summary</span>
+<span class="o">..</span><span class="n">number</span> <span class="n">of</span> <span class="n">molecules</span> <span class="o">=</span> <span class="mi">36</span>
+<span class="o">..</span><span class="n">less</span> <span class="n">than</span> <span class="n">cutoff</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="mi">52271</span> <span class="n">molecules</span> <span class="n">converted</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../Forcefields/Overview.html" title="Molecular Mechanics and Force Fields"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="SingleConformer.html" title="Generate a single conformer"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >3D Structure Generation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

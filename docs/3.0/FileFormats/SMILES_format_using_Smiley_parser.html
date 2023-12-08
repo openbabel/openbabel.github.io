@@ -1,0 +1,223 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SMILES format using Smiley parser (smy) &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sybyl Mol2 format (ml2, sy2, mol2)" href="Sybyl_Mol2_format.html" />
+    <link rel="prev" title="SMILES format (smi, smiles)" href="SMILES_format.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Sybyl_Mol2_format.html" title="Sybyl Mol2 format (ml2, sy2, mol2)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="SMILES_format.html" title="SMILES format (smi, smiles)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Common_cheminformatics_Formats.html" accesskey="U">Common cheminformatics formats</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SMILES format using Smiley parser (smy)</a><ul>
+<li><a class="reference internal" href="#hydrogen-with-hydrogen-count">Hydrogen with Hydrogen Count</a></li>
+<li><a class="reference internal" href="#unmatched-ring-bond">Unmatched Ring Bond</a></li>
+<li><a class="reference internal" href="#conflicting-ring-bonds">Conflicting Ring Bonds</a></li>
+<li><a class="reference internal" href="#invalid-ring-bonds">Invalid Ring Bonds</a></li>
+<li><a class="reference internal" href="#invalid-chiral-valence">Invalid Chiral Valence</a></li>
+<li><a class="reference internal" href="#invalid-chiral-hydrogen-count">Invalid Chiral Hydrogen Count</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SMILES_format.html"
+                        title="previous chapter">SMILES format (smi, smiles)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Sybyl_Mol2_format.html"
+                        title="next chapter">Sybyl Mol2 format (ml2, sy2, mol2)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="smiles-format-using-smiley-parser-smy">
+<span id="smiles-format-using-smiley-parser"></span><h1>SMILES format using Smiley parser (smy)<a class="headerlink" href="#smiles-format-using-smiley-parser-smy" title="Permalink to this headline">¶</a></h1>
+<p>The Smiley parser presents an alternative to the standard SMILES parser
+(<a class="reference internal" href="SMILES_format.html#smiles-format"><span class="std std-ref">SMILES format (smi, smiles)</span></a>). It was written to be strictly compatible with the
+OpenSMILES standard (<a class="reference external" href="http://opensmiles.org">http://opensmiles.org</a>). In comparison, the standard
+parser is more forgiving to erroneous input, and also supports some extensions
+such as for radicals.</p>
+<p>In addition, the Smiley parser returns detailed error messages when problems
+arise parsing or validating the SMILES, whereas the standard parser seldom
+describes the specific problem. For a detailed description of the OpenSMILES
+semantics, the specification should be consulted. In addition to syntactical
+and grammatical correctness, the Smiley parser also verifies some basic
+semantics.</p>
+<p>Here are some examples of the errors reported:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">Bracket</span> <span class="n">atom</span> <span class="n">expression</span> <span class="n">contains</span> <span class="n">invalid</span> <span class="n">trailing</span> <span class="n">characters</span><span class="o">.</span>
+<span class="n">F</span><span class="o">.</span><span class="n">FB</span><span class="p">(</span><span class="n">F</span><span class="p">)</span><span class="n">F</span><span class="o">.</span><span class="p">[</span><span class="n">NH2</span><span class="o">+</span><span class="mi">251</span><span class="p">][</span><span class="n">C</span><span class="o">@</span><span class="nd">@H</span><span class="p">](</span><span class="n">CP</span><span class="p">(</span><span class="n">c1ccccc1</span><span class="p">)</span><span class="n">c1ccccc1</span><span class="p">)</span><span class="n">C</span><span class="p">(</span><span class="n">C</span><span class="p">)(</span><span class="n">C</span><span class="p">)</span><span class="n">C</span> <span class="mi">31586112</span>
+               <span class="o">^^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">Unmatched</span> <span class="n">branch</span> <span class="n">opening</span><span class="o">.</span>
+<span class="n">CC</span><span class="p">(</span><span class="n">CC</span>
+  <span class="o">^^^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">Unmatched</span> <span class="n">branch</span> <span class="n">closing</span><span class="o">.</span>
+<span class="n">CC</span><span class="p">)</span><span class="n">CC</span>
+<span class="o">^^^</span>
+<span class="n">SemanticsError</span><span class="p">:</span> <span class="n">Unmatched</span> <span class="n">ring</span> <span class="n">bond</span><span class="o">.</span>
+<span class="n">C1CCC</span>
+<span class="o">^</span>
+<span class="n">SemanticsError</span><span class="p">:</span> <span class="n">Conflicing</span> <span class="n">ring</span> <span class="n">bonds</span><span class="o">.</span>
+<span class="n">C</span><span class="o">-</span><span class="mi">1</span><span class="n">CCCCC</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<div class="section" id="hydrogen-with-hydrogen-count">
+<h2>Hydrogen with Hydrogen Count<a class="headerlink" href="#hydrogen-with-hydrogen-count" title="Permalink to this headline">¶</a></h2>
+<p>Hydrogen atoms can not have a hydrogen count. Hydrogen bound to a hydrogen
+atom should be specified by two bracket atom expressions.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">HH</span><span class="p">]</span>        <span class="n">invalid</span>
+<span class="p">[</span><span class="n">HH1</span><span class="p">]</span>       <span class="n">invalid</span> <span class="p">(</span><span class="n">same</span> <span class="k">as</span> <span class="p">[</span><span class="n">HH</span><span class="p">]</span>
+<span class="p">[</span><span class="n">HH3</span><span class="p">]</span>       <span class="n">invalid</span>
+<span class="p">[</span><span class="n">HH0</span><span class="p">]</span>       <span class="n">valid</span> <span class="p">(</span><span class="n">same</span> <span class="k">as</span> <span class="p">[</span><span class="n">H</span><span class="p">])</span>
+<span class="p">[</span><span class="n">H</span><span class="p">][</span><span class="n">H</span><span class="p">]</span>      <span class="n">valid</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="unmatched-ring-bond">
+<h2>Unmatched Ring Bond<a class="headerlink" href="#unmatched-ring-bond" title="Permalink to this headline">¶</a></h2>
+<p>Report unmatched ring bonds.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C1CCC</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conflicting-ring-bonds">
+<h2>Conflicting Ring Bonds<a class="headerlink" href="#conflicting-ring-bonds" title="Permalink to this headline">¶</a></h2>
+<p>When the bond type for ring bonds are explicitly specified at both ends,
+these should be the same.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="mi">1</span><span class="n">CCCCCC</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="invalid-ring-bonds">
+<h2>Invalid Ring Bonds<a class="headerlink" href="#invalid-ring-bonds" title="Permalink to this headline">¶</a></h2>
+<p>There are two types of invalid ring bonds. The first is when two atoms both
+have the same two ring bonds. This would mean adding a parallel edge in the
+graph which is not allowed. The second type is similar but results in a
+self-loop by having a ring bond number twice.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C12CCCC12</span>      <span class="n">parallel</span> <span class="n">bond</span>
+<span class="n">C11</span>            <span class="bp">self</span><span class="o">-</span><span class="n">loop</span> <span class="n">bond</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="invalid-chiral-valence">
+<h2>Invalid Chiral Valence<a class="headerlink" href="#invalid-chiral-valence" title="Permalink to this headline">¶</a></h2>
+<p>When an atom is specified as being chiral, it should have the correct
+number of neighboring atoms (possibly including an implicit H inside the
+bracket.</p>
+<p>The valid valences are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Tetrahedral</span> <span class="p">(</span><span class="n">TH</span><span class="p">)</span>          <span class="p">:</span> <span class="mi">4</span>
+<span class="n">Allene</span> <span class="p">(</span><span class="n">AL</span><span class="p">)</span>               <span class="p">:</span> <span class="mi">4</span> <span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="n">Square</span> <span class="n">Planar</span> <span class="p">(</span><span class="n">SP</span><span class="p">)</span>        <span class="p">:</span> <span class="mi">4</span>
+<span class="n">Trigonal</span> <span class="n">Bypiramidal</span> <span class="p">(</span><span class="n">TB</span><span class="p">)</span> <span class="p">:</span> <span class="mi">5</span>
+<span class="n">Octahedral</span><span class="p">(</span><span class="n">OH</span><span class="p">)</span>            <span class="p">:</span> <span class="mi">6</span>
+
+<span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">The</span> <span class="n">chiral</span> <span class="n">atom</span> <span class="n">has</span> <span class="n">only</span> <span class="mi">2</span> <span class="n">bonds</span> <span class="n">but</span> <span class="n">the</span> <span class="n">neighbor</span><span class="s1">&#39;s neighbors are</span>
+    <span class="n">counted</span><span class="p">:</span> <span class="n">NC</span><span class="p">(</span><span class="n">Br</span><span class="p">)</span><span class="o">=</span><span class="p">[</span><span class="n">C</span><span class="nd">@AL1</span><span class="p">]</span><span class="o">=</span><span class="n">C</span><span class="p">(</span><span class="n">F</span><span class="p">)</span><span class="n">I</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="invalid-chiral-hydrogen-count">
+<h2>Invalid Chiral Hydrogen Count<a class="headerlink" href="#invalid-chiral-hydrogen-count" title="Permalink to this headline">¶</a></h2>
+<p>Chiral atoms can only have one hydrogen in their bracket since multiple
+hydrogens would make them not chiral.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">[</span><span class="n">C</span><span class="nd">@H2</span><span class="p">]</span><span class="n">F</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a read-only format.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Sybyl_Mol2_format.html" title="Sybyl Mol2 format (ml2, sy2, mol2)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="SMILES_format.html" title="SMILES format (smi, smiles)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Common_cheminformatics_Formats.html" >Common cheminformatics formats</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

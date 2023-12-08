@@ -1,0 +1,154 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MMFF94 Force Field (mmff94) &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Universal Force Field (uff)" href="uff.html" />
+    <link rel="prev" title="Ghemical Force Field (ghemical)" href="ghemical.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="uff.html" title="Universal Force Field (uff)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ghemical.html" title="Ghemical Force Field (ghemical)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" accesskey="U">Molecular Mechanics and Force Fields</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ghemical.html"
+                        title="previous chapter">Ghemical Force Field (ghemical)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="uff.html"
+                        title="next chapter">Universal Force Field (uff)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mmff94-force-field-mmff94">
+<span id="mmff94-force-field"></span><h1>MMFF94 Force Field (mmff94)<a class="headerlink" href="#mmff94-force-field-mmff94" title="Permalink to this headline">¶</a></h1>
+<p>The MMFF94 force field (and the related MMFF94s) were developed by
+Merck and are sometimes called the Merck Molecular Force Field,
+although MMFF94 is no longer considered an acronym.</p>
+<p>The method provides good accuracy across a range of organic and
+<em>drug-like</em> molecules. The core parameterization was provided by
+high-quality quantum calculations, rather than experimental data,
+across ~500 test molecular systems.</p>
+<p>The method includes parameters for a wide range of atom types
+including the following common organic elements: C, H, N, O, F, Si, P,
+S, Cl, Br, and I. It also supports the following common ions: Fe<sup>+2</sup>, Fe<sup>+3</sup>, F<sup>-</sup>, Cl<sup>-</sup>, Br<sup>-</sup>, Li<sup>+</sup>, Na<sup>+</sup>, K<sup>+</sup>, Zn<sup>+2</sup>, Ca<sup>+2</sup>, Cu<sup>+1</sup>, Cu<sup>+2</sup>,
+and Mg<sup>+2</sup>. The Open Babel implementation should
+automatically perform atom typing and recognize these elements.</p>
+<p>MMFF94 performs well at optimizing geometries, bond lengths, angles,
+etc. and includes electrostatic and hydrogen-bonding effects.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you use MMFF94 you should cite the appropriate papers:</p>
+<ol class="last arabic simple">
+<li>Thomas A. Halgren, <em>J. Comput. Chem.,</em> 17, 490-519 <strong>(1996).</strong></li>
+<li>Thomas A. Halgren, <em>J. Comput. Chem.,</em> 17, 520-552 <strong>(1996).</strong></li>
+<li>Thomas A. Halgren, <em>J. Comput. Chem.,</em> 17, 553-586 <strong>(1996).</strong></li>
+<li>Thomas A. Halgren and Robert B. Nachbar, <em>J. Comput. Chem.,</em> 17, 587-615 <strong>(1996).</strong></li>
+<li>Thomas A. Halgren, <em>J. Comput. Chem.,</em> 17, 616-641 <strong>(1996).</strong></li>
+</ol>
+</div>
+<p>Some experiments and most theoretical calculations show significant
+pyramidal “puckering” at nitrogens in isolated structures. The MMFF94s
+(static) variant has slightly different out-of-plane bending and
+dihedral torsion parameters to planarize certain types of delocalized
+trigonal N atoms, such as aromatic aniline. This provides a better
+match to the time-average molecular geometry in solution or crystal
+structures.</p>
+<p>If you are comparing force-field optimized molecules to crystal
+structure geometries, we recommend using the MMFF94s variant for this
+reason. All other parameters are identical.</p>
+<p>However, if you are perfoming “docking” simulations, consideration of
+active solution conformations, or other types of computational
+studies, we recommend using the MMFF94 variant, since one form or
+another of the N geometry will predominate.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you use MMFF94s, you should also cite the following paper that details that method:</p>
+<ol class="last arabic simple" start="6">
+<li>Thomas A. Halgren, <em>J. Comput. Chem.</em>, 20, 720-729 <strong>(1999).</strong></li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="uff.html" title="Universal Force Field (uff)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ghemical.html" title="Ghemical Force Field (ghemical)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Molecular Mechanics and Force Fields</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

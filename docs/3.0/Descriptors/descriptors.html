@@ -1,0 +1,176 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Descriptors &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Charge models" href="../Charges/charges.html" />
+    <link rel="prev" title="XED format (xed)" href="../FileFormats/XED_format.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../Charges/charges.html" title="Charge models"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../FileFormats/XED_format.html" title="XED format (xed)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Descriptors</a><ul>
+<li><a class="reference internal" href="#numerical-descriptors">Numerical descriptors</a></li>
+<li><a class="reference internal" href="#textual-descriptors">Textual descriptors</a></li>
+<li><a class="reference internal" href="#descriptors-for-filtering">Descriptors for filtering</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../FileFormats/XED_format.html"
+                        title="previous chapter">XED format (xed)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Charges/charges.html"
+                        title="next chapter">Charge models</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="descriptors">
+<h1>Descriptors<a class="headerlink" href="#descriptors" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="numerical-descriptors">
+<h2>Numerical descriptors<a class="headerlink" href="#numerical-descriptors" title="Permalink to this headline">¶</a></h2>
+<p class="rubric">Number of atoms (atoms)</p>
+<p>Add or remove hydrogens to count total or heavy atoms
+SMARTS: *</p>
+<p class="rubric">Number of bonds (bonds)</p>
+<p>Add or remove hydrogens to count total or bonds between heavy atoms
+SMARTS: *~*</p>
+<p class="rubric">Number of Hydrogen Bond Donors (JoelLib) (HBD)</p>
+<p>SMARTS: [!#6;!H0]</p>
+<p class="rubric">Number of Hydrogen Bond Acceptors 1 (JoelLib) (HBA1)</p>
+<p>Identification of Biological Activity Profiles Using Substructural
+Analysis and Genetic Algorithms – Gillet, Willett and Bradshaw,
+U. of Sheffield and Glaxo Wellcome.
+Presented at Random &amp; Rational: Drug Discovery via Rational Design
+and Combinitorial Chemistry, Strategic Research Institute, Princeton
+NJ, Sept. 1995
+SMARTS: [$([!#6;+0]);!$([F,Cl,Br,I]);!$([o,s,nX3]);!$([Nv5,Pv5,Sv4,Sv6])]</p>
+<p class="rubric">Number of Hydrogen Bond Acceptors 2 (JoelLib) (HBA2)</p>
+<p>SMARTS: [$([$([#8,#16]);!$(*=N~O);!$(*~N=O);X1,X2]),$([#7;v3;!$([nH]);!$(*(-a)-a)])]</p>
+<p class="rubric">Number of Fluorine Atoms (nF)</p>
+<p>SMARTS: F</p>
+<p class="rubric">octanol/water partition coefficient (logP)</p>
+<p>Datafile: logp.txt</p>
+<p class="rubric">Molecular Weight filter (MW)</p>
+<p class="rubric">Number of triple bonds (tbonds)</p>
+<p>SMARTS: *#*</p>
+<p class="rubric">molar refractivity (MR)</p>
+<p>Datafile: mr.txt</p>
+<p class="rubric">Number of aromatic bonds (abonds)</p>
+<p>SMARTS: *:*</p>
+<p class="rubric">Number of single bonds (sbonds)</p>
+<p>SMARTS: *-*</p>
+<p class="rubric">Number of double bonds (dbonds)</p>
+<p>SMARTS: *=*</p>
+<p class="rubric">topological polar surface area (TPSA)</p>
+<p>Datafile: psa.txt</p>
+<p class="rubric">Rotatable bonds filter (rotors)</p>
+<p class="rubric">Melting point (MP)</p>
+<p>This is a melting point descriptor developed
+by Andy Lang. For details see:
+<a class="reference external" href="http://onschallenge.wikispaces.com/MeltingPointModel011">http://onschallenge.wikispaces.com/MeltingPointModel011</a>
+Datafile: mpC.txt</p>
+</div>
+<div class="section" id="textual-descriptors">
+<h2>Textual descriptors<a class="headerlink" href="#textual-descriptors" title="Permalink to this headline">¶</a></h2>
+<p class="rubric">Canonical SMILES (cansmi)</p>
+<p class="rubric">Canonical SMILES without isotopes or stereo (cansmiNS)</p>
+<p class="rubric">IUPAC InChI identifier (InChI)</p>
+<p class="rubric">InChIKey (InChIKey)</p>
+<p class="rubric">Chemical formula (formula)</p>
+<p class="rubric">For comparing a molecule’s title (title)</p>
+</div>
+<div class="section" id="descriptors-for-filtering">
+<h2>Descriptors for filtering<a class="headerlink" href="#descriptors-for-filtering" title="Permalink to this headline">¶</a></h2>
+<p class="rubric">Lipinski Rule of Five (L5)</p>
+<p>HBD&lt;5 HBA1&lt;10 MW&lt;500 logP&lt;5</p>
+<p class="rubric">SMARTS filter (smarts)</p>
+<p class="rubric">SMARTS filter (s)</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../Charges/charges.html" title="Charge models"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../FileFormats/XED_format.html" title="XED format (xed)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,425 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Pybel &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pybel API" href="Python_PybelAPI.html" />
+    <link rel="prev" title="The openbabel module" href="PythonDoc.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Python_PybelAPI.html" title="Pybel API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="PythonDoc.html" title="The openbabel module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="intro.html" >Write software using the Open Babel library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Python.html" accesskey="U">Python</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Pybel</a><ul>
+<li><a class="reference internal" href="#atoms-and-molecules">Atoms and Molecules</a></li>
+<li><a class="reference internal" href="#id2">Input/Output</a></li>
+<li><a class="reference internal" href="#fingerprints">Fingerprints</a></li>
+<li><a class="reference internal" href="#smarts-matching">SMARTS matching</a></li>
+<li><a class="reference internal" href="#combining-pybel-with-openbabel-py">Combining Pybel with <code class="file docutils literal notranslate"><span class="pre">openbabel.py</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="PythonDoc.html"
+                        title="previous chapter">The openbabel module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Python_PybelAPI.html"
+                        title="next chapter">Pybel API</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pybel">
+<span id="pybel-module"></span><h1>Pybel<a class="headerlink" href="#pybel" title="Permalink to this headline">¶</a></h1>
+<p>Pybel provides convenience functions and classes that make it
+simpler to use the Open Babel libraries from Python, especially for
+file input/output and for accessing the attributes of atoms and
+molecules. The Atom and Molecule classes used by Pybel can be
+converted to and from the OBAtom and OBMol used by the
+<code class="file docutils literal notranslate"><span class="pre">openbabel</span></code> module. These features are discussed in more detail
+below.</p>
+<p>The rationale and technical details behind Pybel are described in O’Boyle et al <a class="reference internal" href="#omh2008" id="id1">[omh2008]</a>. To support further development of Pybel, please cite this paper if you use Pybel to obtain results for publication.</p>
+<p>Information on the Pybel API can be found at the interactive Python
+prompt using the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function. The full API is also listed in
+the next section (see <a class="reference internal" href="Python_PybelAPI.html#pybel-api"><span class="std std-ref">Pybel API</span></a>).</p>
+<p>To use Pybel, use <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">openbabel</span> <span class="pre">import</span> <span class="pre">pybel</span></code>.</p>
+<table class="docutils citation" frame="void" id="omh2008" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[omh2008]</a></td><td>N.M. O’Boyle, C. Morley and G.R. Hutchison.
+<strong>Pybel: a Python wrapper for the OpenBabel cheminformatics toolkit.</strong>
+<em>Chem. Cent. J.</em> <strong>2008</strong>, <em>2</em>, 5.
+[<a class="reference external" href="https://doi.org/10.1186/1752-153X-2-5">Link</a>]</td></tr>
+</tbody>
+</table>
+<div class="section" id="atoms-and-molecules">
+<h2>Atoms and Molecules<a class="headerlink" href="#atoms-and-molecules" title="Permalink to this headline">¶</a></h2>
+<p>A
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule" title="pybel.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>
+can be created in any of three ways:</p>
+<ol class="arabic simple">
+<li>From an <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml">OBMol</a>, using <code class="docutils literal notranslate"><span class="pre">Molecule(myOBMol)</span></code></li>
+<li>By reading from a file (see <a class="reference internal" href="#id2"><span class="std std-ref">Input/Output</span></a>
+below)</li>
+<li>By reading from a string (see <a class="reference internal" href="#id2"><span class="std std-ref">Input/Output</span></a>
+below)</li>
+</ol>
+<p>An <a class="reference internal" href="Python_PybelAPI.html#pybel.Atom" title="pybel.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a>
+be created in two different ways:</p>
+<ol class="arabic simple">
+<li>From an <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBAtom.shtml">OBAtom</a>, using <code class="docutils literal notranslate"><span class="pre">Atom(myOBAtom)</span></code></li>
+<li>By accessing the <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.atoms" title="pybel.Molecule.atoms"><code class="xref py py-attr docutils literal notranslate"><span class="pre">atoms</span></code></a> attribute of a <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule" title="pybel.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a></li>
+</ol>
+<div class="sidebar">
+<p class="first sidebar-title">Using Pybel with <code class="file docutils literal notranslate"><span class="pre">openbabel.py</span></code></p>
+<p class="last">It is always possible to access the OBMol or OBAtom on which a
+Molecule or Atom is based, by accessing the appropriate attribute,
+either <code class="docutils literal notranslate"><span class="pre">.OBMol</span></code> or <code class="docutils literal notranslate"><span class="pre">.OBAtom</span></code>. In this way, it is easy to
+combine the convenience of <code class="docutils literal notranslate"><span class="pre">pybel</span></code> with the many additional
+capabilities present in <code class="docutils literal notranslate"><span class="pre">openbabel</span></code>. See
+<a class="reference internal" href="#combining"><span class="std std-ref">Combining Pybel with openbabel.py</span></a>
+below.</p>
+</div>
+<p>Molecules have the following attributes: <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.atoms" title="pybel.Molecule.atoms"><code class="xref py py-attr docutils literal notranslate"><span class="pre">atoms</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.charge" title="pybel.Molecule.charge"><code class="xref py py-attr docutils literal notranslate"><span class="pre">charge</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.data" title="pybel.Molecule.data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">data</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.dim" title="pybel.Molecule.dim"><code class="xref py py-attr docutils literal notranslate"><span class="pre">dim</span></code></a>,
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.energy" title="pybel.Molecule.energy"><code class="xref py py-attr docutils literal notranslate"><span class="pre">energy</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.exactmass" title="pybel.Molecule.exactmass"><code class="xref py py-attr docutils literal notranslate"><span class="pre">exactmass</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.formula" title="pybel.Molecule.formula"><code class="xref py py-attr docutils literal notranslate"><span class="pre">formula</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.molwt" title="pybel.Molecule.molwt"><code class="xref py py-attr docutils literal notranslate"><span class="pre">molwt</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.spin" title="pybel.Molecule.spin"><code class="xref py py-attr docutils literal notranslate"><span class="pre">spin</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.sssr" title="pybel.Molecule.sssr"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sssr</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.title" title="pybel.Molecule.title"><code class="xref py py-attr docutils literal notranslate"><span class="pre">title</span></code></a>
+and <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.unitcell" title="pybel.Molecule.unitcell"><code class="xref py py-attr docutils literal notranslate"><span class="pre">unitcell</span></code></a> (if crystal data). The <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.atoms" title="pybel.Molecule.atoms"><code class="xref py py-attr docutils literal notranslate"><span class="pre">atoms</span></code></a> attribute provides a
+list of the Atoms in a Molecule. The <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.data" title="pybel.Molecule.data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">data</span></code></a> attribute returns a
+dictionary-like object for accessing and editing the data fields
+associated with the molecule (technically, it’s a
+<a class="reference internal" href="Python_PybelAPI.html#pybel.MoleculeData" title="pybel.MoleculeData"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeData</span></code></a>
+object, but you can use it like it’s a regular dictionary). The
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.unitcell" title="pybel.Molecule.unitcell"><code class="xref py py-attr docutils literal notranslate"><span class="pre">unitcell</span></code></a> attribute gives access to any unit cell data
+associated with the molecule (see
+<a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBUnitCell.shtml">OBUnitCell</a>).
+The remaining attributes correspond directly to attributes of
+OBMols: e.g. <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.formula" title="pybel.Molecule.formula"><code class="xref py py-attr docutils literal notranslate"><span class="pre">formula</span></code></a> is equivalent to
+<a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml#a7adc12bff502264eaebf537a5e28a43c">OBMol::GetFormula()</a>. For more information on what these
+attributes are, please see the Open Babel C++ documentation for
+<a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml">OBMol</a>.</p>
+<p>For example, let’s suppose we have an SD file containing descriptor
+values in the data fields:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">readfile</span><span class="p">(</span><span class="s2">&quot;sdf&quot;</span><span class="p">,</span> <span class="s2">&quot;calculatedprops.sdf&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">next</span><span class="p">()</span> <span class="c1"># (readfile is described below)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">molwt</span><span class="p">)</span>
+<span class="go">100.1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">))</span>
+<span class="go">16</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="go">{&#39;Comment&#39;: &#39;Created by CDK&#39;, &#39;NSC&#39;: 1, &#39;Hydrogen Bond Donors&#39;: 3,</span>
+<span class="go"> &#39;Surface Area&#39;: 342.43, .... }</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Hydrogen Bond Donors&#39;</span><span class="p">])</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Random Value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># Add a descriptor containing noise</span>
+</pre></div>
+</div>
+<p>Molecules have a <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.write" title="pybel.Molecule.write"><code class="xref py py-func docutils literal notranslate"><span class="pre">write()</span></code></a>
+method that writes a representation of a Molecule to a file or to a
+string. See <a class="reference external" href="#Input.2FOutput">Input/Output</a> below. They also have
+a <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.calcfp" title="pybel.Molecule.calcfp"><code class="xref py py-func docutils literal notranslate"><span class="pre">calcfp()</span></code></a>
+method that calculates a molecular fingerprint. See <a class="reference internal" href="#fingerprints-pybel"><span class="std std-ref">Fingerprints</span></a>
+below.</p>
+<p>The <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.draw" title="pybel.Molecule.draw"><code class="xref py py-func docutils literal notranslate"><span class="pre">draw()</span></code></a>
+method of a Molecule generates 2D coordinates and a 2D depiction of
+a molecule. It uses the
+<a class="reference external" href="http://bkchem.zirael.org/oasa_en.html">OASA library</a> by Beda
+Kosata to do this. The default
+options are to show the image on the screen (<code class="docutils literal notranslate"><span class="pre">show=True</span></code>), not to
+write to a file (<code class="docutils literal notranslate"><span class="pre">filename=None</span></code>), to calculate 2D coordinates
+(<code class="docutils literal notranslate"><span class="pre">usecoords=False</span></code>) but not to store them (<code class="docutils literal notranslate"><span class="pre">update=False</span></code>).</p>
+<p>The <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.addh" title="pybel.Molecule.addh"><code class="xref py py-func docutils literal notranslate"><span class="pre">addh()</span></code></a>
+and <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.removeh" title="pybel.Molecule.removeh"><code class="xref py py-func docutils literal notranslate"><span class="pre">removeh()</span></code></a>
+methods allow hydrogens to be added and removed.</p>
+<p>If a molecule does not have 3D coordinates, they can be generated
+using the <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.make3D" title="pybel.Molecule.make3D"><code class="xref py py-func docutils literal notranslate"><span class="pre">make3D()</span></code></a>
+method. By default, this includes 50 steps of a geometry
+optimisation using the MMFF94 forcefield. The list of available
+forcefields is stored in the
+<a class="reference internal" href="Python_PybelAPI.html#pybel.forcefields" title="pybel.forcefields"><code class="xref py py-attr docutils literal notranslate"><span class="pre">forcefields</span></code></a>
+variable. To further optimise the structure, you can use the
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.localopt" title="pybel.Molecule.localopt"><code class="xref py py-func docutils literal notranslate"><span class="pre">localopt()</span></code></a>
+method, which by default carries out 500 steps of an optimisation
+using MMFF94. Note that hydrogens need to be added before calling
+<code class="docutils literal notranslate"><span class="pre">localopt()</span></code>.</p>
+<p>The <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.calcdesc" title="pybel.Molecule.calcdesc"><code class="xref py py-func docutils literal notranslate"><span class="pre">calcdesc()</span></code></a>
+method of a Molecule returns a dictionary containing descriptor
+values for LogP, Polar Surface Area (“TPSA”) and Molar Refractivity
+(“MR”). A list of the available descriptors is contained in the
+variable <a class="reference internal" href="Python_PybelAPI.html#pybel.descs" title="pybel.descs"><code class="xref py py-data docutils literal notranslate"><span class="pre">descs</span></code></a>.</p>
+<p>If only one or two descriptor values are required, you can specify
+the names as follows: <code class="docutils literal notranslate"><span class="pre">calcdesc([&quot;LogP&quot;,</span> <span class="pre">&quot;TPSA&quot;])</span></code>. Since the
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.data" title="pybel.Molecule.data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">data</span></code></a> attribute of a Molecule is also a dictionary, you can
+easily add the result of <code class="docutils literal notranslate"><span class="pre">calcdesc()</span></code> to an SD file (for example)
+as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span> <span class="o">=</span> <span class="n">readfile</span><span class="p">(</span><span class="s2">&quot;sdf&quot;</span><span class="p">,</span> <span class="s2">&quot;without_desc.sdf&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="n">descvalues</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">calcdesc</span><span class="p">()</span>
+<span class="c1"># In Python, the update method of a dictionary allows you</span>
+<span class="c1"># to add the contents of one dictionary to another</span>
+<span class="n">mol</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">descvalues</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">Outputfile</span><span class="p">(</span><span class="s2">&quot;sdf&quot;</span><span class="p">,</span> <span class="s2">&quot;with_desc.sdf&quot;</span><span class="p">)</span>
+<span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="n">output</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>For convenience, a Molecule provides an iterator over its Atoms.
+This is used as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">myMolecule</span><span class="p">:</span>
+   <span class="c1"># do something with atom</span>
+</pre></div>
+</div>
+<p>Atoms have the following attributes: <a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.atomicmass" title="pybel.Atom.atomicmass"><code class="xref py py-attr docutils literal notranslate"><span class="pre">atomicmass</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.atomicnum" title="pybel.Atom.atomicnum"><code class="xref py py-attr docutils literal notranslate"><span class="pre">atomicnum</span></code></a>,
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.coords" title="pybel.Atom.coords"><code class="xref py py-attr docutils literal notranslate"><span class="pre">coords</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.exactmass" title="pybel.Atom.exactmass"><code class="xref py py-attr docutils literal notranslate"><span class="pre">exactmass</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.formalcharge" title="pybel.Atom.formalcharge"><code class="xref py py-attr docutils literal notranslate"><span class="pre">formalcharge</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.heavyvalence" title="pybel.Atom.heavyvalence"><code class="xref py py-attr docutils literal notranslate"><span class="pre">heavyvalence</span></code></a>,
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.heterovalence" title="pybel.Atom.heterovalence"><code class="xref py py-attr docutils literal notranslate"><span class="pre">heterovalence</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.hyb" title="pybel.Atom.hyb"><code class="xref py py-attr docutils literal notranslate"><span class="pre">hyb</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.idx" title="pybel.Atom.idx"><code class="xref py py-attr docutils literal notranslate"><span class="pre">idx</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.implicitvalence" title="pybel.Atom.implicitvalence"><code class="xref py py-attr docutils literal notranslate"><span class="pre">implicitvalence</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.isotope" title="pybel.Atom.isotope"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isotope</span></code></a>,
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.partialcharge" title="pybel.Atom.partialcharge"><code class="xref py py-attr docutils literal notranslate"><span class="pre">partialcharge</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.spin" title="pybel.Atom.spin"><code class="xref py py-attr docutils literal notranslate"><span class="pre">spin</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.type" title="pybel.Atom.type"><code class="xref py py-attr docutils literal notranslate"><span class="pre">type</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.valence" title="pybel.Atom.valence"><code class="xref py py-attr docutils literal notranslate"><span class="pre">valence</span></code></a>, <a class="reference internal" href="Python_PybelAPI.html#pybel.Atom.vector" title="pybel.Atom.vector"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vector</span></code></a>. The <code class="docutils literal notranslate"><span class="pre">.coords</span></code>
+attribute provides a tuple (x, y, z) of the atom’s coordinates. The
+remaining attributes are as for the <em>Get</em> methods of
+<a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBAtom.shtml">OBAtom</a>.</p>
+</div>
+<div class="section" id="id2">
+<span id="id3"></span><h2>Input/Output<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>One of the strengths of Open Babel is the number of chemical file
+formats that it can handle (see <a class="reference internal" href="../FileFormats/Overview.html#file-formats"><span class="std std-ref">Supported File Formats and Options</span></a>). Pybel provides a dictionary of the
+input and output formats in the variables <a class="reference internal" href="Python_PybelAPI.html#pybel.informats" title="pybel.informats"><code class="xref py py-attr docutils literal notranslate"><span class="pre">informats</span></code></a>
+and <a class="reference internal" href="Python_PybelAPI.html#pybel.outformats" title="pybel.outformats"><code class="xref py py-attr docutils literal notranslate"><span class="pre">outformats</span></code></a>
+where the keys are the three-letter codes for each format (e.g.
+<code class="docutils literal notranslate"><span class="pre">pdb</span></code>) and the values are the descriptions (e.g. <code class="docutils literal notranslate"><span class="pre">Protein</span> <span class="pre">Data</span> <span class="pre">Bank</span>
+<span class="pre">format</span></code>).</p>
+<p>Pybel greatly simplifies the process of reading and writing
+molecules to and from strings or files. There are two functions for
+reading Molecules:</p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="Python_PybelAPI.html#pybel.readstring" title="pybel.readstring"><code class="xref py py-func docutils literal notranslate"><span class="pre">readstring()</span></code></a>
+reads a Molecule from a string</li>
+<li><a class="reference internal" href="Python_PybelAPI.html#pybel.readfile" title="pybel.readfile"><code class="xref py py-func docutils literal notranslate"><span class="pre">readfile()</span></code></a>
+provides an iterator over the Molecules in a file</li>
+</ol>
+<p>Here are some examples of their use. Note in particular the use of
+<code class="docutils literal notranslate"><span class="pre">.next()</span></code> to access the first (and possibly only) molecule in a
+file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mymol</span> <span class="o">=</span> <span class="n">readstring</span><span class="p">(</span><span class="s2">&quot;smi&quot;</span><span class="p">,</span> <span class="s2">&quot;CCCC&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">mymol</span><span class="o">.</span><span class="n">molwt</span><span class="p">)</span>
+<span class="go">58</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">mymol</span> <span class="ow">in</span> <span class="n">readfile</span><span class="p">(</span><span class="s2">&quot;sdf&quot;</span><span class="p">,</span> <span class="s2">&quot;largeSDfile.sdf&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">print</span><span class="p">(</span><span class="n">mymol</span><span class="o">.</span><span class="n">molwt</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">singlemol</span> <span class="o">=</span> <span class="n">readfile</span><span class="p">(</span><span class="s2">&quot;pdb&quot;</span><span class="p">,</span> <span class="s2">&quot;1CRN.pdb&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If a single molecule is to be written to a molecule or string, the
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.write" title="pybel.Molecule.write"><code class="xref py py-func docutils literal notranslate"><span class="pre">write()</span></code></a>
+method of the Molecule should be used:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">mymol.write(format)</span></code> returns a string</li>
+<li><code class="docutils literal notranslate"><span class="pre">mymol.write(format,</span> <span class="pre">filename)</span></code> writes the Molecule to a file.
+An optional additional parameter, <code class="docutils literal notranslate"><span class="pre">overwrite</span></code>, should be set to
+<code class="docutils literal notranslate"><span class="pre">True</span></code> if you wish to overwrite an existing file.</li>
+</ol>
+<p>For files containing multiple molecules, the
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Outputfile" title="pybel.Outputfile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Outputfile</span></code></a>
+class should be used instead. This is initialised with a format and
+filename (and optional <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> parameter). To write a
+Molecule to the file, the
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Outputfile.write" title="pybel.Outputfile.write"><code class="xref py py-func docutils literal notranslate"><span class="pre">write()</span></code></a>
+method of the Outputfile is called with the Molecule as a
+parameter. When all molecules have been written, the
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Outputfile.close" title="pybel.Outputfile.close"><code class="xref py py-func docutils literal notranslate"><span class="pre">close()</span></code></a>
+method of the Outputfile should be called.</p>
+<p>Here are some examples of output using the Pybel methods and
+classes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">mymol</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;smi&quot;</span><span class="p">))</span>
+<span class="go">&#39;CCCC&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mymol</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;smi&quot;</span><span class="p">,</span> <span class="s2">&quot;outputfile.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">largeSDfile</span> <span class="o">=</span> <span class="n">Outputfile</span><span class="p">(</span><span class="s2">&quot;sdf&quot;</span><span class="p">,</span> <span class="s2">&quot;multipleSD.sdf&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">largeSDfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mymol</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">largeSDfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">myothermol</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">largeSDfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fingerprints">
+<span id="fingerprints-pybel"></span><h2>Fingerprints<a class="headerlink" href="#fingerprints" title="Permalink to this headline">¶</a></h2>
+<p>A <a class="reference internal" href="Python_PybelAPI.html#pybel.Fingerprint" title="pybel.Fingerprint"><code class="xref py py-class docutils literal notranslate"><span class="pre">Fingerprint</span></code></a>
+can be created in either of two ways:</p>
+<ol class="arabic simple">
+<li>From a vector returned by the OpenBabel GetFingerprint() method,
+using <code class="docutils literal notranslate"><span class="pre">Fingerprint(myvector)</span></code></li>
+<li>By calling the <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.calcfp" title="pybel.Molecule.calcfp"><code class="xref py py-func docutils literal notranslate"><span class="pre">calcfp()</span></code></a>
+method of a Molecule</li>
+</ol>
+<p>The <a class="reference internal" href="Python_PybelAPI.html#pybel.Molecule.calcfp" title="pybel.Molecule.calcfp"><code class="xref py py-func docutils literal notranslate"><span class="pre">calcfp()</span></code></a> method takes an optional argument, <code class="docutils literal notranslate"><span class="pre">fptype</span></code>,
+which should be one of the fingerprint types supported by OpenBabel
+(see <a class="reference internal" href="../Fingerprints/intro.html#fingerprints"><span class="std std-ref">Molecular fingerprints and similarity searching</span></a>). The
+list of supported fingerprints is stored in the variable
+<a class="reference internal" href="Python_PybelAPI.html#pybel.fps" title="pybel.fps"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fps</span></code></a>.
+If unspecified, the default fingerprint (<code class="docutils literal notranslate"><span class="pre">FP2</span></code>) is calculated.</p>
+<p>Once created, the Fingerprint has two attributes: <code class="xref py py-attr docutils literal notranslate"><span class="pre">fp</span></code> gives the
+original OpenBabel vector corresponding to the fingerprint, and
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Fingerprint.bits" title="pybel.Fingerprint.bits"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bits</span></code></a> gives a list of the bits that are set.</p>
+<p>The Tanimoto coefficient of two Fingerprints can be calculated
+using the <code class="docutils literal notranslate"><span class="pre">|</span></code> operator.</p>
+<p>Here is an example of its use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openbabel</span> <span class="kn">import</span> <span class="n">pybel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">smiles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CCCC&#39;</span><span class="p">,</span> <span class="s1">&#39;CCCN&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mols</span> <span class="o">=</span> <span class="p">[</span><span class="n">pybel</span><span class="o">.</span><span class="n">readstring</span><span class="p">(</span><span class="s2">&quot;smi&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">smiles</span><span class="p">]</span> <span class="c1"># Create a list of two molecules</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fps</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">calcfp</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mols</span><span class="p">]</span> <span class="c1"># Calculate their fingerprints</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">fps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bits</span><span class="p">,</span> <span class="n">fps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bits</span><span class="p">)</span>
+<span class="go">[261, 385, 671] [83, 261, 349, 671, 907]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">fps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">|</span> <span class="n">fps</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># Print the Tanimoto coefficient</span>
+<span class="go">0.3333</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="smarts-matching">
+<h2>SMARTS matching<a class="headerlink" href="#smarts-matching" title="Permalink to this headline">¶</a></h2>
+<p>Pybel also provides a simplified API to the Open Babel SMARTS
+pattern matcher. A
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Smarts" title="pybel.Smarts"><code class="xref py py-class docutils literal notranslate"><span class="pre">Smarts</span></code></a>
+object is created, and the
+<a class="reference internal" href="Python_PybelAPI.html#pybel.Smarts.findall" title="pybel.Smarts.findall"><code class="xref py py-func docutils literal notranslate"><span class="pre">findall()</span></code></a>
+method is then used to return a list of the matches to a given
+Molecule.</p>
+<p>Here is an example of its use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">readstring</span><span class="p">(</span><span class="s2">&quot;smi&quot;</span><span class="p">,</span><span class="s2">&quot;CCN(CC)CC&quot;</span><span class="p">)</span> <span class="c1"># triethylamine</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">smarts</span> <span class="o">=</span> <span class="n">Smarts</span><span class="p">(</span><span class="s2">&quot;[#6][#6]&quot;</span><span class="p">)</span> <span class="c1"># Matches an ethyl group</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">smarts</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
+<span class="go">[(1, 2), (4, 5), (6, 7)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="combining-pybel-with-openbabel-py">
+<span id="combining"></span><h2>Combining Pybel with <code class="file docutils literal notranslate"><span class="pre">openbabel.py</span></code><a class="headerlink" href="#combining-pybel-with-openbabel-py" title="Permalink to this headline">¶</a></h2>
+<p>It is easy to combine the ease of use of Pybel with the
+comprehensive coverage of the Open Babel toolkit that
+<code class="file docutils literal notranslate"><span class="pre">openbabel.py</span></code> provides. Pybel is really a wrapper around
+<code class="file docutils literal notranslate"><span class="pre">openbabel.py</span></code>, with the result that the OBAtom and OBMol used by
+<code class="file docutils literal notranslate"><span class="pre">openbabel.py</span></code> can be interconverted to the Atom and Molecule used by
+Pybel.</p>
+<p>The following example shows how to read a molecule from a PDB file
+using Pybel, and then how to use <code class="file docutils literal notranslate"><span class="pre">openbabel.py</span></code> to add hydrogens. It
+also illustrates how to find out information on what methods and
+classes are available, while at the interactive Python prompt.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openbabel</span> <span class="kn">import</span> <span class="n">pybel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">pybel</span><span class="o">.</span><span class="n">readfile</span><span class="p">(</span><span class="s2">&quot;pdb&quot;</span><span class="p">,</span> <span class="s2">&quot;1PYB&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="go">Help on Molecule in module pybel object:</span>
+<span class="gp">...</span>
+<span class="go"> |  Attributes:</span>
+<span class="go"> |     atoms, charge, dim, energy, exactmass, flags, formula,</span>
+<span class="go"> |     mod, molwt, spin, sssr, title.</span>
+<span class="gp">...</span>
+<span class="go"> |  The original Open Babel molecule can be accessed using the attribute:</span>
+<span class="go"> |     OBMol</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">),</span> <span class="n">mol</span><span class="o">.</span><span class="n">molwt</span><span class="p">)</span>
+<span class="go">3430 49315.2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">OBMol</span><span class="p">)</span> <span class="c1"># Show the list of methods provided by openbabel.py</span>
+<span class="go">[&#39;AddAtom&#39;, &#39;AddBond&#39;, &#39;AddConformer&#39;, &#39;AddHydrogens&#39;, &#39;AddPolarHydrogens&#39;, ... ]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">OBMol</span><span class="o">.</span><span class="n">AddHydrogens</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">),</span> <span class="n">mol</span><span class="o">.</span><span class="n">molwt</span><span class="p">)</span>
+<span class="go">7244 49406.0</span>
+</pre></div>
+</div>
+<p>The next example is an extension of one of the <code class="file docutils literal notranslate"><span class="pre">openbabel.py</span></code>
+examples at the top of this page. It shows how a molecule could be
+created using <code class="file docutils literal notranslate"><span class="pre">openbabel.py</span></code>, and then written to a file using
+Pybel:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openbabel</span> <span class="kn">import</span> <span class="n">openbabel</span><span class="p">,</span> <span class="n">pybel</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">openbabel</span><span class="o">.</span><span class="n">OBMol</span><span class="p">()</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">NewAtom</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">SetAtomicNum</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>   <span class="c1"># carbon atom</span>
+<span class="n">a</span><span class="o">.</span><span class="n">SetVector</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span> <span class="c1"># coordinates</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">NewAtom</span><span class="p">()</span>
+<span class="n">mol</span><span class="o">.</span><span class="n">AddBond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># atoms indexed from 1</span>
+
+<span class="n">pybelmol</span> <span class="o">=</span> <span class="n">pybel</span><span class="o">.</span><span class="n">Molecule</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="n">pybelmol</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;sdf&quot;</span><span class="p">,</span> <span class="s2">&quot;outputfile.sdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Python_PybelAPI.html" title="Pybel API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="PythonDoc.html" title="The openbabel module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="intro.html" >Write software using the Open Babel library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Python.html" >Python</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,290 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Adding a new test &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Software Archaeology" href="SoftwareArchaeology.html" />
+    <link rel="prev" title="Documentation" href="Documentation.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="SoftwareArchaeology.html" title="Software Archaeology"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Documentation.html" title="Documentation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Contributing.html" accesskey="U">Contributing to Open Babel</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Adding a new test</a><ul>
+<li><a class="reference internal" href="#running-tests">Running tests</a></li>
+<li><a class="reference internal" href="#test-using-c">Test using C++</a></li>
+<li><a class="reference internal" href="#test-using-a-command-line-executable">Test using a command-line executable</a></li>
+<li><a class="reference internal" href="#test-the-api-using-python">Test the API using Python</a></li>
+<li><a class="reference internal" href="#some-final-comments">Some final comments</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Documentation.html"
+                        title="previous chapter">Documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="SoftwareArchaeology.html"
+                        title="next chapter">Software Archaeology</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="adding-a-new-test">
+<span id="testing"></span><h1>Adding a new test<a class="headerlink" href="#adding-a-new-test" title="Permalink to this headline">¶</a></h1>
+<p>Tests allow us to maintain code quality, ensure that code is working, prevent regressions, and facilitate refactoring. Personally, I find that there is no better motivation for writing tests than knowing that that bug I fixed will stay fixed, and that feature I implemented will not be broken by others. As an open source developer, I never have enough time; tests ensure that what time I have is not wasted.</p>
+<p>We can divide the existing tests into three classes, based on how they test the Open Babel codebase:</p>
+<ol class="arabic simple">
+<li>Tests written in C++ that test the public API</li>
+<li>Tests written in Python that use the SWIG bindings to test the public API</li>
+<li>Tests written in Python that use the command-line executables for testing</li>
+</ol>
+<p>Which type of test should you write? It doesn’t really matter - it’s more important that you write <em>some</em> type of test. Personally, I can more quickly test more if I write the test in Python, so generally I write and check-in tests of type (2) above; when I need to run a testcase in a debugger, I write a short test of type (1) so that I can step through and see what’s happening.</p>
+<div class="section" id="running-tests">
+<h2>Running tests<a class="headerlink" href="#running-tests" title="Permalink to this headline">¶</a></h2>
+<p>To begin with, we need to configure CMake to enable tests: <code class="docutils literal notranslate"><span class="pre">-DENABLE_TESTS=ON</span></code>. This adds the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code> target and builds the C++ tests. For tests of type 3 (above), you will also need to enable the Python bindings: <code class="docutils literal notranslate"><span class="pre">-DPYTHON_BINDINGS=ON</span> <span class="pre">-DRUN_SWIG=ON</span></code>. Some tests are dependent on optional dependencies; if you don’t build with support for these, then the corresponding tests will not be run.</p>
+<p>To actually run the tests, you can run the entire test suite in one go or run individual tests. To run the entire suite, use <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code> or <code class="docutils literal notranslate"><span class="pre">ctest</span></code> (note that you can use the <code class="docutils literal notranslate"><span class="pre">-j</span></code> option to speed up ctest). The ctest command also allows a single test or a list of tests to be specified, and in combination with <code class="docutils literal notranslate"><span class="pre">-VV</span></code> (verbose) may be useful to run an individual test. However, I find it more useful to run individual tests directly. Here is an example of how to run an individual test for each of the three types discussed earlier:</p>
+<ol class="arabic">
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">test_runner</span> <span class="pre">regressionstest</span> <span class="pre">1</span></code></p>
+<p>This will run test number 1 in <code class="file docutils literal notranslate"><span class="pre">regressionstest.cpp</span></code>. Nothing will happen…unless the test fails. (test_runner is a testing harness generated by CMake.)</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">test\testbindings.py</span> <span class="pre">TestSuite.testAsterisk</span></code></p>
+<p>This will run the testAsterisk test in <code class="file docutils literal notranslate"><span class="pre">testbindings.py</span></code>. This will write out a single dot, and some summary information.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">test\testbabel.py</span> <span class="pre">testOBabel.testSMItoInChI</span></code></p>
+<p>This will run the testSMItoInChI test in <code class="file docutils literal notranslate"><span class="pre">testbabel.py</span></code>.</p>
+</li>
+</ol>
+<p>The next few sections describe adding a new test of types 1 to 3. The same test will be added, a test to ensure that the molecular weight of ethanol is reported as 46.07.</p>
+</div>
+<div class="section" id="test-using-c">
+<h2>Test using C++<a class="headerlink" href="#test-using-c" title="Permalink to this headline">¶</a></h2>
+<p>The easiest place to add new tests is into <code class="file docutils literal notranslate"><span class="pre">test/regressionstest.cpp</span></code>. Look at the switch statement at the end of the file and pick a number for the test. Let’s say 260. Add the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span> <span class="mi">260</span><span class="p">:</span>
+  <span class="n">test_Ethanol_MolWt</span><span class="p">();</span>
+  <span class="k">break</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Now add the value of 260 to <code class="file docutils literal notranslate"><span class="pre">test/CMakeLists.txt</span></code> so that it will be run as part of the testsuite.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="p">(</span><span class="n">regressions_parts</span> <span class="mi">1</span> <span class="mi">221</span> <span class="mi">222</span> <span class="mi">223</span> <span class="mi">224</span> <span class="mi">225</span> <span class="mi">226</span> <span class="mi">227</span> <span class="mi">260</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now let’s add the actual test somewhere near the top of the file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">test_Ethanol_MolWt</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">OBMol</span> <span class="n">mol</span><span class="p">;</span>
+  <span class="n">OBConversion</span> <span class="n">conv</span><span class="p">;</span>
+  <span class="n">OB_REQUIRE</span><span class="p">(</span><span class="n">conv</span><span class="o">.</span><span class="n">SetInFormat</span><span class="p">(</span><span class="s2">&quot;smi&quot;</span><span class="p">));</span>
+  <span class="n">conv</span><span class="o">.</span><span class="n">ReadString</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mol</span><span class="p">,</span> <span class="s2">&quot;CCO&quot;</span><span class="p">);</span>
+  <span class="n">double</span> <span class="n">molwt</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">GetMolWt</span><span class="p">();</span>
+  <span class="n">OB_ASSERT</span><span class="p">(</span><span class="n">molwt</span> <span class="o">-</span> <span class="mf">46.07</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The various assert methods are listed in <code class="file docutils literal notranslate"><span class="pre">obtest.h</span></code> and are as follows:</p>
+<ul class="simple">
+<li><strong>OB_REQUIRE(exp)</strong> - This must evaluate to <code class="docutils literal notranslate"><span class="pre">true</span></code> or else the test will be marked as failing and will terminate. This is useful for conditions that <em>must</em> be true or else the remaining tests cannot be run (e.g. was the necessary OBFormat found?).</li>
+<li><strong>OB_ASSERT(exp)</strong> - This must evaluate to <code class="docutils literal notranslate"><span class="pre">true</span></code> or else the test will be marked as failing. In contrast to OB_REQUIRE, the test does not terminate in this case, but continues to run. This feature can be useful because it lets you know (based on the output) how many and which OB_ASSERT statements failed.</li>
+<li><strong>OB_COMPARE(expA, expB)</strong> - Expressions A and B must be equal or else the test fails (but does not terminate).</li>
+</ul>
+<p>It is often useful to write a test that uses a checked-in testfile. Let’s do this for our example testcase. If you place a file <code class="file docutils literal notranslate"><span class="pre">ethanol.smi</span></code> into <code class="file docutils literal notranslate"><span class="pre">test/files</span></code>, then the following will read it using a convenience function provided by <code class="file docutils literal notranslate"><span class="pre">obtest.h</span></code>.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">test_Ethanol_MolWt</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">OBMolPtr</span> <span class="n">mol</span> <span class="o">=</span> <span class="n">OBTestUtil</span><span class="p">::</span><span class="n">ReadFile</span><span class="p">(</span><span class="s2">&quot;ethanol.smi&quot;</span><span class="p">)</span>
+  <span class="n">double</span> <span class="n">molwt</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">GetMolWt</span><span class="p">();</span>
+  <span class="n">OB_ASSERT</span><span class="p">(</span><span class="n">molwt</span> <span class="o">-</span> <span class="mf">46.07</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>As well as <code class="docutils literal notranslate"><span class="pre">ReadFile</span></code> (which is convenient for single molecules), the <code class="docutils literal notranslate"><span class="pre">OBTestUtil</span></code> struct provides <code class="docutils literal notranslate"><span class="pre">GetFilename</span></code> which will return the full path to the testfile, if you wish to open it yourself.</p>
+</div>
+<div class="section" id="test-using-a-command-line-executable">
+<h2>Test using a command-line executable<a class="headerlink" href="#test-using-a-command-line-executable" title="Permalink to this headline">¶</a></h2>
+<p>At the command-line we can calculate the molecular weight of ethanol as shown below. We are going to do something similar using the Python test framework:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">obabel</span> <span class="o">-</span><span class="p">:</span><span class="n">CCO</span> <span class="o">--</span><span class="n">append</span> <span class="n">MW</span> <span class="o">-</span><span class="n">otxt</span>
+<span class="mf">46.0684</span>
+</pre></div>
+</div>
+<p>Open <code class="file docutils literal notranslate"><span class="pre">test/testbabel.py</span></code> in an editor. I have grouped tests related to the <code class="file docutils literal notranslate"><span class="pre">obabel</span></code> executable into a class testOBabel, so let’s add a new test there. Somewhere in that class (for example, at the end), add a function such as the following (note: it must begin with the word “test”):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">testMolWtEthanol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check the molecular weight of ethanol&quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">canFindExecutable</span><span class="p">(</span><span class="s2">&quot;obabel&quot;</span><span class="p">)</span>
+    <span class="n">answers</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s2">&quot;CCO&quot;</span><span class="p">,</span> <span class="mf">46.07</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;[H]&quot;</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;[2H]&quot;</span><span class="p">,</span> <span class="mf">2.01</span><span class="p">),</span>
+            <span class="p">]</span>
+    <span class="k">for</span> <span class="n">smi</span><span class="p">,</span> <span class="n">molwt</span> <span class="ow">in</span> <span class="n">answers</span><span class="p">:</span>
+        <span class="n">output</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">run_exec</span><span class="p">(</span><span class="s1">&#39;obabel -:</span><span class="si">%s</span><span class="s1"> --append mw -otxt&#39;</span> <span class="o">%</span> <span class="n">smi</span><span class="p">)</span>
+        <span class="n">my_molwt</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">output</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">my_molwt</span><span class="p">,</span> <span class="n">molwt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We provide a few convenience functions to help write these tests. The most important of these is <code class="docutils literal notranslate"><span class="pre">run_exec(command)</span></code> which runs the commandline executable returns a tuple of stdout and stderr. Behind the scenes, it adds the full path to the named executable. In the example above, <code class="docutils literal notranslate"><span class="pre">run_exec(stdin,</span> <span class="pre">command)</span></code> took a single argument; the next example will show its use with two arguments - the additional argument is a string which is treated as stdin, and piped through the executable.</p>
+<p>In the previous example, each SMILES string was passed in one-at-a-time. However, it is more efficient to do them all in one go as in the following example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">testMolWtEthanol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check the molecular weight of ethanol&quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">canFindExecutable</span><span class="p">(</span><span class="s2">&quot;obabel&quot;</span><span class="p">)</span>
+    <span class="n">smifile</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CCO</span>
+<span class="s2">    [H]</span>
+<span class="s2">    [2H]</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="n">answers</span> <span class="o">=</span> <span class="p">[</span><span class="mf">46.07</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">2.01</span><span class="p">]</span>
+    <span class="n">output</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">run_exec</span><span class="p">(</span><span class="n">smifile</span><span class="p">,</span> <span class="s1">&#39;obabel -ismi --append mw -otxt&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ans</span><span class="p">,</span> <span class="n">my_ans</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">answers</span><span class="p">,</span> <span class="n">output</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">my_ans</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>To use a testfile placed in <code class="file docutils literal notranslate"><span class="pre">test/files</span></code>, the <code class="docutils literal notranslate"><span class="pre">getTestFile()</span></code> member function is provided:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">testMolWtEthanol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check the molecular weight of ethanol&quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">canFindExecutable</span><span class="p">(</span><span class="s2">&quot;obabel&quot;</span><span class="p">)</span>
+    <span class="n">answers</span> <span class="o">=</span> <span class="p">[</span><span class="mf">46.07</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">2.01</span><span class="p">]</span>
+    <span class="n">smifile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getTestFile</span><span class="p">(</span><span class="s2">&quot;ethanol.smi&quot;</span><span class="p">)</span>
+    <span class="n">output</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">run_exec</span><span class="p">(</span><span class="s1">&#39;obabel </span><span class="si">%s</span><span class="s1"> --append mw -otxt&#39;</span> <span class="o">%</span> <span class="n">smifile</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ans</span><span class="p">,</span> <span class="n">my_ans</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">answers</span><span class="p">,</span> <span class="n">output</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">my_ans</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The full list of provided convenience functions is:</p>
+<ul class="simple">
+<li><strong>run_exec(command)</strong>, <strong>run_exec(stdin, command)</strong> - see above</li>
+<li><strong>BaseTest.getTestFile(filename)</strong> - returns the full path to a testfile</li>
+<li><strong>BaseTest.canFindExecutable(executable)</strong> - checks whether the executable exists in the expected location</li>
+<li><strong>BaseTest.assertConverted(stderr, N)</strong> - An assert statement that takes the stderr from run_exec and will check whether the number of molecules reported as converted matches N</li>
+</ul>
+</div>
+<div class="section" id="test-the-api-using-python">
+<h2>Test the API using Python<a class="headerlink" href="#test-the-api-using-python" title="Permalink to this headline">¶</a></h2>
+<p>The easiest place to add new tests is into <code class="file docutils literal notranslate"><span class="pre">test/testbindings.py</span></code>. Classes are used to organise the tests, but for a single ‘miscellaneous’ test a good place is the TestSuite class. Somewhere in that class add the following function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">testMolWtEthanol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check the molecular weight of ethanol&quot;&quot;&quot;</span>
+    <span class="n">answers</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s2">&quot;CCO&quot;</span><span class="p">,</span> <span class="mf">46.07</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;[H]&quot;</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;[2H]&quot;</span><span class="p">,</span> <span class="mf">2.01</span><span class="p">),</span>
+            <span class="p">]</span>
+    <span class="k">for</span> <span class="n">smi</span><span class="p">,</span> <span class="n">molwt</span> <span class="ow">in</span> <span class="n">answers</span><span class="p">:</span>
+        <span class="n">my_molwt</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">pybel</span><span class="o">.</span><span class="n">readstring</span><span class="p">(</span><span class="s2">&quot;smi&quot;</span><span class="p">,</span> <span class="n">smi</span><span class="p">)</span><span class="o">.</span><span class="n">molwt</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">my_molwt</span><span class="p">,</span> <span class="n">molwt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">here</span></code> is defined in <code class="file docutils literal notranslate"><span class="pre">testbindings.py</span></code> and may be used find the path to testfiles. For example, given the <code class="file docutils literal notranslate"><span class="pre">test/ethanol.smi</span></code>, the following may be used to read it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">testMolWtEthanol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check the molecular weight of ethanol&quot;&quot;&quot;</span>
+    <span class="n">answers</span> <span class="o">=</span> <span class="p">[</span><span class="mf">46.07</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">2.01</span><span class="p">]</span>
+    <span class="n">testfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">here</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;ethanol.smi&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">mol</span><span class="p">,</span> <span class="n">answer</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pybel</span><span class="o">.</span><span class="n">readfile</span><span class="p">(</span><span class="s2">&quot;smi&quot;</span><span class="p">,</span> <span class="n">testfile</span><span class="p">),</span> <span class="n">answers</span><span class="p">):</span>
+        <span class="n">my_molwt</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">molwt</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">my_molwt</span><span class="p">,</span> <span class="n">molwt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The tests use the standard unittest framework. One thing to note, which is not obvious, is how to test for exceptions. A typical case is checking that a dodgy SMILES is rejected on reading; in this instance, <code class="docutils literal notranslate"><span class="pre">Pybel.readstring()</span></code> will raise an IOError. To assert that this is the case, rather than use try/except, the following syntax is required:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">IOError</span><span class="p">,</span> <span class="n">pybel</span><span class="o">.</span><span class="n">readstring</span><span class="p">,</span> <span class="s2">&quot;smi&quot;</span><span class="p">,</span> <span class="s2">&quot;~*&amp;*($&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you have multiple tests to add on a single ‘topic’, you will probably want to add your own class either into <code class="file docutils literal notranslate"><span class="pre">testbindings.py</span></code> or a new Python file. Note that if you create a new Python file, it should start with the word <code class="docutils literal notranslate"><span class="pre">test</span></code> and you will need to add the rest of the name to the <code class="docutils literal notranslate"><span class="pre">pybindtest</span></code> list in <code class="file docutils literal notranslate"><span class="pre">test/CMakeLists.txt</span></code>.</p>
+</div>
+<div class="section" id="some-final-comments">
+<h2>Some final comments<a class="headerlink" href="#some-final-comments" title="Permalink to this headline">¶</a></h2>
+<p>Some thoughts on the topic of the perfect test:</p>
+<ul class="simple">
+<li>When adding a regression test for a bug fix, the test should fail without the fix, but pass afterwards.</li>
+<li>When adding a test for a new feature, the test should provide complete coverage for all code paths.</li>
+<li>Test not just perfect input, but all sorts of dodgy input like molecules with no atoms, empty strings, and so forth.</li>
+<li>Don’t be afraid to add tests for things which you already (think you) know will pass; such tests may surprise you, and even if they don’t they will prevent regressions.</li>
+</ul>
+<p>Potential problems/gotchas:</p>
+<ul class="simple">
+<li>Why isn’t your Python test being run? Test functions name must begin with the word <code class="docutils literal notranslate"><span class="pre">test</span></code>.</li>
+<li>If your new test passes first time, check that it is actually running correctly, by changing your asserts so that they should fail.</li>
+<li>The C++ tests will be marked as failing if the test writes any of the following to stdout: <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="docutils literal notranslate"><span class="pre">FAIL</span></code>, <code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">failed</span></code>. This is actually how the assert methods work.</li>
+<li>It’s best to avoid writing to disk, and instead write to a variable or stdout and capture it (as in the examples above).</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="SoftwareArchaeology.html" title="Software Archaeology"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Documentation.html" title="Documentation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Contributing.html" >Contributing to Open Babel</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

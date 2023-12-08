@@ -1,0 +1,278 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>C++ &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python" href="Python.html" />
+    <link rel="prev" title="The Open Babel API" href="CppAPI.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Python.html" title="Python"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="CppAPI.html" title="The Open Babel API"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="intro.html" accesskey="U">Write software using the Open Babel library</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">C++</a><ul>
+<li><a class="reference internal" href="#quickstart-example">Quickstart example</a></li>
+<li><a class="reference internal" href="#how-to-compile-against-the-open-babel-library">How to compile against the Open Babel library</a><ul>
+<li><a class="reference internal" href="#using-makefiles">Using Makefiles</a></li>
+<li><a class="reference internal" href="#using-cmake">Using CMake</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#further-examples">Further examples</a><ul>
+<li><a class="reference internal" href="#output-molecular-weight-for-a-multi-molecule-sdf-file">Output Molecular Weight for a Multi-Molecule SDF File</a></li>
+<li><a class="reference internal" href="#properties-from-smarts-matches">Properties from SMARTS Matches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="CppAPI.html"
+                        title="previous chapter">The Open Babel API</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Python.html"
+                        title="next chapter">Python</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="c">
+<h1>C++<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="quickstart-example">
+<h2>Quickstart example<a class="headerlink" href="#quickstart-example" title="Permalink to this headline">¶</a></h2>
+<p>Here’s an example C++ program that uses the Open Babel toolkit to convert between two chemical file formats:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;openbabel/obconversion.h&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span><span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Usage: ProgrameName InputFileName OutputFileName</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">ifstream</span> <span class="n">ifs</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">ifs</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Cannot open input file</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">ofstream</span> <span class="n">ofs</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">ofs</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Cannot open output file</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">OpenBabel</span><span class="o">::</span><span class="n">OBConversion</span> <span class="n">conv</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ifs</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ofs</span><span class="p">);</span>
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">conv</span><span class="p">.</span><span class="n">SetInAndOutFormats</span><span class="p">(</span><span class="s">&quot;CML&quot;</span><span class="p">,</span><span class="s">&quot;MOL&quot;</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Formats not available</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">conv</span><span class="p">.</span><span class="n">Convert</span><span class="p">();</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; molecules converted</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Next, we’ll look at how to compile this.</p>
+</div>
+<div class="section" id="how-to-compile-against-the-open-babel-library">
+<h2>How to compile against the Open Babel library<a class="headerlink" href="#how-to-compile-against-the-open-babel-library" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-makefiles">
+<h3>Using Makefiles<a class="headerlink" href="#using-makefiles" title="Permalink to this headline">¶</a></h3>
+<p>The following Makefile can be used to compile the above example, assuming that it’s saved as <code class="file docutils literal notranslate"><span class="pre">example.cpp</span></code>. You need to have already installed Open Babel somewhere. If the include files or the library are not automatically found when running <strong class="command">make</strong>, you can specify the location as shown by the commented out statements in CFLAGS and LDFLAGS below.</p>
+<div class="highlight-makefile notranslate"><div class="highlight"><pre><span></span><span class="nv">CC</span> <span class="o">=</span> g++
+<span class="nv">CFLAGS</span> <span class="o">=</span> -c <span class="c1"># -I /home/user/Tools/openbabel/install/include/openbabel-2.0</span>
+<span class="nv">LDFLAGS</span> <span class="o">=</span> -lopenbabel <span class="c1"># -L /home/user/Tools/openbabel/install/lib</span>
+
+<span class="nf">all</span><span class="o">:</span> <span class="n">example</span>
+
+<span class="nf">example</span><span class="o">:</span> <span class="n">example</span>.<span class="n">o</span>
+      <span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>LDFLAGS<span class="k">)</span> example.o -o example
+
+<span class="nf">example.o</span><span class="o">:</span> <span class="n">example</span>.<span class="n">cpp</span>
+      <span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>CFLAGS<span class="k">)</span> <span class="k">$(</span>LDFLAGS<span class="k">)</span> example.cpp
+
+<span class="nf">clean</span><span class="o">:</span>
+      rm -rf example.o example
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-cmake">
+<h3>Using CMake<a class="headerlink" href="#using-cmake" title="Permalink to this headline">¶</a></h3>
+<p>Rather than create a Makefile yourself, you can get CMake to do it for you. The nice thing about using CMake is that it can generate not only Makefiles, but also project files for MSVC++, KDevelop and Eclipse (among others). The following <code class="file docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> can be used to generate any of these. The commented out lines can be used to specify the location of the Open Babel library and include files if necessary.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">2.6</span><span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">example</span> <span class="s">example.cpp</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">example</span> <span class="s">openbabel</span><span class="p">)</span>
+<span class="c"># target_link_libraries(example /home/user/Tools/openbabel/install/lib/libopenbabel.so)</span>
+<span class="c"># include_directories(/home/user/Tools/openbabel/install/include/openbabel-2.0)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="further-examples">
+<h2>Further examples<a class="headerlink" href="#further-examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="output-molecular-weight-for-a-multi-molecule-sdf-file">
+<h3>Output Molecular Weight for a Multi-Molecule SDF File<a class="headerlink" href="#output-molecular-weight-for-a-multi-molecule-sdf-file" title="Permalink to this headline">¶</a></h3>
+<p>Let’s say we want to print out the molecular weights of every molecule in an SD file. Why? Well, we might want to plot a histogram of the distribution, or see whether the average of the distribution is significantly different (in the statistical sense) compared to another SD file.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;openbabel/obconversion.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;openbabel/mol.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span><span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">OBConversion</span> <span class="n">obconversion</span><span class="p">;</span>
+  <span class="n">obconversion</span><span class="p">.</span><span class="n">SetInFormat</span><span class="p">(</span><span class="s">&quot;sdf&quot;</span><span class="p">);</span>
+  <span class="n">OBMol</span> <span class="n">mol</span><span class="p">;</span>
+
+  <span class="kt">bool</span> <span class="n">notatend</span> <span class="o">=</span> <span class="n">obconversion</span><span class="p">.</span><span class="n">ReadFile</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mol</span><span class="p">,</span><span class="s">&quot;../xsaa.sdf&quot;</span><span class="p">);</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">notatend</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Molecular Weight: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">mol</span><span class="p">.</span><span class="n">GetMolWt</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">mol</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+    <span class="n">notatend</span> <span class="o">=</span> <span class="n">obconversion</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mol</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="properties-from-smarts-matches">
+<h3>Properties from SMARTS Matches<a class="headerlink" href="#properties-from-smarts-matches" title="Permalink to this headline">¶</a></h3>
+<p>Let’s say that we want to get the average bond length or dihedral angle over particular types of atoms in a large molecule. So we’ll use SMARTS to match a set of atoms and loop through the matches. The following example does this for sulfur-carbon-carbon-sulfur dihedral angles in a polymer and the carbon-carbon bond lengths between the monomer units:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">OBMol</span> <span class="n">obMol</span><span class="p">;</span>
+<span class="n">OBBond</span> <span class="o">*</span><span class="n">b1</span><span class="p">;</span>
+<span class="n">OBConversion</span> <span class="n">obConversion</span><span class="p">;</span>
+<span class="n">OBFormat</span> <span class="o">*</span><span class="n">inFormat</span><span class="p">;</span>
+<span class="n">OBSmartsPattern</span> <span class="n">smarts</span><span class="p">;</span>
+<span class="n">smarts</span><span class="p">.</span><span class="n">Init</span><span class="p">(</span><span class="s">&quot;[#16D2r5][#6D3r5][#6D3r5][#16D2r5]&quot;</span><span class="p">);</span>
+
+<span class="n">string</span> <span class="n">filename</span><span class="p">;</span>
+<span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span> <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">maplist</span><span class="p">;</span>
+<span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span> <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">matches</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">dihedral</span><span class="p">,</span> <span class="n">bondLength</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">obMol</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">inFormat</span> <span class="o">=</span> <span class="n">obConversion</span><span class="p">.</span><span class="n">FormatFromExt</span><span class="p">(</span><span class="n">filename</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+    <span class="n">obConversion</span><span class="p">.</span><span class="n">SetInFormat</span><span class="p">(</span><span class="n">inFormat</span><span class="p">);</span>
+    <span class="n">obConversion</span><span class="p">.</span><span class="n">ReadFile</span><span class="p">(</span><span class="o">&amp;</span><span class="n">obMol</span><span class="p">,</span> <span class="n">filename</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">smarts</span><span class="p">.</span><span class="n">Match</span><span class="p">(</span><span class="n">obMol</span><span class="p">))</span>
+      <span class="p">{</span>
+        <span class="n">dihedral</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="n">bondLength</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="n">maplist</span> <span class="o">=</span> <span class="n">smarts</span><span class="p">.</span><span class="n">GetUMapList</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">matches</span> <span class="o">=</span> <span class="n">maplist</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">matches</span> <span class="o">!=</span> <span class="n">maplist</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">matches</span><span class="o">++</span><span class="p">)</span>
+          <span class="p">{</span>
+            <span class="n">dihedral</span> <span class="o">+=</span> <span class="n">fabs</span><span class="p">(</span><span class="n">obMol</span><span class="p">.</span><span class="n">GetTorsion</span><span class="p">((</span><span class="o">*</span><span class="n">matches</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+                                              <span class="p">(</span><span class="o">*</span><span class="n">matches</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span>
+                                              <span class="p">(</span><span class="o">*</span><span class="n">matches</span><span class="p">)[</span><span class="mi">2</span><span class="p">],</span>
+                                              <span class="p">(</span><span class="o">*</span><span class="n">matches</span><span class="p">)[</span><span class="mi">3</span><span class="p">]));</span>
+            <span class="n">b1</span> <span class="o">=</span> <span class="n">obMol</span><span class="p">.</span><span class="n">GetBond</span><span class="p">((</span><span class="o">*</span><span class="n">matches</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="o">*</span><span class="n">matches</span><span class="p">)[</span><span class="mi">2</span><span class="p">]);</span>
+            <span class="n">bondLength</span> <span class="o">+=</span> <span class="n">b1</span><span class="o">-&gt;</span><span class="n">GetLength</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">filename</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;: Average Dihedral &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">dihedral</span> <span class="o">/</span> <span class="n">maplist</span><span class="p">.</span><span class="n">size</span><span class="p">()</span>
+             <span class="o">&lt;&lt;</span> <span class="s">&quot; Average Bond Length &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">bondLength</span> <span class="o">/</span> <span class="n">maplist</span><span class="p">.</span><span class="n">size</span><span class="p">()</span>
+             <span class="o">&lt;&lt;</span> <span class="s">&quot; over &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">maplist</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span>  <span class="s">&quot; matches</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Python.html" title="Python"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="CppAPI.html" title="The Open Babel API"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="intro.html" >Write software using the Open Babel library</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>How to add a new file format &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Adding new operations and options" href="AddingNewOptions.html" />
+    <link rel="prev" title="Adding plugins" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="AddingNewOptions.html" title="Adding new operations and options"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Adding plugins"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Adding plugins</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Adding plugins</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="AddingNewOptions.html"
+                        title="next chapter">Adding new operations and options</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-add-a-new-file-format">
+<span id="add-file-format"></span><h1>How to add a new file format<a class="headerlink" href="#how-to-add-a-new-file-format" title="Permalink to this headline">¶</a></h1>
+<p>Adding support for a new file format is a relatively easy process, particularly with Open Babel 2.3 and later. Here are several important steps to remember when developing a format translator:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Create a file for your format in <code class="file docutils literal notranslate"><span class="pre">src/formats/</span></code> or <code class="file docutils literal notranslate"><span class="pre">src/formats/xml/</span></code> (for XML-based formats). Ideally, this file is self-contained although several formats modules are compiled across multiple source code files.</p>
+</li>
+<li><p class="first">Add the name of the new .cpp file to an appropriate place in <code class="file docutils literal notranslate"><span class="pre">src/formats/CMakeLists.txt</span></code>. It will now be compiled as part of the build process.</p>
+</li>
+<li><p class="first">Take a look at other file format code, particularly <code class="file docutils literal notranslate"><span class="pre">exampleformat.cpp</span></code>, which contains a heavily-annotated description of writing a new format. XML formats need to take a different approach; see the code in <code class="file docutils literal notranslate"><span class="pre">xcmlformat.cpp</span></code> or <code class="file docutils literal notranslate"><span class="pre">pubchemformat.cpp</span></code>.</p>
+</li>
+<li><p class="first">When reading in molecules (and thus performing a lot of molecular modifications) call <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml#a1b5760b4c75b7631fffb54f84140b3e3">OBMol::BeginModify()</a> at the beginning and <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml#ac32ffc23db124156a953e8e5cb923ccd">OBMol::EndModify()</a> at the end. This will ensure that perception routines do not run while you read in a molecule and are reset after your code finishes (see <a class="reference internal" href="../Contributing/DevBestPractices.html#lazy-evaluation"><span class="std std-ref">Lazy Evaluation</span></a>).</p>
+</li>
+<li><p class="first">Currently, lazy perception does not include connectivity and bond order assignment. If your format does not include bonds, make sure to call <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml#a31d05972f7454e791641c4a7d0071d12">OBMol::ConnectTheDots()</a> and <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml#ac749cfb04173f6f35ef64b1ac1d87178">OBMol::PerceiveBondOrders()</a> after <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml#ac32ffc23db124156a953e8e5cb923ccd">OBMol::EndModify()</a> to ensure bonds are assigned.</p>
+</li>
+<li><p class="first">Consider various input and output options that users can set from the command-line or GUI. For example, many quantum mechanics formats (as well as other formats which do not recognize bonds) offer the following options:</p>
+<p><code class="docutils literal notranslate"><span class="pre">-as</span></code> Call only <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml#a31d05972f7454e791641c4a7d0071d12">OBMol::ConnectTheDots()</a> (single bonds only)</p>
+<p><code class="docutils literal notranslate"><span class="pre">-ab</span></code> No bond perception</p>
+</li>
+<li><p class="first">Make sure to use generic data classes like <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBUnitCell.shtml">OBUnitCell</a> and others as appropriate. If your format stores any sort of common data types, consider adding a subclass of <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBGenericData.shtml">OBGenericData</a> for use by other formats and user code.</p>
+</li>
+<li><p class="first">Please make sure to add several example files to the test set repository. Ideally, these should work several areas of your import code – in the end, the more robust the test set, the more stable and useful Open Babel will be. The test files should include at least one example of a correct file and one example of an invalid file (i.e., something which will properly be ignored and not crash <strong class="command">babel</strong>).</p>
+</li>
+<li><p class="first">Make sure to document your format using the string returned by <code class="docutils literal notranslate"><span class="pre">Description()</span></code>. At the minimum this should include a description of all options, along with examples. However, the more information you add (e.g. unimplemented features, applications of the format, and so forth) the more confident users will be in using it.</p>
+</li>
+<li><p class="first">That’s it! Contact the <a class="reference external" href="http://lists.sourceforge.net/lists/listinfo/openbabel-discuss">openbabel-discuss</a> mailing list with any questions, comments, or to contribute your new format code.</p>
+</li>
+</ol>
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="AddingNewOptions.html" title="Adding new operations and options"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Adding plugins"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Adding plugins</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

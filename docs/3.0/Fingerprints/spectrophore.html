@@ -1,0 +1,461 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Spectrophores™ &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="obabel vs Chemistry Toolkit Rosetta" href="../Command-line_tools/Rosetta.html" />
+    <link rel="prev" title="Fingerprint format" href="fingerprints.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../Command-line_tools/Rosetta.html" title="obabel vs Chemistry Toolkit Rosetta"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="fingerprints.html" title="Fingerprint format"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="intro.html" accesskey="U">Molecular fingerprints and similarity searching</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Spectrophores™</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#obspectrophore">obspectrophore</a></li>
+<li><a class="reference internal" href="#implementation">Implementation</a><ul>
+<li><a class="reference internal" href="#atomic-properties">Atomic properties</a></li>
+<li><a class="reference internal" href="#interaction-between-the-atoms-and-cage-points">Interaction between the atoms and cage points</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#choice-of-parameters">Choice of Parameters</a><ul>
+<li><a class="reference internal" href="#accuracy">Accuracy</a></li>
+<li><a class="reference internal" href="#resolution">Resolution</a></li>
+<li><a class="reference internal" href="#stereospecificity">Stereospecificity</a></li>
+<li><a class="reference internal" href="#normalisation">Normalisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fingerprints.html"
+                        title="previous chapter">Fingerprint format</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Command-line_tools/Rosetta.html"
+                        title="next chapter">obabel vs Chemistry Toolkit Rosetta</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="spectrophorestrade">
+<span id="spectrophores"></span><h1>Spectrophores™<a class="headerlink" href="#spectrophorestrade" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Spectrophores<a class="footnote-reference" href="#trademark" id="id1">[1]</a> are one-dimensional descriptors generated from the property
+fields surrounding the molecules. This technology allows the accurate description
+of molecules in terms of their surface properties or fields. Comparison of
+molecules’ property fields provides a robust structure-independent method of
+aligning actives from different chemical classes. When applied to molecules such
+as ligands and drugs, Spectrophores can be used as powerful molecular
+descriptors in the fields of chemoinformatics, virtual screening, and QSAR
+modeling.</p>
+<div class="sidebar">
+<p class="first sidebar-title">Commercial Support for Spectrophores</p>
+<a class="reference internal image-reference" href="../_images/silicos.png"><img alt="../_images/silicos.png" class="align-center" src="../_images/silicos.png" style="width: 142.0px; height: 32.5px;" /></a>
+<p>Commercial support for Spectrophores is available from Silicos NV, the
+developers of the Spectrophore technology.</p>
+<p class="last">Silicos is a fee-for-service company empowering open source chemo-informatics virtual screening technologies for the discovery of novel lead compounds and database characterization. Silicos fully endorses the concept of open innovation and open source software development, and provides its clients with a wide variety of computational chemistry-based lead discovery services, including Open Babel support, training and code development. Please visit <a class="reference external" href="http://www.silicos.com">Silicos</a> for more details.</p>
+</div>
+<p>The computation of Spectrophores is independent of the position and
+orientation of the molecule and this enables easy and fast comparison of
+Spectrophores between different molecules. Molecules having similar
+three-dimensional properties and shapes always yield similar Spectrophores.
+A Spectrophore is calculated by surrounding the three-dimensional
+conformation of the molecule by a three-dimensional arrangement of points,
+followed by calculating the interaction between each of the atom properties and
+the surrounding the points. The three-dimensional arrangement of the points
+surrounding the molecule can be regarded as an ‘artificial’ cage or receptor,
+and the interaction calculated between the molecule and the cage can be regarded
+as an artificial representation of an affinity value between molecule and cage.
+Because the calculated interaction is dependent on the relative orientation of
+the molecule within the cage, the molecule is rotated in discrete angles and the
+most favorable interaction value is kept as final result. The angular stepsize
+at which the molecule is rotated along its three axis can be specified by the
+user and influences the accuracy of the method.</p>
+<p>The Spectrophore code was developed by Silicos NV, and donated to the OpenBabel project in July 2010 (see sidebar for information on commercial support). Spectrophores can be generated either using the command-line application <strong class="command">obspectrophore</strong> (see next section) or through the API (<code class="docutils literal notranslate"><span class="pre">OBSpectrophore</span></code>, as described in the <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBSpectrophore.shtml">API documentation</a>).</p>
+</div>
+<div class="section" id="obspectrophore">
+<h2>obspectrophore<a class="headerlink" href="#obspectrophore" title="Permalink to this headline">¶</a></h2>
+<p class="rubric">Usage</p>
+<p><code class="docutils literal notranslate"><span class="pre">obspectrophore</span> <span class="pre">-i</span> <span class="pre">&lt;input</span> <span class="pre">file&gt;</span> <span class="pre">[options]</span></code></p>
+<p class="rubric">Parameter details</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-i <var>&lt;input file&gt;</var></span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td><p class="first"><em>Specify the input file</em></p>
+<p class="last">Spectrophores will be calculated for each molecule in the input file.
+The filetype is automatically detected from the file extension.</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-n <var>&lt;type&gt;</var></span></kbd></td>
+<td><p class="first"><em>The type of normalization that should be performed</em></p>
+<p>Valid values are (without quotes):</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li>No (default)</li>
+<li>ZeroMean</li>
+<li>UnitStd</li>
+<li>ZeroMeanAndUnitStd</li>
+</ul>
+</div></blockquote>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-a <var>&lt;accuracy&gt;</var></span></kbd></td>
+<td><p class="first"><em>The required accuracy expressed as the angular stepsize</em></p>
+<p class="last">Only the following discrete values are allowed: 1, 2, 5, 10, 15, 20 (default), 30, 36, 45, 60</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-s <var>&lt;type&gt;</var></span></kbd></td>
+<td><p class="first"><em>The kind of cages that should be used</em></p>
+<p>The cage type is specified in terms of
+the underlying pointgroup: P1 or P-1. Valid values are (without quotes):</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li>No (default)</li>
+<li>Unique</li>
+<li>Mirror</li>
+<li>All</li>
+</ul>
+</div></blockquote>
+</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-r <var>&lt;resolution&gt;</var></span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td><p class="first"><em>The required resolution expressed as a real positive number</em></p>
+<p class="last">The default value is 3.0 Angstrom. Negative values or a value of
+0 generates an error message.</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-h</span></kbd></td>
+<td><em>Displays help</em></td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="atomic-properties">
+<h3>Atomic properties<a class="headerlink" href="#atomic-properties" title="Permalink to this headline">¶</a></h3>
+<p>The calculation of a Spectrophore™ starts by calculating the atomic
+contributions of each property from which one wants to calculate a
+Spectrophore. In the current implementation, four atomic properties are
+converted into a Spectrophore; these four properties include the atomic
+partial charges, the atomic lipophilicities, the atomic shape deviations and the
+atomic electrophilicities. The atomic partial charges and atomic electrophilicity
+properties are calculated using the electronegativity equalisation method (EEM)
+as described by Bultinck and coworkers <a class="reference internal" href="#bll2002" id="id2">[bll2002]</a> <a class="reference internal" href="#blc2003" id="id3">[blc2003]</a>.
+Atomic lipophilic potential
+parameters are calculated using a rule-based method. Finally, the atomic shape
+deviation is generated by calculating, for each atom, the atom’s deviation from
+the average molecular radius. This is done in a four step process:</p>
+<ul class="simple">
+<li>The molecular center of geometry (COG) is calculated</li>
+<li>The distances between each atom and the molecular COG are calculated</li>
+<li>The average molecular radius is calculated by averaging all the atomic
+distances</li>
+<li>The distances between each atom and the COG are then divided by the average
+molecular radius and centered on zero</li>
+</ul>
+</div>
+<div class="section" id="interaction-between-the-atoms-and-cage-points">
+<h3>Interaction between the atoms and cage points<a class="headerlink" href="#interaction-between-the-atoms-and-cage-points" title="Permalink to this headline">¶</a></h3>
+<p>Following the calculation of all required atomic properties, the next step in
+the calculation of a Spectrophore consists of determining the total
+interaction value V(c,p) between each of the atomic contributions of
+property p with a set of interaction points on an artificial cage c
+surrounding the molecular conformation.</p>
+<div class="figure align-center" id="id4">
+<img alt="../_images/spectrophore_cage.png" src="../_images/spectrophore_cage.png" />
+<p class="caption"><span class="caption-text"><strong>Schematic representation of a molecule surrounded by the artifical cage</strong></span></p>
+</div>
+<p>For this purpose, each of these
+interaction points i on cage c is assigned a value P(c,i)
+which is either +1 or -1, with the constraint that the sum of all interaction
+points on a particular cage should be zero. In a typical Spectrophore
+calculation, a cage is represented as a rectangular box encompassing the
+molecular conformation in all three dimensions, with the centers of the box
+edges being the interaction points. Such a configuration gives twelve
+interaction points per cage, and, in the case of a non-stereospecific
+distribution of the interaction points, leads to 12 different cages. Although
+there are no particular requirements as to the dimensions of the rectangular
+cage, the distance between the interaction points and the geometrical extremes
+of the molecule should be such that a meaningful interaction value between each
+cage point and the molecular entity can be calculated. In this respect, the
+default dimensions of the cage are constantly adjusted to enclose the molecule
+at a minimum distance of 3 A along all dimensions. This cage size can be
+modified by the user and influences the resolution of the Spectrophore.</p>
+<p>The total interaction value V(c,p) between the atomic contribution values
+A(j,p) of property p for a given molecular conformation and the
+cage interaction values P(c,i) for a given cage c is calculated
+according a standard interaction energy equation. It takes into account the
+Euclidean distance between each atom and each cage point. This total interaction
+V(c,p) for a given property p and cage c for a given
+molecular conformation is minimized by sampling the molecular orientation along
+the three axis in angular steps and the calculation of the interaction value for
+each orientation within the cage.</p>
+<p>The final total interaction V(c,p) for
+a given cage c and property p corresponds to the lowest
+interaction value obtained this way, and corresponds to the c’th value in
+the one-dimensional Spectrophore vector calculated for molecular property
+p. As a result, a Spectrophore is organized as a vector of minimized
+interaction values V, each of these organized in order of cages and
+property values. Since for a typical Spectrophore implementation twelve
+different cages are used, the total length of a Spectrophore vector equals
+to 12 times the number of properties. Since four different properties are used
+in the current implementation (electrostatic, lipophilic, electrophilic
+potentials, and an additional shape index as described before), this leads to a
+total Spectrophore length of 48 real values per molecular conformation.</p>
+<p>Since Spectrophore descriptors are dependent on the actual
+three-dimensional conformation of the molecule, a typical analysis includes the
+calculation of Spectrophores from a reasonable set of different
+conformations. It is then up to the user to decide on the most optimal strategy
+for processing the different Spectrophore vectors. In a typical virtual
+screening application, calculating the average Spectrophore vector from all
+conformations of a single molecule may be a good strategy; other applications
+have benefit from calculating a weighted average or the minimal values.
+For each molecule in the input file, a Spectrophore is calculated and
+printed to standard output as a vector of 48 numbers (in the case of a
+non-stereospecific Spectrophore. The 48 doubles are organised into 4 sets
+of 12 doubles each:</p>
+<ul class="simple">
+<li>numbers 01-11: Spectrophore values calculated from the atomic partial charges;</li>
+<li>numbers 13-24: Spectrophore values calculated from the atomic lipophilicity properties;</li>
+<li>numbers 25-36: Spectrophore values calculated from the atomic shape deviations;</li>
+<li>numbers 37-48: Spectrophore values calculated from the atomic electrophilicity properties;</li>
+</ul>
+</div>
+</div>
+<div class="section" id="choice-of-parameters">
+<h2>Choice of Parameters<a class="headerlink" href="#choice-of-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="accuracy">
+<h3>Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this headline">¶</a></h3>
+<p>As already mentioned, the total interaction between cage and molecule for a
+given property is minimized by sampling the molecular orientation in angular
+steps of a certain magnitude. As a typical angular step size, 20 degrees was found to
+be the best compromise between accuracy and computer speed. Larger steps sizes
+are faster to calculate but have the risk of missing the global interaction
+energy minimum, while smaller angular steps sizes do sample the rotational space
+more thoroughly but at a significant computational cost. The accuracy can be
+specified by the user using the <code class="docutils literal notranslate"><span class="pre">-a</span></code> option.</p>
+</div>
+<div class="section" id="resolution">
+<h3>Resolution<a class="headerlink" href="#resolution" title="Permalink to this headline">¶</a></h3>
+<p>Spectrophores capture information about the property fields surrounding the
+molecule, and the amount of detail that needs to be captured can be regulated by
+the user. This is done by altering the minimal distance between the molecule and
+the surrounding cage. The resolution can be specified by the user with the
+<code class="docutils literal notranslate"><span class="pre">-r</span></code> option. The default distance along all dimensions is 3.0 Angstrom.
+The larger the distance, the lower the resolution.</p>
+<p>With a higher resolution,
+more details of the property fields surrounding the molecule are contained by
+the Spectrophore. On the other hand, low resolution settings may lead to a more
+general representation of the property fields, with little or no emphasis on
+small local variations within the fields. Using a low resolution can be the
+method of choice during the initial virtual screening experiments in order to get
+an initial, but not so discriminative, first selection. This initial selection
+can then further be refined during subsequent virtual screening steps using a
+higher resolution. In this setting, small local differences in the fields between
+pairs of molecules will be picked up much more easily.</p>
+<p>The absolute values of the individual Spectrophore data points are dependent
+on the used resolution. Low resolution values lead to small values of the
+calculated individual Spectrophore data points, while high resolutions will
+lead to larger data values. It is therefore only meaningful to compare only
+Spectrophores that have been generated using the same resolution settings or
+after some kind of normalization is performed.
+Computation time is not influenced by the specified resolution and hence
+is identical for all different resolution settings.</p>
+</div>
+<div class="section" id="stereospecificity">
+<h3>Stereospecificity<a class="headerlink" href="#stereospecificity" title="Permalink to this headline">¶</a></h3>
+<p>Some of the cages that are used to calculated Spectrophores have a
+stereospecific distribution of the interaction points. The resulting
+interaction values resulting from these cages are therefore sensitive to the
+enantiomeric configuration of the molecule within the cage. The fact that both
+stereoselective as well as stereo non-selective cages can be used makes it
+possible to include or exclude stereospecificity in the virtual screening
+search. Depending on the desired output, the stereospecificity of
+Spectrophores can be specified by the user using the <code class="docutils literal notranslate"><span class="pre">-s</span></code> option:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>No stereospecificity (default):</dt>
+<dd>Spectrophores are generated using cages
+that are not stereospecific. For most applications, these Spectrophores
+will suffice.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Unique stereospecificity:</dt>
+<dd>Spectrophores are generated using unique
+stereospecific cages.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Mirror stereospecificity:</dt>
+<dd>Mirror stereospecific Spectrophores are
+Spectrophores resulting from the mirror enantiomeric form of the input
+molecules.</dd>
+</dl>
+</li>
+</ul>
+<p>The differences between the corresponding data points of unique and mirror
+stereospecific Spectrophores are very small and require very long
+calculation times to obtain a sufficiently high quality level. This increased
+quality level is triggered by the accuracy setting and will result in
+calculation times being increased by at least a factor of 100. As a consequence, it
+is recommended to apply this increased accuracy only in combination with a
+limited number of molecules, and when the small differences between the
+stereospecific Spectrophores are really critical. However, for the vast
+majority of virtual screening applications, this increased accuracy is not
+required as long as it is not the intention to draw conclusions about
+differences in the underlying molecular stereoselectivity. Non-stereospecific
+Spectrophores will therefore suffice for most applications.</p>
+</div>
+<div class="section" id="normalisation">
+<h3>Normalisation<a class="headerlink" href="#normalisation" title="Permalink to this headline">¶</a></h3>
+<p>It may sometimes be desired to focus on the relative differences between the
+Spectrophore data points rather than focussing on the absolute differences.
+In these cases, normalization of Spectrophores may be required. The current
+implementation offers with the <code class="docutils literal notranslate"><span class="pre">-n</span></code> option the possibility to normalize in four
+different ways:</p>
+<ul class="simple">
+<li>No normalization (default)</li>
+<li>Normalization towards zero mean</li>
+<li>Normalization towards standard deviation</li>
+<li>Normalization towards zero mean and unit standard deviation</li>
+</ul>
+<p>In all these cases, normalization is performed on a ‘per-property’ basis, which
+means that the data points belonging to the same property set are treated as a
+single set and that normalization is only performed on the data points within
+each of these sets and not across all data points.</p>
+<p>Normalization may be important when comparing the Spectrophores of charged
+molecules with those of neutral molecules. For molecules carrying a global
+positive charge, the resulting Spectrophore data points of the charge and
+electrophilicity properties will both be shifted in absolute value compared to
+the corresponding data points of the respective neutral species. Normalization
+of the Spectrophores removes the original magnitude differences for the data
+points corresponding to the charge and electrophilicity properties of charged
+and neutral species. Therefore, if the emphasis of the virtual screening
+consists of the identification of molecules with similar property fields without
+taking into account differences in absolute charge, then Spectrophores
+should be normalized towards zero mean. However, if absolute charge differences
+should be taken into account to differentiate between molecules, unnormalized
+Spectrophores are recommended.</p>
+<table class="docutils citation" frame="void" id="bll2002" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[bll2002]</a></td><td>P. Bultinck,  W. Langenaeker,  P. Lahorte,  F. De Proft, P.
+Geerlings, C. Van Alsenoy, and J. P. Tollenaere.
+<strong>The Electronegativity Equalization Method II: Applicability of Different Atomic Charge Schemes.</strong>
+<em>J. Phys. Chem. A</em> <strong>2002</strong>, <em>106</em>, 7895-7901.
+[<a class="reference external" href="https://doi.org/10.1021/jp020547v">Link</a>]</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="blc2003" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[blc2003]</a></td><td>Patrick Bultinck, Wilfried Langenaeker, Ramon Carbó-Dorca, and Jan P. Tollenaere.
+<strong>Fast Calculation of Quantum Chemical Molecular Descriptors from the Electronegativity Equalization Method.</strong>
+<em>J. Chem. Inf. Comput. Sci.</em> <strong>2003</strong>, <em>43</em>, 422-428.
+[<a class="reference external" href="https://doi.org/10.1021/ci0255883">Link</a>]</td></tr>
+</tbody>
+</table>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="trademark" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Spectrophore is a registered trademark of Silicos NV.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../Command-line_tools/Rosetta.html" title="obabel vs Chemistry Toolkit Rosetta"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="fingerprints.html" title="Fingerprint format"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="intro.html" >Molecular fingerprints and similarity searching</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

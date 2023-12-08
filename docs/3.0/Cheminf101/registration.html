@@ -1,0 +1,198 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Chemical Registration Systems &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Handling of aromaticity" href="../Aromaticity/Aromaticity.html" />
+    <link rel="prev" title="Molecular Similarity" href="similarity.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../Aromaticity/Aromaticity.html" title="Handling of aromaticity"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="similarity.html" title="Molecular Similarity"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Cheminformatics 101</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="similarity.html"
+                        title="previous chapter">Molecular Similarity</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Aromaticity/Aromaticity.html"
+                        title="next chapter">Handling of aromaticity</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="chemical-registration-systems">
+<h1>Chemical Registration Systems<a class="headerlink" href="#chemical-registration-systems" title="Permalink to this headline">¶</a></h1>
+<p>Chemical Registration is the “big brother” of cheminformatics.</p>
+<p>A cheminformatics system is primarily devoted to recording chemical
+structure. Chemical Registration systems are additionally concerned
+with:</p>
+<ul class="simple">
+<li>Structural novelty - ensure that each compound is only
+registered once</li>
+<li>Structural normalization - ensure that structures with
+alternative representations (such as nitro groups, ferrocenes, and
+tautomers) are entered in a uniform way.</li>
+<li>Structure drawing - ensure that compounds are drawn in a uniform
+fashion, so that they can be quickly recognized “by eye”.</li>
+<li>Maintaining relationships among related compounds. For example,
+all salt forms of a compound should be recognized as being related
+to one another, and compounds in different solvates are also
+related.</li>
+<li>Registering mixtures, formulations and alternative structures.</li>
+<li>Registering compounds the structure of which is unknown.</li>
+<li>Roles, responsibilities, security, and company workflow.</li>
+<li>Updates, amendments and corrections, and controlling propagation
+of changes (e.g. does changing a compound change a mixture
+containing that compound?)</li>
+</ul>
+<p>The scope of Chemical Registration Systems is far beyond the goals
+of this brief introduction to cheminformatics. However, to
+illustrate just one of the points above, let’s consider structural
+novelty. In real life, chemical structure can be very ambiguous.
+Imagine you have five bottles of a particular compound that has a
+stereo center:</p>
+<ol class="arabic simple">
+<li>The contents of the first bottle were carefully analyzed, and
+found to be a single stereoisomer.</li>
+<li>The contents of the second bottle were carefully analyzed and
+found to contain a racemic mixture of the stereoisomers.</li>
+<li>The stereoisomers of the third bottle are unknown. It may be
+pure, or have one predominant form, or be a racemic mixture.</li>
+<li>The fourth bottle was obtained by running part of the contents
+of bottle #2 through a chromatographic separation. It is
+isotopically pure, but you don’t know which stereoisomer.</li>
+<li>The fifth bottle is the other fraction from the same separation
+of #4. It is also isotopically pure, but you don’t know which
+stereoisomer, <em>but you know it’s the opposite of #4</em>.</li>
+</ol>
+<p>Which of these five bottles contain the same compound, and which
+are different? That is the essential task of a chemical registry
+system, which would consider all five to be different. After all,
+you probably have data about each bottle (that’s why you have
+them), and you must be able to record it and not confuse it with
+the other bottles.</p>
+<p>In this example above, consider what is known and not known:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="67%" />
+<col width="27%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bottle</th>
+<th class="head">Known</th>
+<th class="head">Not Known</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Everything</td>
+<td>Nothing</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Everything</td>
+<td>Nothing</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Compound is known</td>
+<td>Stereochemistry</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>Compound and purity known, stereochemistry is opposite of #5</td>
+<td>Specific stereochemistry</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>Compound and purity known, stereochemistry is opposite of #4</td>
+<td>Specific stereochemistry</td>
+</tr>
+</tbody>
+</table>
+<p>A cheminformatics system has no way to record the contents of the
+five bottles; it is only concerned with structure. By contrast, a
+chemical registration system can record both <em>what is known</em> as
+well as <em>what is not known</em>. This is the critical difference
+between the two.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../Aromaticity/Aromaticity.html" title="Handling of aromaticity"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="similarity.html" title="Molecular Similarity"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Cheminformatics 101</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>

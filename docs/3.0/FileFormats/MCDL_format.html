@@ -1,0 +1,127 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MCDL format (mcdl) &#8212; Open Babel 3.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MSI BGF format (bgf)" href="MSI_BGF_format.html" />
+    <link rel="prev" title="Accelrys/MSI Quanta CSR format (csr)" href="Accelrys_or_MSI_Quanta_CSR_format.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="MSI_BGF_format.html" title="MSI BGF format (bgf)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Accelrys_or_MSI_Quanta_CSR_format.html" title="Accelrys/MSI Quanta CSR format (csr)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Other_cheminformatics_Formats.html" accesskey="U">Other cheminformatics formats</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+    <a href="http://www.jcheminf.com/content/3/1/33">J. Cheminf. <b>2011</b>, <i>3</i>, 33</a>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Accelrys_or_MSI_Quanta_CSR_format.html"
+                        title="previous chapter">Accelrys/MSI Quanta CSR format (csr)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="MSI_BGF_format.html"
+                        title="next chapter">MSI BGF format (bgf)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mcdl-format-mcdl">
+<span id="mcdl-format"></span><h1>MCDL format (mcdl)<a class="headerlink" href="#mcdl-format-mcdl" title="Permalink to this headline">¶</a></h1>
+<p><strong>Modular Chemical Descriptor Language</strong></p>
+<p>As described in <a class="reference internal" href="#gb2001" id="id1">[gb2001]</a>.</p>
+<table class="docutils citation" frame="void" id="gb2001" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[gb2001]</a></td><td>A.A. Gakh and M.N. Burnett. <strong>Modular Chemical Descriptor
+Language (MCDL): Composition, Connectivity and
+Supplementary Modules.</strong>
+<em>J. Chem. Inf. Comput. Sci.</em>, <strong>2004</strong>, <em>41</em>, 1491-1499.
+[<a class="reference external" href="https://doi.org/10.1021/ci000108y">Link</a>]</td></tr>
+</tbody>
+</table>
+<p>Here’s an example conversion from SMILES to MCDL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="o">-</span><span class="p">:</span><span class="s2">&quot;CC(=O)Cl&quot;</span> <span class="o">-</span><span class="n">omcdl</span>
+<span class="n">CHHH</span><span class="p">;</span><span class="n">COCl</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="MSI_BGF_format.html" title="MSI BGF format (bgf)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Accelrys_or_MSI_Quanta_CSR_format.html" title="Accelrys/MSI Quanta CSR format (csr)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Open Babel 3.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Overview.html" >Supported File Formats and Options</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="Other_cheminformatics_Formats.html" >Other cheminformatics formats</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Open Babel community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  </body>
+</html>
