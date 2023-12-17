@@ -19,6 +19,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Checkout docs
+      uses: actions/checkout@v4
+      with:
+        repository: openbabel/documentation
+        path: source/docs
+
 # build the doxygen XML for breathe
 
     - name: Install packages
