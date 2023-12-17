@@ -1,0 +1,53 @@
+name: Build Sphinx
+
+on: 
+  workflow_dispatch:
+  push:
+    branches:    
+      - 'main'
+
+jobs:
+  build-html:
+    name: Update website
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}
+      cancel-in-progress: true
+
+    steps:
+    - uses: actions/checkout@v4
+
+# build the doxygen XML for breathe
+
+    - name: Install packages
+      run: |
+        sudo apt-get -qq update
+        sudo apt-get -qq install doxygen ninja-build libeigen3-dev libglew-dev libxml2-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5x11extras5-dev libqt5svg5-dev
+
+    - name: Install Sphinx and requirements
+      run: |
+        pip install -U sphinx myst-parser breathe pydata-sphinx-theme sphinxext-rediraffe sphinx-design sphinx-copybutton linkify-it-py pygments
+
+    - name: Build Sphinx
+      run: |
+        cd source
+        sphinx-build -j auto -E . ../public
+        cd ..
+        git status
+      shell: bash
+
+    - name: Setup tmate session
+      if: ${{ failure() }}
+      uses: mxschmitt/action-tmate@v3
+
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      # If you're changing the branch from main,
+      # also change the `main` in `refs/heads/main`
+      # below accordingly.
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
