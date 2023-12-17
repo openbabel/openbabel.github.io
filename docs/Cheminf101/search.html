@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Substructure Searching with Indexes &#8212; Open Babel openbabel-3-1-1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=4d45eed0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Cheminf101/search';</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/Cheminf101/search.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Molecular Similarity" href="similarity.html" />
+    <link rel="prev" title="Representing Molecules" href="represent.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/install.html">Install Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/babel.html">obabel - Convert, Filter and Manipulate Chemical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI/GUI.html">The Open Babel GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUITutorial/GUITutorial.html">Tutorial on using the GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fingerprints/intro.html">Molecular fingerprints and similarity searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/Rosetta.html">obabel vs Chemistry Toolkit Rosetta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Depiction/depiction.html">2D Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3DStructureGen/Overview.html">3D Structure Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Forcefields/Overview.html">Molecular Mechanics and Force Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UseTheLibrary/intro.html">Write software using the Open Babel library</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Cheminformatics 101</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Cheminformatics Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="represent.html">Representing Molecules</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Substructure Searching with Indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="similarity.html">Molecular Similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="registration.html">Chemical Registration Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Stereochemistry/stereo.html">Stereochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Aromaticity/Aromaticity.html">Handling of aromaticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Features/Radicals.html">Radicals and SMILES extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/Contributing.html">Contributing to Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WritePlugins/index.html">Adding plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FileFormats/Overview.html">Supported File Formats and Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Descriptors/descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Charges/charges.html">Charge models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes/index.html">Release Notes</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Cheminformatics 101</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Substructure...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="substructure-searching-with-indexes">
+<h1>Substructure Searching with Indexes<a class="headerlink" href="#substructure-searching-with-indexes" title="Link to this heading">#</a></h1>
+<section id="what-is-indexing">
+<h2>What is Indexing?<a class="headerlink" href="#what-is-indexing" title="Link to this heading">#</a></h2>
+<p>Indexing is pre-computing the answers to portions of expected
+questions <em>before</em> they’re asked, so that when the question comes,
+it can be answered quickly.</p>
+<p>Take your favorite search engine (AOL, Yahoo!, Google, MSN, …)
+for example. Without indexing, they might wait until you ask for
+“John Hartford Bluegrass”, then start searching the web, and in a
+year or two find all the web pages about the deceased banjo/fiddle
+player and steamboat captain. That would probably not impress you.</p>
+<p>Instead, these search engines search the web <em>before</em> you ask your
+question, and build an <em>index</em> of the words they find. When you
+type in “Bluegrass John Hartford”, they already know all of the
+pages that have “John”, all of the pages with “Hartford”, and all
+of the pages with “Bluegrass”. Instead of searching, they examine
+their index, and find pages that are on <em>all three</em> lists, and
+quickly find your results. (NB: It’s actually a lot more complex,
+but this illustrates the main idea of indexing.)</p>
+</section>
+<section id="indexes-for-chemicals">
+<h2>Indexes for Chemicals<a class="headerlink" href="#indexes-for-chemicals" title="Link to this heading">#</a></h2>
+<p>Instead of indexing words, cheminformatics systems index
+<em>substructures</em>. Although there are many schemes for doing this,
+cheminformatics systems all use the same fundamental principle:
+they <em>decompose the molecule</em> into smaller bits, and index those.</p>
+<figure class="align-default">
+<img alt="../../_images/steroid_substruct_keys.png" src="../../_images/steroid_substruct_keys.png" />
+</figure>
+<p>Roughly speaking, a cheminformatics system will index each of the
+substructures (fragments) above, so that every molecule that
+contains each fragment is known.</p>
+<p>When a query is entered, the cheminformatics system breaks apart
+the query using the same technique, to find all of the fragments in
+the query. It then checks its index for each fragment, and combines
+the lists it finds to get only those molecules that have <em>all</em> of
+those fragments.</p>
+<p>This doesn’t mean that all molecules returned by the index actually
+are matches. In the language of databases, we say the index will
+return <em>false positives</em>, candidate molecules that don’t actually
+match the substructure search.</p>
+<p>Consider our example of searching for “John Hartford” - the index
+might return many pages that have both “John” and “Hartford”, yet
+have nothing to do with bluegrass music or steamboats. For example,
+it might return a page containing, “President John F. Kennedy
+visited Hartford, Connecticut today…”. To confirm that the search
+system has found something relevant, it must check the pages return
+from the index to ensure that the specific phrase “John Hartford”
+is present. However, notice that this is <em>much</em> faster than
+searching every page, since the overwhelming majority of web pages
+were instantly rejected because they have neither “John” nor
+“Hartford” on them.</p>
+<p>Similarly, a chemical fragment index serves to find only the most
+<em>likely</em> molecules for our substructure match - anything that the
+index didn’t find is definitely not a match. But we still have to
+examine each of the molecules returned by the indexing system and
+verify that the complete substructure for which we are searching is
+present.</p>
+</section>
+<section id="np-complete-a-little-about-computability">
+<h2>NP-Complete - A Little about Computability<a class="headerlink" href="#np-complete-a-little-about-computability" title="Link to this heading">#</a></h2>
+<p>Searching through a page of text for the words “John Hartford” is
+pretty easy for a modern computer. Although false positives
+returned by the index are a nuisance and impair performance, they
+are not a catastrophe. Not so for substructure matching.
+Unfortunately, substructure matching falls into a category of
+“hard” mathematical problems, which means false positives from the
+index are a big problem.</p>
+<p>Substructure matching (finding a certain functional group within a
+molecule) is an example of what mathematicians call
+<a class="reference external" href="http://planetmath.org/?op=getobj&amp;from=objects&amp;id=1708">graph isomorphism</a>,
+and is in a class of problems called
+<a class="reference external" href="http://en.wikipedia.org/wiki/Np_complete">NP Complete</a>.
+Roughly speaking, this means the time it takes to do a substructure
+search is non-polynomial, i.e. exponential in the number of atoms
+and bonds. To see why this is a computational disaster, compare two
+tasks, one that takes polynomial time,
+k<sub>1</sub>*N<sup>2</sup>, versus one that takes exponential
+time k<sub>2</sub>*2<sup>N</sup>. Our polynomial task is bad
+enough: If we double N, it takes <em>four times</em> as long to solve. But
+the exponential task is worse:
+<em>Every time we add an atom it doubles</em>. So going from one atom to
+two doubles the time, and going from 100 atoms to 101 atoms doubles
+the time. Even if we can get k<sub>2</sub> down to a millionth of
+k<sub>1</sub>, we’re still in trouble - a million is just
+2<sup>20</sup> or twenty atoms away.</p>
+<p>It has been mathematically proven that substructure searching is in
+the set of NP Complete problems, so there’s no point wasting our
+time searching for a polynomial algorithm. The good news is that
+most molecules have “low connectivity”, meaning most atoms have
+fewer than four bonds, unlike the weird and twisted graphs that
+mathematicians consider. In practice, most substructure matching
+can be done in polynomial time around N<sup>2</sup> or
+N<sup>3</sup>. But even with this improvement, substructure
+matching is an “expensive” time-consuming task for a computer.</p>
+<p>The key point is that indexing is particularly important for
+cheminformatics systems. The typical modern computer can only
+examine a few thousand molecules per second, so examining millions
+of molecules one-by-one is out of the question. The indexing done
+by a modern cheminformatics system is the key to its performance.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="represent.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Representing Molecules</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="similarity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Molecular Similarity</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-indexing">What is Indexing?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexes-for-chemicals">Indexes for Chemicals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#np-complete-a-little-about-computability">NP-Complete - A Little about Computability</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/Cheminf101/search.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2023 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

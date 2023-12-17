@@ -1,0 +1,741 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SVG 2D depiction (svg) &#8212; Open Babel openbabel-3-1-1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=4d45eed0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/FileFormats/SVG_2D_depiction';</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/FileFormats/SVG_2D_depiction.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2D drawing formats" href="2D_drawing_Formats.html" />
+    <link rel="prev" title="Painter format (paint)" href="Painter_format.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/install.html">Install Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/babel.html">obabel - Convert, Filter and Manipulate Chemical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI/GUI.html">The Open Babel GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUITutorial/GUITutorial.html">Tutorial on using the GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fingerprints/intro.html">Molecular fingerprints and similarity searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/Rosetta.html">obabel vs Chemistry Toolkit Rosetta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Depiction/depiction.html">2D Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3DStructureGen/Overview.html">3D Structure Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Forcefields/Overview.html">Molecular Mechanics and Force Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UseTheLibrary/intro.html">Write software using the Open Babel library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cheminf101/index.html">Cheminformatics 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stereochemistry/stereo.html">Stereochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Aromaticity/Aromaticity.html">Handling of aromaticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Features/Radicals.html">Radicals and SMILES extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/Contributing.html">Contributing to Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WritePlugins/index.html">Adding plugins</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Overview.html">Supported File Formats and Options</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Common_cheminformatics_Formats.html">Common cheminformatics formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utility_Formats.html">Utility formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Other_cheminformatics_Formats.html">Other cheminformatics formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Computational_chemistry_Formats.html">Computational chemistry formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Molecular_fingerprint_Formats.html">Molecular fingerprint formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Crystallography_Formats.html">Crystallography formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Reaction_Formats.html">Reaction formats</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="Image_Formats.html">Image formats</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ASCII_format.html">ASCII format (ascii)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PNG_2D_depiction.html">PNG 2D depiction (png)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="POV-Ray_input_format.html">POV-Ray input format (pov)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Painter_format.html">Painter format (paint)</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">SVG 2D depiction (svg)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2D_drawing_Formats.html">2D drawing formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3D_viewer_Formats.html">3D viewer formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Kinetics_and_Thermodynamics_Formats.html">Kinetics and Thermodynamics formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Molecular_dynamics_and_docking_Formats.html">Molecular dynamics and docking formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Volume_data_Formats.html">Volume data formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON_Formats.html">JSON formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Miscellaneous_Formats.html">Miscellaneous formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Biological_data_Formats.html">Biological data formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Obscure_Formats.html">Obscure formats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Descriptors/descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Charges/charges.html">Charge models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes/index.html">Release Notes</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
+    
+    
+    <li class="breadcrumb-item"><a href="Image_Formats.html" class="nav-link">Image formats</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">SVG 2D...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="svg-2d-depiction-svg">
+<span id="svg-2d-depiction"></span><h1>SVG 2D depiction (svg)<a class="headerlink" href="#svg-2d-depiction-svg" title="Link to this heading">#</a></h1>
+<p><strong>Scalable Vector Graphics 2D rendering of molecular structure.</strong></p>
+<p>When called from commandline or GUI or otherwise via Convert(),
+single molecules are displayed at a fixed scale, as in normal diagrams,
+but multiple molecules are displayed in a table which expands to fill
+the containing element, such as a browser window.
+When WriteMolecule() is called directly, without going through
+WriteChemObject, e.g. via OBConversion::Write(), a fixed size image by
+default 200 x 200px containing a single molecule is written. The size
+can be specified by the P output option.</p>
+<p>Multiple molecules are displayed in a grid of dimensions specified by
+the <code class="docutils literal notranslate"><span class="pre">-xr</span></code> and <code class="docutils literal notranslate"><span class="pre">-xc</span></code> options (number of rows and columns respectively
+and <code class="docutils literal notranslate"><span class="pre">--rows</span></code>, <code class="docutils literal notranslate"><span class="pre">--cols</span></code> with babel).
+When displayed in most modern browsers, like Firefox, there is
+javascript support for zooming (with the mouse wheel)
+and panning (by dragging with the left mouse button).</p>
+<p>If both <code class="docutils literal notranslate"><span class="pre">-xr</span></code> and <code class="docutils literal notranslate"><span class="pre">-xc</span></code> are specified, they define the maximum number of
+molecules that are displayed.
+If only one of them is displayed, then the other is calculated so that
+ALL the molecules are displayed.
+If neither are specified, all the molecules are output in an
+approximately square table.</p>
+<p>By default, 2D atom coordinates are generated (using gen2D) unless they
+are already present. This can be slow with a large number of molecules.
+(3D coordinates are ignored.) Include <code class="docutils literal notranslate"><span class="pre">--gen2D</span></code> explicitly if you wish
+any existing 2D coordinates to be recalculated.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a write-only format.</p>
+</div>
+<section id="write-options">
+<h2>Write Options<a class="headerlink" href="#write-options" title="Link to this heading">#</a></h2>
+<dl class="option-list">
+<dt><kbd><span class="option">-u</span></kbd></dt>
+<dd><p><em>no element-specific atom coloring</em></p>
+<p>Use this option to produce a black and white diagram</p>
+</dd>
+<dt><kbd><span class="option">-U</span></kbd></dt>
+<dd><p><em>do not use internally-specified color</em></p>
+<p>e.g. atom color read from cml or generated by internal code</p>
+</dd>
+<dt><kbd><span class="option">-b <var>&lt;color&gt;</var></span></kbd></dt>
+<dd><p><em>background color, default white</em></p>
+<p>e.g <code class="docutils literal notranslate"><span class="pre">-xb</span> <span class="pre">yellow</span></code> or <code class="docutils literal notranslate"><span class="pre">-xb</span> <span class="pre">#88ff00</span></code> <code class="docutils literal notranslate"><span class="pre">-xb</span> <span class="pre">none</span></code> is transparent.
+Just <code class="docutils literal notranslate"><span class="pre">-xb</span></code> is black with white bonds.
+The atom symbol colors work with black and white backgrounds,
+but may not with other colors.</p>
+</dd>
+<dt><kbd><span class="option">-B <var>&lt;color&gt;</var></span></kbd></dt>
+<dd><p><em>bond color, default black</em></p>
+<p>e.g <code class="docutils literal notranslate"><span class="pre">-xB</span></code> yellow or <code class="docutils literal notranslate"><span class="pre">-xB</span> <span class="pre">#88ff00</span></code></p>
+</dd>
+<dt><kbd><span class="option">-C</span></kbd></dt>
+<dd><p><em>do not draw terminal C (and attached H) explicitly</em></p>
+<p>The default is to draw all hetero atoms and terminal C explicitly,
+together with their attched hydrogens.</p>
+</dd>
+<dt><kbd><span class="option">-a</span></kbd></dt>
+<dd><p><em>draw all carbon atoms</em></p>
+<p>So propane would display as H3C-CH2-CH3</p>
+</dd>
+<dt><kbd><span class="option">-d</span></kbd></dt>
+<dd><p><em>do not display molecule name</em></p>
+</dd>
+<dt><kbd><span class="option">-s</span></kbd></dt>
+<dd><p><em>use asymmetric double bonds</em></p>
+</dd>
+<dt><kbd><span class="option">-t</span></kbd></dt>
+<dd><p><em>use thicker lines</em></p>
+</dd>
+<dt><kbd><span class="option">-e</span></kbd></dt>
+<dd><p><em>embed molecule as CML</em></p>
+<p>OpenBabel can read the resulting svg file as a cml file.</p>
+</dd>
+<dt><kbd><span class="option">-p <var>&lt;num&gt;</var></span></kbd></dt>
+<dd><p><em>px Scale to bond length(single mol only)</em></p>
+</dd>
+<dt><kbd><span class="option">-P <var>&lt;num&gt;</var></span></kbd></dt>
+<dd><p><em>px Single mol in defined size image</em></p>
+<p>The General option –px # is an alternative to the above.</p>
+</dd>
+<dt><kbd><span class="option">-c <var>&lt;num&gt;</var></span></kbd></dt>
+<dd><p><em>number of columns in table</em></p>
+</dd>
+<dt><kbd><span class="option">-c</span></kbd></dt>
+<dd><p><em>ols&lt;num&gt; number of columns in table(not displayed in GUI)</em></p>
+</dd>
+<dt><kbd><span class="option">-r <var>&lt;num&gt;</var></span></kbd></dt>
+<dd><p><em>number of rows in table</em></p>
+</dd>
+<dt><kbd><span class="option">-r</span></kbd></dt>
+<dd><p><em>ows&lt;num&gt; number of rows in table(not displayed in GUI)</em></p>
+</dd>
+<dt><kbd><span class="option">-N <var>&lt;num&gt;</var></span></kbd></dt>
+<dd><p><em>max number objects to be output</em></p>
+</dd>
+<dt><kbd><span class="option">-l</span></kbd></dt>
+<dd><p><em>draw grid lines</em></p>
+</dd>
+<dt><kbd><span class="option">-h <var>&lt;condition&gt;</var></span></kbd></dt>
+<dd><p><em>highlight mol if condition is met</em></p>
+<p>The condition can use descriptors and properties,
+See documentation on <code class="docutils literal notranslate"><span class="pre">--filter</span></code> option for details.
+To highlight in a particular color, follow the condition
+by a color.</p>
+</dd>
+<dt><kbd><span class="option">-i</span></kbd></dt>
+<dd><p><em>add index to each atom</em></p>
+<p>These indices are those in sd or mol files and correspond to the
+order of atoms in a SMILES string.</p>
+</dd>
+<dt><kbd><span class="option">-j</span></kbd></dt>
+<dd><p><em>do not embed javascript</em></p>
+<p>Javascript is not usually embedded if there is only one molecule,
+but it is if the rows and columns have been specified as 1: <code class="docutils literal notranslate"><span class="pre">-xr1</span> <span class="pre">-xc1</span></code></p>
+</dd>
+<dt><kbd><span class="option">-x</span></kbd></dt>
+<dd><p><em>omit XML declaration (not displayed in GUI)</em></p>
+<p>Useful if the output is to be embedded in another xml file.</p>
+</dd>
+<dt><kbd><span class="option">-X</span></kbd></dt>
+<dd><p><em>All atoms are explicitly declared</em></p>
+<p>Useful if we don’t want any extra hydrogens drawn to fill the valence.</p>
+</dd>
+<dt><kbd><span class="option">-A</span></kbd></dt>
+<dd><p><em>display aliases, if present</em></p>
+<p>This applies to structures which have an alternative, usually
+shorter, representation already present. This might have been input
+from an A or S superatom entry in an sd or mol file, or can be
+generated using the –genalias option. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="o">-</span><span class="p">:</span><span class="s2">&quot;c1cc(C=O)ccc1C(=O)O&quot;</span> <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">svg</span>
+       <span class="o">--</span><span class="n">genalias</span> <span class="o">-</span><span class="n">xA</span>
+</pre></div>
+</div>
+<p>would add a aliases COOH and CHO to represent the carboxyl and
+aldehyde groups and would display them as such in the svg diagram.
+The aliases which are recognized are in data/superatom.txt, which
+can be edited.</p>
+</dd>
+<dt><kbd><span class="option">-S</span></kbd></dt>
+<dd><p><em>Ball and stick depiction of molecules</em></p>
+<p>Depicts the molecules as balls and sticks instead of the
+normal line style.</p>
+</dd>
+</dl>
+</section>
+<section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Link to this heading">#</a></h2>
+<p>If the input molecule(s) contain explicit hydrogen, you could consider
+improving the appearance of the diagram by adding an option <code class="docutils literal notranslate"><span class="pre">-d</span></code> to make
+it implicit. Hydrogen on hetero atoms and on explicitly drawn C is
+always shown.
+For example, if input.smi had 10 molecules:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="nb">input</span><span class="o">.</span><span class="n">smi</span> <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">svg</span> <span class="o">-</span><span class="n">xb</span> <span class="o">-</span><span class="n">xC</span> <span class="o">-</span><span class="n">xe</span>
+</pre></div>
+</div>
+<p>would produce a svg file with a black background, with no explicit
+terminal carbon, and with an embedded cml representation of each
+molecule. The structures would be in two rows of four and one row
+of two.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Painter_format.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Painter format (paint)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2D_drawing_Formats.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2D drawing formats</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-options">Write Options</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/FileFormats/SVG_2D_depiction.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2023 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

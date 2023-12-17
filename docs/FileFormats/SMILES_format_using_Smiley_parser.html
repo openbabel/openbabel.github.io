@@ -1,0 +1,689 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SMILES format using Smiley parser (smy) &#8212; Open Babel openbabel-3-1-1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=4d45eed0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/FileFormats/SMILES_format_using_Smiley_parser';</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/FileFormats/SMILES_format_using_Smiley_parser.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Sybyl Mol2 format (ml2, mol2, sy2)" href="Sybyl_Mol2_format.html" />
+    <link rel="prev" title="SMILES format (smi, smiles)" href="SMILES_format.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/install.html">Install Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/babel.html">obabel - Convert, Filter and Manipulate Chemical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI/GUI.html">The Open Babel GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUITutorial/GUITutorial.html">Tutorial on using the GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fingerprints/intro.html">Molecular fingerprints and similarity searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/Rosetta.html">obabel vs Chemistry Toolkit Rosetta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Depiction/depiction.html">2D Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3DStructureGen/Overview.html">3D Structure Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Forcefields/Overview.html">Molecular Mechanics and Force Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UseTheLibrary/intro.html">Write software using the Open Babel library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cheminf101/index.html">Cheminformatics 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stereochemistry/stereo.html">Stereochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Aromaticity/Aromaticity.html">Handling of aromaticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Features/Radicals.html">Radicals and SMILES extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/Contributing.html">Contributing to Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WritePlugins/index.html">Adding plugins</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Overview.html">Supported File Formats and Options</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="Common_cheminformatics_Formats.html">Common cheminformatics formats</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Canonical_SMILES_format.html">Canonical SMILES format (can)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Chemical_Markup_Language.html">Chemical Markup Language (cml, mrv)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="InChI_format.html">InChI format (inchi)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="InChIKey.html">InChIKey (inchikey)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MDL_MOL_format.html">MDL MOL format (mdl, mol, sd, sdf)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Protein_Data_Bank_format.html">Protein Data Bank format (ent, pdb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SMILES_format.html">SMILES format (smi, smiles)</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">SMILES format using Smiley parser (smy)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sybyl_Mol2_format.html">Sybyl Mol2 format (ml2, mol2, sy2)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Utility_Formats.html">Utility formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Other_cheminformatics_Formats.html">Other cheminformatics formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Computational_chemistry_Formats.html">Computational chemistry formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Molecular_fingerprint_Formats.html">Molecular fingerprint formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Crystallography_Formats.html">Crystallography formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Reaction_Formats.html">Reaction formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Image_Formats.html">Image formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D_drawing_Formats.html">2D drawing formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3D_viewer_Formats.html">3D viewer formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Kinetics_and_Thermodynamics_Formats.html">Kinetics and Thermodynamics formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Molecular_dynamics_and_docking_Formats.html">Molecular dynamics and docking formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Volume_data_Formats.html">Volume data formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON_Formats.html">JSON formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Miscellaneous_Formats.html">Miscellaneous formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Biological_data_Formats.html">Biological data formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Obscure_Formats.html">Obscure formats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Descriptors/descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Charges/charges.html">Charge models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes/index.html">Release Notes</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
+    
+    
+    <li class="breadcrumb-item"><a href="Common_cheminformatics_Formats.html" class="nav-link">Common cheminformatics formats</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">SMILES...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="smiles-format-using-smiley-parser-smy">
+<span id="smiles-format-using-smiley-parser"></span><h1>SMILES format using Smiley parser (smy)<a class="headerlink" href="#smiles-format-using-smiley-parser-smy" title="Link to this heading">#</a></h1>
+<p>The Smiley parser presents an alternative to the standard SMILES parser
+(<a class="reference internal" href="SMILES_format.html#smiles-format"><span class="std std-ref">SMILES format (smi, smiles)</span></a>). It was written to be strictly compatible with the
+OpenSMILES standard (<a class="reference external" href="http://opensmiles.org">http://opensmiles.org</a>). In comparison, the standard
+parser is more forgiving to erroneous input, and also supports some extensions
+such as for radicals.</p>
+<p>In addition, the Smiley parser returns detailed error messages when problems
+arise parsing or validating the SMILES, whereas the standard parser seldom
+describes the specific problem. For a detailed description of the OpenSMILES
+semantics, the specification should be consulted. In addition to syntactical
+and grammatical correctness, the Smiley parser also verifies some basic
+semantics.</p>
+<p>Here are some examples of the errors reported:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">Bracket</span> <span class="n">atom</span> <span class="n">expression</span> <span class="n">contains</span> <span class="n">invalid</span> <span class="n">trailing</span> <span class="n">characters</span><span class="o">.</span>
+<span class="n">F</span><span class="o">.</span><span class="n">FB</span><span class="p">(</span><span class="n">F</span><span class="p">)</span><span class="n">F</span><span class="o">.</span><span class="p">[</span><span class="n">NH2</span><span class="o">+</span><span class="mi">251</span><span class="p">][</span><span class="n">C</span><span class="o">@</span><span class="nd">@H</span><span class="p">](</span><span class="n">CP</span><span class="p">(</span><span class="n">c1ccccc1</span><span class="p">)</span><span class="n">c1ccccc1</span><span class="p">)</span><span class="n">C</span><span class="p">(</span><span class="n">C</span><span class="p">)(</span><span class="n">C</span><span class="p">)</span><span class="n">C</span> <span class="mi">31586112</span>
+               <span class="o">^^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">Unmatched</span> <span class="n">branch</span> <span class="n">opening</span><span class="o">.</span>
+<span class="n">CC</span><span class="p">(</span><span class="n">CC</span>
+  <span class="o">^^^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">Unmatched</span> <span class="n">branch</span> <span class="n">closing</span><span class="o">.</span>
+<span class="n">CC</span><span class="p">)</span><span class="n">CC</span>
+<span class="o">^^^</span>
+<span class="n">SemanticsError</span><span class="p">:</span> <span class="n">Unmatched</span> <span class="n">ring</span> <span class="n">bond</span><span class="o">.</span>
+<span class="n">C1CCC</span>
+<span class="o">^</span>
+<span class="n">SemanticsError</span><span class="p">:</span> <span class="n">Conflicing</span> <span class="n">ring</span> <span class="n">bonds</span><span class="o">.</span>
+<span class="n">C</span><span class="o">-</span><span class="mi">1</span><span class="n">CCCCC</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<section id="hydrogen-with-hydrogen-count">
+<h2>Hydrogen with Hydrogen Count<a class="headerlink" href="#hydrogen-with-hydrogen-count" title="Link to this heading">#</a></h2>
+<p>Hydrogen atoms can not have a hydrogen count. Hydrogen bound to a hydrogen
+atom should be specified by two bracket atom expressions.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">HH</span><span class="p">]</span>        <span class="n">invalid</span>
+<span class="p">[</span><span class="n">HH1</span><span class="p">]</span>       <span class="n">invalid</span> <span class="p">(</span><span class="n">same</span> <span class="k">as</span> <span class="p">[</span><span class="n">HH</span><span class="p">]</span>
+<span class="p">[</span><span class="n">HH3</span><span class="p">]</span>       <span class="n">invalid</span>
+<span class="p">[</span><span class="n">HH0</span><span class="p">]</span>       <span class="n">valid</span> <span class="p">(</span><span class="n">same</span> <span class="k">as</span> <span class="p">[</span><span class="n">H</span><span class="p">])</span>
+<span class="p">[</span><span class="n">H</span><span class="p">][</span><span class="n">H</span><span class="p">]</span>      <span class="n">valid</span>
+</pre></div>
+</div>
+</section>
+<section id="unmatched-ring-bond">
+<h2>Unmatched Ring Bond<a class="headerlink" href="#unmatched-ring-bond" title="Link to this heading">#</a></h2>
+<p>Report unmatched ring bonds.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C1CCC</span>
+</pre></div>
+</div>
+</section>
+<section id="conflicting-ring-bonds">
+<h2>Conflicting Ring Bonds<a class="headerlink" href="#conflicting-ring-bonds" title="Link to this heading">#</a></h2>
+<p>When the bond type for ring bonds are explicitly specified at both ends,
+these should be the same.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="mi">1</span><span class="n">CCCCCC</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</section>
+<section id="invalid-ring-bonds">
+<h2>Invalid Ring Bonds<a class="headerlink" href="#invalid-ring-bonds" title="Link to this heading">#</a></h2>
+<p>There are two types of invalid ring bonds. The first is when two atoms both
+have the same two ring bonds. This would mean adding a parallel edge in the
+graph which is not allowed. The second type is similar but results in a
+self-loop by having a ring bond number twice.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C12CCCC12</span>      <span class="n">parallel</span> <span class="n">bond</span>
+<span class="n">C11</span>            <span class="bp">self</span><span class="o">-</span><span class="n">loop</span> <span class="n">bond</span>
+</pre></div>
+</div>
+</section>
+<section id="invalid-chiral-valence">
+<h2>Invalid Chiral Valence<a class="headerlink" href="#invalid-chiral-valence" title="Link to this heading">#</a></h2>
+<p>When an atom is specified as being chiral, it should have the correct
+number of neighboring atoms (possibly including an implicit H inside the
+bracket.</p>
+<p>The valid valences are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Tetrahedral</span> <span class="p">(</span><span class="n">TH</span><span class="p">)</span>          <span class="p">:</span> <span class="mi">4</span>
+<span class="n">Allene</span> <span class="p">(</span><span class="n">AL</span><span class="p">)</span>               <span class="p">:</span> <span class="mi">4</span> <span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="n">Square</span> <span class="n">Planar</span> <span class="p">(</span><span class="n">SP</span><span class="p">)</span>        <span class="p">:</span> <span class="mi">4</span>
+<span class="n">Trigonal</span> <span class="n">Bypiramidal</span> <span class="p">(</span><span class="n">TB</span><span class="p">)</span> <span class="p">:</span> <span class="mi">5</span>
+<span class="n">Octahedral</span><span class="p">(</span><span class="n">OH</span><span class="p">)</span>            <span class="p">:</span> <span class="mi">6</span>
+
+<span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">The</span> <span class="n">chiral</span> <span class="n">atom</span> <span class="n">has</span> <span class="n">only</span> <span class="mi">2</span> <span class="n">bonds</span> <span class="n">but</span> <span class="n">the</span> <span class="n">neighbor</span><span class="s1">&#39;s neighbors are</span>
+    <span class="n">counted</span><span class="p">:</span> <span class="n">NC</span><span class="p">(</span><span class="n">Br</span><span class="p">)</span><span class="o">=</span><span class="p">[</span><span class="n">C</span><span class="nd">@AL1</span><span class="p">]</span><span class="o">=</span><span class="n">C</span><span class="p">(</span><span class="n">F</span><span class="p">)</span><span class="n">I</span>
+</pre></div>
+</div>
+</section>
+<section id="invalid-chiral-hydrogen-count">
+<h2>Invalid Chiral Hydrogen Count<a class="headerlink" href="#invalid-chiral-hydrogen-count" title="Link to this heading">#</a></h2>
+<p>Chiral atoms can only have one hydrogen in their bracket since multiple
+hydrogens would make them not chiral.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">[</span><span class="n">C</span><span class="nd">@H2</span><span class="p">]</span><span class="n">F</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a read-only format.</p>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="SMILES_format.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">SMILES format (smi, smiles)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Sybyl_Mol2_format.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sybyl Mol2 format (ml2, mol2, sy2)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrogen-with-hydrogen-count">Hydrogen with Hydrogen Count</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unmatched-ring-bond">Unmatched Ring Bond</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conflicting-ring-bonds">Conflicting Ring Bonds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invalid-ring-bonds">Invalid Ring Bonds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invalid-chiral-valence">Invalid Chiral Valence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invalid-chiral-hydrogen-count">Invalid Chiral Hydrogen Count</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/FileFormats/SMILES_format_using_Smiley_parser.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2023 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

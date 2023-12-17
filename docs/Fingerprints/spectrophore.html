@@ -1,0 +1,887 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Spectrophores™ &#8212; Open Babel openbabel-3-1-1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=4d45eed0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Fingerprints/spectrophore';</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/Fingerprints/spectrophore.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="obabel vs Chemistry Toolkit Rosetta" href="../Command-line_tools/Rosetta.html" />
+    <link rel="prev" title="Fingerprint format" href="fingerprints.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/install.html">Install Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/babel.html">obabel - Convert, Filter and Manipulate Chemical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI/GUI.html">The Open Babel GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUITutorial/GUITutorial.html">Tutorial on using the GUI</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Molecular fingerprints and similarity searching</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="fingerprints.html">Fingerprint format</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Spectrophores™</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/Rosetta.html">obabel vs Chemistry Toolkit Rosetta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Depiction/depiction.html">2D Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3DStructureGen/Overview.html">3D Structure Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Forcefields/Overview.html">Molecular Mechanics and Force Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UseTheLibrary/intro.html">Write software using the Open Babel library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cheminf101/index.html">Cheminformatics 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stereochemistry/stereo.html">Stereochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Aromaticity/Aromaticity.html">Handling of aromaticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Features/Radicals.html">Radicals and SMILES extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/Contributing.html">Contributing to Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WritePlugins/index.html">Adding plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FileFormats/Overview.html">Supported File Formats and Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Descriptors/descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Charges/charges.html">Charge models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes/index.html">Release Notes</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="intro.html" class="nav-link">Molecular fingerprints and similarity searching</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Spectrophores™</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="spectrophorestrade">
+<span id="spectrophores"></span><h1>Spectrophores™<a class="headerlink" href="#spectrophorestrade" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Spectrophores<a class="footnote-reference brackets" href="#trademark" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> are one-dimensional descriptors generated from the property
+fields surrounding the molecules. This technology allows the accurate description
+of molecules in terms of their surface properties or fields. Comparison of
+molecules’ property fields provides a robust structure-independent method of
+aligning actives from different chemical classes. When applied to molecules such
+as ligands and drugs, Spectrophores can be used as powerful molecular
+descriptors in the fields of chemoinformatics, virtual screening, and QSAR
+modeling.</p>
+<aside class="sidebar">
+<p class="sidebar-title">Commercial Support for Spectrophores</p>
+<a class="reference internal image-reference" href="../../_images/silicos.png"><img alt="../../_images/silicos.png" class="align-center" src="../../_images/silicos.png" style="width: 142.0px; height: 32.5px;" /></a>
+<p>Commercial support for Spectrophores is available from Silicos NV, the
+developers of the Spectrophore technology.</p>
+<p>Silicos is a fee-for-service company empowering open source chemo-informatics virtual screening technologies for the discovery of novel lead compounds and database characterization. Silicos fully endorses the concept of open innovation and open source software development, and provides its clients with a wide variety of computational chemistry-based lead discovery services, including Open Babel support, training and code development. Please visit <a class="reference external" href="http://www.silicos.com">Silicos</a> for more details.</p>
+</aside>
+<p>The computation of Spectrophores is independent of the position and
+orientation of the molecule and this enables easy and fast comparison of
+Spectrophores between different molecules. Molecules having similar
+three-dimensional properties and shapes always yield similar Spectrophores.
+A Spectrophore is calculated by surrounding the three-dimensional
+conformation of the molecule by a three-dimensional arrangement of points,
+followed by calculating the interaction between each of the atom properties and
+the surrounding the points. The three-dimensional arrangement of the points
+surrounding the molecule can be regarded as an ‘artificial’ cage or receptor,
+and the interaction calculated between the molecule and the cage can be regarded
+as an artificial representation of an affinity value between molecule and cage.
+Because the calculated interaction is dependent on the relative orientation of
+the molecule within the cage, the molecule is rotated in discrete angles and the
+most favorable interaction value is kept as final result. The angular stepsize
+at which the molecule is rotated along its three axis can be specified by the
+user and influences the accuracy of the method.</p>
+<p>The Spectrophore code was developed by Silicos NV, and donated to the OpenBabel project in July 2010 (see sidebar for information on commercial support). Spectrophores can be generated either using the command-line application <strong class="command">obspectrophore</strong> (see next section) or through the API (<code class="docutils literal notranslate"><span class="pre">OBSpectrophore</span></code>, as described in the <a href="#id2"><span class="problematic" id="id3">:obapi:`API documentation &lt;OBSpectrophore&gt;`</span></a>).</p>
+</section>
+<section id="obspectrophore">
+<h2>obspectrophore<a class="headerlink" href="#obspectrophore" title="Link to this heading">#</a></h2>
+<p class="rubric">Usage</p>
+<p><code class="docutils literal notranslate"><span class="pre">obspectrophore</span> <span class="pre">-i</span> <span class="pre">&lt;input</span> <span class="pre">file&gt;</span> <span class="pre">[options]</span></code></p>
+<p class="rubric">Parameter details</p>
+<dl class="option-list">
+<dt><kbd><span class="option">-i <var>&lt;input file&gt;</var></span></kbd></dt>
+<dd><p><em>Specify the input file</em></p>
+<p>Spectrophores will be calculated for each molecule in the input file.
+The filetype is automatically detected from the file extension.</p>
+</dd>
+<dt><kbd><span class="option">-n <var>&lt;type&gt;</var></span></kbd></dt>
+<dd><p><em>The type of normalization that should be performed</em></p>
+<p>Valid values are (without quotes):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>No (default)</p></li>
+<li><p>ZeroMean</p></li>
+<li><p>UnitStd</p></li>
+<li><p>ZeroMeanAndUnitStd</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><kbd><span class="option">-a <var>&lt;accuracy&gt;</var></span></kbd></dt>
+<dd><p><em>The required accuracy expressed as the angular stepsize</em></p>
+<p>Only the following discrete values are allowed: 1, 2, 5, 10, 15, 20 (default), 30, 36, 45, 60</p>
+</dd>
+<dt><kbd><span class="option">-s <var>&lt;type&gt;</var></span></kbd></dt>
+<dd><p><em>The kind of cages that should be used</em></p>
+<p>The cage type is specified in terms of
+the underlying pointgroup: P1 or P-1. Valid values are (without quotes):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>No (default)</p></li>
+<li><p>Unique</p></li>
+<li><p>Mirror</p></li>
+<li><p>All</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><kbd><span class="option">-r <var>&lt;resolution&gt;</var></span></kbd></dt>
+<dd><p><em>The required resolution expressed as a real positive number</em></p>
+<p>The default value is 3.0 Angstrom. Negative values or a value of
+0 generates an error message.</p>
+</dd>
+<dt><kbd><span class="option">-h</span></kbd></dt>
+<dd><p><em>Displays help</em></p>
+</dd>
+</dl>
+</section>
+<section id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Link to this heading">#</a></h2>
+<section id="atomic-properties">
+<h3>Atomic properties<a class="headerlink" href="#atomic-properties" title="Link to this heading">#</a></h3>
+<p>The calculation of a Spectrophore™ starts by calculating the atomic
+contributions of each property from which one wants to calculate a
+Spectrophore. In the current implementation, four atomic properties are
+converted into a Spectrophore; these four properties include the atomic
+partial charges, the atomic lipophilicities, the atomic shape deviations and the
+atomic electrophilicities. The atomic partial charges and atomic electrophilicity
+properties are calculated using the electronegativity equalisation method (EEM)
+as described by Bultinck and coworkers <a class="reference internal" href="#bll2002" id="id4"><span>[bll2002]</span></a> <a class="reference internal" href="#blc2003" id="id5"><span>[blc2003]</span></a>.
+Atomic lipophilic potential
+parameters are calculated using a rule-based method. Finally, the atomic shape
+deviation is generated by calculating, for each atom, the atom’s deviation from
+the average molecular radius. This is done in a four step process:</p>
+<ul class="simple">
+<li><p>The molecular center of geometry (COG) is calculated</p></li>
+<li><p>The distances between each atom and the molecular COG are calculated</p></li>
+<li><p>The average molecular radius is calculated by averaging all the atomic
+distances</p></li>
+<li><p>The distances between each atom and the COG are then divided by the average
+molecular radius and centered on zero</p></li>
+</ul>
+</section>
+<section id="interaction-between-the-atoms-and-cage-points">
+<h3>Interaction between the atoms and cage points<a class="headerlink" href="#interaction-between-the-atoms-and-cage-points" title="Link to this heading">#</a></h3>
+<p>Following the calculation of all required atomic properties, the next step in
+the calculation of a Spectrophore consists of determining the total
+interaction value V(c,p) between each of the atomic contributions of
+property p with a set of interaction points on an artificial cage c
+surrounding the molecular conformation.</p>
+<figure class="align-center" id="id6">
+<img alt="../../_images/spectrophore_cage.png" src="../../_images/spectrophore_cage.png" />
+<figcaption>
+<p><span class="caption-text"><strong>Schematic representation of a molecule surrounded by the artifical cage</strong></span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For this purpose, each of these
+interaction points i on cage c is assigned a value P(c,i)
+which is either +1 or -1, with the constraint that the sum of all interaction
+points on a particular cage should be zero. In a typical Spectrophore
+calculation, a cage is represented as a rectangular box encompassing the
+molecular conformation in all three dimensions, with the centers of the box
+edges being the interaction points. Such a configuration gives twelve
+interaction points per cage, and, in the case of a non-stereospecific
+distribution of the interaction points, leads to 12 different cages. Although
+there are no particular requirements as to the dimensions of the rectangular
+cage, the distance between the interaction points and the geometrical extremes
+of the molecule should be such that a meaningful interaction value between each
+cage point and the molecular entity can be calculated. In this respect, the
+default dimensions of the cage are constantly adjusted to enclose the molecule
+at a minimum distance of 3 A along all dimensions. This cage size can be
+modified by the user and influences the resolution of the Spectrophore.</p>
+<p>The total interaction value V(c,p) between the atomic contribution values
+A(j,p) of property p for a given molecular conformation and the
+cage interaction values P(c,i) for a given cage c is calculated
+according a standard interaction energy equation. It takes into account the
+Euclidean distance between each atom and each cage point. This total interaction
+V(c,p) for a given property p and cage c for a given
+molecular conformation is minimized by sampling the molecular orientation along
+the three axis in angular steps and the calculation of the interaction value for
+each orientation within the cage.</p>
+<p>The final total interaction V(c,p) for
+a given cage c and property p corresponds to the lowest
+interaction value obtained this way, and corresponds to the c’th value in
+the one-dimensional Spectrophore vector calculated for molecular property
+p. As a result, a Spectrophore is organized as a vector of minimized
+interaction values V, each of these organized in order of cages and
+property values. Since for a typical Spectrophore implementation twelve
+different cages are used, the total length of a Spectrophore vector equals
+to 12 times the number of properties. Since four different properties are used
+in the current implementation (electrostatic, lipophilic, electrophilic
+potentials, and an additional shape index as described before), this leads to a
+total Spectrophore length of 48 real values per molecular conformation.</p>
+<p>Since Spectrophore descriptors are dependent on the actual
+three-dimensional conformation of the molecule, a typical analysis includes the
+calculation of Spectrophores from a reasonable set of different
+conformations. It is then up to the user to decide on the most optimal strategy
+for processing the different Spectrophore vectors. In a typical virtual
+screening application, calculating the average Spectrophore vector from all
+conformations of a single molecule may be a good strategy; other applications
+have benefit from calculating a weighted average or the minimal values.
+For each molecule in the input file, a Spectrophore is calculated and
+printed to standard output as a vector of 48 numbers (in the case of a
+non-stereospecific Spectrophore. The 48 doubles are organised into 4 sets
+of 12 doubles each:</p>
+<ul class="simple">
+<li><p>numbers 01-11: Spectrophore values calculated from the atomic partial charges;</p></li>
+<li><p>numbers 13-24: Spectrophore values calculated from the atomic lipophilicity properties;</p></li>
+<li><p>numbers 25-36: Spectrophore values calculated from the atomic shape deviations;</p></li>
+<li><p>numbers 37-48: Spectrophore values calculated from the atomic electrophilicity properties;</p></li>
+</ul>
+</section>
+</section>
+<section id="choice-of-parameters">
+<h2>Choice of Parameters<a class="headerlink" href="#choice-of-parameters" title="Link to this heading">#</a></h2>
+<section id="accuracy">
+<h3>Accuracy<a class="headerlink" href="#accuracy" title="Link to this heading">#</a></h3>
+<p>As already mentioned, the total interaction between cage and molecule for a
+given property is minimized by sampling the molecular orientation in angular
+steps of a certain magnitude. As a typical angular step size, 20 degrees was found to
+be the best compromise between accuracy and computer speed. Larger steps sizes
+are faster to calculate but have the risk of missing the global interaction
+energy minimum, while smaller angular steps sizes do sample the rotational space
+more thoroughly but at a significant computational cost. The accuracy can be
+specified by the user using the <code class="docutils literal notranslate"><span class="pre">-a</span></code> option.</p>
+</section>
+<section id="resolution">
+<h3>Resolution<a class="headerlink" href="#resolution" title="Link to this heading">#</a></h3>
+<p>Spectrophores capture information about the property fields surrounding the
+molecule, and the amount of detail that needs to be captured can be regulated by
+the user. This is done by altering the minimal distance between the molecule and
+the surrounding cage. The resolution can be specified by the user with the
+<code class="docutils literal notranslate"><span class="pre">-r</span></code> option. The default distance along all dimensions is 3.0 Angstrom.
+The larger the distance, the lower the resolution.</p>
+<p>With a higher resolution,
+more details of the property fields surrounding the molecule are contained by
+the Spectrophore. On the other hand, low resolution settings may lead to a more
+general representation of the property fields, with little or no emphasis on
+small local variations within the fields. Using a low resolution can be the
+method of choice during the initial virtual screening experiments in order to get
+an initial, but not so discriminative, first selection. This initial selection
+can then further be refined during subsequent virtual screening steps using a
+higher resolution. In this setting, small local differences in the fields between
+pairs of molecules will be picked up much more easily.</p>
+<p>The absolute values of the individual Spectrophore data points are dependent
+on the used resolution. Low resolution values lead to small values of the
+calculated individual Spectrophore data points, while high resolutions will
+lead to larger data values. It is therefore only meaningful to compare only
+Spectrophores that have been generated using the same resolution settings or
+after some kind of normalization is performed.
+Computation time is not influenced by the specified resolution and hence
+is identical for all different resolution settings.</p>
+</section>
+<section id="stereospecificity">
+<h3>Stereospecificity<a class="headerlink" href="#stereospecificity" title="Link to this heading">#</a></h3>
+<p>Some of the cages that are used to calculated Spectrophores have a
+stereospecific distribution of the interaction points. The resulting
+interaction values resulting from these cages are therefore sensitive to the
+enantiomeric configuration of the molecule within the cage. The fact that both
+stereoselective as well as stereo non-selective cages can be used makes it
+possible to include or exclude stereospecificity in the virtual screening
+search. Depending on the desired output, the stereospecificity of
+Spectrophores can be specified by the user using the <code class="docutils literal notranslate"><span class="pre">-s</span></code> option:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>No stereospecificity (default):</dt><dd><p>Spectrophores are generated using cages
+that are not stereospecific. For most applications, these Spectrophores
+will suffice.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Unique stereospecificity:</dt><dd><p>Spectrophores are generated using unique
+stereospecific cages.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Mirror stereospecificity:</dt><dd><p>Mirror stereospecific Spectrophores are
+Spectrophores resulting from the mirror enantiomeric form of the input
+molecules.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The differences between the corresponding data points of unique and mirror
+stereospecific Spectrophores are very small and require very long
+calculation times to obtain a sufficiently high quality level. This increased
+quality level is triggered by the accuracy setting and will result in
+calculation times being increased by at least a factor of 100. As a consequence, it
+is recommended to apply this increased accuracy only in combination with a
+limited number of molecules, and when the small differences between the
+stereospecific Spectrophores are really critical. However, for the vast
+majority of virtual screening applications, this increased accuracy is not
+required as long as it is not the intention to draw conclusions about
+differences in the underlying molecular stereoselectivity. Non-stereospecific
+Spectrophores will therefore suffice for most applications.</p>
+</section>
+<section id="normalisation">
+<h3>Normalisation<a class="headerlink" href="#normalisation" title="Link to this heading">#</a></h3>
+<p>It may sometimes be desired to focus on the relative differences between the
+Spectrophore data points rather than focussing on the absolute differences.
+In these cases, normalization of Spectrophores may be required. The current
+implementation offers with the <code class="docutils literal notranslate"><span class="pre">-n</span></code> option the possibility to normalize in four
+different ways:</p>
+<ul class="simple">
+<li><p>No normalization (default)</p></li>
+<li><p>Normalization towards zero mean</p></li>
+<li><p>Normalization towards standard deviation</p></li>
+<li><p>Normalization towards zero mean and unit standard deviation</p></li>
+</ul>
+<p>In all these cases, normalization is performed on a ‘per-property’ basis, which
+means that the data points belonging to the same property set are treated as a
+single set and that normalization is only performed on the data points within
+each of these sets and not across all data points.</p>
+<p>Normalization may be important when comparing the Spectrophores of charged
+molecules with those of neutral molecules. For molecules carrying a global
+positive charge, the resulting Spectrophore data points of the charge and
+electrophilicity properties will both be shifted in absolute value compared to
+the corresponding data points of the respective neutral species. Normalization
+of the Spectrophores removes the original magnitude differences for the data
+points corresponding to the charge and electrophilicity properties of charged
+and neutral species. Therefore, if the emphasis of the virtual screening
+consists of the identification of molecules with similar property fields without
+taking into account differences in absolute charge, then Spectrophores
+should be normalized towards zero mean. However, if absolute charge differences
+should be taken into account to differentiate between molecules, unnormalized
+Spectrophores are recommended.</p>
+<div role="list" class="citation-list">
+<div class="citation" id="bll2002" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">bll2002</a><span class="fn-bracket">]</span></span>
+<p>P. Bultinck,  W. Langenaeker,  P. Lahorte,  F. De Proft, P.
+Geerlings, C. Van Alsenoy, and J. P. Tollenaere.
+<strong>The Electronegativity Equalization Method II: Applicability of Different Atomic Charge Schemes.</strong>
+<em>J. Phys. Chem. A</em> <strong>2002</strong>, <em>106</em>, 7895-7901.
+[<a class="reference external" href="https://doi.org/10.1021/jp020547v">Link</a>]</p>
+</div>
+<div class="citation" id="blc2003" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">blc2003</a><span class="fn-bracket">]</span></span>
+<p>Patrick Bultinck, Wilfried Langenaeker, Ramon Carbó-Dorca, and Jan P. Tollenaere.
+<strong>Fast Calculation of Quantum Chemical Molecular Descriptors from the Electronegativity Equalization Method.</strong>
+<em>J. Chem. Inf. Comput. Sci.</em> <strong>2003</strong>, <em>43</em>, 422-428.
+[<a class="reference external" href="https://doi.org/10.1021/ci0255883">Link</a>]</p>
+</div>
+</div>
+<p class="rubric">Footnotes</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="trademark" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Spectrophore is a registered trademark of Silicos NV.</p>
+</aside>
+</aside>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="fingerprints.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Fingerprint format</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Command-line_tools/Rosetta.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">obabel vs Chemistry Toolkit Rosetta</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obspectrophore">obspectrophore</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-properties">Atomic properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-between-the-atoms-and-cage-points">Interaction between the atoms and cage points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choice-of-parameters">Choice of Parameters</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy">Accuracy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution">Resolution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stereospecificity">Stereospecificity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisation">Normalisation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/Fingerprints/spectrophore.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2023 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

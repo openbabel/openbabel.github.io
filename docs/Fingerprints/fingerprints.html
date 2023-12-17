@@ -1,0 +1,774 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Fingerprint format &#8212; Open Babel openbabel-3-1-1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=4d45eed0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Fingerprints/fingerprints';</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/Fingerprints/fingerprints.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Spectrophores™" href="spectrophore.html" />
+    <link rel="prev" title="Molecular fingerprints and similarity searching" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/install.html">Install Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/babel.html">obabel - Convert, Filter and Manipulate Chemical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI/GUI.html">The Open Babel GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUITutorial/GUITutorial.html">Tutorial on using the GUI</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Molecular fingerprints and similarity searching</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Fingerprint format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectrophore.html">Spectrophores™</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/Rosetta.html">obabel vs Chemistry Toolkit Rosetta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Depiction/depiction.html">2D Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3DStructureGen/Overview.html">3D Structure Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Forcefields/Overview.html">Molecular Mechanics and Force Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UseTheLibrary/intro.html">Write software using the Open Babel library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cheminf101/index.html">Cheminformatics 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stereochemistry/stereo.html">Stereochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Aromaticity/Aromaticity.html">Handling of aromaticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Features/Radicals.html">Radicals and SMILES extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/Contributing.html">Contributing to Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WritePlugins/index.html">Adding plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FileFormats/Overview.html">Supported File Formats and Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Descriptors/descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Charges/charges.html">Charge models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes/index.html">Release Notes</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="intro.html" class="nav-link">Molecular fingerprints and similarity searching</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Fingerprint format</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="fingerprint-format">
+<span id="fingerprint-format-details"></span><h1>Fingerprint format<a class="headerlink" href="#fingerprint-format" title="Link to this heading">#</a></h1>
+<p>The <a class="reference internal" href="../FileFormats/Fingerprint_format.html#fingerprint-format"><span class="std std-ref">Fingerprint format (fpt)</span></a> is a utility file format that provides access to a number of substructure-based fingerprints, and that enables the user to carry out similarity and substructure searching. You can see the available fingerprints using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ babel -L fingerprints
+FP2    Indexes linear fragments up to 7 atoms.
+FP3    SMARTS patterns specified in the file patterns.txt
+FP4    SMARTS patterns specified in the file SMARTS_InteLigand.txt
+MACCS    SMARTS patterns specified in the file MACCS.txt
+</pre></div>
+</div>
+<p>At present there are four types of fingerprints:</p>
+<ul>
+<li><p><strong>FP2</strong>, a path-based fingerprint which indexes small molecule fragments based on linear segments of up to 7 atoms (somewhat similar to the Daylight fingerprints):</p>
+<blockquote>
+<div><p>A molecule structure is analysed to identify linear fragments of length from 1-7 atoms. Single atom fragments of C, N, and O are ignored. A fragment is terminated when the atoms form a ring.</p>
+<p>For each of these fragments the atoms, bonding and whether they constitute a complete ring is recorded and saved in a set so that there is only one of each fragment type. Chemically identical versions, (i.e. ones with the atoms listed in reverse order and rings listed starting at different atoms) are identified and only a single canonical fragment is retained.</p>
+<p>Each remaining fragment is assigned a hash number from 0 to 1020 which is used to set a bit in a 1024 bit vector</p>
+</div></blockquote>
+</li>
+<li><p><strong>FP3</strong> uses a series of SMARTS queries stored in <code class="file docutils literal notranslate"><span class="pre">patterns.txt</span></code></p></li>
+<li><p><strong>FP4</strong> uses a series of SMARTS queries stored in <code class="file docutils literal notranslate"><span class="pre">SMARTS_InteLigand.txt</span></code></p></li>
+<li><p><strong>MACCS</strong> uses the SMARTS patterns in <code class="file docutils literal notranslate"><span class="pre">MACCS.txt</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that you can tailor the latter three fingerprints to your own needs by adding your own SMARTS queries to these files. On UNIX and Mac systems, these files are frequently found in <code class="file docutils literal notranslate"><span class="pre">/usr/local/share/openbabel</span></code> under a directory for each version of Open Babel.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The sections on the <a class="reference internal" href="../FileFormats/Fingerprint_format.html#fingerprint-format"><span class="std std-ref">fingerprint</span></a> and <a class="reference internal" href="../FileFormats/Fastsearch_format.html#fastsearch-format"><span class="std std-ref">fastsearch</span></a> formats contain additional detail.</p>
+</div>
+<section id="similarity-searching">
+<h2>Similarity searching<a class="headerlink" href="#similarity-searching" title="Link to this heading">#</a></h2>
+<section id="small-datasets">
+<h3>Small datasets<a class="headerlink" href="#small-datasets" title="Link to this heading">#</a></h3>
+<p>For relatively small datasets (&lt;10,000’s) it is possible to do similarity searches without the need to build a similarity index, however larger datasets (up to a few million) can be searched rapidly once a fastsearch index has been built.</p>
+<p>On small datasets these fingerprints can be used in a variety of ways. The following command gives you the Tanimoto coefficient between a SMILES string in <code class="file docutils literal notranslate"><span class="pre">mysmiles.smi</span></code> and all the molecules in <code class="file docutils literal notranslate"><span class="pre">mymols.sdf</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span>  <span class="n">mysmiles</span><span class="o">.</span><span class="n">smi</span>  <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">ofpt</span>
+
+<span class="n">MOL_00000067</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.0888889</span>
+<span class="n">MOL_00000083</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.0869565</span>
+<span class="n">MOL_00000105</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.0888889</span>
+<span class="n">MOL_00000296</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.0714286</span>
+<span class="n">MOL_00000320</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.0888889</span>
+<span class="n">MOL_00000328</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.0851064</span>
+<span class="n">MOL_00000338</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.0869565</span>
+<span class="n">MOL_00000354</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.0888889</span>
+<span class="n">MOL_00000378</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.0816327</span>
+<span class="n">MOL_00000391</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.0816327</span>
+<span class="mi">11</span> <span class="n">molecules</span> <span class="n">converted</span>
+</pre></div>
+</div>
+<p>The default fingerprint used is the FP2 fingerprint. You change the fingerprint using the <code class="docutils literal notranslate"><span class="pre">f</span></code> output option as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">ofpt</span> <span class="o">-</span><span class="n">xfFP3</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-s</span></code> option of <strong class="command">babel</strong> is used to filter by SMARTS string. If you wanted to know the similarity only to the substituted bromobenzenes in <code class="file docutils literal notranslate"><span class="pre">mymols.sdf</span></code> then you might combine commands like this (note: if the query molecule does not match the SMARTS string this will not work as expected, as the first molecule in the database that matches the SMARTS string will instead be used as the query):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">mysmiles</span><span class="o">.</span><span class="n">smi</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">ofpt</span> <span class="o">-</span><span class="n">s</span> <span class="n">c1ccccc1Br</span>
+
+<span class="n">MOL_00000067</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.0888889</span>
+<span class="n">MOL_00000083</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.0869565</span>
+<span class="n">MOL_00000105</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.0888889</span>
+</pre></div>
+</div>
+<p>If you don’t specify a query file, <strong class="command">babel</strong> will just use the first molecule in the database as the query:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span>  <span class="o">-</span><span class="n">ofpt</span>
+
+<span class="n">MOL_00000067</span>
+<span class="n">MOL_00000083</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">MOL_00000067</span> <span class="o">=</span> <span class="mf">0.810811</span>
+<span class="n">MOL_00000105</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">MOL_00000067</span> <span class="o">=</span> <span class="mf">0.833333</span>
+<span class="n">MOL_00000296</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">MOL_00000067</span> <span class="o">=</span> <span class="mf">0.425926</span>
+<span class="n">MOL_00000320</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">MOL_00000067</span> <span class="o">=</span> <span class="mf">0.534884</span>
+<span class="n">MOL_00000328</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">MOL_00000067</span> <span class="o">=</span> <span class="mf">0.511111</span>
+<span class="n">MOL_00000338</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">MOL_00000067</span> <span class="o">=</span> <span class="mf">0.522727</span>
+<span class="n">MOL_00000354</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">MOL_00000067</span> <span class="o">=</span> <span class="mf">0.534884</span>
+<span class="n">MOL_00000378</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">MOL_00000067</span> <span class="o">=</span> <span class="mf">0.489362</span>
+<span class="n">MOL_00000391</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">MOL_00000067</span> <span class="o">=</span> <span class="mf">0.489362</span>
+<span class="mi">10</span> <span class="n">molecules</span> <span class="n">converted</span>
+</pre></div>
+</div>
+</section>
+<section id="large-datasets">
+<h3>Large datasets<a class="headerlink" href="#large-datasets" title="Link to this heading">#</a></h3>
+<p>On larger datasets it is necessary to first build a fastsearch index. This is a new file that stores a database of fingerprints for the files indexed. You will still need to keep both the new .fs fastsearch index and the original files. However, the new index will allow significantly faster searching and similarity comparisons. The index is created with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">ofs</span>
+</pre></div>
+</div>
+<p>This builds <code class="file docutils literal notranslate"><span class="pre">mymols.fs</span></code> with the default fingerprint (unfolded). The following command uses the index to find the 5 most similar molecules to the molecule in <code class="file docutils literal notranslate"><span class="pre">query.mol</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">fs</span> <span class="n">results</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">squery</span><span class="o">.</span><span class="n">mol</span> <span class="o">-</span><span class="n">at5</span>
+</pre></div>
+</div>
+<p>or to get the matches with Tanimoto&gt;0.6 to 1,2-dicyanobenzene:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">fs</span> <span class="n">results</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">sN</span><span class="c1">#Cc1ccccc1C#N -at0.6</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="substructure-searching">
+<h2>Substructure searching<a class="headerlink" href="#substructure-searching" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Small datasets<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>This command will find all molecules containing 1,2-dicyanobenzene and return the results as SMILES strings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">sN</span><span class="c1">#Cc1ccccc1C#N results.smi</span>
+</pre></div>
+</div>
+<p>If all you want output are the molecule names then adding <code class="docutils literal notranslate"><span class="pre">-xt</span></code> will return just the molecule names:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">sN</span><span class="c1">#Cc1ccccc1C#N results.smi -xt</span>
+</pre></div>
+</div>
+<p>The parameter of the <code class="docutils literal notranslate"><span class="pre">-s</span></code> option in these examples is actually SMARTS, which allows a richer matching specification, if required. It does mean that the aromaticity of atoms and bonds is significant; use <code class="docutils literal notranslate"><span class="pre">[#6]</span></code> rather than <code class="docutils literal notranslate"><span class="pre">C</span></code> to match both aliphatic and aromatic carbon.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-s</span></code> option’s parameter can also be a file name with an extension. The file must contain a molecule, which means only substructure matching is possible (rather than full SMARTS). The matching is also slightly more relaxed with respect to aromaticity.</p>
+</section>
+<section id="id2">
+<h3>Large datasets<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>First of all, you need to create a fastsearch index (see above). The index is created with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">ofs</span>
+</pre></div>
+</div>
+<p>Substructure searching is as for small datasets, except that the fastsearch index is used instead of the original file. This command will find all molecules containing 1,2-dicyanobenzene and return the results as SMILES strings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">fs</span> <span class="o">-</span><span class="n">ifs</span> <span class="o">-</span><span class="n">sN</span><span class="c1">#Cc1ccccc1C#N results.smi</span>
+</pre></div>
+</div>
+<p>If all you want output are the molecule names then adding <code class="docutils literal notranslate"><span class="pre">-xt</span></code> will return just the molecule names:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">fs</span> <span class="o">-</span><span class="n">ifs</span> <span class="o">-</span><span class="n">sN</span><span class="c1">#Cc1ccccc1C#N results.smi -xt</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="case-study-search-chembldb">
+<h2>Case study: Search ChEMBLdb<a class="headerlink" href="#case-study-search-chembldb" title="Link to this heading">#</a></h2>
+<p>This case study uses a combination of the techniques described above for similarity searching using large databases and using small databases. Note that we are using the default fingerprint for all of these analyses. The default fingerprint is FP2, a path-based fingerprint (somewhat similar to the Daylight fingerprints).</p>
+<ol class="arabic">
+<li><p>Download Version 2 of ChEMBLdb from <a class="reference external" href="ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/">ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/</a>.</p></li>
+<li><p>After unzipping it, make a fastsearch index (this took 18 minutes on my machine for the 500K+ molecules):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">chembl_02</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">ofs</span>
+</pre></div>
+</div>
+</li>
+<li><p>Let’s use the first molecule in the sdf file as a query. Using Notepad (or on Linux, <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">-79</span> <span class="pre">chembl_02.sdf</span></code>) extract the first molecule and save it as <code class="file docutils literal notranslate"><span class="pre">first.sdf</span></code>. Note that the molecules in the ChEMBL sdf do not have titles; instead, their IDs are stored in the “chebi_id” property field.</p></li>
+<li><p>This first molecule is 100183. Check its <a class="reference external" href="http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/100183">ChEMBL page</a>. It’s pretty weird, but is there anything similar in ChEMBLdb? Let’s find the 5 most similar molecules:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">chembl_02</span><span class="o">.</span><span class="n">fs</span> <span class="n">mostsim</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">s</span> <span class="n">first</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">at5</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="5">
+<li><p>The results are stored in <code class="file docutils literal notranslate"><span class="pre">mostsim.sdf</span></code>, but how similar are these molecules to the query?:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">first</span><span class="o">.</span><span class="n">sdf</span> <span class="n">mostsim</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">ofpt</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Possible</span> <span class="n">superstructure</span> <span class="n">of</span> <span class="n">first</span> <span class="n">mol</span>
+<span class="o">&gt;</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.986301</span>
+<span class="o">&gt;</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.924051</span>
+<span class="n">Possible</span> <span class="n">superstructure</span> <span class="n">of</span> <span class="n">first</span> <span class="n">mol</span>
+<span class="o">&gt;</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.869048</span>
+<span class="n">Possible</span> <span class="n">superstructure</span> <span class="n">of</span> <span class="n">first</span> <span class="n">mol</span>
+<span class="o">&gt;</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.857143</span>
+<span class="mi">6</span> <span class="n">molecules</span> <span class="n">converted</span>
+<span class="mi">76</span> <span class="n">audit</span> <span class="n">log</span> <span class="n">messages</span>
+</pre></div>
+</div>
+</li>
+<li><p>That’s all very well, but it would be nice to show the ChEBI IDs. Let’s set the title field of <code class="file docutils literal notranslate"><span class="pre">mostsim.sdf</span></code> to the content of the “chebi_id” property field, and repeat step 5:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">babel</span> <span class="n">mostsim</span><span class="o">.</span><span class="n">sdf</span> <span class="n">mostsim_withtitle</span><span class="o">.</span><span class="n">sdf</span> <span class="o">--</span><span class="n">append</span> <span class="s2">&quot;chebi_id&quot;</span>
+<span class="n">babel</span> <span class="n">first</span><span class="o">.</span><span class="n">sdf</span> <span class="n">mostsim_withtitle</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">ofpt</span>
+<span class="o">&gt;</span>
+<span class="o">&gt;</span><span class="mi">100183</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Possible</span> <span class="n">superstructure</span> <span class="n">of</span> <span class="n">first</span> <span class="n">mol</span>
+<span class="o">&gt;</span><span class="mi">124893</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.986301</span>
+<span class="o">&gt;</span><span class="mi">206983</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.924051</span>
+<span class="n">Possible</span> <span class="n">superstructure</span> <span class="n">of</span> <span class="n">first</span> <span class="n">mol</span>
+<span class="o">&gt;</span><span class="mi">207022</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.869048</span>
+<span class="n">Possible</span> <span class="n">superstructure</span> <span class="n">of</span> <span class="n">first</span> <span class="n">mol</span>
+<span class="o">&gt;</span><span class="mi">607087</span>   <span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.857143</span>
+<span class="mi">6</span> <span class="n">molecules</span> <span class="n">converted</span>
+<span class="mi">76</span> <span class="n">audit</span> <span class="n">log</span> <span class="n">messages</span>
+</pre></div>
+</div>
+</li>
+<li><p>Here are the ChEMBL pages for these molecules: <a class="reference external" href="http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/100183">100183</a>, <a class="reference external" href="http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/124893">124893</a>, <a class="reference external" href="http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/206983">206983</a>, <a class="reference external" href="http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/207022">207022</a>, <a class="reference external" href="http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/607087">607087</a>. I think it is fair to say that they are pretty similar. In particular, the output states that 206983 and 207022 are possible superstructures of the query molecule, and that is indeed true.</p></li>
+</ol>
+<ol class="arabic" start="8">
+<li><p>How many of the molecules in the dataset are superstructures of the molecule in <code class="file docutils literal notranslate"><span class="pre">first.sdf</span></code>? To do this and to visualize the large numbers of molecules produced, we can output to SVG format (see <a class="reference internal" href="../FileFormats/SVG_2D_depiction.html#svg-2d-depiction"><span class="std std-ref">SVG 2D depiction (svg)</span></a>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">chembl_02</span><span class="o">.</span><span class="n">fs</span>  <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">svg</span>  <span class="o">-</span><span class="n">s</span> <span class="n">first</span><span class="o">.</span><span class="n">sdf</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><p>Note that <strong class="program">obabel</strong> has been used here because of its more flexible option handling.</p>
+<p>This command does a substructure search and puts the 47 matching structures in the file <code class="file docutils literal notranslate"><span class="pre">out.svg</span></code>. This can be viewed in a browser like Firefox, Opera or Chrome (but not Internet Explorer). The display will give an overall impression of the set of molecules but details can be seen by zooming in with the mousewheel and panning by dragging with a mouse button depressed.</p>
+</div></blockquote>
+<ol class="arabic" start="9">
+<li><p>The substructure that is being matched can be highlighted in the output molecules by adding another parameter to the <code class="docutils literal notranslate"><span class="pre">-s</span></code> option. Just for variety, the display is also changed to a black background, ‘uncolored’ (no element-specific coloring), and terminal carbon not shown explicitly. (Just refresh your browser to see the modified display.)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">chembl_02</span><span class="o">.</span><span class="n">fs</span>  <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">svg</span>  <span class="o">-</span><span class="n">s</span> <span class="n">first</span><span class="o">.</span><span class="n">sdf</span> <span class="n">green</span>  <span class="o">-</span><span class="n">xb</span> <span class="o">-</span><span class="n">xu</span> <span class="o">-</span><span class="n">xC</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><p>This highlighting option also works when  the <code class="docutils literal notranslate"><span class="pre">-s</span></code> option is used without fastsearch on small datasets.</p>
+</div></blockquote>
+<ol class="arabic" start="10">
+<li><p>The substructure search here has two stages.  The indexed fingerprint search quickly produces 62 matches from the 500K+ molecules in the dataset. Each of these is then checked by a slow detailed isomorphism check. There are 15 false positives from the fingerprint stage. These are of no significance, but you can see them using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">chembl_02</span><span class="o">.</span><span class="n">fs</span>  <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">svg</span>  <span class="o">-</span><span class="n">s</span> <span class="o">~</span><span class="n">first</span><span class="o">.</span><span class="n">sdf</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><p>The fingerprint search is unaffected but the selection in the second stage is inverted.</p>
+</div></blockquote>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Molecular fingerprints and similarity searching</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="spectrophore.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Spectrophores™</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity-searching">Similarity searching</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#small-datasets">Small datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-datasets">Large datasets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#substructure-searching">Substructure searching</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Small datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Large datasets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-search-chembldb">Case study: Search ChEMBLdb</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/Fingerprints/fingerprints.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2023 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

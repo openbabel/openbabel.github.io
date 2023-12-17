@@ -1,0 +1,709 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Updating to Open Babel 3.0 from 2.x &#8212; Open Babel openbabel-3-1-1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=4d45eed0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/UseTheLibrary/migration';</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/UseTheLibrary/migration.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Cheminformatics 101" href="../Cheminf101/index.html" />
+    <link rel="prev" title="Ruby" href="Ruby.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/install.html">Install Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/babel.html">obabel - Convert, Filter and Manipulate Chemical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI/GUI.html">The Open Babel GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUITutorial/GUITutorial.html">Tutorial on using the GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fingerprints/intro.html">Molecular fingerprints and similarity searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/Rosetta.html">obabel vs Chemistry Toolkit Rosetta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Depiction/depiction.html">2D Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3DStructureGen/Overview.html">3D Structure Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Forcefields/Overview.html">Molecular Mechanics and Force Fields</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Write software using the Open Babel library</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="CppAPI.html">The Open Babel API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CppExamples.html">C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Java.html">Java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Perl.html">Perl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSharp.html">CSharp and OBDotNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ruby.html">Ruby</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Updating to Open Babel 3.0 from 2.x</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Cheminf101/index.html">Cheminformatics 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stereochemistry/stereo.html">Stereochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Aromaticity/Aromaticity.html">Handling of aromaticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Features/Radicals.html">Radicals and SMILES extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/Contributing.html">Contributing to Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WritePlugins/index.html">Adding plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FileFormats/Overview.html">Supported File Formats and Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Descriptors/descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Charges/charges.html">Charge models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes/index.html">Release Notes</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="intro.html" class="nav-link">Write software using the Open Babel library</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Updating to...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="updating-to-open-babel-3-0-from-2-x">
+<span id="migrating-to-3-0"></span><h1>Updating to Open Babel 3.0 from 2.x<a class="headerlink" href="#updating-to-open-babel-3-0-from-2-x" title="Link to this heading">#</a></h1>
+<p>Open Babel 3.0 breaks the API in a number of cases, and introduces some new behavior behind-the-scenes. These changes were necessary to fix some long standing issues impacting chemical accuracy as well as performance.</p>
+<p>Here we describe the main changes, and how to change existing code to adapt.</p>
+<section id="removal-of-babel">
+<h2>Removal of babel<a class="headerlink" href="#removal-of-babel" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">babel</span></code> executable has been removed, and <code class="docutils literal notranslate"><span class="pre">obabel</span></code> should be used instead. Essentially <strong class="command">obabel</strong> is a modern version of <strong class="command">babel</strong> with additional capabilities and a more standard interface. Typically the only change needed is to place <code class="docutils literal notranslate"><span class="pre">-O</span></code> before the output filename:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ babel -ismi tmp.smi -omol out.mol
+$ obabel -ismi tmp.smi -omol -O out.mol
+</pre></div>
+</div>
+<p>Specifically, the differences are as follows:</p>
+<ul>
+<li><p><strong class="command">obabel</strong> requires that the output file be specified with a <code class="docutils literal notranslate"><span class="pre">-O</span></code> option. This is closer to the normal Unix convention for commandline programs, and prevents users accidentally overwriting the input file.</p></li>
+<li><p><strong class="command">obabel</strong> is more flexible when the user needs to specify parameter values on options. For instance,  the <code class="docutils literal notranslate"><span class="pre">--unique</span></code> option can be used with or without a parameter (specifying the criteria used).  With <strong class="command">babel</strong>, this only works when the option is the last on the line; with <strong class="command">obabel</strong>, no such restriction applies. Because of the original design of <strong class="command">babel</strong>, it is not possible to add this capability in a backwards-compatible way.</p></li>
+<li><p><strong class="command">obabel</strong> has a shortcut for entering SMILES strings. Precede the SMILES by -: and use in place of an input file. The SMILES string should be enclosed in quotation marks. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="o">-</span><span class="p">:</span><span class="s2">&quot;O=C(O)c1ccccc1OC(=O)C&quot;</span> <span class="o">-</span><span class="n">ocan</span>
+</pre></div>
+</div>
+<p>More than one can be used, and a molecule title can be included if enclosed in quotes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="o">-</span><span class="p">:</span><span class="s2">&quot;O=C(O)c1ccccc1OC(=O)C aspirin&quot;</span> <span class="o">-</span><span class="p">:</span><span class="s2">&quot;Oc1ccccc1C(=O)O salicylic acid&quot;</span>
+       <span class="o">-</span><span class="n">ofpt</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong class="command">obabel</strong> cannot use concatenated single-character options.</p></li>
+</ul>
+</section>
+<section id="python-module">
+<h2>Python module<a class="headerlink" href="#python-module" title="Link to this heading">#</a></h2>
+<p>In OB 3.x, both <code class="docutils literal notranslate"><span class="pre">openbabel.py</span></code> and <code class="docutils literal notranslate"><span class="pre">pybel.py</span></code> live within the <code class="docutils literal notranslate"><span class="pre">openbabel</span></code> module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># OB 2.x</span>
+<span class="kn">import</span> <span class="nn">openbabel</span> <span class="k">as</span> <span class="nn">ob</span>
+<span class="kn">import</span> <span class="nn">pybel</span>
+
+<span class="c1"># OB 3.0</span>
+<span class="kn">from</span> <span class="nn">openbabel</span> <span class="kn">import</span> <span class="n">openbabel</span> <span class="k">as</span> <span class="n">ob</span>
+<span class="kn">from</span> <span class="nn">openbabel</span> <span class="kn">import</span> <span class="n">pybel</span>
+</pre></div>
+</div>
+<p>While more verbose, the new arrangement is in line with standard practice and helps avoid conflict with a different Python project, PyBEL.</p>
+</section>
+<section id="handling-of-elements-and-related-information">
+<h2>Handling of elements and related information<a class="headerlink" href="#handling-of-elements-and-related-information" title="Link to this heading">#</a></h2>
+<p>The API for interconverting atomic numbers and element symbols has been replaced for performance reasons. The <code class="docutils literal notranslate"><span class="pre">OBElementTable</span></code> class has been removed and its associated functions are now available through the <code class="docutils literal notranslate"><span class="pre">OBElements</span></code> namespace:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">OB</span> <span class="mf">2.</span><span class="n">x</span>
+<span class="n">OBElementTable</span> <span class="n">etab</span><span class="p">;</span>
+<span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">elem</span> <span class="o">=</span> <span class="n">etab</span><span class="o">.</span><span class="n">GetSymbol</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+<span class="n">unsigned</span> <span class="nb">int</span> <span class="n">atomic_num</span> <span class="o">=</span> <span class="n">etab</span><span class="o">.</span><span class="n">GetAtomicNum</span><span class="p">(</span><span class="n">elem</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">OB</span> <span class="mf">3.0</span>
+<span class="c1">#include &lt;openbabel/elements.h&gt;</span>
+<span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">elem</span> <span class="o">=</span> <span class="n">OBElements</span><span class="p">::</span><span class="n">GetSymbol</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+<span class="n">unsigned</span> <span class="nb">int</span> <span class="n">atomic_num</span> <span class="o">=</span> <span class="n">OBElements</span><span class="p">::</span><span class="n">GetAtomicNum</span><span class="p">(</span><span class="n">elem</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Furthermore, the OBAtom API convenience functions for testing for particular elements (e.g. <code class="docutils literal notranslate"><span class="pre">IsHydrogen()</span></code>) have been removed. Instead, <code class="docutils literal notranslate"><span class="pre">OBAtom::GetAtomicNum()</span></code> should be used along with an element constant or atomic number:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">OB</span> <span class="mf">2.</span><span class="n">x</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">atom</span><span class="o">-&gt;</span><span class="n">IsCarbon</span><span class="p">())</span> <span class="p">{</span><span class="o">...</span>
+
+<span class="o">//</span> <span class="n">OB</span> <span class="mf">3.0</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">atom</span><span class="o">-&gt;</span><span class="n">GetAtomicNum</span><span class="p">()</span> <span class="o">==</span> <span class="n">OBElements</span><span class="o">.</span><span class="n">Carbon</span><span class="p">)</span> <span class="p">{</span><span class="o">...</span>
+<span class="o">//</span>   <span class="ow">or</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">atom</span><span class="o">-&gt;</span><span class="n">GetAtomicNum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span> <span class="p">{</span><span class="o">...</span>
+</pre></div>
+</div>
+<p>Handling of isotope information now longer uses <code class="docutils literal notranslate"><span class="pre">OBIsotopeTable</span></code> but is accessed through the <code class="docutils literal notranslate"><span class="pre">OBElements</span></code> namespace:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">OB</span> <span class="mf">2.</span><span class="n">x</span>
+<span class="n">OBIsotopeTable</span> <span class="n">isotab</span><span class="p">;</span>
+<span class="n">isotab</span><span class="o">.</span><span class="n">GetExactMass</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">14</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">OB</span> <span class="mf">3.0</span>
+<span class="n">double</span> <span class="n">exact</span> <span class="o">=</span> <span class="n">OBElements</span><span class="o">.</span><span class="n">GetExactMass</span><span class="p">(</span><span class="n">OBElements</span><span class="o">.</span><span class="n">Carbon</span><span class="p">,</span> <span class="mi">14</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="atom-classes">
+<h2>Atom classes<a class="headerlink" href="#atom-classes" title="Link to this heading">#</a></h2>
+<p>In OB 2.x, atom class information was stored as part of an <code class="docutils literal notranslate"><span class="pre">OBAtomClassData</span></code> object attached to an <code class="docutils literal notranslate"><span class="pre">OBMol</span></code> and accessed via <code class="docutils literal notranslate"><span class="pre">OBMol.GetData(&quot;Atom</span> <span class="pre">Class&quot;)</span></code>. In OB 3.0, atom class information is instead stored as an <code class="docutils literal notranslate"><span class="pre">OBPairInteger</span></code> associated with an <code class="docutils literal notranslate"><span class="pre">OBAtom</span></code> and accessed via <code class="docutils literal notranslate"><span class="pre">OBAtom.GetData(&quot;Atom</span> <span class="pre">Class&quot;)</span></code>. In Python:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># OB 3.0</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">myatom</span><span class="o">.</span><span class="n">GetData</span><span class="p">(</span><span class="s2">&quot;Atom Class&quot;</span><span class="p">)</span>
+<span class="n">atom_class</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+     <span class="n">atom_class</span> <span class="o">=</span> <span class="n">ob</span><span class="o">.</span><span class="n">toPairInteger</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">GetGenericValue</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="obatom-valence-and-degree-methods">
+<h2>OBAtom valence and degree methods<a class="headerlink" href="#obatom-valence-and-degree-methods" title="Link to this heading">#</a></h2>
+<p>OB 2.x referred to the function that returned the explicit degree of an atom as <code class="docutils literal notranslate"><span class="pre">GetValence()</span></code>. This was confusing, at best. To find the explicit valence, the <code class="docutils literal notranslate"><span class="pre">BOSum()</span></code> method was required. OB 3.0 avoids this confusion by renaming methods associated with degree or valence:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OBAtom::GetExplicitValence()</span></code> (OB 2.x <code class="docutils literal notranslate"><span class="pre">BOSum()</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OBAtom::GetExplicitDegree()</span></code> (OB 2.x <code class="docutils literal notranslate"><span class="pre">GetValence()</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OBAtom::GetHvyDegree()</span></code> (OB 2.x <code class="docutils literal notranslate"><span class="pre">GetHvyValence()</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OBAtom::GetHeteroDegree()</span></code> (OB 2.x <code class="docutils literal notranslate"><span class="pre">GetHeteroValence()</span></code>)</p></li>
+</ul>
+</section>
+<section id="molecule-atom-and-bond-flags">
+<h2>Molecule, atom and bond flags<a class="headerlink" href="#molecule-atom-and-bond-flags" title="Link to this heading">#</a></h2>
+<p>The “Unset” methods for molecule, atom and bond flags have been removed. Instead, a value of <code class="docutils literal notranslate"><span class="pre">false</span></code> should be passed to the corresponding “Set” method. For example, <code class="docutils literal notranslate"><span class="pre">OBMol::UnsetAromaticPerceived()</span></code> in OB 2.x is now <code class="docutils literal notranslate"><span class="pre">OBMol::SetAromaticPerceived(false)</span></code>.</p>
+</section>
+<section id="removal-of-deprecated-methods">
+<h2>Removal of deprecated methods<a class="headerlink" href="#removal-of-deprecated-methods" title="Link to this heading">#</a></h2>
+<p>Several deprecated methods have been removed. For the most part, an equivalent function with a different name is present in the API:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OBBond::GetBO()</span></code>/<code class="docutils literal notranslate"><span class="pre">SetBO()</span></code> removed. <code class="docutils literal notranslate"><span class="pre">OBBond::GetBondOrder()</span></code>/<code class="docutils literal notranslate"><span class="pre">SetBondOrder()</span></code> should be used instead.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OBAtom::GetCIdx()</span></code> removed. <code class="docutils literal notranslate"><span class="pre">OBAtom::GetCoordinateIdx()</span></code> should be used instead.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OBBitVec::Empty()</span></code> removed. <code class="docutils literal notranslate"><span class="pre">OBBitVec::IsEmpty()</span></code> should be used instead.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OBBitVec::BitIsOn()</span></code> removed. <code class="docutils literal notranslate"><span class="pre">OBBitVec::BitIsSet()</span></code> should be used instead.</p></li>
+</ul>
+</section>
+<section id="handling-of-implicit-hydrogens">
+<h2>Handling of implicit hydrogens<a class="headerlink" href="#handling-of-implicit-hydrogens" title="Link to this heading">#</a></h2>
+<p>With OB 3.0, the number of implicit hydrogens is stored as a property of the atom. This value can be interrogated and set independently of any other property of the atom. This is how other mature cheminformatics toolkits handle implicit hydrogens. In contrast, in OB 2.x this was a derived property worked out from valence rules and some additional flags set on an atom to indicate non-standard valency.</p>
+<p>From the point of view of the user, the advantage of the 2.x approach was that the user never needed to consider the implicit hydrogens; their count was calculated based on the explicit atoms (a behavior known as “floating valence”). The disadvantage was that it was difficult for the user to specify non-standard valencies, may have papered-over problems with the data, gave rise to subtle bugs which were not easily addressed and had poorer performance.</p>
+<p>As an example of how the behavior has changed, let’s look at creating a bond. If we read the SMILES string <code class="docutils literal notranslate"><span class="pre">C.C</span></code>, create a bond between the two atoms and write out the SMILES string, we get different answers for OB 2.x (<code class="docutils literal notranslate"><span class="pre">CC</span></code>) versus OB 3.0 (<code class="docutils literal notranslate"><span class="pre">[CH4][CH4]</span></code>). OB 2.x just works out the count based on standard valence rules. With OB 3.0, there were four implicit hydrogens on each carbon before we made the bond, and there still are four - they didn’t go anywhere and weren’t automatically adjusted.</p>
+<p>While this may seem like a major change, adapting code to handle the change should be straightforward: adding or removing a bond should be accompanied by incrementing or decrementing the implicit hydrogen count by the bond order. This also applies to deleting an atom, since this deletes any bonds connected to it. Note that care should be taken not to set the hydrogen count to a negative value when decrementing.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>unsigned int bondorder = 1;
+mol-&gt;AddBond(1, 2, bondorder);
+OBAtom* start = mol-&gt;GetAtom(1);
+unsigned int hcount = start-&gt;GetImplicitHCount();
+start-&gt;SetImplicitHCount(bondorder &gt;= hcount ? 0 : hcount - bondorder);
+OBAtom* end = mol-&gt;GetAtom(2);
+hcount = end-&gt;GetImplicitHCount();
+end-&gt;SetImplicitHCount(bondorder &gt;= hcount ? 0 : hcount - bondorder);
+</pre></div>
+</div>
+<p>For the particular case of creating a new atom, it is worth noting that the implicit hydrogen count defaults to zero and that users must set it themselves if necessary. To help with this situation a convenience function has been added to OBAtom that sets the implicit hydrogen count to be consistent with normal valence rules. TODO</p>
+<p>Regarding specific API functions, the following have been removed:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OBAtom::SetImplicitValence()</span></code>, <code class="docutils literal notranslate"><span class="pre">GetImplicitValence()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OBAtom::IncrementImplicitValence()</span></code>, <code class="docutils literal notranslate"><span class="pre">DecrementImplicitValence()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OBAtom::ForceNoH()</span></code>, <code class="docutils literal notranslate"><span class="pre">HasNoHForce()</span></code>, <code class="docutils literal notranslate"><span class="pre">ForceImplH()</span></code>, <code class="docutils literal notranslate"><span class="pre">HasImplHForced()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OBAtom::ImplicitHydrogenCount()</span></code></p></li>
+</ul>
+<p>The following have been added:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OBAtom::SetImplicitHCount()</span></code>, <code class="docutils literal notranslate"><span class="pre">GetImplicitHCount()</span></code></p></li>
+</ul>
+</section>
+<section id="handling-of-aromaticity">
+<h2>Handling of aromaticity<a class="headerlink" href="#handling-of-aromaticity" title="Link to this heading">#</a></h2>
+<p>Molecule modification no longer clears the aromaticity perception flag. If the user wishes to force reperception after modification, then they should call <code class="docutils literal notranslate"><span class="pre">OBMol::SetAromaticPerceived(false)</span></code>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Ruby.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Ruby</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Cheminf101/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Cheminformatics 101</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removal-of-babel">Removal of babel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-module">Python module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-of-elements-and-related-information">Handling of elements and related information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atom-classes">Atom classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obatom-valence-and-degree-methods">OBAtom valence and degree methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#molecule-atom-and-bond-flags">Molecule, atom and bond flags</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removal-of-deprecated-methods">Removal of deprecated methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-of-implicit-hydrogens">Handling of implicit hydrogens</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-of-aromaticity">Handling of aromaticity</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/UseTheLibrary/migration.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2023 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

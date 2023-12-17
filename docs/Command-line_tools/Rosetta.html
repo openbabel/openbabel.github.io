@@ -1,0 +1,824 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>obabel vs Chemistry Toolkit Rosetta &#8212; Open Babel openbabel-3-1-1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=4d45eed0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Command-line_tools/Rosetta';</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/Command-line_tools/Rosetta.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2D Depiction" href="../Depiction/depiction.html" />
+    <link rel="prev" title="Spectrophores™" href="../Fingerprints/spectrophore.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/install.html">Install Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="babel.html">obabel - Convert, Filter and Manipulate Chemical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI/GUI.html">The Open Babel GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUITutorial/GUITutorial.html">Tutorial on using the GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fingerprints/intro.html">Molecular fingerprints and similarity searching</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">obabel vs Chemistry Toolkit Rosetta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Depiction/depiction.html">2D Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3DStructureGen/Overview.html">3D Structure Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Forcefields/Overview.html">Molecular Mechanics and Force Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UseTheLibrary/intro.html">Write software using the Open Babel library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cheminf101/index.html">Cheminformatics 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stereochemistry/stereo.html">Stereochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Aromaticity/Aromaticity.html">Handling of aromaticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Features/Radicals.html">Radicals and SMILES extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/Contributing.html">Contributing to Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WritePlugins/index.html">Adding plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FileFormats/Overview.html">Supported File Formats and Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Descriptors/descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Charges/charges.html">Charge models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes/index.html">Release Notes</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">obabel vs...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="obabel-vs-chemistry-toolkit-rosetta">
+<h1>obabel vs Chemistry Toolkit Rosetta<a class="headerlink" href="#obabel-vs-chemistry-toolkit-rosetta" title="Link to this heading">#</a></h1>
+<p>The <a class="reference external" href="http://ctr.wikia.com/wiki/Chemistry_Toolkit_Rosetta_Wiki">Chemistry Toolkit Rosetta</a> is the brainchild of Andrew Dalke. It is a website that illustrates how to program various chemical toolkits to do a set of tasks. To make it easily understandable, these tasks are probably on the simpler side of those in the real world. The Rosetta already contains several examples of using the Open Babel Python bindings to carry out tasks.</p>
+<p>Here we focus on the use of the command line application <strong class="command">obabel</strong> to accomplish the tasks listed in the Rosetta. Inevitably we will struggle with more complicated tasks; however this section is intended to show how far you can go simply using <strong class="command">obabel</strong>, and to illustrate some of its less common features. Some of the tasks cannot be done exactly as specified, but they are are usually close enough to useful.</p>
+<p>Note that except for the examples involving piping, the GUI could also be used. Also the copy output format at present works only for files with Unix line endings.</p>
+<section id="heavy-atom-counts-from-an-sd-file">
+<h2>Heavy atom counts from an SD file<a class="headerlink" href="#heavy-atom-counts-from-an-sd-file" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em>For each record from the benzodiazepine  file, print the total number of heavy atoms in each record (that is, exclude hydrogens). The output is one output line per record, containing the count as an integer. If at all possible, show how to read directly from the gzip’ed input SD file.</em></p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">sdf</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">otxt</span> <span class="o">--</span><span class="n">title</span> <span class="s2">&quot;&quot;</span> <span class="o">--</span><span class="n">append</span> <span class="n">atoms</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">l5</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="../FileFormats/Title_format.html#title-format"><span class="std std-ref">txt format</span></a> outputs only the title but we set that to nothing and then append the result. The <em>atoms</em> descriptor counts the number of atoms after the <code class="docutils literal notranslate"><span class="pre">-d</span></code> option has removed the hydrogens. The <code class="docutils literal notranslate"><span class="pre">-l5</span></code> limits the output to the first 5 molecules, in case you really didn’t want to print out results for all 12386 molecules.</p>
+</section>
+<section id="convert-a-smiles-string-to-canonical-smiles">
+<h2>Convert a SMILES string to canonical SMILES<a class="headerlink" href="#convert-a-smiles-string-to-canonical-smiles" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em>Parse two SMILES strings and convert them to canonical form. Check that the results give the same string.</em></p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="o">-</span><span class="p">:</span><span class="s2">&quot;CN2C(=O)N(C)C(=O)C1=C2N=CN1C&quot;</span> <span class="o">-</span><span class="p">:</span><span class="s2">&quot;CN1C=NC2=C1C(=O)N(C)C(=O)N2C&quot;</span> <span class="o">-</span><span class="n">ocan</span>
+</pre></div>
+</div>
+<p>giving:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cn1cnc2c1c</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">n</span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="n">c</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">n2C</span>
+<span class="n">Cn1cnc2c1c</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">n</span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="n">c</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">n2C</span>
+<span class="mi">2</span> <span class="n">molecules</span> <span class="n">converted</span>
+</pre></div>
+</div>
+</section>
+<section id="report-how-many-sd-file-records-are-within-a-certain-molecular-weight-range">
+<h2>Report how many SD file records are within a certain molecular weight range<a class="headerlink" href="#report-how-many-sd-file-records-are-within-a-certain-molecular-weight-range" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em>Read the benzodiazepine file and report the number of records which contain a molecular weight between 300 and 400.</em></p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">sdf</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">onul</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;MW&gt;=300 MW&lt;=400&quot;</span>
+<span class="mi">3916</span> <span class="n">molecules</span> <span class="n">converted</span>
+</pre></div>
+</div>
+</section>
+<section id="convert-smiles-file-to-sd-file">
+<h2>Convert SMILES file to SD file<a class="headerlink" href="#convert-smiles-file-to-sd-file" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em>Convert a SMILES file into an SD file. The conversion must do its best to use the MDL conventions for the SD file, including aromaticity perception. Note that the use of aromatic bond types in CTABs is only allowed for queries, so aromatic structures must be written in a Kekule form. Because the stereochemistry of molecules in SD files is defined solely by the arrangement of atoms, it is necessary to assign either 2D or 3D coordinates to the molecule before generating output. The coordinates do not have to be reasonable (i.e. it’s ok if they would make a chemist scream in horror), so long as the resulting structure is chemically correct.</em></p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">infile</span><span class="o">.</span><span class="n">smi</span> <span class="o">-</span><span class="n">O</span> <span class="n">outfile</span><span class="o">.</span><span class="n">sdf</span> <span class="o">--</span><span class="n">gen3D</span>
+</pre></div>
+</div>
+</section>
+<section id="report-the-similarity-between-two-structures">
+<h2>Report the similarity between two structures<a class="headerlink" href="#report-the-similarity-between-two-structures" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em>Report the similarity between “CC(C)C=CCCCCC(=O)NCc1ccc(c(c1)OC)O” (PubChem CID 1548943) and “COC1=C(C=CC(=C1)C=O)O” (PubChem CID 1183).</em></p>
+</div></blockquote>
+<p>Two types of fingerprint are used: the default FP2 path-based one, and FP4 which is structure key based:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="o">-</span><span class="p">:</span><span class="s2">&quot;CC(C)C=CCCCCC(=O)NCc1ccc(c(c1)OC)O&quot;</span> <span class="o">-</span><span class="p">:</span><span class="s2">&quot;COC1=C(C=CC(=C1)C=O)O&quot;</span> <span class="o">-</span><span class="n">ofpt</span>
+<span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.360465</span>
+
+<span class="n">obabel</span> <span class="o">-</span><span class="p">:</span><span class="s2">&quot;CC(C)C=CCCCCC(=O)NCc1ccc(c(c1)OC)O&quot;</span> <span class="o">-</span><span class="p">:</span><span class="s2">&quot;COC1=C(C=CC(=C1)C=O)O&quot;</span> <span class="o">-</span><span class="n">ofpt</span>
+       <span class="o">-</span><span class="n">xfFP4</span>
+<span class="n">Tanimoto</span> <span class="kn">from</span> <span class="nn">first</span> <span class="n">mol</span> <span class="o">=</span> <span class="mf">0.277778</span>
+</pre></div>
+</div>
+</section>
+<section id="find-the-10-nearest-neighbors-in-a-data-set">
+<h2>Find the 10 nearest neighbors in a data set<a class="headerlink" href="#find-the-10-nearest-neighbors-in-a-data-set" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em>The data will come from the gzip’ed SD file of the benzodiazepine data set. Use the first structure as the query structure, and use the rest of the file as the targets to find the 10 most similar structures. The output is sorted by similarity, from most similar to least. Each target match is on its own line, and the line contains the similarity score in the first column in the range 0.00 to 1.00 (preferably to 2 decimal places), then a space, then the target ID, which is the title line from the SD file.</em></p>
+</div></blockquote>
+<p>A fastsearch index, using the default FP2 fingerprint, is prepared first:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">ofs</span>
+</pre></div>
+</div>
+<p>The query molecule (first in the file) is extracted:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">O</span> <span class="n">first</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">l1</span>
+</pre></div>
+</div>
+<p>The similarity search of the index file for the 10 most similar molecules is done. The output is to <a class="reference internal" href="../FileFormats/Title_format.html#title-format"><span class="std std-ref">Title format (txt)</span></a>, with the <code class="docutils literal notranslate"><span class="pre">-aa</span></code> option of <a class="reference internal" href="../FileFormats/Fastsearch_format.html#fastsearch-format"><span class="std std-ref">Fastsearch format (fs)</span></a> adding the Tanimoto score:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">fs</span> <span class="o">-</span><span class="n">otxt</span> <span class="o">-</span><span class="n">s</span> <span class="n">first</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">at</span> <span class="mi">10</span> <span class="o">-</span><span class="n">aa</span>
+
+<span class="mi">623918</span> <span class="mi">1</span>
+<span class="mi">450820</span> <span class="mi">1</span>
+<span class="mi">1688</span> <span class="mi">1</span>
+<span class="mi">20351792</span> <span class="mf">0.993007</span>
+<span class="mi">9862446</span> <span class="mf">0.986111</span>
+<span class="mi">398658</span> <span class="mf">0.97931</span>
+<span class="mi">398657</span> <span class="mf">0.97931</span>
+<span class="mi">6452650</span> <span class="mf">0.978873</span>
+<span class="mi">450830</span> <span class="mf">0.978873</span>
+<span class="mi">3016</span> <span class="mf">0.978873</span>
+<span class="mi">10</span> <span class="n">molecules</span> <span class="n">converted</span>
+</pre></div>
+</div>
+<p>The Tanimoto coefficient comes second, rather than first as requested and is not formatted to two decimal places, but the information is still there.</p>
+</section>
+<section id="depict-a-compound-as-an-image">
+<h2>Depict a compound as an image<a class="headerlink" href="#depict-a-compound-as-an-image" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em>Depict the SMILES “CN1C=NC2=C1C(=O)N(C(=O)N2C)C” as an image of size 200x250 pixels. The image should be in PNG format if possible, otherwise in GIF format. If possible, give it the title “Caffeine”. It should display the structure on a white background.</em></p>
+</div></blockquote>
+<p>Open Babel can output 2D structures as <a class="reference internal" href="../FileFormats/PNG_2D_depiction.html#png-2d-depiction"><span class="std std-ref">PNG</span></a>. The <code class="docutils literal notranslate"><span class="pre">-d</span></code> makes hydrogen implicit. Width and height are set with the -xw and -xh options.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="o">-</span><span class="p">:</span><span class="s2">&quot;CN1C=NC2=C1C(=O)N(C(=O)N2C)C Caffeine&quot;</span> <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">png</span> <span class="o">-</span><span class="n">xw</span> <span class="mi">200</span> <span class="o">-</span><span class="n">xh</span> <span class="mi">250</span> <span class="o">-</span><span class="n">d</span>
+</pre></div>
+</div>
+<p>Open Babel also supports outputting <a class="reference internal" href="../FileFormats/SVG_2D_depiction.html#svg-2d-depiction"><span class="std std-ref">SVG</span></a>, which is resolution independent as a vector format.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="o">-</span><span class="p">:</span><span class="s2">&quot;CN1C=NC2=C1C(=O)N(C(=O)N2C)C Caffeine&quot;</span> <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">svg</span> <span class="o">-</span><span class="n">d</span>
+</pre></div>
+</div>
+</section>
+<section id="highlight-a-substructure-in-the-depiction">
+<h2>Highlight a substructure in the depiction<a class="headerlink" href="#highlight-a-substructure-in-the-depiction" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em>Read record 3016 from the benzodiazepine SD file. Find all atoms which match the SMARTS “c1ccc2c(c1)C(=NCCN2)c3ccccc3” and highlight them in red. All other atoms must be drawn in black.</em></p>
+<p><em>The resulting image should be 200x250 pixels and on a white background. The resulting image file should be in PNG (preferred) or GIF format.</em></p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">sdf</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">png</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;title=3016&quot;</span>
+       <span class="o">-</span><span class="n">s</span> <span class="s2">&quot;c1ccc2c(c1)C(=NCCN2)c3ccccc3 red&quot;</span> <span class="o">-</span><span class="n">xu</span> <span class="o">-</span><span class="n">xw</span> <span class="mi">200</span> <span class="o">-</span><span class="n">xh</span> <span class="mi">250</span> <span class="o">-</span><span class="n">d</span>
+</pre></div>
+</div>
+<p>Open Babel can output 2D structures as <a class="reference internal" href="../FileFormats/PNG_2D_depiction.html#png-2d-depiction"><span class="std std-ref">PNG</span></a>. The compressed data file can be used as input. The <code class="docutils literal notranslate"><span class="pre">-d</span></code> makes hydrogen implicit and the <code class="docutils literal notranslate"><span class="pre">-xu</span></code> removes the element-specific coloring. Width and height are set with the -xw and -xh options.</p>
+<p>This is slow (about a minute) because each molecule is fully interpreted, although in most cases only the title is required. The task can be done 10 times faster by using the uncompressed file, converting only the title (the <code class="docutils literal notranslate"><span class="pre">-aT</span></code> option) and copying the SD text to standard out when a match occurs. This is piped to a second command which outputs the structure.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">ocopy</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;title=3016&quot;</span> <span class="o">-</span><span class="n">aT</span> <span class="o">|</span>
+       <span class="n">obabel</span> <span class="o">-</span><span class="n">isdf</span> <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">png</span> <span class="o">-</span><span class="n">s</span> <span class="s2">&quot;c1ccc2c(c1)C(=NCCN2)c3ccccc3 red&quot;</span> <span class="o">-</span><span class="n">xu</span> <span class="o">-</span><span class="n">xw</span> <span class="mi">200</span> <span class="o">-</span><span class="n">xh</span> <span class="mi">250</span> <span class="o">-</span><span class="n">d</span>
+</pre></div>
+</div>
+<p>Open Babel also supports outputting <a class="reference internal" href="../FileFormats/SVG_2D_depiction.html#svg-2d-depiction"><span class="std std-ref">SVG</span></a>, which is resolution independent as a vector format.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">sdf</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">svg</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;title=3016&quot;</span>
+       <span class="o">-</span><span class="n">s</span> <span class="s2">&quot;c1ccc2c(c1)C(=NCCN2)c3ccccc3 red&quot;</span> <span class="o">-</span><span class="n">xu</span> <span class="o">-</span><span class="n">d</span>
+
+<span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">ocopy</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;title=3016&quot;</span> <span class="o">-</span><span class="n">aT</span> <span class="o">|</span>
+       <span class="n">obabel</span> <span class="o">-</span><span class="n">isdf</span> <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">svg</span> <span class="o">-</span><span class="n">s</span> <span class="s2">&quot;c1ccc2c(c1)C(=NCCN2)c3ccccc3 red&quot;</span> <span class="o">-</span><span class="n">xu</span> <span class="o">-</span><span class="n">d</span>
+</pre></div>
+</div>
+</section>
+<section id="align-the-depiction-using-a-fixed-substructure">
+<h2>Align the depiction using a fixed substructure<a class="headerlink" href="#align-the-depiction-using-a-fixed-substructure" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em>Use the first 16 structures of the benzodiazepine SD file to make a 4x4 grid of depictions as a single image. The first structure is in the upper-left corner, the second is to its right, and so on. Each depiction should include the title field of the corresponding record, which in this case is the PubChem identifier.</em></p>
+<p><em>Use “[#7]~1~[#6]~[#6]~[#7]~[#6]~[#6]~2~[#6]~[#6]~[#6]~[#6]~[#6]12” as the common SMARTS substructure. This is the fused ring of the benzodiazepine system but without bond type or atom aromaticity information. Use the first molecule as the reference depiction. All other depictions must have the depiction of their common substructure aligned to the reference.</em></p>
+</div></blockquote>
+<p>Since Open Babel 2.3.1 this can be done in one line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">sdf</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">png</span> <span class="o">-</span><span class="n">l16</span> <span class="o">--</span><span class="n">align</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">xu</span> <span class="o">-</span><span class="n">xw</span> <span class="mi">400</span> <span class="o">-</span><span class="n">xh</span> <span class="mi">400</span>
+       <span class="o">-</span><span class="n">s</span><span class="s2">&quot;[#7]~1~[#6]~[#6]~[#7]~[#6]~[#6]~2~[#6]~[#6]~[#6]~[#6]~[#6]12 green&quot;</span>
+</pre></div>
+</div>
+<p>The depiction has some cosmetic tweaks: the substructure is highlighted in green; <code class="docutils literal notranslate"><span class="pre">-d</span></code> removes hydrogen; <code class="docutils literal notranslate"><span class="pre">-xu</span></code> removes the element specific coloring.
+Open Babel also supports outputting <a class="reference internal" href="../FileFormats/SVG_2D_depiction.html#svg-2d-depiction"><span class="std std-ref">SVG</span></a>, which is resolution independent as a vector format.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">sdf</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">svg</span> <span class="o">-</span><span class="n">l16</span> <span class="o">--</span><span class="n">align</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">xu</span>
+       <span class="o">-</span><span class="n">s</span><span class="s2">&quot;[#7]~1~[#6]~[#6]~[#7]~[#6]~[#6]~2~[#6]~[#6]~[#6]~[#6]~[#6]12 green&quot;</span>
+</pre></div>
+</div>
+<p>In earlier versions the <strong class="command">obfit</strong> program can be used. First extract the first molecule for the reference and the first 16 to be displayed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">sdf</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">O</span> <span class="n">firstbenzo</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">l1</span>
+<span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">sdf</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">O</span> <span class="n">sixteenbenzo</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">l16</span>
+</pre></div>
+</div>
+<p>Then use the program <strong class="command">obfit</strong>, which is distributed with Open Babel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obfit</span> <span class="s2">&quot;[#7]~1~[#6]~[#6]~[#7]~[#6]~[#6]~2~[#6]~[#6]~[#6]~[#6]~[#6]12&quot;</span>
+      <span class="n">firstbenzo</span><span class="o">.</span><span class="n">sdf</span>  <span class="n">sixteenbenzo</span><span class="o">.</span><span class="n">sdf</span> <span class="o">&gt;</span> <span class="mi">16</span><span class="n">out</span><span class="o">.</span><span class="n">sdf</span>
+</pre></div>
+</div>
+<p>Display the 16 molecules (with implicit hydrogens) as <a class="reference internal" href="../FileFormats/SVG_2D_depiction.html#svg-2d-depiction"><span class="std std-ref">SVG</span></a> (earlier versions of Open Babel do not support <a class="reference internal" href="../FileFormats/PNG_2D_depiction.html#png-2d-depiction"><span class="std std-ref">PNG</span></a>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="mi">16</span><span class="n">out</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">png</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">xw</span> <span class="mi">400</span> <span class="o">-</span><span class="n">xh</span> <span class="mi">400</span>
+</pre></div>
+</div>
+</section>
+<section id="perform-a-substructure-search-on-an-sdf-file-and-report-the-number-of-false-positives">
+<h2>Perform a substructure search on an SDF file and report the number of false positives<a class="headerlink" href="#perform-a-substructure-search-on-an-sdf-file-and-report-the-number-of-false-positives" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em>The sample database will be gzip’ed SD file of the benzodiazepine data set. The query structure will be defined as “C1C=C(NC=O)C=CC=1”.</em></p>
+</div></blockquote>
+<p>The default FP2 fingerprint is sensitive to whether a bond is aromatic or not. So this Kekule structure needs to be converted to its aromatic form. As this happens automatically on conversion, the easiest way is to store the SMILES string in a file, and use this file to specify the search pattern.</p>
+<p>Prepare an index (of the unzipped data file):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">ofs</span>
+</pre></div>
+</div>
+<p>Do the substructure search. A very large number of molecules match the query, so the maximum number of hits has to be increased with the <code class="docutils literal notranslate"><span class="pre">-al</span> <span class="pre">9000</span></code> option. By virtue of the <code class="docutils literal notranslate"><span class="pre">~</span></code> it is the false positives that are output (to nowhere) but their number is reported:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">fs</span> <span class="o">-</span><span class="n">onul</span> <span class="o">-</span><span class="n">s</span> <span class="o">~</span><span class="n">substruct</span><span class="o">.</span><span class="n">smi</span> <span class="o">-</span><span class="n">al</span> <span class="mi">9000</span>
+<span class="mi">8531</span> <span class="n">candidates</span> <span class="kn">from</span> <span class="nn">fingerprint</span> <span class="n">search</span> <span class="n">phase</span>
+<span class="mi">12</span> <span class="n">molecules</span> <span class="n">converted</span>
+</pre></div>
+</div>
+</section>
+<section id="calculate-tpsa">
+<h2>Calculate TPSA<a class="headerlink" href="#calculate-tpsa" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em>The goal of this task is get an idea of how to do a set of SMARTS matches when the data comes in from an external table.</em></p>
+<p><em>Write a function or method named “TPSA” which gets its data from the file “tpsa.tab”. The function should take a molecule record as input, and return the TPSA value as a float. Use the function to calculate the TPSA of “CN2C(=O)N(C)C(=O)C1=C2N=CN1C”. The answer should be 61.82, which agrees exactly with Ertl’s online TPSA tool but not with PubChem’s value of 58.4.</em></p>
+</div></blockquote>
+<p>Open Babel’s command line cannot parse tables with custom formats. But the TPSA descriptor, defined by a table in the file <code class="file docutils literal notranslate"><span class="pre">psa.txt</span></code>, is already present and can be used as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="o">-</span><span class="p">:</span><span class="n">CN2C</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">N</span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="n">C</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">C1</span><span class="o">=</span><span class="n">C2N</span><span class="o">=</span><span class="n">CN1C</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="n">append</span> <span class="n">TPSA</span>
+</pre></div>
+</div>
+<p>giving:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cn1c</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">n</span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="n">c</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">c2c1ncn2C</span>      <span class="mf">61.82</span>
+<span class="mi">1</span> <span class="n">molecule</span> <span class="n">converted</span>
+</pre></div>
+</div>
+<p>The table in <code class="file docutils literal notranslate"><span class="pre">tpsa.tab</span></code> and Open Babel’s <code class="file docutils literal notranslate"><span class="pre">psa.txt</span></code> have the same content but different formats. The first few rows of <code class="file docutils literal notranslate"><span class="pre">tpsa.tab</span></code> are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">psa</span>   <span class="n">SMARTS</span>  <span class="n">description</span>
+<span class="mf">23.79</span> <span class="p">[</span><span class="n">N0</span><span class="p">;</span><span class="n">H0</span><span class="p">;</span><span class="n">D1</span><span class="p">;</span><span class="n">v3</span><span class="p">]</span>   <span class="n">N</span><span class="c1">#</span>
+<span class="mf">23.85</span> <span class="p">[</span><span class="n">N</span><span class="o">+</span><span class="mi">0</span><span class="p">;</span><span class="n">H1</span><span class="p">;</span><span class="n">D1</span><span class="p">;</span><span class="n">v3</span><span class="p">]</span>  <span class="p">[</span><span class="n">NH</span><span class="p">]</span><span class="o">=</span>
+<span class="mf">26.02</span> <span class="p">[</span><span class="n">N</span><span class="o">+</span><span class="mi">0</span><span class="p">;</span><span class="n">H2</span><span class="p">;</span><span class="n">D1</span><span class="p">;</span><span class="n">v3</span><span class="p">]</span>  <span class="p">[</span><span class="n">NH2</span><span class="p">]</span><span class="o">-</span>
+</pre></div>
+</div>
+<p>and the equivalent lines from Open Babel’s <code class="file docutils literal notranslate"><span class="pre">psa.txt</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">N</span><span class="p">]</span><span class="c1">#* 23.79</span>
+<span class="p">[</span><span class="n">NH</span><span class="p">]</span><span class="o">=*</span>        <span class="mf">23.85</span>
+<span class="p">[</span><span class="n">NH2</span><span class="p">]</span><span class="o">-*</span>       <span class="mf">26.02</span>
+</pre></div>
+</div>
+<p>It is possible to add new descriptors without having to recompile. If another property, <em>myProp</em>, could be calculated using a table in <code class="file docutils literal notranslate"><span class="pre">myprop.txt</span></code> with the same format as <code class="file docutils literal notranslate"><span class="pre">psa.txt</span></code>, then a descriptor could set up by adding the following item to <code class="file docutils literal notranslate"><span class="pre">plugindefines.txt</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OBGroupContrib</span>
+<span class="n">myProp</span>          <span class="c1"># name of descriptor</span>
+<span class="n">myprop</span><span class="o">.</span><span class="n">txt</span>      <span class="c1"># data file</span>
+<span class="n">Coolness</span> <span class="n">index</span>  <span class="c1"># brief description</span>
+</pre></div>
+</div>
+<p>The following would then output molecules in increasing order of <em>myProp</em> with the value added to the title:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">infile</span><span class="o">.</span><span class="n">smi</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="n">sort</span> <span class="n">myProp</span><span class="o">+</span>
+</pre></div>
+</div>
+</section>
+<section id="working-with-sd-tag-data">
+<h2>Working with SD tag data<a class="headerlink" href="#working-with-sd-tag-data" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><em>The input file is SD file from the benzodiazepine data set. Every record contains the tags PUBCHEM_CACTVS_HBOND_DONOR, PUBCHEM_CACTVS_HBOND_ACCEPTOR and PUBCHEM_MOLECULAR_WEIGHT, and most of the records contain the tag PUBCHEM_XLOGP3.</em></p>
+<p><em>The program must create a new SD file which is the same as the input file but with a new tag data field named “RULE5”. This must be “1” if the record passes Lipinski’s rule, “0” if it does not, and “no logP” if the PUBCHEM_XLOGP3 field is missing.</em></p>
+</div></blockquote>
+<p>This exercise is a bit of a stretch for the Open Babel command-line. However, the individual lines may be instructional, since they are more like the sort of task that would normally be attempted.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>obabel benzodiazepine.sdf.gz -O out1.sdf --filter &quot;PUBCHEM_CACTVS_HBOND_DONOR&lt;=5 &amp;
+       PUBCHEM_CACTVS_HBOND_ACCEPTOR&lt;=10 &amp; PUBCHEM_MOLECULAR_WEIGHT&lt;=500 &amp;
+       PUBCHEM_XLOGP3&lt;=5&quot;
+       --property &quot;RULE5&quot; &quot;1&quot;
+
+obabel benzodiazepine.sdf.gz -O out2.sdf --filter &quot;!PUBCHEM_XLOGP3&quot;
+       --property &quot;RULE5&quot; &quot;no logP&quot;
+
+obabel benzodiazepine.sdf.gz -O out3.sdf --filter &quot;!PUBCHEM_XLOGP3 &amp;
+       !(PUBCHEM_CACTVS_HBOND_DONOR&lt;=5 &amp; PUBCHEM_CACTVS_HBOND_ACCEPTOR&lt;=10 &amp;
+       PUBCHEM_MOLECULAR_WEIGHT&lt;=500 &amp; PUBCHEM_XLOGP3&lt;=5)&quot;
+       --property &quot;RULE5&quot; &quot;0&quot;
+</pre></div>
+</div>
+<p>The first command converts only molecules passing Lipinski’s rule, putting them in <code class="file docutils literal notranslate"><span class="pre">out1.sdf</span></code>, and adding an additional property, <em>RULE5</em>, with a value of <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>The second command converts only molecules that do not have a property <em>PUBCHEM_XLOGP3</em>.</p>
+<p>The third command converts only molecules that do have a <em>PUBCHEM_XLOGP3</em> and which fail Lipinski’s rule.</p>
+<p>Use <strong class="command">cat</strong> or <strong class="command">type</strong> at the command prompt to concatenate the three files <code class="file docutils literal notranslate"><span class="pre">out1.sdf</span></code>, <code class="file docutils literal notranslate"><span class="pre">out2.sdf</span></code>, <code class="file docutils literal notranslate"><span class="pre">out3.sdf</span></code>.</p>
+<p>These operations are slow because the chemistry of each molecule is fully converted. As illustrated below, the filtering alone could have been done more quickly using the uncompressed file and the <code class="docutils literal notranslate"><span class="pre">-aP</span></code> option, which restricts the reading of the SDF file to the title and properties only, and then copying the molecule’s SDF text verbatim with <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">copy</span></code>. But adding the additional property is not then possible:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">benzodiazepine</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">o</span> <span class="n">copy</span> <span class="o">-</span><span class="n">O</span> <span class="n">out1</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">aP</span> <span class="o">--</span><span class="nb">filter</span>
+       <span class="s2">&quot;PUBCHEM_CACTVS_HBOND_DONOR&lt;=5 &amp; PUBCHEM_CACTVS_HBOND_ACCEPTOR&lt;=10 &amp;</span>
+       <span class="n">PUBCHEM_MOLECULAR_WEIGHT</span><span class="o">&lt;=</span><span class="mi">500</span> <span class="o">&amp;</span> <span class="n">PUBCHEM_XLOGP3</span><span class="o">&lt;=</span><span class="mi">5</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="unattempted-tasks">
+<h2>Unattempted tasks<a class="headerlink" href="#unattempted-tasks" title="Link to this heading">#</a></h2>
+<p>A number of the Chemical Toolkit Rosetta tasks cannot be attempted as the <strong class="command">obabel</strong> tool does not (currently!) have the necessary functionality. These include the following:</p>
+<ul class="simple">
+<li><p>Detect and report SMILES and SDF parsing errors</p></li>
+<li><p>Ring counts in a SMILES file</p></li>
+<li><p>Unique SMARTS matches against a SMILES string</p></li>
+<li><p>Find the graph diameter</p></li>
+<li><p>Break rotatable bonds and report the fragments</p></li>
+<li><p>Change stereochemistry of certain atoms in SMILES file</p></li>
+</ul>
+<p>To handle these tasks, you need to use the Open Babel library directly. This is the subject of the next section.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Fingerprints/spectrophore.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Spectrophores™</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Depiction/depiction.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2D Depiction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heavy-atom-counts-from-an-sd-file">Heavy atom counts from an SD file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-a-smiles-string-to-canonical-smiles">Convert a SMILES string to canonical SMILES</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#report-how-many-sd-file-records-are-within-a-certain-molecular-weight-range">Report how many SD file records are within a certain molecular weight range</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-smiles-file-to-sd-file">Convert SMILES file to SD file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#report-the-similarity-between-two-structures">Report the similarity between two structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-10-nearest-neighbors-in-a-data-set">Find the 10 nearest neighbors in a data set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#depict-a-compound-as-an-image">Depict a compound as an image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#highlight-a-substructure-in-the-depiction">Highlight a substructure in the depiction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#align-the-depiction-using-a-fixed-substructure">Align the depiction using a fixed substructure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-a-substructure-search-on-an-sdf-file-and-report-the-number-of-false-positives">Perform a substructure search on an SDF file and report the number of false positives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-tpsa">Calculate TPSA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-sd-tag-data">Working with SD tag data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unattempted-tasks">Unattempted tasks</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/Command-line_tools/Rosetta.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2023 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

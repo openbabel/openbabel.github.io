@@ -1,0 +1,685 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Java &#8212; Open Babel openbabel-3-1-1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=4d45eed0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/UseTheLibrary/Java';</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/UseTheLibrary/Java.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Perl" href="Perl.html" />
+    <link rel="prev" title="Examples" href="PythonExamples.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/install.html">Install Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/babel.html">obabel - Convert, Filter and Manipulate Chemical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI/GUI.html">The Open Babel GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUITutorial/GUITutorial.html">Tutorial on using the GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fingerprints/intro.html">Molecular fingerprints and similarity searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/Rosetta.html">obabel vs Chemistry Toolkit Rosetta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Depiction/depiction.html">2D Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3DStructureGen/Overview.html">3D Structure Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Forcefields/Overview.html">Molecular Mechanics and Force Fields</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Write software using the Open Babel library</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="CppAPI.html">The Open Babel API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CppExamples.html">C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Perl.html">Perl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSharp.html">CSharp and OBDotNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ruby.html">Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html">Updating to Open Babel 3.0 from 2.x</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Cheminf101/index.html">Cheminformatics 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stereochemistry/stereo.html">Stereochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Aromaticity/Aromaticity.html">Handling of aromaticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Features/Radicals.html">Radicals and SMILES extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/Contributing.html">Contributing to Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WritePlugins/index.html">Adding plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FileFormats/Overview.html">Supported File Formats and Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Descriptors/descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Charges/charges.html">Charge models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes/index.html">Release Notes</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="intro.html" class="nav-link">Write software using the Open Babel library</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Java</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="java">
+<h1>Java<a class="headerlink" href="#java" title="Link to this heading">#</a></h1>
+<p>The <code class="file docutils literal notranslate"><span class="pre">openbabel.jar</span></code> file in the Open Babel distribution allows you to use the Open Babel C++ library from Java or any of the other JVM languages (Jython, JRuby, BeanShell, etc.).</p>
+<section id="quickstart-example">
+<h2>Quickstart Example<a class="headerlink" href="#quickstart-example" title="Link to this heading">#</a></h2>
+<p>Let’s begin by looking at an example program that uses Open Babel. The following program carries out file format conversion, iteration over atoms and SMARTS pattern matching:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.openbabel.*</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Test</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="c1">// Initialise</span>
+<span class="w">       </span><span class="n">System</span><span class="p">.</span><span class="na">loadLibrary</span><span class="p">(</span><span class="s">&quot;openbabel_java&quot;</span><span class="p">);</span>
+
+<span class="w">       </span><span class="c1">// Read molecule from SMILES string</span>
+<span class="w">       </span><span class="n">OBConversion</span><span class="w"> </span><span class="n">conv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OBConversion</span><span class="p">();</span>
+<span class="w">       </span><span class="n">OBMol</span><span class="w"> </span><span class="n">mol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OBMol</span><span class="p">();</span>
+<span class="w">       </span><span class="n">conv</span><span class="p">.</span><span class="na">SetInFormat</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">);</span>
+<span class="w">       </span><span class="n">conv</span><span class="p">.</span><span class="na">ReadString</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;C(Cl)(=O)CCC(=O)Cl&quot;</span><span class="p">);</span>
+
+<span class="w">       </span><span class="c1">// Print out some general information</span>
+<span class="w">       </span><span class="n">conv</span><span class="p">.</span><span class="na">SetOutFormat</span><span class="p">(</span><span class="s">&quot;can&quot;</span><span class="p">);</span>
+<span class="w">       </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Canonical SMILES: &quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">         </span><span class="n">conv</span><span class="p">.</span><span class="na">WriteString</span><span class="p">(</span><span class="n">mol</span><span class="p">));</span>
+<span class="w">       </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;The molecular weight is &quot;</span>
+<span class="w">         </span><span class="o">+</span><span class="w"> </span><span class="n">mol</span><span class="p">.</span><span class="na">GetMolWt</span><span class="p">());</span>
+<span class="w">       </span><span class="k">for</span><span class="p">(</span><span class="n">OBAtom</span><span class="w"> </span><span class="n">atom</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OBMolAtomIter</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
+<span class="w">           </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Atom &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">atom</span><span class="p">.</span><span class="na">GetIdx</span><span class="p">()</span>
+<span class="w">             </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;: atomic number = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">atom</span><span class="p">.</span><span class="na">GetAtomicNum</span><span class="p">()</span>
+<span class="w">             </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, hybridisation = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">atom</span><span class="p">.</span><span class="na">GetHyb</span><span class="p">());</span>
+
+<span class="w">       </span><span class="c1">// What are the indices of the carbon atoms</span>
+<span class="w">       </span><span class="c1">// of the acid chloride groups?</span>
+<span class="w">       </span><span class="n">OBSmartsPattern</span><span class="w"> </span><span class="n">acidpattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OBSmartsPattern</span><span class="p">();</span>
+<span class="w">       </span><span class="n">acidpattern</span><span class="p">.</span><span class="na">Init</span><span class="p">(</span><span class="s">&quot;C(=O)Cl&quot;</span><span class="p">);</span>
+<span class="w">       </span><span class="n">acidpattern</span><span class="p">.</span><span class="na">Match</span><span class="p">(</span><span class="n">mol</span><span class="p">);</span>
+
+<span class="w">       </span><span class="n">vectorvInt</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acidpattern</span><span class="p">.</span><span class="na">GetUMapList</span><span class="p">();</span>
+<span class="w">       </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;There are &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">matches</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                          </span><span class="s">&quot; acid chloride groups&quot;</span><span class="p">);</span>
+<span class="w">       </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Their C atoms have indices: &quot;</span><span class="p">);</span>
+<span class="w">       </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">matches</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">           </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">matches</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Canonical</span> <span class="n">SMILES</span><span class="p">:</span> <span class="n">ClC</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">CCC</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">Cl</span>
+<span class="n">The</span> <span class="n">molecular</span> <span class="n">weight</span> <span class="ow">is</span> <span class="mf">154.9793599</span>
+<span class="n">Atom</span> <span class="mi">1</span><span class="p">:</span> <span class="n">atomic</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">hybridisation</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Atom</span> <span class="mi">2</span><span class="p">:</span> <span class="n">atomic</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">17</span><span class="p">,</span> <span class="n">hybridisation</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Atom</span> <span class="mi">3</span><span class="p">:</span> <span class="n">atomic</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">hybridisation</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Atom</span> <span class="mi">4</span><span class="p">:</span> <span class="n">atomic</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">hybridisation</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">Atom</span> <span class="mi">5</span><span class="p">:</span> <span class="n">atomic</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">hybridisation</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">Atom</span> <span class="mi">6</span><span class="p">:</span> <span class="n">atomic</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">hybridisation</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Atom</span> <span class="mi">7</span><span class="p">:</span> <span class="n">atomic</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">hybridisation</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Atom</span> <span class="mi">8</span><span class="p">:</span> <span class="n">atomic</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">17</span><span class="p">,</span> <span class="n">hybridisation</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">There</span> <span class="n">are</span> <span class="mi">2</span> <span class="n">acid</span> <span class="n">chloride</span> <span class="n">groups</span>
+<span class="n">Their</span> <span class="n">C</span> <span class="n">atoms</span> <span class="n">have</span> <span class="n">indices</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
+<p><code class="file docutils literal notranslate"><span class="pre">openbabel.jar</span></code> is installed along with the OpenBabelGUI on Windows, typically in <code class="file docutils literal notranslate"><span class="pre">C:/Program</span> <span class="pre">Files</span> <span class="pre">(x86)/OpenBabel-2.3.2</span></code>. As an example of how to use <code class="file docutils literal notranslate"><span class="pre">openbabel.jar</span></code>, download <a class="reference external" href="http://openbabel.svn.sf.net/viewvc/openbabel/openbabel/tags/openbabel-2-2-1/scripts/java/OBTest.java?revision=2910">OBTest.java</a> and compile and run it as follows:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>C<span class="p">:</span><span class="nl">\</span><span class="c1">&gt; set CLASSPATH=C:\Program Files (x86)\OpenBabel-2.3.2\openbabel.jar;.</span>
+C<span class="p">:</span><span class="nl">\</span><span class="c1">&gt; &quot;C:\Program Files\Java\jdk1.5.0_16\bin\javac.exe&quot; OBTest.java</span>
+C<span class="p">:</span><span class="nl">\</span><span class="c1">&gt; &quot;C:\Program Files\Java\jdk1.5.0_16\bin\java.exe&quot; OBTest</span>
+Running OBTest...
+Benzene has 6 atoms.
+C<span class="p">:</span><span class="nl">\</span><span class="c1">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="macosx-and-linux">
+<h3>MacOSX and Linux<a class="headerlink" href="#macosx-and-linux" title="Link to this heading">#</a></h3>
+<p>The following instructions describe how to compile and use these bindings on MacOSX and Linux:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p><code class="file docutils literal notranslate"><span class="pre">openbabel.jar</span></code> is included in the Open Babel source distribution in <code class="file docutils literal notranslate"><span class="pre">scripts/java</span></code>. To compile a Java application that uses this (e.g. the example program shown above), use a command similar to the following:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>javac Test.java -cp ../openbabel-2.3.2/scripts/java/openbabel.jar
+</pre></div>
+</div>
+</li>
+<li><p>To run the resulting <code class="file docutils literal notranslate"><span class="pre">Test.class</span></code> on MacOSX or Linux you first need to compile the Java bindings as described in the section <a class="reference internal" href="../Installation/install.html#compile-bindings"><span class="std std-ref">Compile language bindings</span></a>. This creates <code class="file docutils literal notranslate"><span class="pre">lib/libopenbabel_java.so</span></code> in the build directory.</p></li>
+<li><p>Add the location of <code class="file docutils literal notranslate"><span class="pre">openbabel.jar</span></code> to the environment variable CLASSPATH, not forgetting to append the location of <code class="file docutils literal notranslate"><span class="pre">Test.class</span></code> (typically “.”):</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>export CLASSPATH=/home/user/Tools/openbabel-2.3.2/scripts/java/openbabel.jar:.
+</pre></div>
+</div>
+</li>
+<li><p>Add the location of <code class="file docutils literal notranslate"><span class="pre">libopenbabel_java.so</span></code> to the environment variable LD_LIBRARY_PATH. Additionally, if you have not installed Open Babel globally you should set BABEL_LIBDIR to the location of the Open Babel library and BABEL_DATADIR to the <code class="file docutils literal notranslate"><span class="pre">data</span></code> directory.</p></li>
+<li><p>Now, run the example application. The output should be as shown above.</p></li>
+</ol>
+</div></blockquote>
+</section>
+</section>
+<section id="api">
+<h2>API<a class="headerlink" href="#api" title="Link to this heading">#</a></h2>
+<p><code class="file docutils literal notranslate"><span class="pre">openbabel.jar</span></code> provides direct access to the C++ Open Babel library from Java through the namespace <strong>org.openbabel</strong>. This binding is generated using the SWIG package and provides access to almost all of the Open Babel interfaces from Java, including the base classes <a href="#id1"><span class="problematic" id="id2">:obapi:`OBMol`</span></a>, <a href="#id3"><span class="problematic" id="id4">:obapi:`OBAtom`</span></a>, <a href="#id5"><span class="problematic" id="id6">:obapi:`OBBond`</span></a>, and <a href="#id7"><span class="problematic" id="id8">:obapi:`OBResidue`</span></a>, as well as the conversion framework <a href="#id9"><span class="problematic" id="id10">:obapi:`OBConversion`</span></a>.</p>
+<p>Essentially any call in the C++ API is available to Java programs with very little difference in syntax. As a result, the principal documentation is the <a class="reference internal" href="../../api/index.html#api"><span class="std std-ref">Open Babel C++ API documentation</span></a>. A few differences exist, however:</p>
+<ul>
+<li><p>Global variables, global functions and constants in the C++ API can be found in <strong>org.openbabel.openbabel_java</strong>. The variables are accessible through get methods.</p></li>
+<li><p>When accessing various types of <a href="#id11"><span class="problematic" id="id12">:obapi:`OBGenericData`</span></a>, you will need to cast them to the particular subclass using the global functions, <em>toPairData</em>, <em>toUnitCell</em>, etc.</p></li>
+<li><p>The Java versions of the iterator classes in the C++ API (that is, all those classes ending in <em>Iter</em>) implement the <em>Iterator</em> and <em>Iterable</em> interfaces. This means that the following <em>foreach</em> loop is possible:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="n">OBAtom</span><span class="w"> </span><span class="n">atom</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OBMolAtomIter</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="na">GetAtomicNum</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>To facilitate use of the <a href="#id13"><span class="problematic" id="id14">:obapi:`OBMolAtomBFSIter`</span></a>, <em>OBAtom</em> has been extended to incorporate a <em>CurrentDepth</em> value, accessible through a get method:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="n">OBAtom</span><span class="w"> </span><span class="n">atom</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OBMolAtomBFSIter</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="na">GetCurrentDepth</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="PythonExamples.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Examples</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Perl.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Perl</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickstart-example">Quickstart Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macosx-and-linux">MacOSX and Linux</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/UseTheLibrary/Java.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2023 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

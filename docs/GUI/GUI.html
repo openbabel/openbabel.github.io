@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The Open Babel GUI &#8212; Open Babel openbabel-3-1-1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=4d45eed0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/GUI/GUI';</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/GUI/GUI.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tutorial on using the GUI" href="../GUITutorial/GUITutorial.html" />
+    <link rel="prev" title="obabel - Convert, Filter and Manipulate Chemical Data" href="../Command-line_tools/babel.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/install.html">Install Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/babel.html">obabel - Convert, Filter and Manipulate Chemical Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The Open Babel GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUITutorial/GUITutorial.html">Tutorial on using the GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fingerprints/intro.html">Molecular fingerprints and similarity searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/Rosetta.html">obabel vs Chemistry Toolkit Rosetta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Depiction/depiction.html">2D Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3DStructureGen/Overview.html">3D Structure Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Forcefields/Overview.html">Molecular Mechanics and Force Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UseTheLibrary/intro.html">Write software using the Open Babel library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cheminf101/index.html">Cheminformatics 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stereochemistry/stereo.html">Stereochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Aromaticity/Aromaticity.html">Handling of aromaticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Features/Radicals.html">Radicals and SMILES extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/Contributing.html">Contributing to Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WritePlugins/index.html">Adding plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FileFormats/Overview.html">Supported File Formats and Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Descriptors/descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Charges/charges.html">Charge models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes/index.html">Release Notes</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">The Open Babel GUI</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="the-open-babel-gui">
+<span id="gui"></span><h1>The Open Babel GUI<a class="headerlink" href="#the-open-babel-gui" title="Link to this heading">#</a></h1>
+<p>The <strong class="command">obabel</strong> command line program converts chemical objects (currently molecules or reactions) from one file format to another. The Open Babel graphical user interface (GUI) is an
+alternative to using the command line and has the same capabilities. Since Open Babel 2.3, the GUI is available cross-platform on Windows, Linux and MacOSX. On Windows, you can find it in the Start Menu in the Open Babel folder; on Linux and MacOSX, the GUI can be started with the <strong class="command">obgui</strong> command.</p>
+<p>Since the functionality of the GUI mirrors that of <strong class="command">obabel</strong>, you should consult the <a class="reference internal" href="../Command-line_tools/babel.html#obabel"><span class="std std-ref">previous chapter</span></a> to learn about available features and how to use them. This chapter describes the general use of the GUI and then focuses on features that are specific to the GUI.</p>
+<section id="basic-operation">
+<h2>Basic operation<a class="headerlink" href="#basic-operation" title="Link to this heading">#</a></h2>
+<p>Although the GUI presents many options, the basic operation is straightforward:</p>
+<ul class="simple">
+<li><p>Select the type of the type of the input file from the dropdown list.</p></li>
+<li><p>Click the “<span class="guilabel">…</span>” button and select the file. Its contents are displayed in the textbox below.</p></li>
+<li><p>Choose the output format and file in a similar way. You can merely display the output without saving it by not selecting an output file or by checking “<span class="guilabel">Output below only..</span>”.</p></li>
+<li><p>Click the “<span class="guilabel">Convert</span>” button.</p></li>
+</ul>
+<p>The message window below the button gives the number of molecules
+converted, and the contents of the output file are displayed.</p>
+<p>By default, all the molecules in an input file are converted if the
+output format allows multiple molecules.</p>
+<figure class="align-center" id="id1">
+<img alt="../../_images/ScreenshotOfGui-BioLinux6.0-Ubuntu10.04deriv.png" src="../../_images/ScreenshotOfGui-BioLinux6.0-Ubuntu10.04deriv.png" />
+<figcaption>
+<p><span class="caption-text"><strong>Screenshot of GUI running on BioLinux 6.0, an Ubuntu derivative</strong></span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="options">
+<h2>Options<a class="headerlink" href="#options" title="Link to this heading">#</a></h2>
+<p>The options in the middle are those appropriate for the type of
+chemical object being converted (molecule or reaction) and the
+input and output formats. They are derived from the description
+text that is displayed with the <code class="docutils literal notranslate"><span class="pre">-Hxxx</span></code> option in the command line
+interface and with the “<span class="guilabel">Format info</span>” buttons here. You can switch
+off the display of any of the various types of option using the
+<span class="guilabel">View</span> menu if the screen is getting too cluttered.</p>
+</section>
+<section id="multiple-input-files">
+<h2>Multiple input files<a class="headerlink" href="#multiple-input-files" title="Link to this heading">#</a></h2>
+<p>You can select multiple input files in the input file dialog in the
+normal way (for example, using the Control key in Windows). In the input
+filename box, each filename is displayed relative to the path shown
+just above the box, which is the path of the first file. You can
+display any of the files by moving the highlight with Tab/Shift
+Tab, Page Up/Down, the mouse wheel, or by double clicking.</p>
+<p>Selecting one or more new file names normally removes those already
+present, but they can instead be appended by holding the Control
+key down when leaving the file selection dialog.</p>
+<p>Files can be also be dragged and dropped (e.g. from Windows
+Explorer), adding the file when the Control key is pressed,
+replacing the existing files when it is not.</p>
+<p>Normally each file is converted according to its extension and the
+input files do not have to be all the same, but if you want to use
+non-standard file names set the checkbox “<span class="guilabel">Use this format for all
+input files…</span>”</p>
+<p>If you want to combine multiple molecules (from one or more files)
+into a single molecule with disconnected parts, use option “<span class="guilabel">Join
+all input molecules…</span>”</p>
+</section>
+<section id="wildcards-in-filenames">
+<h2>Wildcards in filenames<a class="headerlink" href="#wildcards-in-filenames" title="Link to this heading">#</a></h2>
+<p>When input filenames are typed in directly, any of them can
+contain the wildcard characters <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">?</span></code>. Typing Enter will replace
+these by a list of the matching files. The wildcarded names can be
+restored by typing Enter while holding down the Shift key. The
+original or the expanded versions will behave the same when the
+“<span class="guilabel">Convert</span>” button is pressed.</p>
+<p>By including the wildcard <code class="docutils literal notranslate"><span class="pre">*</span></code> in both the input and output
+filenames you can carry out batch conversion. Suppose there were
+files <code class="file docutils literal notranslate"><span class="pre">first.smi</span></code>, <code class="file docutils literal notranslate"><span class="pre">second.smi</span></code>, <code class="file docutils literal notranslate"><span class="pre">third.smi</span></code>. Using <code class="docutils literal notranslate"><span class="pre">*.smi</span></code> as the input
+filename and <code class="docutils literal notranslate"><span class="pre">*.mol</span></code> as the output filename would produce three
+files <code class="file docutils literal notranslate"><span class="pre">first.mol</span></code>, <code class="file docutils literal notranslate"><span class="pre">second.mol</span></code> and <code class="file docutils literal notranslate"><span class="pre">third.mol</span></code>. If the output filename
+was <code class="docutils literal notranslate"><span class="pre">NEW_*.mol</span></code>, then the output files would be <code class="file docutils literal notranslate"><span class="pre">NEW_first.mol</span></code>, etc.</p>
+</section>
+<section id="local-input">
+<h2>Local input<a class="headerlink" href="#local-input" title="Link to this heading">#</a></h2>
+<p>By checking the “<span class="guilabel">Input below…</span>” checkbox you can type the input
+text directly. The text box changes colour to remind you that it is
+this text and not the contents of any files that will be
+converted.</p>
+</section>
+<section id="output-file">
+<h2>Output file<a class="headerlink" href="#output-file" title="Link to this heading">#</a></h2>
+<p>The output file name can be fully specified with a path, but if it
+is not, then it is considered to be relative to the input file
+path.</p>
+</section>
+<section id="graphical-display">
+<h2>Graphical display<a class="headerlink" href="#graphical-display" title="Link to this heading">#</a></h2>
+<p>The chemical structures being converted can be displayed (as SVG)
+in an external program. By default this is Firefox but it can be
+changed from an item on the <span class="guilabel">View</span> menu (for instance, Opera and
+Chrome work fine). When “<span class="guilabel">Display in firefox</span>” (under the output file
+name) is checked, the structures will be shown in a new Firefox
+tab. With multiple molecules the display can be zoomed (mousewheel)
+and panned (dragging with mouse button depressed). Up to 100
+molecules are easily handled but with more the system may be slow
+to manipulate. It may also be slow to generate, especially if 2D
+atom coordinates have to be calculated (e.g.from SMILES). A new
+Firefox tab is opened each time <span class="guilabel">Convert</span> is pressed.</p>
+</section>
+<section id="using-a-restricted-set-of-formats">
+<h2>Using a restricted set of formats<a class="headerlink" href="#using-a-restricted-set-of-formats" title="Link to this heading">#</a></h2>
+<p>It is likely that you will only be interested in a subset of the large range of formats handled by Open Babel.
+You can restrict
+the choice offered in the dropdown boxes, which makes routine
+selection easier. Clicking “<span class="guilabel">Select set of formats</span>” on the <span class="guilabel">View</span> menu
+allows the formats to be displayed to be selected. Subsequently,
+clicking “<span class="guilabel">Use restricted set of formats</span>” on the <span class="guilabel">View</span> menu toggles
+this facility on and off.</p>
+<p>Using a restricted set overcomes an irritating bug in the Windows
+version. In the file <span class="guilabel">Open</span> and <span class="guilabel">Save</span> dialogs the files displayed can
+be filtered by the <em>current format</em>, <em>All Chemical Formats</em>, or <em>All
+Files</em>. The <em>All Chemical Formats</em> filter will only display the first
+30 possible formats (alphabetically). The <em>All Files</em> will indeed
+display all files and the conversion processes are unaffected.</p>
+</section>
+<section id="other-features">
+<h2>Other features<a class="headerlink" href="#other-features" title="Link to this heading">#</a></h2>
+<p>Most of the interface parameters, such as the selected format and
+the window size and position, are remembered between sessions.</p>
+<p>Using the <span class="guilabel">View</span> menu, the input and output text boxes can be set not
+to wrap the text. At present you have to restart the program for
+this to take effect.</p>
+<p>The message box at the top of the output text window receives
+program output on error and audit logging, and some progress
+reports. It can be expanded by dragging down the divider between
+the windows.</p>
+</section>
+<section id="example-files">
+<h2>Example files<a class="headerlink" href="#example-files" title="Link to this heading">#</a></h2>
+<p>In the Windows distribution, there are three chemical files included to try out:</p>
+<ul>
+<li><p><strong>serotonin.mol</strong> which has 3D atom coordinates</p></li>
+<li><p><strong>oxamide.cml</strong> which is 2D and has a large number of properties that will be seen when converting to SDF</p></li>
+<li><p><strong>FourSmallMols.cml</strong> which (unsurprisingly) contains four molecules with no atom coordinates and can be used to illustrate the handling of multiple molecules:</p>
+<p>Setting the output format to SMI (which is easy to see), you can convert only the second and third molecules by entering <code class="docutils literal notranslate"><span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code> in the appropriate option boxes. Or convert only molecules with C-O single bonds by entering <code class="docutils literal notranslate"><span class="pre">CO</span></code> in the SMARTS option box.</p>
+</li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Command-line_tools/babel.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">obabel - Convert, Filter and Manipulate Chemical Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../GUITutorial/GUITutorial.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tutorial on using the GUI</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-operation">Basic operation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#options">Options</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-input-files">Multiple input files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards-in-filenames">Wildcards in filenames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-input">Local input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-file">Output file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphical-display">Graphical display</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-restricted-set-of-formats">Using a restricted set of formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-features">Other features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-files">Example files</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/GUI/GUI.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2023 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

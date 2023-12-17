@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Open Babel 2.4.0 &#8212; Open Babel openbabel-3-1-1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=4d45eed0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/ReleaseNotes/ob240';</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/ReleaseNotes/ob240.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Open Babel 2.3.1" href="ob231.html" />
+    <link rel="prev" title="Open Babel 3.0.0" href="ob300.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/install.html">Install Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/babel.html">obabel - Convert, Filter and Manipulate Chemical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI/GUI.html">The Open Babel GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUITutorial/GUITutorial.html">Tutorial on using the GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fingerprints/intro.html">Molecular fingerprints and similarity searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/Rosetta.html">obabel vs Chemistry Toolkit Rosetta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Depiction/depiction.html">2D Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3DStructureGen/Overview.html">3D Structure Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Forcefields/Overview.html">Molecular Mechanics and Force Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UseTheLibrary/intro.html">Write software using the Open Babel library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cheminf101/index.html">Cheminformatics 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stereochemistry/stereo.html">Stereochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Aromaticity/Aromaticity.html">Handling of aromaticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Features/Radicals.html">Radicals and SMILES extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/Contributing.html">Contributing to Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WritePlugins/index.html">Adding plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FileFormats/Overview.html">Supported File Formats and Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Descriptors/descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Charges/charges.html">Charge models</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Release Notes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ob300.html">Open Babel 3.0.0</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Open Babel 2.4.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob231.html">Open Babel 2.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob230.html">Open Babel 2.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob223.html">Open Babel 2.2.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob222.html">Open Babel 2.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob221.html">Open Babel 2.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob220.html">Open Babel 2.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob211.html">Open Babel 2.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob210.html">Open Babel 2.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob202.html">Open Babel 2.0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob201.html">Open Babel 2.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob200.html">Open Babel 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob1.100.2.html">Open Babel 1.100.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob1.100.1.html">Open Babel 1.100.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob1.100.0.html">Open Babel 1.100.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob1.99.html">Open Babel 1.99</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Release Notes</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Open Babel 2.4.0</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="open-babel-2-4-0">
+<h1>Open Babel 2.4.0<a class="headerlink" href="#open-babel-2-4-0" title="Link to this heading">#</a></h1>
+<p>Released on 2016-09-21.</p>
+<p>Note that this release deprecates the babel executable in favor of obabel. A future release will remove babel entirely. For information on the differences, please see <a class="reference external" href="http://openbabel.org/docs/current/Command-line_tools/babel.html">http://openbabel.org/docs/current/Command-line_tools/babel.html</a>.</p>
+<section id="new-file-formats">
+<h2>New file formats<a class="headerlink" href="#new-file-formats" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>DALTON output files (read only) and DALTON input files (read/write) (Casper Steinmann)</p></li>
+<li><p>JSON format used by ChemDoodle (read/write) (Matt Swain)</p></li>
+<li><p>JSON format used by PubChem (read/write) (Matt Swain)</p></li>
+<li><p>LPMD’s atomic configuration file (read/write) (Joaquin Peralta)</p></li>
+<li><p>The format used by the CONTFF and POSFF files in MDFF (read/write) (Kirill Okhotnikov)</p></li>
+<li><p>ORCA output files (read only) and ORCA input files (write only) (Dagmar Lenk)</p></li>
+<li><p>ORCA-AICCM’s extended XYZ format (read/write) (Dagmar Lenk)</p></li>
+<li><p>Painter format for custom 2D depictions (write only) (Noel O’Boyle)</p></li>
+<li><p>Siesta output files (read only) (Patrick Avery)</p></li>
+<li><p>Smiley parser for parsing SMILES according to the OpenSMILES specification (read only) (Tim Vandermeersch)</p></li>
+<li><p>STL 3D-printing format (write only) (Matt Harvey)</p></li>
+<li><p>Turbomole AOFORCE output (read only) (Mathias Laurin)</p></li>
+<li><p>A representation of the VDW surface as a point cloud (write only) (Matt Harvey)</p></li>
+</ul>
+</section>
+<section id="new-file-format-capabilities-and-options">
+<h2>New file format capabilities and options<a class="headerlink" href="#new-file-format-capabilities-and-options" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>AutoDock PDBQT: Options to preserve hydrogens and/or atom names (Matt Harvey)</p></li>
+<li><p>CAR: Improved space group support in .car files (kartlee)</p></li>
+<li><p>CDXML: Read/write isotopes (Roger Sayle)</p></li>
+<li><p>CIF: Extract charges (Kirill Okhotnikov)</p></li>
+<li><p>CIF: Improved support for space-groups and symmetries (Alexandr Fonari)</p></li>
+<li><p>DL_Poly: Cell information is now read (Kirill Okhotnikov)</p></li>
+<li><p>Gaussian FCHK: Parse alpha and beta orbitals (Geoff Hutchison)</p></li>
+<li><p>Gaussian out: Extract true enthalpy of formation, quadrupole, polarizability tensor, electrostatic potential fitting points and potential values, and more (David van der Spoel)</p></li>
+<li><p>MDL Mol: Read in atom class information by default and optionally write it out (Roger Sayle)</p></li>
+<li><p>MDL Mol: Support added for ZBO, ZCH and HYD extensions (Matt Swain)</p></li>
+<li><p>MDL Mol: Implement the MDL valence model on reading (Roger Sayle)</p></li>
+<li><p>MDL SDF: Option to write out an ASCII depiction as a property (Noel O’Boyle)</p></li>
+<li><p>mmCIF: Improved mmCIF reading (Patrick Fuller)</p></li>
+<li><p>mmCIF: Support for atom occupancy and atom_type (Kirill Okhotnikov)</p></li>
+<li><p>Mol2: Option to read UCSF Dock scores (Maciej Wójcikowski)</p></li>
+<li><p>MOPAC: Read z-matrix data and parse (and prefer) ESP charges (Geoff Hutchison)</p></li>
+<li><p>NWChem: Support sequential calculations by optionally overwriting earlier ones (Dmitriy Fomichev)</p></li>
+<li><p>NWChem: Extract info on MEP(IRC), NEB and quadrupole moments (Dmitriy Fomichev)</p></li>
+<li><p>PDB: Read/write PDB insertion codes (Steffen Möller)</p></li>
+<li><p>PNG: Options to crop the margin, and control the background and bond colors (Fredrik Wallner)</p></li>
+<li><p>PQR: Use a stored atom radius (if present) in preference to the generic element radius (Zhixiong Zhao)</p></li>
+<li><p>PWSCF: Extend parsing of lattice vectors (David Lonie)</p></li>
+<li><p>PWSCF: Support newer versions, and the ‘alat’ term (Patrick Avery)</p></li>
+<li><p>SVG: Option to avoid addition of hydrogens to fill valence (Lee-Ping)</p></li>
+<li><p>SVG: Option to draw as ball-and-stick (Jean-Noël Avila)</p></li>
+<li><p>VASP: Vibration intensities are calculated (Christian Neiss, Mathias Laurin)</p></li>
+<li><p>VASP: Custom atom element sorting on writing (Kirill Okhotnikov)</p></li>
+</ul>
+</section>
+<section id="other-new-features-and-improvements">
+<h2>Other new features and improvements<a class="headerlink" href="#other-new-features-and-improvements" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>2D layout: Improved the choice of which bonds to designate as hash/wedge bonds around a stereo center (Craig James)</p></li>
+<li><p>3D builder: Use bond length corrections based on bond order from Pyykko and Atsumi (<a class="reference external" href="https://doi.org/10.1002/chem.200901472">https://doi.org/10.1002/chem.200901472</a>) (Geoff Hutchison)</p></li>
+<li><p>3D generation: “–gen3d”, allow user to specify the desired speed/quality (Geoff Hutchison)</p></li>
+<li><p>Aromaticity: Improved detection (Geoff Hutchison)</p></li>
+<li><p>Canonicalisation: Changed behaviour for multi-molecule SMILES. Now each molecule is canonicalized individually and then sorted. (Geoff Hutchison/Tim Vandermeersch)</p></li>
+<li><p>Charge models: “–print” writes the partial charges to standard output after calculation (Geoff Hutchison)</p></li>
+<li><p>Conformations: Confab, the systematic conformation generator, has been incorporated into Open Babel (David Hall/Noel O’Boyle)</p></li>
+<li><p>Conformations: Initial support for ring rotamer sampling (Geoff Hutchison)</p></li>
+<li><p>Conformer searching: Performance improvement by avoiding gradient calculation and optimising the default parameters (Geoff Hutchison)</p></li>
+<li><p>EEM charge model: Extend to use additional params from <a class="reference external" href="https://doi.org/10.1186/s13321-015-0107-1">https://doi.org/10.1186/s13321-015-0107-1</a> (Tomáš Raček)</p></li>
+<li><p>FillUnitCell operation: Improved behavior (Patrick Fuller)</p></li>
+<li><p>Find duplicates: The “–duplicate” option can now return duplicates instead of just removing them (Chris Morley)</p></li>
+<li><p>GAFF forcefield: Atom types updated to match Wang et al. J. Comp. Chem. 2004, 25, 1157 (Mohammad Ghahremanpour)</p></li>
+<li><p>New charge model: EQeq crystal charge equilibration method (a speed-optimized crystal-focused charge estimator, <a class="reference external" href="http://pubs.acs.org/doi/abs/10.1021/jz3008485">http://pubs.acs.org/doi/abs/10.1021/jz3008485</a>) (David Lonie)</p></li>
+<li><p>New charge model: “fromfile” reads partial charges from a named file (Matt Harvey)</p></li>
+<li><p>New conversion operation: “changecell”, for changing cell dimensions (Kirill Okhotnikov)</p></li>
+<li><p>New command-line utility: “obthermo”, for extracting thermochemistry data from QM calculations (David van der Spoel)</p></li>
+<li><p>New fingerprint: ECFP (Geoff Hutchison/Noel O’Boyle/Roger Sayle)</p></li>
+<li><p>OBConversion: Improvements and API changes to deal with a long-standing memory leak (David Koes)</p></li>
+<li><p>OBAtom::IsHBondAcceptor(): Definition updated to take into account the atom environment (Stefano Forli)</p></li>
+<li><p>Performance: Faster ring-finding algorithm (Roger Sayle)</p></li>
+<li><p>Performance: Faster fingerprint similarity calculations if compiled with -DOPTIMIZE_NATIVE=ON (Noel O’Boyle/Jeff Janes)</p></li>
+<li><p>SMARTS matching: The “-s” option now accepts an integer specifying the number of matches required (Chris Morley)</p></li>
+<li><p>UFF: Update to use traditional Rappe angle potential (Geoff Hutchison)</p></li>
+</ul>
+</section>
+<section id="language-bindings">
+<h2>Language bindings<a class="headerlink" href="#language-bindings" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Bindings: Support compiling only the bindings against system libopenbabel (Reinis Danne)</p></li>
+<li><p>Java bindings: Add example Scala program using the Java bindings (Reinis Danne)</p></li>
+<li><p>New bindings: PHP (Maciej Wójcikowski)</p></li>
+<li><p>PHP bindings: BaPHPel, a simplified interface (Maciej Wójcikowski)</p></li>
+<li><p>Python bindings: Add 3D depiction support for Jupyter notebook  (Patrick Fuller)</p></li>
+<li><p>Python bindings, Pybel: calccharges() and convertdbonds() added (Patrick Fuller, Björn Grüning)</p></li>
+<li><p>Python bindings, Pybel: compress output if filename ends with .gz (Maciej Wójcikowski)</p></li>
+<li><p>Python bindings, Pybel: Residue support (Maciej Wójcikowski)</p></li>
+</ul>
+</section>
+<section id="development-build-install-improvements">
+<h2>Development/Build/Install Improvements<a class="headerlink" href="#development-build-install-improvements" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Version control: move to git and GitHub from subversion and SourceForge</p></li>
+<li><p>Continuous integration: Travis for Linux builds and Appveyor for Windows builds (David Lonie and Noel O’Boyle)</p></li>
+<li><p>Python installer: Improvements to the Python setup.py installer and “pip install openbabel” (David Hall, Matt Swain, Joshua Swamidass)</p></li>
+<li><p>Compilation speedup: Speed up compilation by combining the tests (Noel O’Boyle)</p></li>
+<li><p>MacOSX: Support compiling with libc++ on MacOSX (Matt Swain)</p></li>
+</ul>
+</section>
+<section id="cast-of-contributors">
+<h2>Cast of contributors<a class="headerlink" href="#cast-of-contributors" title="Link to this heading">#</a></h2>
+<p>Alexandr Fonari, Anders Steen Christensen, Andreas Kempe, arkose, Benoit Leblanc, Björn Grüning, Casper Steinmann, Chris Morley, Christoph Willing, Craig James, Dagmar Lenk, David Hall, David Koes, David Lonie, David van der Spoel, Dmitriy Fomichev, Fulvio Ciriaco, Fredrik Wallner, Geoff Hutchison, Heiko Becker, Itay Zandbank, Jean-Noel Avila, Jeff Janes, Joaquin Peralta, Joshua Swamidass, Julien Nabet, Karol Langner, Karthik Rajagopalan, Katsuhiko Nishimra, Kevin Horan, Kirill Okhotnikov, Lee-Ping, Matt Harvey, Maciej Wójcikowski, Marcus Hanwell, Mathias Laurin, Matt Swain, Mohamad Mohebifar, Mohammad Ghahremanpour, Noel O’Boyle, Patrick Avery, Patrick Fuller, Paul van Maaren, Peng Bai, Philipp Thiel, Reinis Danne, Ronald Cohen, Scott McKechnie, Stefano Forli, Steve Roughley, Steffen Moeller, Tim Vandermeersch, Tomas Racek, Tomáš Trnka, Tor Colvin, Torsten Sachse, Yi-Shu Tu, Zhixiong Zhao</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ob300.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Open Babel 3.0.0</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ob231.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Open Babel 2.3.1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-file-formats">New file formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-file-format-capabilities-and-options">New file format capabilities and options</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-new-features-and-improvements">Other new features and improvements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#language-bindings">Language bindings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-build-install-improvements">Development/Build/Install Improvements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cast-of-contributors">Cast of contributors</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/ReleaseNotes/ob240.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2023 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

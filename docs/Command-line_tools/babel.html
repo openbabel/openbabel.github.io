@@ -1,0 +1,1260 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>obabel - Convert, Filter and Manipulate Chemical Data &#8212; Open Babel openbabel-3-1-1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=4d45eed0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Command-line_tools/babel';</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/Command-line_tools/babel.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The Open Babel GUI" href="../GUI/GUI.html" />
+    <link rel="prev" title="Install Open Babel" href="../Installation/install.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/install.html">Install Open Babel</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">obabel - Convert, Filter and Manipulate Chemical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI/GUI.html">The Open Babel GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUITutorial/GUITutorial.html">Tutorial on using the GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fingerprints/intro.html">Molecular fingerprints and similarity searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rosetta.html">obabel vs Chemistry Toolkit Rosetta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Depiction/depiction.html">2D Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3DStructureGen/Overview.html">3D Structure Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Forcefields/Overview.html">Molecular Mechanics and Force Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UseTheLibrary/intro.html">Write software using the Open Babel library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cheminf101/index.html">Cheminformatics 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stereochemistry/stereo.html">Stereochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Aromaticity/Aromaticity.html">Handling of aromaticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Features/Radicals.html">Radicals and SMILES extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/Contributing.html">Contributing to Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WritePlugins/index.html">Adding plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FileFormats/Overview.html">Supported File Formats and Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Descriptors/descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Charges/charges.html">Charge models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes/index.html">Release Notes</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">obabel -...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="obabel-convert-filter-and-manipulate-chemical-data">
+<span id="obabel"></span><h1>obabel - Convert, Filter and Manipulate Chemical Data<a class="headerlink" href="#obabel-convert-filter-and-manipulate-chemical-data" title="Link to this heading">#</a></h1>
+<p><strong class="command">obabel</strong> is a command-line program for interconverting between many file formats used in molecular modeling and computational chemistry and related areas. It can also be used for filtering molecules and for simple manipulation of chemical data.</p>
+<section id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Link to this heading">#</a></h2>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">obabel</span> <span class="pre">[-H</span> <span class="pre">&lt;help-options&gt;]</span></code></p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">obabel</span> <span class="pre">[-i</span> <span class="pre">&lt;input-ID&gt;]</span> <span class="pre">infile</span> <span class="pre">[-o</span> <span class="pre">&lt;output-ID&gt;]</span> <span class="pre">[-O</span> <span class="pre">outfile]</span> <span class="pre">[OPTIONS]</span></code></p></li>
+</ul>
+</td></tr></table>
+</section>
+<section id="options">
+<span id="babel-options"></span><h2>Options<a class="headerlink" href="#options" title="Link to this heading">#</a></h2>
+<p class="rubric">Information and help</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">obabel</span> <span class="pre">[-H</span> <span class="pre">&lt;help-options&gt;]</span></code></p></li>
+</ul>
+<dl class="option-list">
+<dt><kbd><span class="option">-H</span></kbd></dt>
+<dd><p>Output usage information</p>
+</dd>
+<dt><kbd><span class="option">-H <var>&lt;format-ID&gt;</var></span></kbd></dt>
+<dd><p>Output formatting information and options for
+the format specified</p>
+</dd>
+<dt><kbd><span class="option">-H<var>all</var></span></kbd></dt>
+<dd><p>Output formatting information and options for all
+formats</p>
+</dd>
+<dt><kbd><span class="option">-L</span></kbd></dt>
+<dd><p>List plugin types (<code class="docutils literal notranslate"><span class="pre">charges</span></code>, <code class="docutils literal notranslate"><span class="pre">descriptors</span></code>, <code class="docutils literal notranslate"><span class="pre">fingerprints</span></code>, <code class="docutils literal notranslate"><span class="pre">forcefields</span></code>, <code class="docutils literal notranslate"><span class="pre">formats</span></code>, <code class="docutils literal notranslate"><span class="pre">loaders</span></code> and <code class="docutils literal notranslate"><span class="pre">ops</span></code>)</p>
+</dd>
+<dt><kbd><span class="option">-L <var>&lt;plugin type&gt;</var></span></kbd></dt>
+<dd><p>List plugins of this type. For example, <code class="docutils literal notranslate"><span class="pre">obabel</span> <span class="pre">-L</span> <span class="pre">formats</span></code> gives the list of file formats.</p>
+</dd>
+<dt><kbd><span class="option">-L <var>&lt;plugin-ID&gt;</var></span></kbd></dt>
+<dd><p>Details of a particular plugin (of any plugin type). For example, <code class="docutils literal notranslate"><span class="pre">obabel</span> <span class="pre">-L</span> <span class="pre">cml</span></code> gives details on the CML file format.</p>
+</dd>
+<dt><kbd><span class="option">-V</span></kbd></dt>
+<dd><p>Output version number</p>
+</dd>
+</dl>
+<p class="rubric">Conversion options</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">obabel</span> <span class="pre">[-i</span> <span class="pre">&lt;input-ID&gt;]</span> <span class="pre">infile</span> <span class="pre">[-o</span> <span class="pre">&lt;output-ID&gt;]</span> <span class="pre">[-O</span> <span class="pre">outfile]</span> <span class="pre">[OPTIONS]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">obabel</span> <span class="pre">-:&quot;&lt;text&gt;&quot;</span>&#160; <span class="pre">[-i</span> <span class="pre">&lt;input-ID&gt;]</span> <span class="pre">[-o</span> <span class="pre">&lt;output-ID&gt;]</span> <span class="pre">[-O</span> <span class="pre">outfile]</span> <span class="pre">[OPTIONS]</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If only input and output files are given, Open Babel will guess the file type from the filename extension. For information on the file formats supported by Open Babel, please see <a class="reference internal" href="../FileFormats/Overview.html#file-formats"><span class="std std-ref">Supported File Formats and Options</span></a>. If text is provided using the <code class="docutils literal notranslate"><span class="pre">-:</span></code> notation, SMILES are assumed by default if an input format is not specified.</p>
+</div>
+<dl class="option-list">
+<dt><kbd><span class="option">-a <var>&lt;options&gt;</var></span></kbd></dt>
+<dd><p>Format-specific input options. Use <code class="docutils literal notranslate"><span class="pre">-H</span> <span class="pre">&lt;format-ID&gt;</span></code> to see options
+allowed by a particular format, or see the appropriate section in
+<a class="reference internal" href="../FileFormats/Overview.html#file-formats"><span class="std std-ref">Supported File Formats and Options</span></a>.</p>
+</dd>
+<dt><kbd><span class="option">--add <var>&lt;list&gt;</var></span></kbd></dt>
+<dd><p>Add properties (for SDF, CML, etc.) from descriptors in list. Use
+<code class="docutils literal notranslate"><span class="pre">-L</span> <span class="pre">descriptors</span></code> to see available descriptors.</p>
+</dd>
+<dt><kbd><span class="option">--addfilename</span></kbd></dt>
+<dd><p>Add the input filename to the title.</p>
+</dd>
+<dt><kbd><span class="option">--addinindex</span></kbd></dt>
+<dd><p>Append input index to title (that is, the index <cite>before</cite> any filtering)</p>
+</dd>
+<dt><kbd><span class="option">--addoutindex</span></kbd></dt>
+<dd><p>Append output index to title (that is, the index <cite>after</cite> any filtering)</p>
+</dd>
+<dt><kbd><span class="option">--addpolarh</span></kbd></dt>
+<dd><p>Like <code class="docutils literal notranslate"><span class="pre">-h</span></code>, but only adds hydrogens to polar atoms.</p>
+</dd>
+<dt><kbd><span class="option">--addtotitle <var>&lt;text&gt;</var></span></kbd></dt>
+<dd><p>Append the text after each molecule title</p>
+</dd>
+<dt><kbd><span class="option">--append <var>&lt;list&gt;</var></span></kbd></dt>
+<dd><p>Append properties or descriptor values appropriate for a molecule to its title. For more
+information, see <a class="reference internal" href="#append-option"><span class="std std-ref">Append property values to the title</span></a>.</p>
+</dd>
+<dt><kbd><span class="option">-b</span></kbd></dt>
+<dd><p>Convert dative bonds (e.g. <code class="docutils literal notranslate"><span class="pre">[N+]([O-])=O</span></code> to <code class="docutils literal notranslate"><span class="pre">N(=O)=O</span></code>)</p>
+</dd>
+<dt><kbd><span class="option">-c</span></kbd></dt>
+<dd><p>Center atomic coordinates at (0,0,0)</p>
+</dd>
+<dt><kbd><span class="option">-C</span></kbd></dt>
+<dd><p>Combine molecules in first file with others having the same name</p>
+</dd>
+<dt><kbd><span class="option">--canonical</span></kbd></dt>
+<dd><p>Canonicalize the atom order. If generating canonical SMILES, do not use
+this option. Instead use the <a class="reference internal" href="../FileFormats/Canonical_SMILES_format.html#canonical-smiles-format"><span class="std std-ref">Canonical SMILES format (can)</span></a>.</p>
+</dd>
+<dt><kbd><span class="option">--conformer <var>&lt;options&gt;</var></span></kbd></dt>
+<dd><p>Conformer searching to generate low-energy or diverse
+conformers. For more information, see <a class="reference internal" href="#conformers"><span class="std std-ref">Generating conformers for structures</span></a>.</p>
+</dd>
+<dt><kbd><span class="option">-d</span></kbd></dt>
+<dd><p>Delete hydrogens (make all hydrogen implicit)</p>
+</dd>
+<dt><kbd><span class="option">--delete <var>&lt;list&gt;</var></span></kbd></dt>
+<dd><p>Delete properties in list</p>
+</dd>
+<dt><kbd><span class="option">-e</span></kbd></dt>
+<dd><p>Continue to convert molecules after errors</p>
+</dd>
+<dt><kbd><span class="option">--energy <var>&lt;options&gt;</var></span></kbd></dt>
+<dd><p>Forcefield energy evaluation. See <a class="reference internal" href="#minimize-option"><span class="std std-ref">Forcefield energy and minimization</span></a>.</p>
+</dd>
+<dt><kbd><span class="option">--errorlevel <var>&lt;N&gt;</var></span></kbd></dt>
+<dd><p>Filter the level of errors and warnings displayed:</p>
+<ul class="simple">
+<li><p>1 = critical errors only</p></li>
+<li><p>2 = include warnings too (<strong>default</strong>)</p></li>
+<li><p>3 = include informational messages too</p></li>
+<li><p>4 = include “audit log” messages of changes to data</p></li>
+<li><p>5 = include debugging messages too</p></li>
+</ul>
+</dd>
+<dt><kbd><span class="option">-f <var>&lt;#&gt;</var></span></kbd></dt>
+<dd><p>For multiple entry input, start import with molecule # as the first
+entry</p>
+</dd>
+<dt><kbd><span class="option">--fillUC <var>&lt;param&gt;</var></span></kbd></dt>
+<dd><p>For a crystal structure, add atoms to fill the entire unit cell based
+on the unique positions, the unit cell and the spacegroup. The parameter
+can either be <code class="docutils literal notranslate"><span class="pre">strict</span></code> (the default), which only keeps atoms inside the
+unit cell, or <code class="docutils literal notranslate"><span class="pre">keepconnect</span></code>, which fills the unit cell but keeps the
+original connectivity.</p>
+</dd>
+<dt><kbd><span class="option">--filter <var>&lt;criteria&gt;</var></span></kbd></dt>
+<dd><p>Filter based on molecular properties. See
+<a class="reference internal" href="#filter-options"><span class="std std-ref">Filtering molecules from a multimolecule file</span></a> for examples and a list of
+criteria.</p>
+</dd>
+<dt><kbd><span class="option">--gen2d</span></kbd></dt>
+<dd><p>Generate 2D coordinates</p>
+</dd>
+<dt><kbd><span class="option">--gen3d</span></kbd></dt>
+<dd><p>Generate 3D coordinates. You can specify the speed of prediction. See <a class="reference internal" href="#specify-speed"><span class="std std-ref">Specifying the speed of 3D coordinate generation</span></a>.</p>
+</dd>
+<dt><kbd><span class="option">-h</span></kbd></dt>
+<dd><p>Add hydrogens (make all hydrogen explicit)</p>
+</dd>
+<dt><kbd><span class="option">--highlight <var>&lt;substructure color&gt;</var></span></kbd></dt>
+<dd><p>Highlight substructures in 2D depictions. Valid
+colors are black, gray, white, red, green, blue, yellow,
+cyan, purple, teal and olive. Additional colors may be
+specified as hexadecimal RGB values preceded by <code class="docutils literal notranslate"><span class="pre">#</span></code>.
+Multiple substructures and corresponding colors may be
+specified.</p>
+</dd>
+<dt><kbd><span class="option">-i <var>&lt;format-ID&gt;</var></span></kbd></dt>
+<dd><p>Specifies input format. See <a class="reference internal" href="../FileFormats/Overview.html#file-formats"><span class="std std-ref">Supported File Formats and Options</span></a>.</p>
+</dd>
+<dt><kbd><span class="option">-j</span>, <span class="option">--join</span></kbd></dt>
+<dd><p>Join all input molecules into a single output molecule entry</p>
+</dd>
+<dt><kbd><span class="option">-k</span></kbd></dt>
+<dd><p>Translate computational chemistry modeling keywords. See
+the computational chemistry formats (<a class="reference internal" href="../FileFormats/Computational_chemistry_Formats.html#computational-chemistry"><span class="std std-ref">Computational chemistry formats</span></a>),
+for example <a class="reference internal" href="../FileFormats/GAMESS_Input.html#gamess-input"><span class="std std-ref">GAMESS Input (gamin, inp)</span></a> and <a class="reference internal" href="../FileFormats/Gaussian_Input.html#gaussian-input"><span class="std std-ref">Gaussian Input (com, gau, gjc, gjf)</span></a>.</p>
+</dd>
+<dt><kbd><span class="option">-l <var>&lt;#&gt;</var></span></kbd></dt>
+<dd><p>For multiple entry input, stop import with molecule # as the last
+entry</p>
+</dd>
+<dt><kbd><span class="option">--largest <var>&lt;#N descriptor&gt;</var></span></kbd></dt>
+<dd><p>Only convert the N molecules which have the largest values of the
+specified descriptor. Preceding the descriptor by <code class="docutils literal notranslate"><span class="pre">~</span></code> inverts
+this filter.</p>
+</dd>
+<dt><kbd><span class="option">-m</span></kbd></dt>
+<dd><p>Produce multiple output files, to allow:</p>
+<ul class="simple">
+<li><p>Splitting one input file - put each molecule into consecutively
+numbered output files</p></li>
+<li><p>Batch conversion - convert each of multiple input files into a
+specified output format</p></li>
+</ul>
+</dd>
+<dt><kbd><span class="option">--minimize <var>&lt;options&gt;</var></span></kbd></dt>
+<dd><p>Forcefield energy minimization. See <a class="reference internal" href="#minimize-option"><span class="std std-ref">Forcefield energy and minimization</span></a>.</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;format-ID&gt;</var></span></kbd></dt>
+<dd><p>Specifies output format. See <a class="reference internal" href="../FileFormats/Overview.html#file-formats"><span class="std std-ref">Supported File Formats and Options</span></a>.</p>
+</dd>
+<dt><kbd><span class="option">-p <var>&lt;pH&gt;</var></span></kbd></dt>
+<dd><p>Add hydrogens appropriate for pH (use transforms in <code class="file docutils literal notranslate"><span class="pre">phmodel.txt</span></code>)</p>
+</dd>
+<dt><kbd><span class="option">--partialcharge <var>&lt;charge-method&gt;</var></span></kbd></dt>
+<dd><p>Calculate partial charges by the specified method. List available methods
+using <code class="docutils literal notranslate"><span class="pre">obabel</span> <span class="pre">-L</span> <span class="pre">charges</span></code>.</p>
+</dd>
+<dt><kbd><span class="option">--property <var>&lt;name value&gt;</var></span></kbd></dt>
+<dd><p>Add or replace a property (for example, in an SD file)</p>
+</dd>
+<dt><kbd><span class="option">-r</span></kbd></dt>
+<dd><p>Remove all but the largest contiguous fragment (strip salts)</p>
+</dd>
+<dt><kbd><span class="option">--readconformer</span></kbd></dt>
+<dd><p>Combine adjacent conformers in multi-molecule input into a single molecule.
+If a molecule has the same structure as the preceding molecule, as
+determined from its SMILES, it is not output but its coordinates are
+added to the preceding molecule as an additional conformer. There can
+be multiple groups of conformers, but the molecules in each group must
+be adjacent.</p>
+</dd>
+<dt><kbd><span class="option">-s <var>&lt;SMARTS&gt;</var></span></kbd></dt>
+<dd><p>Convert only molecules matching the SMARTS pattern specified</p>
+</dd>
+<dt><kbd><span class="option">-s <var>&lt;filename.xxx&gt;</var></span></kbd></dt>
+<dd><p>Convert only molecules with the molecule in the file as a substructure</p>
+</dd>
+<dt><kbd><span class="option">--separate</span></kbd></dt>
+<dd><p>Separate disconnected fragments into individual molecular records</p>
+</dd>
+<dt><kbd><span class="option">--smallest <var>&lt;#N descriptor&gt;</var></span></kbd></dt>
+<dd><p>Only convert the N molecules which have the smallest values of the
+specified descriptor. Preceding the descriptor by <code class="docutils literal notranslate"><span class="pre">~</span></code> inverts this
+filter.</p>
+</dd>
+<dt><kbd><span class="option">--sort</span></kbd></dt>
+<dd><p>Output molecules ordered by the value of a descriptor. See <a class="reference internal" href="#sorting-option"><span class="std std-ref">Sorting molecules</span></a>.</p>
+</dd>
+<dt><kbd><span class="option">--title <var>&lt;title&gt;</var></span></kbd></dt>
+<dd><p>Add or replace molecular title</p>
+</dd>
+<dt><kbd><span class="option">--unique</span>, <span class="option">--unique <var>&lt;param&gt;</var></span></kbd></dt>
+<dd><p>Do not convert duplicate molecules. See <a class="reference internal" href="#removing-duplicates"><span class="std std-ref">Remove duplicate molecules</span></a>.</p>
+</dd>
+<dt><kbd><span class="option">--writeconformers</span></kbd></dt>
+<dd><p>Output multiple conformers as separate molecules</p>
+</dd>
+<dt><kbd><span class="option">-x <var>&lt;options&gt;</var></span></kbd></dt>
+<dd><p>Format-specific output options. use <code class="docutils literal notranslate"><span class="pre">-H</span> <span class="pre">&lt;format-ID&gt;</span></code> to see options
+allowed by a particular format, or see the appropriate section in
+<a class="reference internal" href="../FileFormats/Overview.html#file-formats"><span class="std std-ref">Supported File Formats and Options</span></a>.</p>
+</dd>
+<dt><kbd><span class="option">-v <var>&lt;SMARTS&gt;</var></span></kbd></dt>
+<dd><p>Convert only molecules <strong>NOT</strong> matching the SMARTS pattern specified</p>
+</dd>
+<dt><kbd><span class="option">-z</span></kbd></dt>
+<dd><p>Compress the output with gzip (not on Windows)</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<p>The examples below assume the files are in the current directory. Otherwise you may need to include the full path to the files e.g. <code class="file docutils literal notranslate"><span class="pre">/Users/username/Desktop/mymols.sdf</span></code> and you may need to put quotes around the filenames (especially on Windows, where they can contain spaces).</p>
+<p>Standard conversion:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">ethanol</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">O</span> <span class="n">ethanol</span><span class="o">.</span><span class="n">pdb</span>
+<span class="n">babel</span> <span class="n">ethanol</span><span class="o">.</span><span class="n">xyz</span> <span class="n">ethanol</span><span class="o">.</span><span class="n">pdb</span>
+</pre></div>
+</div>
+<p>Conversion if the files do not have an extension that describes their format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="o">-</span><span class="n">ixyz</span> <span class="n">ethanol</span><span class="o">.</span><span class="n">aa</span> <span class="o">-</span><span class="n">opdb</span> <span class="o">-</span><span class="n">O</span> <span class="n">ethanol</span><span class="o">.</span><span class="n">bb</span>
+<span class="n">babel</span> <span class="o">-</span><span class="n">ixyz</span> <span class="n">ethanol</span><span class="o">.</span><span class="n">aa</span> <span class="o">-</span><span class="n">opdb</span> <span class="n">ethanol</span><span class="o">.</span><span class="n">bb</span>
+</pre></div>
+</div>
+<p>Molecules from multiple input files (which can have different formats) are normally combined in the output file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">ethanol</span><span class="o">.</span><span class="n">xyz</span> <span class="n">acetal</span><span class="o">.</span><span class="n">sdf</span> <span class="n">benzene</span><span class="o">.</span><span class="n">cml</span> <span class="o">-</span><span class="n">O</span> <span class="n">allmols</span><span class="o">.</span><span class="n">smi</span>
+</pre></div>
+</div>
+<p>Conversion from a SMI file in STDIN to a Mol2 file written to STDOUT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="o">-</span><span class="n">ismi</span> <span class="o">-</span><span class="n">omol2</span>
+</pre></div>
+</div>
+<p>Split a multi-molecule file into <code class="file docutils literal notranslate"><span class="pre">new1.smi</span></code>, <code class="file docutils literal notranslate"><span class="pre">new2.smi</span></code>, etc.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">infile</span><span class="o">.</span><span class="n">mol</span> <span class="o">-</span><span class="n">O</span> <span class="n">new</span><span class="o">.</span><span class="n">smi</span> <span class="o">-</span><span class="n">m</span>
+</pre></div>
+</div>
+<p>In Windows this can also be written:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">infile</span><span class="o">.</span><span class="n">mol</span> <span class="o">-</span><span class="n">O</span> <span class="n">new</span><span class="o">*.</span><span class="n">smi</span>
+</pre></div>
+</div>
+<p>Multiple input files can be converted in batch format too. To convert all files ending in .xyz (<code class="docutils literal notranslate"><span class="pre">*.xyz</span></code>) to PDB files, you can type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="o">*.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">opdb</span> <span class="o">-</span><span class="n">m</span>
+</pre></div>
+</div>
+<p>Open Babel will not generate coordinates unless asked, so while a conversion from SMILES to SDF will generate a valid SDF file, the resulting file will not contain coordinates. To generate coordinates, use either the <code class="docutils literal notranslate"><span class="pre">--gen3d</span></code> or  the <code class="docutils literal notranslate"><span class="pre">--gen2d</span></code> option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">infile</span><span class="o">.</span><span class="n">smi</span> <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">sdf</span> <span class="o">--</span><span class="n">gen3d</span>
+</pre></div>
+</div>
+<p>If you want to remove all hydrogens (i.e. make them all implicit) when doing the conversion the command would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">-</span><span class="n">O</span> <span class="n">outputfile</span><span class="o">.</span><span class="n">smi</span> <span class="o">-</span><span class="n">d</span>
+</pre></div>
+</div>
+<p>If you want to add hydrogens (i.e. make them all explicit) when doing the conversion the command would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">O</span> <span class="n">outputfile</span><span class="o">.</span><span class="n">smi</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>If you want to add hydrogens appropriate for pH7.4 when doing the conversion the command would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">O</span> <span class="n">outputfile</span><span class="o">.</span><span class="n">smi</span> <span class="o">-</span><span class="n">p</span>
+</pre></div>
+</div>
+<p>The protonation is done on an atom-by-atom basis so molecules with multiple ionizable centers will have all centers ionized.</p>
+<p>Of course you don’t actually need to change the file type to modify the hydrogens. If you want to add all hydrogens the command would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">O</span> <span class="n">mymols_H</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>Some functional groups e.g. nitro or sulphone can be represented either as <code class="docutils literal notranslate"><span class="pre">[N+]([O-])=O</span></code> or <code class="docutils literal notranslate"><span class="pre">N(=O)=O</span></code>. To convert all to the dative bond form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">O</span> <span class="n">outputfile</span><span class="o">.</span><span class="n">smi</span> <span class="o">-</span><span class="n">b</span>
+</pre></div>
+</div>
+<p>If you only want to convert a subset of molecules you can define them using <code class="docutils literal notranslate"><span class="pre">-f</span></code> and <code class="docutils literal notranslate"><span class="pre">-l</span></code>. To convert molecules 2-4 of the file <code class="file docutils literal notranslate"><span class="pre">mymols.sdf</span></code> type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">f</span> <span class="mi">2</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">-</span><span class="n">osdf</span> <span class="o">-</span><span class="n">O</span> <span class="n">outputfile</span><span class="o">.</span><span class="n">sdf</span>
+</pre></div>
+</div>
+<p>Alternatively you can select a subset matching a SMARTS pattern, so to select all molecules containing bromobenzene use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">O</span> <span class="n">selected</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">s</span> <span class="s2">&quot;c1ccccc1Br&quot;</span>
+</pre></div>
+</div>
+<p>You can also select the subset that do <em>not</em> match a SMARTS pattern, so to select all molecules not containing bromobenzene use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">O</span> <span class="n">selected</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;c1ccccc1Br&quot;</span>
+</pre></div>
+</div>
+<p>You can of course combine options, so to join molecules and add hydrogens type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">O</span> <span class="n">myjoined</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">h</span> <span class="o">-</span><span class="n">j</span>
+</pre></div>
+</div>
+<p>Files compressed with gzip are read transparently, whether or not they have a .gz suffix:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">compressed</span><span class="o">.</span><span class="n">sdf</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">O</span> <span class="n">expanded</span><span class="o">.</span><span class="n">smi</span>
+</pre></div>
+</div>
+<p>On platforms other than Windows, the output file can be compressed with gzip, but note if you don’t specify the .gz suffix it will not be added automatically, which could cause problems when you try to open the file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">mymols</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">O</span> <span class="n">outputfile</span><span class="o">.</span><span class="n">sdf</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">z</span>
+</pre></div>
+</div>
+<p>This next example reads the first 50 molecules in a compressed dataset and prints out the SMILES of those containing a pyridine ring, together with the index in the file, the ID (taken from an SDF property) as well as the output index:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">chembl_02</span><span class="o">.</span><span class="n">sdf</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">-</span><span class="n">l</span> <span class="mi">50</span> <span class="o">-</span><span class="n">s</span> <span class="n">c1ccccn1</span> <span class="o">--</span><span class="n">append</span> <span class="n">chebi_id</span>
+       <span class="o">--</span><span class="n">addinindex</span> <span class="o">--</span><span class="n">addoutindex</span>
+</pre></div>
+</div>
+<p>For the test data (taken from ChEMBLdb), this gave:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N1</span><span class="p">(</span><span class="n">CCN</span><span class="p">(</span><span class="n">CC1</span><span class="p">)</span><span class="n">c1c</span><span class="p">(</span><span class="n">cc2c3c1OCC</span><span class="p">(</span><span class="n">n3cc</span><span class="p">(</span><span class="n">c2</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">C</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">O</span><span class="p">)</span><span class="n">C</span><span class="p">)</span><span class="n">F</span><span class="p">)</span><span class="n">C</span>        <span class="mi">3</span> <span class="mi">100146</span> <span class="mi">1</span>
+<span class="n">c1</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">c2c</span><span class="p">(</span><span class="n">n</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span><span class="n">OC</span><span class="p">)</span><span class="n">c</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">N1CC</span><span class="p">(</span><span class="n">CC1</span><span class="p">)</span><span class="n">CNCC</span><span class="p">)</span><span class="n">c</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span><span class="n">F</span><span class="p">)</span><span class="n">F</span><span class="p">)</span><span class="n">C</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">O</span>   <span class="mi">6</span> <span class="mi">100195</span> <span class="mi">2</span>
+<span class="n">S</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)(</span><span class="o">=</span><span class="n">O</span><span class="p">)(</span><span class="n">Nc1ncc</span><span class="p">(</span><span class="n">cc1</span><span class="p">)</span><span class="n">C</span><span class="p">)</span><span class="n">c1c2c</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">N</span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="n">C</span><span class="p">)</span><span class="n">ccc2</span><span class="p">)</span><span class="n">ccc1</span>          <span class="mi">22</span> <span class="mi">100589</span> <span class="mi">3</span>
+<span class="n">c1</span><span class="p">([</span><span class="n">nH</span><span class="p">]</span><span class="n">c2c</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span><span class="n">cccc2</span><span class="p">)</span><span class="n">C</span><span class="p">(</span><span class="o">=</span><span class="n">O</span><span class="p">)</span><span class="n">N1CCN</span><span class="p">(</span><span class="n">c2c</span><span class="p">(</span><span class="n">N</span><span class="p">(</span><span class="n">CC</span><span class="p">)</span><span class="n">CC</span><span class="p">)</span><span class="n">cccn2</span><span class="p">)</span><span class="n">CC1</span>    <span class="mi">46</span> <span class="mi">101536</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</section>
+<section id="format-options">
+<h2>Format Options<a class="headerlink" href="#format-options" title="Link to this heading">#</a></h2>
+<p>Individual file formats may have additional formatting options. These are listed in the documentation for the individual formats (see <a class="reference internal" href="../FileFormats/Overview.html#file-formats"><span class="std std-ref">Supported File Formats and Options</span></a>) or can be shown using the <code class="docutils literal notranslate"><span class="pre">-H</span> <span class="pre">&lt;format-Id&gt;</span></code> option, e.g. <code class="docutils literal notranslate"><span class="pre">-H</span> <span class="pre">cml</span></code>.</p>
+<p>To use these additional options, input format options are preceded by <code class="docutils literal notranslate"><span class="pre">-a</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">-as</span></code>. Output format options, which are much more common, are preceded by <code class="docutils literal notranslate"><span class="pre">-x</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">-xn</span></code>. So to read the 2D coordinates (rather than the 3D) from a <a class="reference internal" href="../FileFormats/Chemical_Markup_Language.html#chemical-markup-language"><span class="std std-ref">CML file</span></a> and generate an <a class="reference internal" href="../FileFormats/SVG_2D_depiction.html#svg-2d-depiction"><span class="std std-ref">SVG file</span></a> displaying the molecule on a black background, the relevant options are used as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">mymol</span><span class="o">.</span><span class="n">cml</span> <span class="n">out</span><span class="o">.</span><span class="n">svg</span> <span class="o">-</span><span class="n">a2</span> <span class="o">-</span><span class="n">xb</span>
+</pre></div>
+</div>
+</section>
+<section id="append-property-values-to-the-title">
+<span id="append-option"></span><h2>Append property values to the title<a class="headerlink" href="#append-property-values-to-the-title" title="Link to this heading">#</a></h2>
+<p>The command line option <code class="docutils literal notranslate"><span class="pre">--append</span></code> adds extra information to the title of the molecule.</p>
+<p>The information can be calculated from the structure of the molecule or can originate from a property attached to the molecule (in the case of CML and SDF input files). It is used as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">infile</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="n">append</span> <span class="s2">&quot;MW CAT_NO&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">MW</span></code> is the ID of a descriptor which calculates the molecular weight of the molecule, and <code class="docutils literal notranslate"><span class="pre">CAT_NO</span></code> is a property of the molecule from the SDF input file. The values of these are added to the title of the molecule. For input files with many molecules these additions are specific to each molecule. (Note that the related option <code class="docutils literal notranslate"><span class="pre">--addtotitle</span></code> simply adds the same text to every title.)</p>
+<p>The append option only takes one parameter, which means that it may be necessary to enclose all of the descriptor IDs or property names together in a single set of quotes.</p>
+<p>If the name of the property in the SDF file (internally the Attribute in OBPairData) contains spaces, these spaces should be replaced by underscore characters, ‘_’. So the example above would also work for a property named <code class="docutils literal notranslate"><span class="pre">CAT</span> <span class="pre">NO</span></code>.</p>
+<p>By default, the extra items are added to the title separated by spaces. But if the first character in the parameter is a punctuation character other than ‘_’, it is used as the separator instead. If the list starts with “t”, a tab character is used as a separator.</p>
+</section>
+<section id="generating-conformers-for-structures">
+<span id="conformers"></span><h2>Generating conformers for structures<a class="headerlink" href="#generating-conformers-for-structures" title="Link to this heading">#</a></h2>
+<p>The command line option <code class="docutils literal notranslate"><span class="pre">--conformer</span></code> allows performing conformer
+searches using a range of different algorithms and options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--log</span></code> -           output a log of the energies (default = no log)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--nconf</span> <span class="pre">#</span></code> -       number of conformers to generate</p></li>
+</ul>
+<p>Forcefield-based methods for finding stable conformers:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--systematic</span></code> - systematically (exhaustively) generate all conformers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--random</span></code> - randomly generate conformers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--weighted</span></code> - weighted rotor search for lowest energy conformer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ff</span> <span class="pre">&lt;name&gt;</span></code> - select a forcefield (default = MMFF94)</p></li>
+</ul>
+<p>Genetic algorithm based methods (default):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--children</span> <span class="pre">#</span></code> - number of children to generate for each parent (default = 5)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--mutability</span> <span class="pre">#</span></code> - mutation frequency (default = 5)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--converge</span> <span class="pre">#</span></code> - number of identical generations before convergence is reached</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--score</span> <span class="pre">#</span></code> - scoring function [rmsd|energy] (default = rmsd)</p></li>
+</ul>
+<p>You can use them like this (to generate 50 conformers, scoring with
+MMFF94 energies but default genetic algorithm options):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">EtOT5D</span><span class="o">.</span><span class="n">cml</span> <span class="o">-</span><span class="n">O</span> <span class="n">EtOT5D0</span><span class="o">.</span><span class="n">xyz</span> <span class="o">--</span><span class="n">conformer</span> <span class="o">--</span><span class="n">nconf</span> <span class="mi">50</span> <span class="o">--</span><span class="n">score</span> <span class="n">energy</span>
+</pre></div>
+</div>
+<p>or if you also wish to generate 3D coordinates, followed by conformer
+searching try something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">ligand</span><span class="o">.</span><span class="n">babel</span><span class="o">.</span><span class="n">smi</span> <span class="o">-</span><span class="n">O</span> <span class="n">ligand</span><span class="o">.</span><span class="n">babel</span><span class="o">.</span><span class="n">sdf</span> <span class="o">--</span><span class="n">gen3d</span> <span class="o">--</span><span class="n">conformer</span> <span class="o">--</span><span class="n">nconf</span> <span class="mi">20</span> <span class="o">--</span><span class="n">weighted</span>
+</pre></div>
+</div>
+</section>
+<section id="filtering-molecules-from-a-multimolecule-file">
+<span id="filter-options"></span><h2>Filtering molecules from a multimolecule file<a class="headerlink" href="#filtering-molecules-from-a-multimolecule-file" title="Link to this heading">#</a></h2>
+<p>Six of the options above can be used to filter molecules:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-s</span></code> - convert molecules that match a SMARTS string</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code> - convert molecules that don’t match a SMARTS string</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-f</span></code> and <code class="docutils literal notranslate"><span class="pre">-l</span></code> - convert molecules in a certain range</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--unique</span></code> - only convert unique molecules (that is, remove duplicates)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--filter</span></code> - convert molecules that meet specified chemical (and other) criteria</p></li>
+</ul>
+<p>This section focuses on the <code class="docutils literal notranslate"><span class="pre">--filter</span></code> option, which is very versatile and can select a subset of molecules based either on properties imported with the molecule (as from a SDF file) or from calculations made by Open Babel on the molecule.</p>
+<p>The aim has been to make the option flexible and intuitive to use; don’t be put off by the long description.</p>
+<p>You use it like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;MW&lt;130 ROTATABLE_BOND &gt; 2&quot;</span>
+</pre></div>
+</div>
+<p>It takes one parameter which probably needs to be enclosed in double quotes to avoid confusing the shell or operating system. (You don’t need the quotes with the Windows GUI.) The parameter contains one or more conditional tests. By default, these have all to be true for the molecule to be converted. As well as this implicit AND behaviour, you can write a full Boolean expression (see below). As you can see, there can be spaces or not in sensible places and the conditional tests could be separated by a comma or semicolon.</p>
+<p>You can filter on two types of property:</p>
+<ul>
+<li><p>An SDF property, as the identifier ROTATABLE_BOND could be. There is no need for it to be previously known to Open Babel.</p></li>
+<li><p>A descriptor name (internally, an ID of an OBDescriptor object). This is a plug-in class so that new objects can easily be added. MW is the ID of a descriptor which calculates molecular weight. You can see a list of available descriptors using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="o">-</span><span class="n">L</span> <span class="n">descriptors</span>
+</pre></div>
+</div>
+<p>or from a menu item in the GUI.</p>
+</li>
+</ul>
+<aside class="sidebar">
+<p class="sidebar-title">Faster filtering</p>
+<p>Open Babel provides a number of utility file formats (see <a class="reference internal" href="../FileFormats/Overview.html#file-formats"><span class="std std-ref">Supported File Formats and Options</span></a>). Of these, using the <em>copy format</em> as the output format is particularly useful when filtering (see <a class="reference internal" href="../FileFormats/Copy_raw_text.html#copy-raw-text"><span class="std std-ref">Copy raw text (copy)</span></a>). This copies the content of the molecular file directly from input to output. If you are not converting the molecules between different formats, this procedure is much faster and avoids any possibility of information loss.</p>
+<p>In addition, if you are converting SDF files and are filtering based on the title, you should consider using <code class="docutils literal notranslate"><span class="pre">-aT</span></code> (see <a class="reference internal" href="../FileFormats/MDL_MOL_format.html#mdl-mol-format"><span class="std std-ref">MDL MOL format (mdl, mol, sd, sdf)</span></a>). Rather than perceiving the chemistry of the entire molecule, this option will only read in the title.</p>
+</aside>
+<p>The descriptor names are case-insensitive. With the property names currently, you need to get the case right. Both types of identifier can contain letters, numbers and underscores, ‘_’. Properties can contain spaces, but then when writing the name in the filter parameter, you need to replace them with underscores. So in the example above, the test would also be suitable for a property ‘ROTATABLE BOND’.</p>
+<p>Open Babel uses a SDF-like property (internally this is stored in the class OBPairData) in preference to a descriptor if one exists in the molecule. So with the example file, which can be found <a class="reference external" href="https://raw.githubusercontent.com/openbabel/openbabel/master/test/files/filterset.sdf">here</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;logP&gt;5&quot;</span>
+</pre></div>
+</div>
+<p>converts only a molecule with a property logP=10.900, since the others do not have this property and logP, being also a descriptor, is calculated and is always much less than 5.</p>
+<p>If a property does not have a conditional test, then it returns true only if it exists. So:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;ROTATABLE_BOND MW&lt;130&quot;</span>
+</pre></div>
+</div>
+<p>converts only those molecules with a ROTATABLE_BOND property and a molecular weight less than 130. If you wanted to also include all the molecules without ROTATABLE_BOND defined, use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;!ROTATABLE_BOND || (ROTATABLE_BOND &amp; MW&lt;130)&quot;</span>
+</pre></div>
+</div>
+<p>The ! means negate. AND can be &amp; or &amp;&amp;, OR can be | or ||. The brackets are not strictly necessary here because &amp; has precedent over | in the normal way. If the result of a test doesn’t matter, it is parsed but not evaluated. In the example, the expression in the brackets is not evaluated for molecules without a ROTATABLE_BOND property. This doesn’t matter here, but if evaluation of a descriptor involved a lot of computation, it would pay to include it late in the boolean expression so that there is a chance it is skipped for some molecules.</p>
+<p>Descriptors must have a conditional test and it is an error if they don’t. The default test, as used by MW or logP, is a numerical one, but the parsing of the text, and what the test does is defined in each descriptor’s code (a virtual function in the OBDescriptor class). Three examples of this are described in the following sections.</p>
+<section id="string-descriptors">
+<h3>String descriptors<a class="headerlink" href="#string-descriptors" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;title=&#39;Ethanol&#39;&quot;</span>
+</pre></div>
+</div>
+<p>The descriptor <em>title</em>, when followed by a string (here enclosed by single quotes), does a case-sensitive string comparison. (‘ethanol’ wouldn’t match anything in the example file.) The comparison does not have to be just equality:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;title&gt;=&#39;D&#39;&quot;</span>
+</pre></div>
+</div>
+<p>converts molecules with titles Dimethyl Ether and Ethanol in the example file.</p>
+<p>It is not always necessary to use the single quotes when the meaning is unambiguous: the two examples above work without them. But a numerical, rather than a string, comparison is made if both operands can be converted to numbers. This can be useful:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;title&lt;129&quot;</span>
+</pre></div>
+</div>
+<p>will convert the molecules with titles 56 123 and 126, which is probably what you wanted.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;title&lt;&#39;129&#39;&quot;</span>
+</pre></div>
+</div>
+<p>converts only 123 and 126 because a string comparison is being made.</p>
+<p>String comparisons can use <code class="docutils literal notranslate"><span class="pre">*</span></code> as a wildcard if used as the first or last character of the string (anywhere else a <code class="docutils literal notranslate"><span class="pre">*</span></code> is a normal character). So <code class="docutils literal notranslate"><span class="pre">--filter</span> <span class="pre">&quot;title='*ol'&quot;</span></code> will match molecules with titles ‘methanol’, ‘ethanol’ etc. and <code class="docutils literal notranslate"><span class="pre">--filter</span> <span class="pre">&quot;title='eth*'</span></code> will match ‘ethanol’, ‘ethyl acetate’, ‘ethical solution’ etc. Use a <code class="docutils literal notranslate"><span class="pre">*</span></code> at both the first and last characters to test for the occurrence of a string, so <code class="docutils literal notranslate"><span class="pre">--filter</span> <span class="pre">&quot;title='*ol*'&quot;</span></code> will match ‘oleum’, ‘polonium’ and ‘ethanol’.</p>
+</section>
+<section id="smarts-descriptor">
+<h3>SMARTS descriptor<a class="headerlink" href="#smarts-descriptor" title="Link to this heading">#</a></h3>
+<p>This descriptor will do a SMARTS test (substructure and more) on the molecules. The smarts ID can be abbreviated to s and the = is optional. More than one SMARTS test can be done:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;s=&#39;CN&#39; s!=&#39;[N+]&#39;&quot;</span>
+</pre></div>
+</div>
+<p>This provides a more flexible alternative to the existing <code class="docutils literal notranslate"><span class="pre">-s</span></code> and <code class="docutils literal notranslate"><span class="pre">-v</span></code> options, since the SMARTS descriptor test can be combined with other tests.</p>
+</section>
+<section id="inchi-descriptor">
+<h3>InChI descriptor<a class="headerlink" href="#inchi-descriptor" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;inchi=&#39;InChI=1/C2H6O/c1-2-3/h3H,2H2,1H3&#39;&quot;</span>
+</pre></div>
+</div>
+<p>will convert only ethanol. It uses the default parameters for InChI comparison, so there may be some messages from the InChI code. There is quite a lot of flexibility on how the InChI is presented (you can miss out the non-essential bits):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;inchi=&#39;1/C2H6O/c1-2-3/h3H,2H2,1H3&#39;&quot;</span>
+<span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;inchi=&#39;C2H6O/c1-2-3/h3H,2H2,1H3&#39;&quot;</span>
+<span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;inchi=C2H6O/c1-2-3/h3H,2H2,1H3&quot;</span>
+<span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;InChI=1/C2H6O/c1-2-3/h3H,2H2,1H3&quot;</span>
+</pre></div>
+</div>
+<p>all have the same effect.</p>
+<p>The comparison of the InChI string is done only as far as the parameter’s length. This means that we can take advantage of InChI’s layered structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">filterset</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">osmi</span> <span class="o">--</span><span class="nb">filter</span> <span class="s2">&quot;inchi=C2H6O&quot;</span>
+</pre></div>
+</div>
+<p>will convert both Ethanol and Dimethyl Ether.</p>
+</section>
+</section>
+<section id="substructure-and-similarity-searching">
+<h2>Substructure and similarity searching<a class="headerlink" href="#substructure-and-similarity-searching" title="Link to this heading">#</a></h2>
+<p>For information on using <strong class="command">obabel</strong> for substructure searching and similarity searching, see <a class="reference internal" href="../Fingerprints/intro.html#fingerprints"><span class="std std-ref">Molecular fingerprints and similarity searching</span></a>.</p>
+</section>
+<section id="sorting-molecules">
+<span id="sorting-option"></span><h2>Sorting molecules<a class="headerlink" href="#sorting-molecules" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">--sort</span></code> option is used to output molecules ordered by the value of a descriptor:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span>  <span class="n">infile</span><span class="o">.</span><span class="n">xxx</span>  <span class="n">outfile</span><span class="o">.</span><span class="n">xxx</span>  <span class="o">--</span><span class="n">sort</span> <span class="n">desc</span>
+</pre></div>
+</div>
+<p>If the descriptor desc provides a numerical value, the molecule with the smallest value is output first. For descriptors that provide a string output the order is alphabetical, but for the InChI descriptor a more chemically informed order is used (e.g. “CH4” is before than “C2H6”, “CH4” is less than “ClH” hydrogen chloride).</p>
+<p>The order can be reversed by preceding the descriptor name with <code class="docutils literal notranslate"><span class="pre">~</span></code>, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span>  <span class="n">infile</span><span class="o">.</span><span class="n">xxx</span>  <span class="n">outfile</span><span class="o">.</span><span class="n">yyy</span>  <span class="o">--</span><span class="n">sort</span> <span class="o">~</span><span class="n">logP</span>
+</pre></div>
+</div>
+<p>As a shortcut, the value of the descriptor can be appended to the molecule name by adding a <code class="docutils literal notranslate"><span class="pre">+</span></code> to the descriptor, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span>  <span class="n">aromatics</span><span class="o">.</span><span class="n">smi</span>  <span class="o">-</span><span class="n">osmi</span>  <span class="o">--</span><span class="n">sort</span> <span class="o">~</span><span class="n">MW</span><span class="o">+</span>
+ <span class="n">c1ccccc1C</span><span class="o">=</span><span class="n">C</span>   <span class="n">styrene</span> <span class="mf">104.149</span>
+ <span class="n">c1ccccc1C</span>     <span class="n">toluene</span> <span class="mf">92.1384</span>
+ <span class="n">c1ccccc1</span>      <span class="n">benzene</span> <span class="mf">78.1118</span>
+</pre></div>
+</div>
+</section>
+<section id="remove-duplicate-molecules">
+<span id="removing-duplicates"></span><h2>Remove duplicate molecules<a class="headerlink" href="#remove-duplicate-molecules" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">--unique</span></code> option is used to remove, i.e. not output, any chemically identical molecules during conversion:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span>  <span class="n">infile</span><span class="o">.</span><span class="n">xxx</span>  <span class="n">outfile</span><span class="o">.</span><span class="n">yyy</span>  <span class="o">--</span><span class="n">unique</span> <span class="p">[</span><span class="n">param</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The optional parameter <em>param</em> defines what is regarded as “chemically identical”. It can be the name of any descriptor, although not many are likely to be useful. If <em>param</em> is omitted, the InChI descriptor is used. Other useful descriptors are ‘cansmi’ and ‘cansmiNS’ (canonical SMILES, with and without stereochemical information),’title’ and truncated InChI (see below).</p>
+<p>A message is output for each duplicate found:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Removed</span> <span class="n">methyl</span> <span class="n">benzene</span> <span class="o">-</span> <span class="n">a</span> <span class="n">duplicate</span> <span class="n">of</span> <span class="n">toluene</span> <span class="p">(</span><span class="c1">#1)</span>
+</pre></div>
+</div>
+<p>Clearly, this is more useful if each molecule has a title. The <code class="docutils literal notranslate"><span class="pre">(#1)</span></code> is the number of duplicates found so far.</p>
+<p>If you wanted to identify duplicates but not output the unique molecules, you could use the <a class="reference internal" href="../FileFormats/Outputs_nothing.html#outputs-nothing"><span class="std std-ref">null format</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span>  <span class="n">infile</span><span class="o">.</span><span class="n">xxx</span>  <span class="o">-</span><span class="n">onul</span>  <span class="o">--</span><span class="n">unique</span>
+</pre></div>
+</div>
+<section id="truncated-inchi">
+<h3>Truncated InChI<a class="headerlink" href="#truncated-inchi" title="Link to this heading">#</a></h3>
+<p>It is possible to relax the criterion by which molecules are regarded as “chemically identical” by using a truncated InChI specification as <em>param</em>. This takes advantage of the layered structure of InChI. So to remove duplicates, treating stereoisomers as the same molecule:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span>  <span class="n">infile</span><span class="o">.</span><span class="n">xxx</span>  <span class="n">outfile</span><span class="o">.</span><span class="n">yyy</span>  <span class="o">--</span><span class="n">unique</span> <span class="o">/</span><span class="n">nostereo</span>
+</pre></div>
+</div>
+<p>Truncated InChI specifications start with <code class="docutils literal notranslate"><span class="pre">/</span></code> and are case-sensitive. <em>param</em> can be a concatenation of these e.g. <code class="docutils literal notranslate"><span class="pre">/nochg/noiso</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">formula</span>   <span class="n">formula</span> <span class="n">only</span>
+<span class="o">/</span><span class="n">connect</span>   <span class="n">formula</span> <span class="ow">and</span> <span class="n">connectivity</span> <span class="n">only</span>
+<span class="o">/</span><span class="n">nostereo</span>  <span class="n">ignore</span> <span class="n">E</span><span class="o">/</span><span class="n">Z</span> <span class="ow">and</span> <span class="n">sp3</span> <span class="n">stereochemistry</span>
+<span class="o">/</span><span class="n">nosp3</span>     <span class="n">ignore</span> <span class="n">sp3</span> <span class="n">stereochemistry</span>
+<span class="o">/</span><span class="n">noEZ</span>      <span class="n">ignore</span> <span class="n">E</span><span class="o">/</span><span class="n">Z</span> <span class="n">stereoochemistry</span>
+<span class="o">/</span><span class="n">nochg</span>     <span class="n">ignore</span> <span class="n">charge</span> <span class="ow">and</span> <span class="n">protonation</span>
+<span class="o">/</span><span class="n">noiso</span>     <span class="n">ignore</span> <span class="n">isotopes</span>
+</pre></div>
+</div>
+</section>
+<section id="multiple-files">
+<h3>Multiple files<a class="headerlink" href="#multiple-files" title="Link to this heading">#</a></h3>
+<p>The input molecules do not have to be in a single file. So to collect all the unique molecules from a set of MOL files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span>  <span class="o">*.</span><span class="n">mol</span>  <span class="n">uniquemols</span><span class="o">.</span><span class="n">sdf</span>  <span class="o">--</span><span class="n">unique</span>
+</pre></div>
+</div>
+<p>If you want the unique molecules to remain in individual files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span>  <span class="o">*.</span><span class="n">mol</span>  <span class="n">U</span><span class="o">.</span><span class="n">mol</span>  <span class="o">-</span><span class="n">m</span>  <span class="o">--</span><span class="n">unique</span>
+</pre></div>
+</div>
+<p>On the GUI use the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span>  <span class="o">*.</span><span class="n">mol</span>  <span class="n">U</span><span class="o">*.</span><span class="n">mol</span>  <span class="o">--</span><span class="n">unique</span>
+</pre></div>
+</div>
+<p>Either form is acceptable on the Windows command line.</p>
+<p>The unique molecules will be in files with the original name prefixed by ‘U’. Duplicate molecules will be in similar files but with zero length, which you will have to delete yourself.</p>
+</section>
+</section>
+<section id="aliases-for-chemical-groups">
+<h2>Aliases for chemical groups<a class="headerlink" href="#aliases-for-chemical-groups" title="Link to this heading">#</a></h2>
+<p>There is a limited amount of support for representing common chemical groups by an alias, e.g. benzoic acid as <code class="docutils literal notranslate"><span class="pre">Ph-COOH</span></code>, with two alias groups. Internally in Open Babel, the molecule usually has a ‘real’ structure with the alias names present as only an alternative representation. For MDL MOL and SD files alias names can be read from or written to an ‘A’ line. The more modern RGroup representations are not yet recognized. Reading is transparent; the alias group is expanded and the ‘real’ atoms given reasonable coordinates if the the molecule is 2D or 3D. Writing in alias form, rather than the ‘real’ structure, requires the use of the <code class="docutils literal notranslate"><span class="pre">-xA</span></code> option.  SVGFormat will also display any aliases present in a molecule if the <code class="docutils literal notranslate"><span class="pre">-xA</span></code> option is set.</p>
+<p>The alias names that are recognized are in the file <code class="file docutils literal notranslate"><span class="pre">superatoms.txt</span></code> which can be edited.</p>
+<p>Normal molecules can have certain common groups given alternative alias representation using the <code class="docutils literal notranslate"><span class="pre">--genalias</span></code> option. The groups that are recognized and converted are a subset of those that are read. Displaying or writing them still requires the <code class="docutils literal notranslate"><span class="pre">-xA</span></code> option. For example, if <code class="file docutils literal notranslate"><span class="pre">aspirin.smi</span></code> contained <code class="docutils literal notranslate"><span class="pre">O=C(O)c1ccccc1OC(=O)C</span></code>, it could be displayed with the  aliases <code class="docutils literal notranslate"><span class="pre">COOH</span></code> and <code class="docutils literal notranslate"><span class="pre">OAc</span></code> by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">aspirin</span><span class="o">.</span><span class="n">smi</span>  <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">svg</span>  <span class="o">--</span><span class="n">genalias</span>  <span class="o">-</span><span class="n">xA</span>
+</pre></div>
+</div>
+</section>
+<section id="forcefield-energy-and-minimization">
+<span id="minimize-option"></span><h2>Forcefield energy and minimization<a class="headerlink" href="#forcefield-energy-and-minimization" title="Link to this heading">#</a></h2>
+<p>Open Babel supports a number of forcefields which can be used for energy evaluation as well as energy minimization. The available forcefields as listed as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="n">obabel</span> <span class="o">-</span><span class="n">L</span> <span class="n">forcefields</span>
+<span class="n">GAFF</span>    <span class="n">General</span> <span class="n">Amber</span> <span class="n">Force</span> <span class="n">Field</span> <span class="p">(</span><span class="n">GAFF</span><span class="p">)</span><span class="o">.</span>
+<span class="n">Ghemical</span>    <span class="n">Ghemical</span> <span class="n">force</span> <span class="n">field</span><span class="o">.</span>
+<span class="n">MMFF94</span>    <span class="n">MMFF94</span> <span class="n">force</span> <span class="n">field</span><span class="o">.</span>
+<span class="n">MMFF94s</span>    <span class="n">MMFF94s</span> <span class="n">force</span> <span class="n">field</span><span class="o">.</span>
+<span class="n">UFF</span>    <span class="n">Universal</span> <span class="n">Force</span> <span class="n">Field</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>To evaluate a molecule’s energy using a forcefield, use the <code class="docutils literal notranslate"><span class="pre">--energy</span></code> option. The energy is put in an OBPairData object “Energy” which is accessible via an SDF or CML property or <code class="docutils literal notranslate"><span class="pre">--append</span></code> (to title). Use <code class="docutils literal notranslate"><span class="pre">--ff</span> <span class="pre">&lt;forcefield_id&gt;</span></code> to select a forcefield (default is Ghemical) and <code class="docutils literal notranslate"><span class="pre">--log</span></code> for a log of the energy calculation. The simplest way to output the energy is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">infile</span><span class="o">.</span><span class="n">xxx</span> <span class="o">-</span><span class="n">otxt</span> <span class="o">--</span><span class="n">energy</span> <span class="o">--</span><span class="n">append</span> <span class="s2">&quot;Energy&quot;</span>
+</pre></div>
+</div>
+<p>To perform forcefield minimization, the <code class="docutils literal notranslate"><span class="pre">--minimize</span></code> option is used. The following shows typical usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">infile</span><span class="o">.</span><span class="n">xxx</span> <span class="o">-</span><span class="n">O</span> <span class="n">outfile</span><span class="o">.</span><span class="n">yyy</span> <span class="o">--</span><span class="n">minimize</span> <span class="o">--</span><span class="n">steps</span> <span class="mi">1500</span> <span class="o">--</span><span class="n">sd</span>
+</pre></div>
+</div>
+<p>The available options are as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">log</span>        <span class="n">output</span> <span class="n">a</span> <span class="n">log</span> <span class="n">of</span> <span class="n">the</span> <span class="n">minimization</span> <span class="n">process</span> <span class="p">(</span><span class="n">default</span><span class="o">=</span> <span class="n">no</span> <span class="n">log</span><span class="p">)</span>
+<span class="o">--</span><span class="n">crit</span> <span class="o">&lt;</span><span class="n">converge</span><span class="o">&gt;</span>     <span class="nb">set</span> <span class="n">convergence</span> <span class="n">criteria</span> <span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
+<span class="o">--</span><span class="n">sd</span>         <span class="n">use</span> <span class="n">steepest</span> <span class="n">descent</span> <span class="n">algorithm</span> <span class="p">(</span><span class="n">default</span> <span class="o">=</span> <span class="n">conjugate</span> <span class="n">gradient</span><span class="p">)</span>
+<span class="o">--</span><span class="n">newton</span>     <span class="n">use</span> <span class="n">Newton2Num</span> <span class="n">linesearch</span> <span class="p">(</span><span class="n">default</span> <span class="o">=</span> <span class="n">Simple</span><span class="p">)</span>
+<span class="o">--</span><span class="n">ff</span> <span class="o">&lt;</span><span class="n">forcefield</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;</span>       <span class="n">select</span> <span class="n">a</span> <span class="n">forcefield</span> <span class="p">(</span><span class="n">default</span> <span class="o">=</span> <span class="n">Ghemical</span><span class="p">)</span>
+<span class="o">--</span><span class="n">steps</span> <span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span>    <span class="n">specify</span> <span class="n">the</span> <span class="n">maximum</span> <span class="n">number</span> <span class="n">of</span> <span class="n">steps</span> <span class="p">(</span><span class="n">default</span> <span class="o">=</span> <span class="mi">2500</span><span class="p">)</span>
+<span class="o">--</span><span class="n">cut</span>        <span class="n">use</span> <span class="n">cut</span><span class="o">-</span><span class="n">off</span> <span class="p">(</span><span class="n">default</span> <span class="o">=</span> <span class="n">don</span><span class="s1">&#39;t use cut-off)</span>
+<span class="o">--</span><span class="n">rvdw</span> <span class="o">&lt;</span><span class="n">cutoff</span><span class="o">&gt;</span>     <span class="n">specify</span> <span class="n">the</span> <span class="n">VDW</span> <span class="n">cut</span><span class="o">-</span><span class="n">off</span> <span class="n">distance</span> <span class="p">(</span><span class="n">default</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">)</span>
+<span class="o">--</span><span class="n">rele</span> <span class="o">&lt;</span><span class="n">cutoff</span><span class="o">&gt;</span>     <span class="n">specify</span> <span class="n">the</span> <span class="n">Electrostatic</span> <span class="n">cut</span><span class="o">-</span><span class="n">off</span> <span class="n">distance</span> <span class="p">(</span><span class="n">default</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">)</span>
+<span class="o">--</span><span class="n">freq</span> <span class="o">&lt;</span><span class="n">steps</span><span class="o">&gt;</span>     <span class="n">specify</span> <span class="n">the</span> <span class="n">frequency</span> <span class="n">to</span> <span class="n">update</span> <span class="n">the</span> <span class="n">non</span><span class="o">-</span><span class="n">bonded</span> <span class="n">pairs</span> <span class="p">(</span><span class="n">default</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that for both <code class="docutils literal notranslate"><span class="pre">--energy</span></code> and <code class="docutils literal notranslate"><span class="pre">--minimize</span></code>, hydrogens are made explicit before energy evaluation.</p>
+</section>
+<section id="aligning-molecules-or-substructures">
+<h2>Aligning molecules or substructures<a class="headerlink" href="#aligning-molecules-or-substructures" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">--align</span></code> option aligns molecules to the first molecule provided.
+It is typically used with the <code class="docutils literal notranslate"><span class="pre">-s</span></code> option to specify an alignment
+based on a substructure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">pattern</span><span class="o">.</span><span class="n">www</span>  <span class="n">dataset</span><span class="o">.</span><span class="n">xxx</span>  <span class="o">-</span><span class="n">O</span> <span class="n">outset</span><span class="o">.</span><span class="n">yyy</span>  <span class="o">-</span><span class="n">s</span> <span class="n">SMARTS</span>  <span class="o">--</span><span class="n">align</span>
+</pre></div>
+</div>
+<p>Here, only molecules matching the specified SMARTS pattern are converted
+and are aligned by
+having all their atom coordinates modified. The atoms that are
+used in the alignment are those matched by SMARTS in the first
+output molecule. The subsequent molecules are aligned so that
+the coordinates of atoms equivalent to these are as nearly as
+possible the same as those of the pattern atoms.
+The atoms in the various molecules can be in any order.
+Tha alignment ignores hydrogen atoms but includes symmetry.
+Note that the standalone program <strong class="program">obfit</strong> has similar functionality.</p>
+<p>The first input molecule could also be part of the data set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">dataset</span><span class="o">.</span><span class="n">xxx</span>  <span class="o">-</span><span class="n">O</span> <span class="n">outset</span><span class="o">.</span><span class="n">yyy</span>  <span class="o">-</span><span class="n">s</span> <span class="n">SMARTS</span>  <span class="o">--</span><span class="n">align</span>
+</pre></div>
+</div>
+<p>This form is useful for ensuring that a particular substructure always
+has the same orientation in a 2D display of a set of molecules.
+0D molecules, for example from SMILES, are given 2D coordinates before
+alignment.</p>
+<p>See documentation for the <code class="docutils literal notranslate"><span class="pre">-s</span></code> option for its other possible
+parameters. For example, the matching atoms could be those
+of a molecule in a specified file.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">-s</span></code> option is not used, all of the atoms in the first molecule
+are used as pattern atoms. The order of the atoms must be the same
+in all the molecules.</p>
+<p>The output molecules have a property (represented internally as
+OBPairData) called <code class="docutils literal notranslate"><span class="pre">rmsd</span></code>, which is a measure of the quality
+of the fit. To attach it to the title of each molecule use
+<code class="docutils literal notranslate"><span class="pre">--append</span> <span class="pre">rmsd</span></code>.</p>
+<p>To output the two conformers closest to the first conformer in a dataset:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">dataset</span><span class="o">.</span><span class="n">xxx</span>  <span class="o">-</span><span class="n">O</span> <span class="n">outset</span><span class="o">.</span><span class="n">yyy</span>  <span class="o">--</span><span class="n">align</span>  <span class="o">--</span><span class="n">smallest</span> <span class="mi">2</span> <span class="n">rmsd</span>
+</pre></div>
+</div>
+</section>
+<section id="specifying-the-speed-of-3d-coordinate-generation">
+<span id="specify-speed"></span><h2>Specifying the speed of 3D coordinate generation<a class="headerlink" href="#specifying-the-speed-of-3d-coordinate-generation" title="Link to this heading">#</a></h2>
+<p>When you use the <code class="docutils literal notranslate"><span class="pre">--gen3d</span></code> option, you can specify the speed and quality. The following shows typical usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obabel</span> <span class="n">infile</span><span class="o">.</span><span class="n">smi</span> <span class="o">-</span><span class="n">O</span> <span class="n">out</span><span class="o">.</span><span class="n">sdf</span> <span class="o">--</span><span class="n">gen3d</span> <span class="n">fastest</span>
+</pre></div>
+</div>
+<p>The available options are as follows:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>option</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fastest</span></code></p></td>
+<td><p>No cleanup</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fast</span></code></p></td>
+<td><p>Force field cleanup (100 cycles)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">med</span></code> (default)</p></td>
+<td><p>Force field cleanup (100 cycles) + Fast rotor search (only one permutation)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">slow</span></code></p></td>
+<td><p>Force field cleanup (250 cycles) + Fast rotor search (permute central rotors)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">slowest</span></code></p></td>
+<td><p>Force field cleanup (500 cycles) + Slow rotor search</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">better</span></code></p></td>
+<td><p>Same as <code class="docutils literal notranslate"><span class="pre">slow</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">best</span></code></p></td>
+<td><p>Same as <code class="docutils literal notranslate"><span class="pre">slowest</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dist</span></code>, <code class="docutils literal notranslate"><span class="pre">dg</span></code></p></td>
+<td><p>Use distance geometry method (unstable)</p></td>
+</tr>
+</tbody>
+</table>
+<p>You can also specify the speed by an integer from <code class="docutils literal notranslate"><span class="pre">1</span></code> (slowest) to <code class="docutils literal notranslate"><span class="pre">5</span></code> (fastest).</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Installation/install.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Install Open Babel</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../GUI/GUI.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Open Babel GUI</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">Synopsis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#options">Options</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-options">Format Options</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#append-property-values-to-the-title">Append property values to the title</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-conformers-for-structures">Generating conformers for structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-molecules-from-a-multimolecule-file">Filtering molecules from a multimolecule file</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-descriptors">String descriptors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smarts-descriptor">SMARTS descriptor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inchi-descriptor">InChI descriptor</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#substructure-and-similarity-searching">Substructure and similarity searching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-molecules">Sorting molecules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-duplicate-molecules">Remove duplicate molecules</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#truncated-inchi">Truncated InChI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-files">Multiple files</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aliases-for-chemical-groups">Aliases for chemical groups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield-energy-and-minimization">Forcefield energy and minimization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aligning-molecules-or-substructures">Aligning molecules or substructures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-the-speed-of-3d-coordinate-generation">Specifying the speed of 3D coordinate generation</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/Command-line_tools/babel.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2023 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

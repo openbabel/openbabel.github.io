@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Developing Open Babel &#8212; Open Babel openbabel-3-1-1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=4d45eed0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Contributing/DevBestPractices';</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/Contributing/DevBestPractices.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Documentation" href="Documentation.html" />
+    <link rel="prev" title="Overview" href="Overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/install.html">Install Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/babel.html">obabel - Convert, Filter and Manipulate Chemical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI/GUI.html">The Open Babel GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUITutorial/GUITutorial.html">Tutorial on using the GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fingerprints/intro.html">Molecular fingerprints and similarity searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/Rosetta.html">obabel vs Chemistry Toolkit Rosetta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Depiction/depiction.html">2D Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3DStructureGen/Overview.html">3D Structure Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Forcefields/Overview.html">Molecular Mechanics and Force Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UseTheLibrary/intro.html">Write software using the Open Babel library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cheminf101/index.html">Cheminformatics 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stereochemistry/stereo.html">Stereochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Aromaticity/Aromaticity.html">Handling of aromaticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Features/Radicals.html">Radicals and SMILES extensions</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Contributing.html">Contributing to Open Babel</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Developing Open Babel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Testing.html">Adding a new test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchaeology.html">Software Archaeology</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../WritePlugins/index.html">Adding plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FileFormats/Overview.html">Supported File Formats and Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Descriptors/descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Charges/charges.html">Charge models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes/index.html">Release Notes</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="Contributing.html" class="nav-link">Contributing to Open Babel</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Developing...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="developing-open-babel">
+<h1>Developing Open Babel<a class="headerlink" href="#developing-open-babel" title="Link to this heading">#</a></h1>
+<p>Due to its open nature of its development, Open Babel contains code contributed by a wide variety of developers (see <a class="reference internal" href="../Introduction/thanks.html#thanks"><span class="std std-ref">Thanks</span></a>). This section describes some general guidelines and “best practices” for code developers.</p>
+<section id="developer-resources">
+<span id="version-control"></span><h2>Developer Resources<a class="headerlink" href="#developer-resources" title="Link to this heading">#</a></h2>
+<p>For new and existing developers here are some useful resources:</p>
+<ul class="simple">
+<li><p>GitHub <a class="reference external" href="http://github.com/openbabel">project page</a></p></li>
+<li><p>Development version <a class="reference external" href="http://openbabel.org/dev-api">API documentation</a></p></li>
+<li><p>Development version <a class="reference external" href="https://open-babel.readthedocs.io/en/latest/">Sphinx documentation</a></p></li>
+</ul>
+</section>
+<section id="working-with-the-development-code">
+<h2>Working with the Development Code<a class="headerlink" href="#working-with-the-development-code" title="Link to this heading">#</a></h2>
+<p>To download and update the latest version of the Open Babel source code, you need Git. Git is the name of the project used to maintain the Open Babel version control repository. There are many clients for Git, including command-line and GUI applications.</p>
+<section id="keeping-up-to-date-with-git">
+<h3>Keeping up to date with Git<a class="headerlink" href="#keeping-up-to-date-with-git" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Check out the latest development version:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">openbabel</span><span class="o">/</span><span class="n">openbabel</span><span class="o">.</span><span class="n">git</span> <span class="n">openbabel</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>This creates a directory called <code class="file docutils literal notranslate"><span class="pre">openbabel-dev</span></code>, which contains the latest source code from Open Babel.</p>
+</li>
+<li><p>Configure and compile this using CMake (see <a class="reference internal" href="../Installation/install.html#compiling-open-babel"><span class="std std-ref">Compiling Open Babel</span></a>).</p></li>
+<li><p>After some time passes, and you want the latest bug fixes or new features, you may want to update your source code. To do this, go into the <code class="file docutils literal notranslate"><span class="pre">openbabel-dev</span></code> directory you created above, and type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span> <span class="o">-</span><span class="n">u</span>
+</pre></div>
+</div>
+</li>
+<li><p>Do step (2) again.</p></li>
+<li><p>If, after updating, the compilation fails please report it to the Open Babel mailing list. In the meanwhile, if you want to go back to a particular revision (that is, if you don’t want to use the latest one), just use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> to find the checksum of the current revision, and update to an earlier revision using this:</p></li>
+</ol>
+<blockquote>
+<div><p>$ git log
+…
+commit 1c2916cc5e6ed31a23291524b08291c904506c3f
+Author: Noel O’Boyle &lt;<a class="reference external" href="mailto:baoilleach&#37;&#52;&#48;gmail&#46;com">baoilleach<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;
+Date:   Mon Apr 30 07:33:17 2018 +0100</p>
+<p>$ git checkout 1c2916cc5</p>
+</div></blockquote>
+</section>
+</section>
+<section id="modular-design-of-code-base">
+<h2>Modular design of code base<a class="headerlink" href="#modular-design-of-code-base" title="Link to this heading">#</a></h2>
+<p>Since version 2.0, Open Babel has had a modular structure. Particularly for the use of Open Babel as a chemical file format converter, it aims to:</p>
+<ul class="simple">
+<li><p>separate the chemistry, the conversion process and the user interfaces, reducing, as far as possible, the dependency of one on another.</p></li>
+<li><p>put all the code for each chemical format in one place (usually a single cpp file) and make the addition of new formats simple.</p></li>
+<li><p>allow the format conversion of not just molecules, but also any other chemical objects, such as reactions.</p></li>
+</ul>
+<figure class="align-default" id="id16">
+<img alt="../../_images/OBStructure.png" src="../../_images/OBStructure.png" />
+<figcaption>
+<p><span class="caption-text">The structure of the Open Babel codebase broken down into modules</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The separate parts of the OpenBabel program are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The <strong>Chemical</strong> core, which contains OBMol etc. and has all the chemical structure description and manipulation. This bit is the heart of the application and its API can be used as a chemical toolbox. It has no input/output capabilities.</p></li>
+<li><p>The <strong>Formats</strong>, which read and write to files of different types. These classes are derived from a common base class, OBFormat, which is in the Conversion Control module. They also make use of the chemical routines in the Chemical Core module. Each format file contains a global object of the format class. When the format is loaded the class constructor registers the presence of the class with OBConversion. This means the formats are plugins - new formats can be added without changing any framework code.</p></li>
+<li><p><strong>Common Formats</strong> include OBMoleculeFormats and XMLBaseFormat from which most other formats (like Format A and Format B in the diagram) are derived. Independent formats like Format C are also possible.</p></li>
+<li><p>The <strong>Conversion</strong> control, which also keeps track of the available formats, the conversion options and the input and output streams. It can be compiled without reference to any other parts of the program. In particular, it knows nothing of the Chemical core: mol.h is not included.</p></li>
+<li><p>The <strong>User interface</strong>, which may be a command line (in main.cpp), a Graphical User Interface(GUI), especially suited to Windows users and novices, or may be part of another program which uses OpenBabel’s input and output facilities. This depends only on the Conversion control module (obconversion.h is included), but not on the Chemical core or on any of the Formats.</p></li>
+<li><p>The <strong>Fingerprint API</strong>, as well as being usable in external programs, is employed by the fastsearch and fingerprint formats.</p></li>
+<li><p>The <strong>Fingerprints</strong>, which are bit arrays which describe an object and which facilitate fast searching. They are also built as plugins, registering themselves with their base class OBFingerprint which is in the Fingerprint API.</p></li>
+<li><p>The <strong>Error handling</strong> can be used throughout the program to log and display errors and warnings (see below).</p></li>
+</ul>
+</div></blockquote>
+<p>It is possible to build each box in the diagram as a separate DLL or shared library and the restricted dependencies can help to limit the amount of recompilation. For the formats or the fingerprints built in this way it may be possible to use only those whose DLL or so files are present when the program starts. Several formats or fingerprints may be present in a single dynamic library.</p>
+<p>Alternatively, and most commonly, the same source code can be built into a single executable. The restricted dependencies still provide easier program maintenance.</p>
+<p>This segregation means that a module can directly call code only in other modules connected to it by forward arrows. So some discipline is needed when adding new code, and sometimes non-obvious work-arounds are necessary. For instance, since the user interface doesn’t know about the Chemical Core, if it were necessary to set any parameters in it, then this would have to be done through a pseudo format OBAPIInterface.</p>
+<p>Sometimes one format needs to use code from another format, for example, rxnformat needs to read mol files with code from mdlformat. The calling format should not use the code directly but should do it through a OBConversion object configured with the appropriate helper format.</p>
+<p>The objects passed between the modules in the diagram above are polymorphic <a href="#id1"><span class="problematic" id="id2">:obapi:`OBBase`</span></a> pointers. This means that the conversion framework can be used by any object derived from OBBase (which essentially means anything - chemical or not). Most commonly these refer to OBMol objects, less commonly to OBReaction objects, but could be extended to anything else without needing to change any existing code.</p>
+</section>
+<section id="error-handling-and-warnings">
+<span id="error-handling"></span><h2>Error Handling and Warnings<a class="headerlink" href="#error-handling-and-warnings" title="Link to this heading">#</a></h2>
+<p>The general philosophy of the Open Babel project is to attempt to gracefully recover from error conditions. Depending on the severity of the error, a message may or may not be sent to the user – users can filter out developer debugging messages and minor errors, but should be notified of significant problems.</p>
+<p>Errors and warnings in Open Babel are handled internally by a flexible system motivated by a few factors:</p>
+<ul class="simple">
+<li><p>End users often do not wish to be deluged by debugging or other messages during operation.</p></li>
+<li><p>Other developers may wish to redirect or filter error/warning output (e.g., in a GUI).</p></li>
+<li><p>The operation of Open Babel should be open to developers and users alike to monitor an “audit trail” of operations on files and molecules, and debug the program and library itself when the need arises.</p></li>
+</ul>
+<p>Multiple error/warning levels exist and should be used by code. These are defined in the <a href="#id3"><span class="problematic" id="id4">:obapi:`obMessageLevel`</span></a> enum as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">obError</span></code> – for critical errors (e.g., cannot read a file)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">obWarning</span></code> – for non-critical problems (e.g., molecule appears empty)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">obInfo</span></code> – for informative messages (e.g., file is a non-standard format)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">obAuditMsg</span></code> – for messages auditing methods which destroy or perceive molecular data (e.g., kekulization, atom typing, etc.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">obDebug</span></code> – for messages only useful for debugging purposes</p></li>
+</ul>
+<p>The default filter level is set to <code class="docutils literal notranslate"><span class="pre">obWarning</span></code>, which means that users are told of critical errors, but not non-standard formatting of input files.</p>
+<p>A global error handler <a href="#id5"><span class="problematic" id="id6">:obapi:`obErrorLog`</span></a> (an instance of <a href="#id7"><span class="problematic" id="id8">:obapi:`OBMessageHandler`</span></a>) is defined and should be used as shown in the API documentation for the <a href="#id9"><span class="problematic" id="id10">:obapi:`OBMessageHandler`</span></a> class.</p>
+</section>
+<section id="lazy-evaluation">
+<span id="id11"></span><h2>Lazy Evaluation<a class="headerlink" href="#lazy-evaluation" title="Link to this heading">#</a></h2>
+<p>The <a href="#id12"><span class="problematic" id="id13">:obapi:`OBMol::BeginModify() &lt;OpenBabel::OBMol::BeginModify&gt;`</span></a> and <a href="#id14"><span class="problematic" id="id15">:obapi:`OBMol::EndModify() &lt;OpenBabel::OBMol::EndModify&gt;`</span></a> calls are part of Open Babel’s lazy evaluation mechanism.</p>
+<p>In some cases, code may desire to make a large number of changes to an OBMol object at once. Ideally, this should all happen without triggering unintended perception routines. Therefore, the <code class="docutils literal notranslate"><span class="pre">BeginModify()</span></code> call marks the beginning of such code, and <code class="docutils literal notranslate"><span class="pre">EndModify()</span></code> triggers any needed updates of lazy evaluation methods.</p>
+<p>For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="p">.</span><span class="n">BeginModify</span><span class="p">();</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">;</span>
+<span class="n">OBAtom</span><span class="w"> </span><span class="o">*</span><span class="n">atom</span><span class="p">;</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vs</span><span class="p">;</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">natoms</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">ifs</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="n">BUFF_SIZE</span><span class="p">))</span>
+<span class="w">        </span><span class="k">return</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="w">    </span><span class="n">tokenize</span><span class="p">(</span><span class="n">vs</span><span class="p">,</span><span class="n">buffer</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vs</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">atom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mol</span><span class="p">.</span><span class="n">NewAtom</span><span class="p">();</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atof</span><span class="p">((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">vs</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">c_str</span><span class="p">());</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atof</span><span class="p">((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">vs</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">c_str</span><span class="p">());</span>
+<span class="w">    </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atof</span><span class="p">((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">vs</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">c_str</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">atom</span><span class="o">-&gt;</span><span class="n">SetVector</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">);</span><span class="w"> </span><span class="c1">//set coordinates</span>
+<span class="w">    </span><span class="n">atom</span><span class="o">-&gt;</span><span class="n">SetAtomicNum</span><span class="p">(</span><span class="n">atoi</span><span class="p">(</span><span class="n">vs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">c_str</span><span class="p">()));</span><span class="w"> </span><span class="c1">// set atomic number</span>
+<span class="p">}</span>
+<span class="n">mol</span><span class="p">.</span><span class="n">ConnectTheDots</span><span class="p">();</span>
+<span class="n">mol</span><span class="p">.</span><span class="n">PerceiveBondOrders</span><span class="p">();</span>
+<span class="n">mol</span><span class="p">.</span><span class="n">EndModify</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>This code reads in a list of atoms with XYZ coordinates and the atomic number in the first column (<code class="docutils literal notranslate"><span class="pre">vs[0]</span></code>). Since hundreds or thousands of atoms could be added to a molecule, followed by creating bonds, the code is enclosed in a <code class="docutils literal notranslate"><span class="pre">BeginModify()</span></code>/<code class="docutils literal notranslate"><span class="pre">EndModify()</span></code> pair.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Overview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Documentation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Documentation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developer-resources">Developer Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-the-development-code">Working with the Development Code</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-up-to-date-with-git">Keeping up to date with Git</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-design-of-code-base">Modular design of code base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-handling-and-warnings">Error Handling and Warnings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lazy-evaluation">Lazy Evaluation</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/Contributing/DevBestPractices.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2023 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

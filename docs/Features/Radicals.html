@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Radicals and SMILES extensions &#8212; Open Babel openbabel-3-1-1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=4d45eed0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Features/Radicals';</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/Features/Radicals.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Contributing to Open Babel" href="../Contributing/Contributing.html" />
+    <link rel="prev" title="Handling of aromaticity" href="../Aromaticity/Aromaticity.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/install.html">Install Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/babel.html">obabel - Convert, Filter and Manipulate Chemical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI/GUI.html">The Open Babel GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUITutorial/GUITutorial.html">Tutorial on using the GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fingerprints/intro.html">Molecular fingerprints and similarity searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/Rosetta.html">obabel vs Chemistry Toolkit Rosetta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Depiction/depiction.html">2D Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3DStructureGen/Overview.html">3D Structure Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Forcefields/Overview.html">Molecular Mechanics and Force Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UseTheLibrary/intro.html">Write software using the Open Babel library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cheminf101/index.html">Cheminformatics 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stereochemistry/stereo.html">Stereochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Aromaticity/Aromaticity.html">Handling of aromaticity</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Radicals and SMILES extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/Contributing.html">Contributing to Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WritePlugins/index.html">Adding plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FileFormats/Overview.html">Supported File Formats and Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Descriptors/descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Charges/charges.html">Charge models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes/index.html">Release Notes</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Radicals...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="radicals-and-smiles-extensions">
+<h1>Radicals and SMILES extensions<a class="headerlink" href="#radicals-and-smiles-extensions" title="Link to this heading">#</a></h1>
+<section id="the-need-for-radicals-and-implicit-hydrogen-to-coexist">
+<h2>The need for radicals and implicit hydrogen to coexist<a class="headerlink" href="#the-need-for-radicals-and-implicit-hydrogen-to-coexist" title="Link to this heading">#</a></h2>
+<p>Hydrogen deficient molecules, radicals, carbenes, etc., are not
+well catered for by chemical software aimed at pharmaceuticals. But
+radicals are important reaction intermediates in living systems as
+well as many other fields, such as polymers, paints, oils,
+combustion and atmospheric chemistry. The examples given here are
+small molecules, relevant to the last two applications.</p>
+<p>Chemistry software to handle radicals is complicated by the common
+use of implicit hydrogen when describing molecules. How is the
+program to know when you type “O” whether you mean an oxygen atom
+or water? This ambiguity leads some to say that hydrogens should
+always be explicit in any chemical description. But this is not the
+way that most chemists work. A straight paraffinic chain from which
+a hydrogen had been abstracted might commonly be represented by
+something like: <img alt="3-pentyl radical" src="../../_images/Zigzag.png" /></p>
+<p>This uses implicit hydrogens and an explicit radical centre. But
+sometimes the hydrogens are explicit and the radical centre
+implicit, as when CH<sub>3</sub>is used to represent the methyl radical.</p>
+</section>
+<section id="how-open-babel-does-it">
+<h2>How Open Babel does it<a class="headerlink" href="#how-open-babel-does-it" title="Link to this heading">#</a></h2>
+<p>Open Babel accepts molecules with explicit or implicit hydrogens and
+can convert between the two. It will also handle radicals (and
+other hydrogen-deficient species) with implicit hydrogen by using
+internally a property of an atom, <cite>_spinmultiplicity</cite>, modelled on
+the RAD property in MDL MOL files and also used in CML. This can be
+regarded in the present context as a measure of the hydrogen
+deficiency of an atom. Its value is:</p>
+<ul class="simple">
+<li><p>0 for normal atoms,</p></li>
+<li><p>2 for radical (missing one hydrogen) and</p></li>
+<li><p>1 or 3 for carbenes and nitrenes (missing two hydrogens).</p></li>
+</ul>
+<p>It happens that for some doubly deficient species, like carbene
+CH<sub>2</sub> and oxygen atoms, the singlet and triplet species are fairly close
+in energy and both may be significant in certain applications such
+as combustion, atmospheric or preparative organic chemistry, so it
+is convenient that they can be described separately. There are of
+course an infinity of other electronic configurations of molecules
+but Open Babel has no special descriptors for them. However, even
+more hydrogen-deficient atoms are indicated by the highest possible
+value of spinmultiplicity (C atom has spin multiplicity of 5).
+(This extends MDL’s RAD property which has a maximum value of 3.)</p>
+<p>If the spin multiplicity of an atom is not input explicitly, it is
+set (in <a href="#id1"><span class="problematic" id="id2">:obapi:`OBMol::AssignSpinMultiplicity() &lt;OpenBabel::OBMol::AssignSpinMultiplicity&gt;`</span></a>) when the input format is
+MOL, SMI, CML or Therm. This routine is called after all the atoms
+and bonds of the molecule are known. It detects hydrogen deficiency
+in an atom and assigns spin multiplicity appropriately. But because
+hydrogen may be implicit it only does this for atoms which have at
+least one explicit hydrogen or on atoms which have had
+<a href="#id3"><span class="problematic" id="id4">:obapi:`ForceNoH() &lt;OpenBabel::OBAtom::ForceNoH&gt;`</span></a> called for them - which is effectively zero explicit
+hydrogens. The latter is used, for instance, when SMILES inputs <code class="docutils literal notranslate"><span class="pre">[O]</span></code>
+to ensure that it is seen as an oxygen atom (spin multiplicity=3)
+rather than water. Otherwise, atoms with no explicit hydrogen are
+assumed to have a spin multiplicity of 0, i.e with full complement
+of implicit hydrogens.</p>
+<p>In deciding which atoms should be have spin multiplicity assigned,
+hydrogen atoms which have an isotope specification (D,T or even 1H)
+do not count. So SMILES <code class="docutils literal notranslate"><span class="pre">N[2H]</span></code> is NH<sub>2</sub>D (spin multiplicity
+left at 0, so with a full content of implicit hydrogens), whereas
+<code class="docutils literal notranslate"><span class="pre">N[H]</span></code> is NH (spin multiplicity=3). A deuterated radical like NHD is
+represented by <code class="docutils literal notranslate"><span class="pre">[NH][2H]</span></code>.</p>
+</section>
+<section id="in-radicals-either-the-hydrogen-or-the-spin-multiplicity-can-be-implicit">
+<h2>In radicals either the hydrogen or the spin multiplicity can be implicit<a class="headerlink" href="#in-radicals-either-the-hydrogen-or-the-spin-multiplicity-can-be-implicit" title="Link to this heading">#</a></h2>
+<p>Once the spin multiplicity has been set on an atom, the hydrogens
+can be implicit even if it is a radical. For instance, the
+following mol file, with explicit hydrogens, is one way of
+representing the ethyl radical:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ethyl</span> <span class="n">radical</span>
+ <span class="n">OpenBabel04010617172D</span>
+<span class="n">Has</span> <span class="n">explicit</span> <span class="n">hydrogen</span> <span class="ow">and</span> <span class="n">implicit</span> <span class="n">spin</span> <span class="n">multiplicity</span>
+  <span class="mi">7</span>  <span class="mi">6</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0999</span> <span class="n">V2000</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">C</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">C</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">H</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">H</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">H</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">H</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">H</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+  <span class="mi">1</span>  <span class="mi">3</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+  <span class="mi">1</span>  <span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+  <span class="mi">1</span>  <span class="mi">5</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+  <span class="mi">2</span>  <span class="mi">6</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+  <span class="mi">2</span>  <span class="mi">7</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+<span class="n">M</span>  <span class="n">END</span>
+</pre></div>
+</div>
+<p>When read by Open Babel the spinmultiplicity is set to 2 on the C
+atom 2. If the hydrogens are made implicit, perhaps by the <code class="docutils literal notranslate"><span class="pre">-d</span></code>
+option, and the molecule output again, an alternative
+representation is produced:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ethyl</span> <span class="n">radical</span>
+ <span class="n">OpenBabel04010617192D</span>
+<span class="n">Has</span> <span class="n">explicit</span> <span class="n">spin</span> <span class="n">multiplicity</span> <span class="ow">and</span> <span class="n">implicit</span> <span class="n">hydrogen</span>
+  <span class="mi">2</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0999</span> <span class="n">V2000</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">C</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+    <span class="mf">0.0000</span>    <span class="mf">0.0000</span>    <span class="mf">0.0000</span> <span class="n">C</span>   <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
+<span class="n">M</span>  <span class="n">RAD</span>  <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">2</span>
+<span class="n">M</span>  <span class="n">END</span>
+</pre></div>
+</div>
+</section>
+<section id="smiles-extensions-for-radicals">
+<h2>SMILES extensions for radicals<a class="headerlink" href="#smiles-extensions-for-radicals" title="Link to this heading">#</a></h2>
+<p>Although radical structures can be represented in SMILES by
+specifying the hydrogens explicitly, e.g. <code class="docutils literal notranslate"><span class="pre">[CH3]</span></code> is the methyl
+radical, some chemists have apparently felt the need to devise
+non-standard extensions that represent the radical centre
+explicitly. Open Babel will recognize <code class="docutils literal notranslate"><span class="pre">C[O.]</span></code> as well as <code class="docutils literal notranslate"><span class="pre">C[O]</span></code> as the
+methoxy radical CH<sub>3</sub>O during input, but the non-standard
+form is not supported in output.</p>
+<p>By default, radical centres are output in explict hydrogen form,
+e.g. <code class="docutils literal notranslate"><span class="pre">C[CH2]</span></code> for the ethyl radical. All the atoms will be in explict
+H form, i.e. <code class="docutils literal notranslate"><span class="pre">[CH3][CH2]</span></code>, if <a href="#id5"><span class="problematic" id="id6">:obapi:`AddHydrogens() &lt;OpenBabel::OBMol::AddHydrogens&gt;`</span></a> or the <code class="docutils literal notranslate"><span class="pre">-h</span></code> option has
+been specified. The output is always standard SMILES, although
+other programs may not interpret radicals correctly.</p>
+<p>Open Babel supports another SMILES extension for both input and
+output: the use of lower case atomic symbols to represent radical
+centres. (This is supported on the ACCORD Chemistry Control and
+maybe elsewhere.) So the ethyl radical is <code class="docutils literal notranslate"><span class="pre">Cc</span></code> and the methoxy radical
+is <code class="docutils literal notranslate"><span class="pre">Co</span></code>. This form is input transparently and can be output by using
+the <code class="docutils literal notranslate"><span class="pre">-xr</span></code> option “radicals lower case”. It is a useful shorthand in
+writing radicals, and in many cases is easier to read since the
+emphasis is on the radical centre rather than the number of
+hydrogens which is less chemically significant.</p>
+<p>In addition, this extension interprets multiple lower case <code class="docutils literal notranslate"><span class="pre">c</span></code>
+without ring closure as a conjugated carbon chain, so that <code class="docutils literal notranslate"><span class="pre">cccc</span></code> is
+input as 1,3-butadiene. Lycopene (the red in tomatoes) is
+<code class="docutils literal notranslate"><span class="pre">Cc(C)cCCc(C)cccc(C)cccc(C)ccccc(C)cccc(C)cccc(C)CCcc(C)C</span></code> (without
+the stereochemical specifications). This conjugated chain form is
+not used on output - except in the standard SMILES aromatic form,
+<code class="docutils literal notranslate"><span class="pre">c1ccccc1</span></code> benzene.</p>
+<p>It is interesting to note that the lower case extension actually improves
+the chemical representation in a few cases. The allyl radical C<sub>3</sub>H<sub>5</sub>
+would be conventionally <code class="docutils literal notranslate"><span class="pre">[CH2]=[CH][CH2]</span></code> (in its explict H form),
+but could be represented as <code class="docutils literal notranslate"><span class="pre">ccc</span></code> with the extended syntax. The
+latter more accurately represents the symmetry of the molecule
+caused by delocalisation.</p>
+<p>This extension is not as robust or as carefully considered as standard
+SMILES and should be used with restraint. A structure that uses <code class="docutils literal notranslate"><span class="pre">c</span></code>
+as a radical centre close to aromatic carbons can be confusing to
+read, and Open Babel’s SMILES parser can also be confused. For example, it
+recognizes <code class="docutils literal notranslate"><span class="pre">c1ccccc1c</span></code> as the benzyl radical, but it doesn’t like
+<code class="docutils literal notranslate"><span class="pre">c1cc(c)ccc1</span></code>. Radical centres should not be involved in ring
+closure: for cyclohexyl radical <code class="docutils literal notranslate"><span class="pre">C1cCCCC1</span></code> is ok, but <code class="docutils literal notranslate"><span class="pre">c1CCCCC1</span></code> is not.</p>
+</section>
+<section id="other-supported-extensions">
+<h2>Other Supported Extensions<a class="headerlink" href="#other-supported-extensions" title="Link to this heading">#</a></h2>
+<p>Open Babel supports quadruple bonds <code class="docutils literal notranslate"><span class="pre">$</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">[Rh-](Cl)(Cl)(Cl)(Cl)$[Rh-](Cl)(Cl)(Cl)Cl</span></code>
+and aromatic <code class="docutils literal notranslate"><span class="pre">[te]</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">Cc1[te]ccc1</span></code>. In addition, ring closures
+up to 5 digits <code class="docutils literal notranslate"><span class="pre">%(N)</span></code> are supported, e.g. <code class="docutils literal notranslate"><span class="pre">C%(100)CC%(100)</span></code>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Aromaticity/Aromaticity.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Handling of aromaticity</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Contributing/Contributing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Contributing to Open Babel</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-need-for-radicals-and-implicit-hydrogen-to-coexist">The need for radicals and implicit hydrogen to coexist</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-open-babel-does-it">How Open Babel does it</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-radicals-either-the-hydrogen-or-the-spin-multiplicity-can-be-implicit">In radicals either the hydrogen or the spin multiplicity can be implicit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smiles-extensions-for-radicals">SMILES extensions for radicals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-supported-extensions">Other Supported Extensions</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/Features/Radicals.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2023 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

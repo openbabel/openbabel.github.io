@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Open Babel 3.1.0 &#8212; Open Babel openbabel-3-1-1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=4d45eed0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/ReleaseNotes/ob310';</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/ReleaseNotes/ob310.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Open Babel 3.1.0</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="open-babel-3-1-0">
+<h1>Open Babel 3.1.0<a class="headerlink" href="#open-babel-3-1-0" title="Link to this heading">#</a></h1>
+<p>Released on 2020-05-05.</p>
+<p>This version represents additional API and is backwards-compatible with the 3.0 release.</p>
+<section id="new-features-and-improvements">
+<h2>New features and improvements<a class="headerlink" href="#new-features-and-improvements" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>New file format: Wiswesser Line Notation reader from Roger Sayle (by baoilleach, PR#2084)</p></li>
+<li><p>New option: Add the –neutralize operation to convert charged atoms to neutral (by baoilleach, PR#2109)</p></li>
+<li><p>New functionality: Support for periodic boundary conditions. See additional option -p for MMCIF format, and write option ‘g’ for CIF. (by bbucior, PR#1853)</p></li>
+<li><p>New functionality: Add distance geometry method (xxby n-yoshikawa, PR#1875)</p></li>
+<li><p>New option: Add -noh to –minimize to allow minimizing without adding explicit hydrogens (by ghutchis, PR#2184)</p></li>
+<li><p>Update GAS CONSTANT to 2018 CODATA recommended value (by e-kwsm, PR#2045)</p></li>
+<li><p>Support #0 in SMARTS so that asterisks can be matched (by baoilleach, PR#2079)</p></li>
+<li><p>Bring back support for lowercase elements and D/T in GetAtomicNum(). (by baoilleach, PR#2100)</p></li>
+<li><p>Change docstrings of add/delete hydrogens to better reflect their functionality (by baoilleach, PR#2110)</p></li>
+<li><p>Support kekulization of aromatic sulfoxides (by baoilleach, PR#2121)</p></li>
+<li><p>Enable casting to StereoBase in the Python bindings (by baoilleach, PR#2124)</p></li>
+<li><p>OBBuilder: Add error message for ring/rigid fragments with all zero coords. (by timvdm, PR#2149)</p></li>
+<li><p>R script updates (by khoran, PR#2145)</p></li>
+<li><p>Be more strict when parsing charges in SMILES (by baoilleach, PR#2132)</p></li>
+<li><p>Improve tools/obconformer.cpp (by e-kwsm, PR#2154)</p></li>
+<li><p>OBAtom::IsElement() implemention, make OBElements::Element enum (by dkoes, PR#1754)</p></li>
+</ul>
+</section>
+<section id="development-build-install-improvements">
+<h2>Development/Build/Install improvements<a class="headerlink" href="#development-build-install-improvements" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Avoid <cite>using namespace</cite> in headers (by e-kwsm, PR#2055)</p></li>
+<li><p>Remove babel doc (by e-kwsm, PR#2057)</p></li>
+<li><p>Do not hard-code Open Babel major version for include directory (by e-kwsm, PR#2059)</p></li>
+<li><p>Patched to build on NetBSD (by voidpin, PR#2093)</p></li>
+<li><p>Update download link (by njzjz, PR#2094)</p></li>
+<li><p>Fix GitHub ISSUE_TEMPLATE (by RMeli, PR#2082)</p></li>
+<li><p>Define OpenBabel3_LIBRARY (by dkoes, PR#2086)</p></li>
+<li><p>Initial GitHub action - misspell-fixer (by ghutchis, PR#2163)</p></li>
+<li><p>Use latest checkout action - more efficient (by ghutchis, PR#2172)</p></li>
+<li><p>Initial CMake GitHub Action (by ghutchis, PR#2165)</p></li>
+<li><p>Add a template to use with the release drafter GH app (by ghutchis, PR#2182)</p></li>
+<li><p>Pin maeparser version to 1.2.3 - should fix #2180 (by ghutchis, PR#2185)</p></li>
+<li><p>Workaround for SWIG 4.0.1 Java source code problem (by baoilleach, PR#2186)</p></li>
+<li><p>Add a build for bindings (eventually will generate source tar) (by ghutchis, PR#2183)</p></li>
+<li><p>Fix build on illumos (by wiedi, PR#2187)</p></li>
+<li><p>Update the WLN docs to have the correct syntax for .rst (by baoilleach, PR#2188)</p></li>
+<li><p>Rename EXTERN to OB_EXTERN to prevent clashes in other headers (by ghutchis, PR#2189)</p></li>
+<li><p>Re-enable Ruby bindings (by ghutchis, PR#2193)</p></li>
+</ul>
+</section>
+<section id="bug-fixes">
+<h2>Bug fixes<a class="headerlink" href="#bug-fixes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Fix CMake error with R and C# bindings (by ghutchis, PR#2051)</p></li>
+<li><p>Rename MAESTRO extensions from uppercase to lowercase (by baoilleach, PR#2053)</p></li>
+<li><p>Fix file format docstrings that were causing problems with Sphinx or GUI (by baoilleach, PR#2054)</p></li>
+<li><p>Fix BUILD_SHARED=OFF (by dkoes, PR#2056)</p></li>
+<li><p>Fix import of openbabel (by e-kwsm, PR#2058)</p></li>
+<li><p>Update for Open Babel 3 (by e-kwsm, PR#2060)</p></li>
+<li><p>Fix maeparser compile error with some Boost configs (by fredrikw, PR#2076)</p></li>
+<li><p>Find or build maeparser &amp;amp; coordgen libraries (by ricrogz, PR#2064)</p></li>
+<li><p>Fix issue #2095, caused by incorrect application of protonated SMARTS (by au1985, PR#2102)</p></li>
+<li><p>Fix issue #1794, UFF atom typing for deuterium (by ghutchis, PR#2114)</p></li>
+<li><p>Fix segfault on SMI to InChI conversion when using “-d” (by timvdm, PR#2115)</p></li>
+<li><p>Correct the path to the openbabel-python.cpp (by baoilleach, PR#2119)</p></li>
+<li><p>Remove fragments with zero coordinates - fixes #2144. (by ghutchis, PR#2150)</p></li>
+<li><p>Fix issue #2125 - Zero occupancy in cif file treated as 1.0. (by orex, PR#2136)</p></li>
+<li><p>Fix #2071 - obrms parser segmentation fault (by e-kwsm, PR#2073)</p></li>
+<li><p>Fix #2098 - OBDistanceGeometry is unavailable to users (by n-yoshikawa, PR#2105)</p></li>
+<li><p>Set MAEPARSER_BUILD_SHARED_LIBS (fix #2089) (by e-kwsm, PR#2155)</p></li>
+<li><p>Fix the import of Tkinter in Python 3+ (by mrakitin, PR#2157)</p></li>
+<li><p>Fix for segault (with regression test) (by dkoes, PR#2162)</p></li>
+<li><p>Follow-up with missing spelling fixes from #2163 (by mrakitin, PR#2166)</p></li>
+<li><p>Prefer std::fabs resolves build problem on mac-current (by ghutchis, PR#2168)</p></li>
+<li><p>Fix distance geometry stereo issues (by timvdm, PR#2158)</p></li>
+<li><p>Merge of “Improve OBConversion::WriteString() and WriteFile() initialization” (adalke) #1923 (by baoilleach, PR#2176)</p></li>
+<li><p>Fix output format in the cifformat writer (by afonari, PR#2170)</p></li>
+<li><p>Fix the cif write test (i.e. modified format) (by ghutchis, PR#2177)</p></li>
+<li><p>Fix tautomer code (by timvdm, PR#2171)</p></li>
+</ul>
+</section>
+<section id="cast-of-contributors">
+<h2>Cast of contributors<a class="headerlink" href="#cast-of-contributors" title="Link to this heading">#</a></h2>
+<p>adalke (Andrew Dalke), afonari (Alexandr Fonari), au1985 (Alex Ustinov), baoilleach (Noel O’Boyle), bbucior (Ben
+Bucior), dkoes (David Koes), e-kwsm (Eisuke Kawashima), fredrikw (Fredrik
+Wallner), ghutchis (Geoff Hutchison), Kamil Rytarowski, khoran (Kevin Horan), mrakitin (Maksim Rakitin), n-yoshikawa (Naruki Yoshikawa), njzjz (Jinzhe Zeng), orex (Kirill Okhotnikov), ricrogz (Ric), rmeli (Rocco Meli), Roger Sayle, timvdm (Tim Vandermeersch), voidpin (pin), wiedi (Sebastian Wiedenroth)</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-features-and-improvements">New features and improvements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-build-install-improvements">Development/Build/Install improvements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bug-fixes">Bug fixes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cast-of-contributors">Cast of contributors</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/ReleaseNotes/ob310.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2023 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
