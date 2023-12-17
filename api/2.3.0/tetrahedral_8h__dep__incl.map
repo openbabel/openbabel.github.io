@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="5,83,85,111"/>
+<area shape="rect" id="node5" href="$canon_8cpp.shtml" title="Canonical numbering of SMILES, molecules and fragments." alt="" coords="109,83,184,111"/>
+<area shape="rect" id="node7" href="$graphsym_8cpp.shtml" title="XXXX." alt="" coords="208,83,304,111"/>
+<area shape="rect" id="node9" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="328,83,392,111"/>
+<area shape="rect" id="node11" href="$parsmart_8cpp.shtml" title="Implementation of Daylight SMARTS parser." alt="" coords="416,83,507,111"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$groupcontrib_8h.shtml" title="Handle group contribution algorithms." alt="" coords="5,83,104,111"/>
+<area shape="rect" id="node5" href="$obmolecformat_8h.shtml" title="Subclass of OBFormat for conversion of OBMol." alt="" coords="128,83,240,111"/>
+<area shape="rect" id="node13" href="$descriptor_8cpp.shtml" title="Base class for molecular descriptors." alt="" coords="264,83,360,111"/>
+<area shape="rect" id="node15" href="$transform_8cpp.shtml" title="Perform command&#45;line requested transformations for OBMol and SMARTS filtering." alt="" coords="384,83,480,111"/>
+<area shape="rect" id="node7" href="$inchiformat_8h.shtml" title="inchiformat.h" alt="" coords="41,161,135,189"/>
+<area shape="rect" id="node9" href="$xml_8h.shtml" title="Declaration of XMLConversion, declaration and definition of XMLBaseFormat and XMLMoleculeFormat..." alt="" coords="159,161,209,189"/>
+<area shape="rect" id="node11" href="$obmolecformat_8cpp.shtml" title="Subclass of OBFormat for conversion of OBMol." alt="" coords="233,161,359,189"/>
+</map>

@@ -1,0 +1,18 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="rotamer.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="conformersearch.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$conformersearch_8h.shtml"];
+  Node2 -> Node3 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="conformersearch.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$conformersearch_8cpp.shtml"];
+  Node1 -> Node4 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="builder.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$builder_8cpp.shtml",tooltip="Handle OBBuilder class."];
+  Node1 -> Node5 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="forcefield.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$forcefield_8cpp.shtml",tooltip="Handle OBForceField class."];
+  Node1 -> Node6 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="mol.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$mol_8cpp.shtml",tooltip="Handle molecules. Implementation of OBMol."];
+  Node1 -> Node7 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="rotamer.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$rotamer_8cpp.shtml",tooltip="Handle rotamer list data."];
+}

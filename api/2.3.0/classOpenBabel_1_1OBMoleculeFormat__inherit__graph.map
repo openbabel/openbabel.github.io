@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node7" href="$classOpenBabel_1_1InChICompareFormat.shtml" title="InChICompareFormat" alt="" coords="5,238,144,266"/>
+<area shape="rect" id="node9" href="$classOpenBabel_1_1InChIFormat.shtml" title="InChIFormat" alt="" coords="168,238,259,266"/>
+<area shape="rect" id="node2" href="$classOpenBabel_1_1OBFormat.shtml" title="Base class for file formats." alt="" coords="105,83,183,111"/>
+<area shape="rect" id="node4" href="$classOpenBabel_1_1OBPlugin.shtml" title="Base class for all types of dynamic classes discovered at runtime." alt="" coords="107,6,181,34"/>
+</map>

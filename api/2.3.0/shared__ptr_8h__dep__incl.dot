@@ -1,0 +1,16 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="shared_ptr.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="alias.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$alias_8h.shtml",tooltip="OBGenericData class to for atom alias data (e.g., in 2D drawing programs for &quot;COOH&quot;)..."];
+  Node2 -> Node3 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="alias.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$alias_8cpp.shtml",tooltip="OBGenericData class to for atom alias data (e.g., in 2D drawing programs for &quot;COOH&quot;)..."];
+  Node2 -> Node4 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="generic.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$generic_8cpp.shtml",tooltip="Handle OBGenericData classes. Custom data for atoms, bonds, etc."];
+  Node2 -> Node5 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="depict.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$depict_8cpp.shtml"];
+  Node1 -> Node6 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="reaction.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$reaction_8h.shtml",tooltip="Handle chemical reactions (i.e., lists of reagents and products)."];
+}

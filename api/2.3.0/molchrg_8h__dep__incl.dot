@@ -1,0 +1,10 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="molchrg.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="atom.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$atom_8cpp.shtml",tooltip="Handle OBAtom class."];
+  Node1 -> Node3 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="molchrg.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$molchrg_8cpp.shtml",tooltip="Assign Gasteiger partial charges."];
+}

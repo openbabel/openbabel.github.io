@@ -1,0 +1,21 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$base_8h.shtml" title="Base classes to build a graph." alt="" coords="472,83,525,111"/>
+<area shape="rect" id="node18" href="$query_8h.shtml" title="query.h" alt="" coords="739,470,800,498"/>
+<area shape="rect" id="node54" href="$tokenst_8cpp.shtml" title="Tokenize a string." alt="" coords="1123,83,1205,111"/>
+<area shape="rect" id="node5" href="$atom_8h.shtml" title="Handle atoms." alt="" coords="355,238,411,266"/>
+<area shape="rect" id="node7" href="$bond_8h.shtml" title="Handle bonds." alt="" coords="415,315,473,343"/>
+<area shape="rect" id="node9" href="$mol_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="352,393,403,421"/>
+<area shape="rect" id="node11" href="$builder_8h.shtml" title="Class to build 3D structures." alt="" coords="171,470,240,498"/>
+<area shape="rect" id="node13" href="$forcefield_8h.shtml" title="Handle forcefields." alt="" coords="160,547,243,575"/>
+<area shape="rect" id="node15" href="$grid_8h.shtml" title="Handle grids of values." alt="" coords="351,470,404,498"/>
+<area shape="rect" id="node21" href="$atomclass_8h.shtml" title="Handle atom classes in reaction SMILES/SMIRKS." alt="" coords="680,161,763,189"/>
+<area shape="rect" id="node26" href="$generic_8h.shtml" title="Handle generic data classes. Custom data for atoms, bonds, etc." alt="" coords="536,161,605,189"/>
+<area shape="rect" id="node29" href="$descriptor_8cpp.shtml" title="Base class for molecular descriptors." alt="" coords="485,238,581,266"/>
+<area shape="rect" id="node32" href="$griddata_8h.shtml" title="OBGenericData class to connect numeric grids (e.g., orbitals, electrostatic potential)..." alt="" coords="43,393,117,421"/>
+<area shape="rect" id="node36" href="$obiter_8h.shtml" title="STL&#45;style iterators for Open Babel." alt="" coords="656,238,717,266"/>
+<area shape="rect" id="node39" href="$op_8h.shtml" title="Base plugin class for operations on molecules." alt="" coords="787,161,832,189"/>
+<area shape="rect" id="node41" href="$residue_8h.shtml" title="Defines for residue properties, names, etc." alt="" coords="291,161,360,189"/>
+<area shape="rect" id="node45" href="$text_8h.shtml" title="text.h" alt="" coords="856,161,907,189"/>
+<area shape="rect" id="node47" href="$stereo_8h.shtml" title="stereo.h" alt="" coords="172,315,233,343"/>
+<area shape="rect" id="node50" href="$base_8cpp.shtml" title="Implementation of base classes." alt="" coords="931,161,997,189"/>
+</map>

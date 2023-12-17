@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$optransform_8h.shtml" title="Operations to change molecules using a datafile of chemical transformations OBChemTsfm..." alt="" coords="5,83,101,111"/>
+<area shape="rect" id="node5" href="$atom_8cpp.shtml" title="Handle OBAtom class." alt="" coords="125,83,195,111"/>
+<area shape="rect" id="node7" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="219,83,283,111"/>
+<area shape="rect" id="node9" href="$phmodel_8cpp.shtml" title="Read pH rules and assign charges." alt="" coords="307,83,397,111"/>
+</map>

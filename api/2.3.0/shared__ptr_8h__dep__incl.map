@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$alias_8h.shtml" title="OBGenericData class to for atom alias data (e.g., in 2D drawing programs for &quot;COOH&quot;)..." alt="" coords="109,83,165,111"/>
+<area shape="rect" id="node11" href="$reaction_8h.shtml" title="Handle chemical reactions (i.e., lists of reagents and products)." alt="" coords="189,83,264,111"/>
+<area shape="rect" id="node5" href="$alias_8cpp.shtml" title="OBGenericData class to for atom alias data (e.g., in 2D drawing programs for &quot;COOH&quot;)..." alt="" coords="5,161,72,189"/>
+<area shape="rect" id="node7" href="$generic_8cpp.shtml" title="Handle OBGenericData classes. Custom data for atoms, bonds, etc." alt="" coords="96,161,179,189"/>
+<area shape="rect" id="node9" href="$depict_8cpp.shtml" title="depict.cpp" alt="" coords="203,161,277,189"/>
+</map>

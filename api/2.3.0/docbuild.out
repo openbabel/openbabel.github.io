@@ -1,0 +1,1224 @@
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/graphsym.cpp:395: Warning: no matching class member found for 
+  void CreateNewClassVector(OpenBabel::OBMol *mol, std::vector< pair< OpenBabel::OBAtom *, unsigned int > > &vp1, vector< pair< OBAtom *, unsigned int > > &vp2)
+Possible candidates:
+  void OBGraphSymPrivate::CreateNewClassVector(std::vector< std::pair< OBAtom *, unsigned int > > &vp1, std::vector< std::pair< OBAtom *, unsigned int > > &vp2)
+  static void OBGraphSymPrivate::CreateNewClassVector(OBMol *mol, std::vector< std::pair< OBAtom *, unsigned int > > &vp1, std::vector< std::pair< OBAtom *, unsigned int > > &vp2)
+
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/canon.h:27: Warning: The following parameters of OpenBabel::CanonicalLabels(OBMol *mol, const std::vector< unsigned int > &symmetry_classes, std::vector< unsigned int > &canonical_labels, const OBBitVec &mask=OBBitVec(), int maxSeconds=5, bool onlyOne=false) are not documented:
+  parameter 'canonical_labels'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:882: Warning: argument 'gradients' of command @param is not found in the argument list of OBForceField::Energy(boolUNUSEDgradients=true)(null)
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:882: Warning: The following parameters of OpenBabel::OBForceField::Energy(boolUNUSEDgradients=true) are not documented:
+  parameter 'UNUSED'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:892: Warning: argument 'gradients' of command @param is not found in the argument list of OBForceField::E_Bond(boolUNUSEDgradients=true)(null)
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:892: Warning: The following parameters of OpenBabel::OBForceField::E_Bond(boolUNUSEDgradients=true) are not documented:
+  parameter 'UNUSED'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:899: Warning: argument 'gradients' of command @param is not found in the argument list of OBForceField::E_Angle(boolUNUSEDgradients=true)(null)
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:899: Warning: The following parameters of OpenBabel::OBForceField::E_Angle(boolUNUSEDgradients=true) are not documented:
+  parameter 'UNUSED'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:906: Warning: argument 'gradients' of command @param is not found in the argument list of OBForceField::E_StrBnd(boolUNUSEDgradients=true)(null)
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:906: Warning: The following parameters of OpenBabel::OBForceField::E_StrBnd(boolUNUSEDgradients=true) are not documented:
+  parameter 'UNUSED'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:913: Warning: argument 'gradients' of command @param is not found in the argument list of OBForceField::E_Torsion(boolUNUSEDgradients=true)(null)
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:913: Warning: The following parameters of OpenBabel::OBForceField::E_Torsion(boolUNUSEDgradients=true) are not documented:
+  parameter 'UNUSED'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:920: Warning: argument 'gradients' of command @param is not found in the argument list of OBForceField::E_OOP(boolUNUSEDgradients=true)(null)
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:920: Warning: The following parameters of OpenBabel::OBForceField::E_OOP(boolUNUSEDgradients=true) are not documented:
+  parameter 'UNUSED'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:927: Warning: argument 'gradients' of command @param is not found in the argument list of OBForceField::E_VDW(boolUNUSEDgradients=true)(null)
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:927: Warning: The following parameters of OpenBabel::OBForceField::E_VDW(boolUNUSEDgradients=true) are not documented:
+  parameter 'UNUSED'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:934: Warning: argument 'gradients' of command @param is not found in the argument list of OBForceField::E_Electrostatic(boolUNUSEDgradients=true)(null)
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/forcefield.h:934: Warning: The following parameters of OpenBabel::OBForceField::E_Electrostatic(boolUNUSEDgradients=true) are not documented:
+  parameter 'UNUSED'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/isomorphism.h:106: Warning: The following parameters of OpenBabel::OBIsomorphismMapper::MapFirst(const OBMol *queried, Mapping &map, const OBBitVec &mask=OBBitVec()) are not documented:
+  parameter 'map'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/isomorphism.h:114: Warning: The following parameters of OpenBabel::OBIsomorphismMapper::MapUnique(const OBMol *queried, Mappings &maps, const OBBitVec &mask=OBBitVec()) are not documented:
+  parameter 'maps'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/isomorphism.h:124: Warning: The following parameters of OpenBabel::OBIsomorphismMapper::MapAll(const OBMol *queried, Mappings &maps, const OBBitVec &mask=OBBitVec(), std::size_t maxMemory=3000000) are not documented:
+  parameter 'maps'
+  parameter 'maxMemory'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1457: Warning: Unsupported xml/html tag <pH> found
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1462: Warning: Unsupported xml/html tag <filterstring> found
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1463: Warning: expected <item> tag but found TK_LNKWORD token instead!
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1464: Warning: expected <item> tag but found TK_LNKWORD token instead!
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1465: Warning: expected <item> tag but found TK_LNKWORD token instead!
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1466: Warning: Found unknown command `\smarts'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1467: Warning: Found unknown command `\smarts'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1470: Warning: Unsupported xml/html tag <attrib> found
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1471: Warning: Unsupported xml/html tag <title> found
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1472: Warning: Unsupported xml/html tag <text> found
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/parsmart.h:291: Warning: argument 'single' of command @param is not found in the argument list of OBSmartsPattern::Match(OBMol &mol, std::vector< std::vector< int > > &mlist, MatchType mtype=All) const(null)
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/parsmart.h:291: Warning: argument 'unique' of command @param is not found in the argument list of OBSmartsPattern::Match(OBMol &mol, std::vector< std::vector< int > > &mlist, MatchType mtype=All) const(null)
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/parsmart.h:291: Warning: The following parameters of OpenBabel::OBSmartsPattern::Match(OBMol &mol, std::vector< std::vector< int > > &mlist, MatchType mtype=All) const are not documented:
+  parameter 'mtype'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/query.h:52: Warning: The following parameters of OpenBabel::OBQueryAtom::OBQueryAtom(int atomicNum=6, bool isInRing=false, bool isAromatic=false) are not documented:
+  parameter 'isInRing'
+  parameter 'isAromatic'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/include/openbabel/rotor.h:221: Warning: The following parameters of OpenBabel::OBRotor::SetRotor(double *coordinates, int next, int prev=-1) are not documented:
+  parameter 'coordinates'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1457: Warning: Unsupported xml/html tag <pH> found
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1462: Warning: Unsupported xml/html tag <filterstring> found
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1463: Warning: expected <item> tag but found TK_LNKWORD token instead!
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1464: Warning: expected <item> tag but found TK_LNKWORD token instead!
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1465: Warning: expected <item> tag but found TK_LNKWORD token instead!
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1466: Warning: Found unknown command `\smarts'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1467: Warning: Found unknown command `\smarts'
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1470: Warning: Unsupported xml/html tag <attrib> found
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1471: Warning: Unsupported xml/html tag <title> found
+/home/bcri/noboyle/tools/openbabel/nightly/openbabel/src/obconversion.cpp:1472: Warning: Unsupported xml/html tag <text> found
+Error: Error: Could not find/open font
+Could not find/open font
+n font
+Error: Error: Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could nCould not find/open font
+Error: Error: Could not find/open font
+Error: Could not find/open font
+Error: Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Error: Could not find/open font
+Error: Could not find/open font
+Error: Error: Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Error: Could not find/opeError: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Error: Could not find/opeError: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/alias_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/alias_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/alias_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/align_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/align_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/align_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/builder_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/builder_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/builder_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/atomclass_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/atomclass_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/atomclass_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/atom_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/atom_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/atom_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/bondtyper_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/bondtyper_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/bondtyper_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/chargemodel_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/chargemodel_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/chargemodel_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/cistrans_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/cistrans_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/cistrans_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/chiral_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/chiral_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/chiral_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/conformersearch_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/conformersearch_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/conformersearch_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/descriptor_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/descriptor_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/descriptor_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/fingerprint_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/fingerprint_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/fingerprint_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/forcefield_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/forcefield_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/forcefield_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/bond_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/bond_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/bond_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/grid_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/grid_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/grid_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/bitvec_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/bitvec_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/bitvec_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/griddata_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/griddata_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/griddata_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/chains_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/chains_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/chains_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/isomorphism_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/isomorphism_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/isomorphism_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/lineend_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/lineend_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/lineend_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/locale_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/locale_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/locale_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/matrix_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/matrix_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/matrix_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/mcdlutil_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/mcdlutil_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/mcdlutil_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/mol__graph_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/mol__graph_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/mol__graph_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/matrix3x3_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/matrix3x3_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/matrix3x3_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/molchrg_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/molchrg_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/molchrg_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/internalcoord_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/internalcoord_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/internalcoord_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/obconversion_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/obconversion_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/obconversion_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/graphsym_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/graphsym_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/graphsym_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/obmolecformat_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/obmolecformat_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/obmolecformat_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/depict_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/depict_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/depict_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/op_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/op_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/op_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/format_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/format_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/format_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/obutil_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/obutil_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/obutil_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/painter_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/painter_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/painter_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/patty_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/patty_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/patty_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/pointgroup_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/pointgroup_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/pointgroup_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/phmodel_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/phmodel_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/phmodel_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/query_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/query_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/query_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/plugin_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/plugin_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/plugin_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/data_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/data_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/data_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/parsmart_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/parsmart_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/parsmart_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/residue_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/residue_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/residue_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/generic_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/generic_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/generic_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/obiter_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/obiter_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/obiter_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/rand_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/rand_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/rand_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/shared__ptr_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/shared__ptr_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/shared__ptr_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/spectrophore_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/spectrophore_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/spectrophore_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/squareplanar_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/squareplanar_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/squareplanar_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/rotamer_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/rotamer_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/rotamer_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/svgpainter_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/svgpainter_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/svgpainter_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/rotor_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/rotor_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/rotor_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/spacegroup_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/spacegroup_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/spacegroup_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/base_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/base_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/base_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/stereo_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/stereo_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/stereo_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/tetrahedral_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/tetrahedral_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/tetrahedral_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/tetranonplanar_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/tetranonplanar_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/tetranonplanar_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/oberror_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/oberror_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/htmError: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/verbose__visitors_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/verbose__visitors_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/verbose__visitors_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1AliasData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1AliasData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1AliasData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/transform3d_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/transform3d_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/transform3d_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAtomClassData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAtomClassData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAtomClassData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/ring_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/ring_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/ring_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBBond__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBBond__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBBond__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBBase__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBBase__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBBase__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBChargeModel__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBChargeModel__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBChargeModel__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/tokenst_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/tokenst_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/tokenst_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBBondTyper__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBBondTyper__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBBondTyper__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/tetraplanar_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/tetraplanar_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/tetraplanar_8h__dep__incl.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAtom__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAtom__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAtom__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConformerFilter__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConformerFilter__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConformerFilter__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBStericConformerFilter__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBStericConformerFilter__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBStericConformerFilter__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBEnergyConformerScore__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBEnergyConformerScore__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBEnergyConformerScore__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRMSDConformerScore__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRMSDConformerScore__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRMSDConformerScore__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/vector3_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/vector3_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/vector3_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBIsotopeTable__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBIsotopeTable__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBIsotopeTable__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConformerScore__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConformerScore__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConformerScore__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBElementTable__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBElementTable__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBElementTable__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConformerFilters__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConformerFilters__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConformerFilters__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBResidueData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBResidueData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBResidueData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBTypeTable__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBTypeTable__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBTypeTable__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFingerprint__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFingerprint__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFingerprint__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGlobalDataBase__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGlobalDataBase__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGlobalDataBase__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFFCalculation2__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFFCalculation2__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFFCalculation2__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBDescriptor__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBDescriptor__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBDescriptor__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBCommentData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBCommentData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBCommentData__inherit__graph.map"'
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGenericData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGenericData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGenericData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFFCalculation4__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFFCalculation4__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFFCalculation4__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBExternalBondData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBExternalBondData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBExternalBondData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPairData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPairData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPairData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFormat__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFormat__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFormat__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBForceField__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBForceField__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBForceField__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBSetData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBSetData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBSetData__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPairTemplate__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPairTemplate__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPairTemplate__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConformerData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConformerData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConformerData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBUnitCell__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBUnitCell__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBUnitCell__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRingData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRingData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRingData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/typer_8h__dep__incl.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/typer_8h__dep__incl.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/typer_8h__dep__incl.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAngleData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAngleData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAngleData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBSymmetryData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBSymmetryData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBSymmetryData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBSerialNums__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBSerialNums__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBSerialNums__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBTorsionData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBTorsionData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBTorsionData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBVirtualBond__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBVirtualBond__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBVirtualBond__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBChiralData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBChiralData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBChiralData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBVibrationData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBVibrationData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBVibrationData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBDOSData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBDOSData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBDOSData__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBOrbitalData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBOrbitalData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBOrbitalData__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBElectronicTransitionData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBElectronicTransitionData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBElectronicTransitionData__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRotationData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRotationData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRotationData__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBMatrixData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBMatrixData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBMatrixData__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGrid__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGrid__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGrid__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+ProblemCould not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGridData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGridData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGridData__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFloatGrid__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFloatGrid__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBFloatGrid__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1InChIFormat__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1InChIFormat__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1InChIFormat__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBVectorData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBVectorData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBVectorData__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1InChICompareFormat__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1InChICompareFormat__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1InChICompareFormat__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBMol__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBMol__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBMol__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBIsomorphismMapper__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBIsomorphismMapper__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBIsomorphismMapper__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGroupContrib__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGroupContrib__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBGroupContrib__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRateData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRateData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRateData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConversion__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConversion__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBConversion__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBIsomorphismMapper_1_1Functor__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBIsomorphismMapper_1_1Functor__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBIsomorphismMapper_1_1Functor__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBNasaThermoData__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBNasaThermoData__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBNasaThermoData__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBOp__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBOp__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBOp__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OpTransform__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OpTransform__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OpTransform__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBQueryAtom__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBQueryAtom__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBQueryAtom__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRotamerList__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRotamerList__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRotamerList__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBMoleculeFormat__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBMoleculeFormat__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBMoleculeFormat__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBResidue__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBResidue__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBResidue__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRotorRules__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRotorRules__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRotorRules__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBText__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBText__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBText__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPlugin__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPlugin__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPlugin__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRingTyper__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRingTyper__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBRingTyper__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAtomTyper__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAtomTyper__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAtomTyper__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAromaticTyper__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAromaticTyper__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBAromaticTyper__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBReaction__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBReaction__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBReaction__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1XMLConversion__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1XMLConversion__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1XMLConversion__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1matrix3x3__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1matrix3x3__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1matrix3x3__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1XMLBaseFormat__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1XMLBaseFormat__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1XMLBaseFormat__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPhModel__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPhModel__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPhModel__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1XMLMoleculeFormat__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1XMLMoleculeFormat__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1XMLMoleculeFormat__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1vector3__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1vector3__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1vector3__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1transform3d__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1transform3d__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1transform3d__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBStereoBase__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBStereoBase__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBStereoBase__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPainter__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPainter__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBPainter__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBTetraPlanarStereo__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBTetraPlanarStereo__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBTetraPlanarStereo__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBTetraNonPlanarStereo__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBTetraNonPlanarStereo__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1OBTetraNonPlanarStereo__inherit__graph.map"'
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1SVGPainter__inherit__graph.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1SVGPainter__inherit__graph.png" -Tcmapx -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/classOpenBabel_1_1SVGPainter__inherit__graph.map"'
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Error: Could not find/open font
+Problems running dot: exit code=1, command='/home/bcri/noboyle/tools/graphviz-2.26.3/tree/bin/dot', arguments='"/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/graph_legend.dot" -Tpng -o "/home/bcri/noboyle/tools/openbabel/nightly/openbabel/doc/API/html/graph_legend.png"'

@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$mol_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="1849,83,1900,111"/>
+<area shape="rect" id="node92" href="$kekulize_8cpp.shtml" title="Alternate algorithm to kekulize a molecule (OBMol::NewPerceiveKekuleBonds())." alt="" coords="4104,161,4192,189"/>
+<area shape="rect" id="node109" href="$ring_8cpp.shtml" title="Deal with rings, find smallest set of smallest rings (SSSR)." alt="" coords="4216,161,4280,189"/>
+<area shape="rect" id="node5" href="$alias_8h.shtml" title="OBGenericData class to for atom alias data (e.g., in 2D drawing programs for &quot;COOH&quot;)..." alt="" coords="3973,161,4029,189"/>
+<area shape="rect" id="node7" href="$generic_8cpp.shtml" title="Handle OBGenericData classes. Custom data for atoms, bonds, etc." alt="" coords="3992,238,4075,266"/>
+<area shape="rect" id="node9" href="$depict_8cpp.shtml" title="depict.cpp" alt="" coords="1743,238,1817,266"/>
+<area shape="rect" id="node11" href="$builder_8h.shtml" title="Class to build 3D structures." alt="" coords="104,161,173,189"/>
+<area shape="rect" id="node13" href="$atom_8cpp.shtml" title="Handle OBAtom class." alt="" coords="5,238,75,266"/>
+<area shape="rect" id="node15" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="99,238,179,266"/>
+<area shape="rect" id="node17" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="203,238,267,266"/>
+<area shape="rect" id="node19" href="$conformersearch_8h.shtml" title="conformersearch.h" alt="" coords="341,238,461,266"/>
+<area shape="rect" id="node21" href="$forcefield_8h.shtml" title="Handle forcefields." alt="" coords="536,238,619,266"/>
+<area shape="rect" id="node23" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="451,315,547,343"/>
+<area shape="rect" id="node25" href="$grid_8h.shtml" title="Handle grids of values." alt="" coords="624,161,677,189"/>
+<area shape="rect" id="node28" href="$grid_8cpp.shtml" title="Handle grids of values." alt="" coords="643,238,707,266"/>
+<area shape="rect" id="node30" href="$griddata_8cpp.shtml" title="OBGenericData class to connect numeric grids (e.g., orbitals, electrostatic potential)..." alt="" coords="731,238,819,266"/>
+<area shape="rect" id="node32" href="$groupcontrib_8h.shtml" title="Handle group contribution algorithms." alt="" coords="843,238,941,266"/>
+<area shape="rect" id="node34" href="$inchiformat_8h.shtml" title="inchiformat.h" alt="" coords="1080,238,1173,266"/>
+<area shape="rect" id="node36" href="$isomorphism_8h.shtml" title="isomorphism.h" alt="" coords="1293,161,1395,189"/>
+<area shape="rect" id="node38" href="$align_8h.shtml" title="align.h" alt="" coords="1293,238,1349,266"/>
+<area shape="rect" id="node40" href="$obmolecformat_8h.shtml" title="Subclass of OBFormat for conversion of OBMol." alt="" coords="1056,161,1168,189"/>
+<area shape="rect" id="node43" href="$xml_8h.shtml" title="Declaration of XMLConversion, declaration and definition of XMLBaseFormat and XMLMoleculeFormat..." alt="" coords="1197,238,1248,266"/>
+<area shape="rect" id="node45" href="$optransform_8h.shtml" title="Operations to change molecules using a datafile of chemical transformations OBChemTsfm..." alt="" coords="1531,161,1627,189"/>
+<area shape="rect" id="node47" href="$parsmart_8h.shtml" title="Daylight SMARTS parser." alt="" coords="853,161,931,189"/>
+<area shape="rect" id="node50" href="$parsmart_8cpp.shtml" title="Implementation of Daylight SMARTS parser." alt="" coords="965,238,1056,266"/>
+<area shape="rect" id="node52" href="$pointgroup_8h.shtml" title="Brute&#45;force point group detection." alt="" coords="1419,161,1507,189"/>
+<area shape="rect" id="node54" href="$pointgroup_8cpp.shtml" title="Brute&#45;force point group detection." alt="" coords="1548,238,1649,266"/>
+<area shape="rect" id="node56" href="$query_8h.shtml" title="query.h" alt="" coords="1752,161,1813,189"/>
+<area shape="rect" id="node58" href="$reaction_8h.shtml" title="Handle chemical reactions (i.e., lists of reagents and products)." alt="" coords="1837,161,1912,189"/>
+<area shape="rect" id="node60" href="$rotamer_8h.shtml" title="Handle rotamer list data." alt="" coords="299,161,371,189"/>
+<area shape="rect" id="node66" href="$spectrophore_8h.shtml" title="Class to compute Spectrophores&tm;." alt="" coords="1936,161,2035,189"/>
+<area shape="rect" id="node71" href="$bond_8cpp.shtml" title="Handle OBBond class." alt="" coords="2059,161,2128,189"/>
+<area shape="rect" id="node73" href="$bondtyper_8cpp.shtml" title="Bond typer to perceive connectivity and bond orders/types." alt="" coords="2152,161,2248,189"/>
+<area shape="rect" id="node76" href="$canon_8cpp.shtml" title="Canonical numbering of SMILES, molecules and fragments." alt="" coords="2272,161,2347,189"/>
+<area shape="rect" id="node78" href="$chains_8cpp.shtml" title="Parse for macromolecule chains and residues." alt="" coords="2371,161,2448,189"/>
+<area shape="rect" id="node80" href="$chargemodel_8cpp.shtml" title="Base class for molecular partial charge models." alt="" coords="2472,161,2584,189"/>
+<area shape="rect" id="node82" href="$chiral_8cpp.shtml" title="Detect chiral atoms and molecules." alt="" coords="2608,161,2683,189"/>
+<area shape="rect" id="node84" href="$data_8cpp.shtml" title="Global data and resource file parsers." alt="" coords="2707,161,2773,189"/>
+<area shape="rect" id="node88" href="$graphsym_8cpp.shtml" title="XXXX." alt="" coords="2797,161,2893,189"/>
+<area shape="rect" id="node94" href="$mcdlutil_8cpp.shtml" title="mcdlutil.cpp" alt="" coords="2917,161,3005,189"/>
+<area shape="rect" id="node97" href="$molchrg_8cpp.shtml" title="Assign Gasteiger partial charges." alt="" coords="3029,161,3117,189"/>
+<area shape="rect" id="node99" href="$obiter_8cpp.shtml" title="STL&#45;style iterators for Open Babel." alt="" coords="3141,161,3216,189"/>
+<area shape="rect" id="node101" href="$obutil_8cpp.shtml" title="Various utility methods." alt="" coords="3240,161,3315,189"/>
+<area shape="rect" id="node104" href="$patty_8cpp.shtml" title="Programmable atom typer." alt="" coords="3339,161,3408,189"/>
+<area shape="rect" id="node106" href="$phmodel_8cpp.shtml" title="Read pH rules and assign charges." alt="" coords="3432,161,3523,189"/>
+<area shape="rect" id="node111" href="$rotor_8cpp.shtml" title="Rotate dihedral angles according to rotor rules." alt="" coords="3547,161,3616,189"/>
+<area shape="rect" id="node113" href="$transform_8cpp.shtml" title="Perform command&#45;line requested transformations for OBMol and SMARTS filtering." alt="" coords="3640,161,3736,189"/>
+<area shape="rect" id="node115" href="$typer_8cpp.shtml" title="Open Babel atom and aromaticity typer." alt="" coords="3760,161,3829,189"/>
+<area shape="rect" id="node118" href="$RDKitConv_8h.shtml" title="Allow conversion from OBMol to RDKit RWMol." alt="" coords="3853,161,3949,189"/>
+</map>
