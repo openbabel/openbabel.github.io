@@ -1,0 +1,4 @@
+<area shape="rect" href="$optransform_8h.shtml" title="Operations to change molecules using a datafile of chemical transformations OBChemTsfm..." alt="" coords="6,80,112,107">
+<area shape="rect" href="$atom_8cpp.shtml" title="Handle OBAtom class." alt="" coords="136,80,214,107">
+<area shape="rect" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="238,80,307,107">
+<area shape="rect" href="$phmodel_8cpp.shtml" title="Read pH rules and assign charges." alt="" coords="331,80,430,107">

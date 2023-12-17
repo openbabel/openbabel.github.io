@@ -1,0 +1,21 @@
+<area shape="rect" href="$atom_8h.shtml" title="Handle atoms." alt="" coords="286,80,350,107">
+<area shape="rect" href="$mol_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="675,230,731,256">
+<area shape="rect" href="$grid_8h.shtml" title="Handle grids of values." alt="" coords="488,230,544,256">
+<area shape="rect" href="$griddata_8h.shtml" title="OBGenericData class to connect numeric grids (e.g., orbitals, electrostatic potential)..." alt="" coords="568,230,651,256">
+<area shape="rect" href="$matrix3x3_8h.shtml" title="Handle 3D Rotation matrix." alt="" coords="1010,230,1100,256">
+<area shape="rect" href="$vector3_8cpp.shtml" title="Handle 3D coordinates." alt="" coords="756,80,850,107">
+<area shape="rect" href="$bond_8h.shtml" title="Handle bonds." alt="" coords="368,155,432,182">
+<area shape="rect" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="583,379,684,406">
+<area shape="rect" href="$atom_8cpp.shtml" title="Handle OBAtom class." alt="" coords="1350,304,1427,331">
+<area shape="rect" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="358,304,446,331">
+<area shape="rect" href="$grid_8cpp.shtml" title="Handle grids of values." alt="" coords="264,304,334,331">
+<area shape="rect" href="$pointgroup_8cpp.shtml" title="Brute&#45;force point group detection." alt="" coords="78,304,190,331">
+<area shape="rect" href="$residue_8cpp.shtml" title="Handle macromolecule residues." alt="" coords="272,230,363,256">
+<area shape="rect" href="$forcefield_8h.shtml" title="Handle forcefields." alt="" coords="590,304,678,331">
+<area shape="rect" href="$chiral_8cpp.shtml" title="Detect chiral atoms and molecules." alt="" coords="752,304,832,331">
+<area shape="rect" href="$generic_8cpp.shtml" title="Handle OBGenericData classes. Custom data for atoms, bonds, etc." alt="" coords="856,304,947,331">
+<area shape="rect" href="$griddata_8cpp.shtml" title="OBGenericData class to connect numeric grids (e.g., orbitals, electrostatic potential)..." alt="" coords="470,304,566,331">
+<area shape="rect" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="971,304,1040,331">
+<area shape="rect" href="$obutil_8cpp.shtml" title="Various utility methods." alt="" coords="1064,304,1144,331">
+<area shape="rect" href="$transform3d_8h.shtml" title="Handle 3D transformations in space groups." alt="" coords="1219,304,1326,331">
+<area shape="rect" href="$matrix3x3_8cpp.shtml" title="Handle 3D rotation matrix." alt="" coords="1451,304,1558,331">

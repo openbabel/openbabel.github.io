@@ -1,0 +1,29 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir=LR;
+  Node1 [label="OBGlobalDataBase",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="OBAromaticTyper",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOpenBabel_1_1OBAromaticTyper.shtml",tooltip="Assigns aromatic typing to atoms and bonds."];
+  Node1 -> Node3 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="OBAtomTyper",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOpenBabel_1_1OBAtomTyper.shtml",tooltip="Assigns atom types, hybridization, implicit valence and formal charges."];
+  Node1 -> Node4 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="OBBondTyper",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOpenBabel_1_1OBBondTyper.shtml",tooltip="Assigns bond types for file formats without bond information."];
+  Node1 -> Node5 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="OBElementTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOpenBabel_1_1OBElementTable.shtml",tooltip="Periodic Table of the Elements."];
+  Node1 -> Node6 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="OBIsotopeTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOpenBabel_1_1OBIsotopeTable.shtml",tooltip="Table of atomic isotope masses."];
+  Node1 -> Node7 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="OBPhModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOpenBabel_1_1OBPhModel.shtml",tooltip="Corrections for pH used by OBMol::CorrectForPH()."];
+  Node1 -> Node8 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node8 [label="OBResidueData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOpenBabel_1_1OBResidueData.shtml",tooltip="Table of common biomolecule residues (for PDB or other files)."];
+  Node1 -> Node9 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node9 [label="OBRingTyper",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOpenBabel_1_1OBRingTyper.shtml",tooltip="Assigns ring types."];
+  Node1 -> Node10 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 [label="OBRotorRules",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOpenBabel_1_1OBRotorRules.shtml",tooltip="Database of default hybridization torsional rules and SMARTS-defined OBRotorRule..."];
+  Node1 -> Node11 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node11 [label="OBTypeTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOpenBabel_1_1OBTypeTable.shtml",tooltip="Atom Type Translation Table."];
+  Node1 -> Node12 [dir=back,color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node12 [label="SpaceGroups",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

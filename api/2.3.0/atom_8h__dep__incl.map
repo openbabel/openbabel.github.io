@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$bond_8h.shtml" title="Handle bonds." alt="" coords="272,83,331,111"/>
+<area shape="rect" id="node5" href="$mol_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="339,161,389,189"/>
+<area shape="rect" id="node7" href="$atom_8cpp.shtml" title="Handle OBAtom class." alt="" coords="109,238,179,266"/>
+<area shape="rect" id="node11" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="5,238,85,266"/>
+<area shape="rect" id="node13" href="$chargemodel_8cpp.shtml" title="Base class for molecular partial charge models." alt="" coords="416,238,528,266"/>
+<area shape="rect" id="node15" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="203,238,299,266"/>
+<area shape="rect" id="node17" href="$grid_8cpp.shtml" title="Handle grids of values." alt="" coords="552,238,616,266"/>
+<area shape="rect" id="node19" href="$pointgroup_8cpp.shtml" title="Brute&#45;force point group detection." alt="" coords="640,238,741,266"/>
+<area shape="rect" id="node24" href="$residue_8cpp.shtml" title="Handle macromolecule residues." alt="" coords="413,161,496,189"/>
+<area shape="rect" id="node9" href="$bond_8cpp.shtml" title="Handle OBBond class." alt="" coords="323,238,392,266"/>
+</map>

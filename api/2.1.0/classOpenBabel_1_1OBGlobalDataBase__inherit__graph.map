@@ -1,0 +1,9 @@
+<area shape="rect" href="$classOpenBabel_1_1OBAromaticTyper.shtml" title="Assigns aromatic typing to atoms and bonds." alt="" coords="8,82,138,109">
+<area shape="rect" href="$classOpenBabel_1_1OBAtomTyper.shtml" title="Assigns atom types, hybridization, implicit valence and formal charges." alt="" coords="162,82,269,109">
+<area shape="rect" href="$classOpenBabel_1_1OBBondTyper.shtml" title="Assigns bond types for file formats without bond information." alt="" coords="293,82,400,109">
+<area shape="rect" href="$classOpenBabel_1_1OBElementTable.shtml" title="Periodic Table of the Elements." alt="" coords="424,82,549,109">
+<area shape="rect" href="$classOpenBabel_1_1OBIsotopeTable.shtml" title="Table of atomic isotope masses." alt="" coords="573,82,693,109">
+<area shape="rect" href="$classOpenBabel_1_1OBPhModel.shtml" title="Corrections for pH used by OBMol::CorrectForPH()." alt="" coords="717,82,813,109">
+<area shape="rect" href="$classOpenBabel_1_1OBResidueData.shtml" title="Table of common biomolecule residues (for PDB or other files)." alt="" coords="837,82,957,109">
+<area shape="rect" href="$classOpenBabel_1_1OBRotorRules.shtml" title="Database of default hybridization torsional rules and SMARTS&#45;defined OBRotorRule..." alt="" coords="981,82,1090,109">
+<area shape="rect" href="$classOpenBabel_1_1OBTypeTable.shtml" title="Atom Type Translation Table." alt="" coords="1114,82,1218,109">

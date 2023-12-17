@@ -1,0 +1,14 @@
+base referer
+rect $classOpenBabel_1_1OBAngleData.shtml 201,8 305,34
+rect $classOpenBabel_1_1OBChiralData.shtml 200,58 306,85
+rect $classOpenBabel_1_1OBCommentData.shtml 189,109 317,136
+rect $classOpenBabel_1_1OBConformerData.shtml 185,160 321,186
+rect $classOpenBabel_1_1OBExternalBondData.shtml 177,210 329,237
+rect $classOpenBabel_1_1OBPairData.shtml 206,261 300,288
+rect $classOpenBabel_1_1OBRingData.shtml 204,312 302,338
+rect $classOpenBabel_1_1OBRotamerList.shtml 196,362 310,389
+rect $classOpenBabel_1_1OBSerialNums.shtml 197,413 309,440
+rect $classOpenBabel_1_1OBSymmetryData.shtml 188,464 318,490
+rect $classOpenBabel_1_1OBTorsionData.shtml 194,514 312,541
+rect $classOpenBabel_1_1OBUnitCell.shtml 209,565 297,592
+rect $classOpenBabel_1_1OBVirtualBond.shtml 197,616 309,642

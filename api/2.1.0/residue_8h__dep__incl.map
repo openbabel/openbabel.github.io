@@ -1,0 +1,38 @@
+<area shape="rect" href="$atom_8h.shtml" title="Defines for residue properties, names, etc." alt="" coords="136,458,200,485">
+<area shape="rect" href="$mol_8h.shtml" title="Handle bonds." alt="" coords="378,742,434,769">
+<area shape="rect" href="$residue_8cpp.shtml" title="Handle bonds." alt="" coords="361,793,452,820">
+<area shape="rect" href="$bond_8h.shtml" title="Handle atoms." alt="" coords="248,458,312,485">
+<area shape="rect" href="$forcefield_8cpp.shtml" title="Handle forcefields." alt="" coords="1146,274,1250,301">
+<area shape="rect" href="$atom_8cpp.shtml" title="Read pH rules and assign charges." alt="" coords="858,920,936,946">
+<area shape="rect" href="$grid_8cpp.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="529,109,598,136">
+<area shape="rect" href="$bond_8cpp.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="525,210,602,237">
+<area shape="rect" href="$forcefield_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="1009,236,1097,262">
+<area shape="rect" href="$groupcontrib_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="676,970,785,997">
+<area shape="rect" href="$obmolecformat_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="502,818,625,845">
+<area shape="rect" href="$xml_8h.shtml" title="Subclass of OBFormat for conversion of OBMol." alt="" coords="702,844,758,870">
+<area shape="rect" href="$parsmart_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="520,1173,608,1200">
+<area shape="rect" href="$bondtyper_8cpp.shtml" title="Bond typer to perceive connectivity and bond orders/types." alt="" coords="844,1097,950,1124">
+<area shape="rect" href="$mol_8cpp.shtml" title="Bond typer to perceive connectivity and bond orders/types." alt="" coords="1164,1224,1233,1250">
+<area shape="rect" href="$phmodel_8cpp.shtml" title="Read pH rules and assign charges." alt="" coords="848,1350,946,1377">
+<area shape="rect" href="$rotamer_8h.shtml" title="Rotate torsional according to rotor rules." alt="" coords="1013,1072,1093,1098">
+<area shape="rect" href="$rotor_8cpp.shtml" title="Rotate torsional according to rotor rules." alt="" coords="1016,1224,1090,1250">
+<area shape="rect" href="$typer_8cpp.shtml" title="Open Babel atom and aromaticity typer." alt="" coords="858,1413,936,1440">
+<area shape="rect" href="$parsmart_8cpp.shtml" title="Daylight SMARTS parser." alt="" coords="680,1122,781,1149">
+<area shape="rect" href="$canon_8cpp.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="521,1578,606,1605">
+<area shape="rect" href="$chains_8cpp.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="521,1629,606,1656">
+<area shape="rect" href="$chiral_8cpp.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="524,1680,604,1706">
+<area shape="rect" href="$data_8cpp.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="526,362,601,389">
+<area shape="rect" href="$generic_8cpp.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="518,413,609,440">
+<area shape="rect" href="$kekulize_8cpp.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="516,464,612,490">
+<area shape="rect" href="$molchrg_8cpp.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="516,514,612,541">
+<area shape="rect" href="$obiter_8cpp.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="524,565,604,592">
+<area shape="rect" href="$obutil_8cpp.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="524,616,604,642">
+<area shape="rect" href="$patty_8cpp.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="525,666,602,693">
+<area shape="rect" href="$ring_8cpp.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="529,717,598,744">
+<area shape="rect" href="$transform_8cpp.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="512,768,616,794">
+<area shape="rect" href="$groupcontrib_8cpp.shtml" title="Handle group contribution algorithms." alt="" coords="836,970,958,997">
+<area shape="rect" href="$bondtyper_8h.shtml" title="Daylight SMARTS parser." alt="" coords="684,1173,777,1200">
+<area shape="rect" href="$phmodel_8h.shtml" title="Daylight SMARTS parser." alt="" coords="688,1274,773,1301">
+<area shape="rect" href="$rotor_8h.shtml" title="Daylight SMARTS parser." alt="" coords="866,1224,928,1250">
+<area shape="rect" href="$typer_8h.shtml" title="Daylight SMARTS parser." alt="" coords="698,1325,762,1352">
+<area shape="rect" href="$rotamer_8cpp.shtml" title="Handle rotamer list data." alt="" coords="1152,1072,1245,1098">

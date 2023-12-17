@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$alias_8cpp.shtml" title="OBGenericData class to for atom alias data (e.g., in 2D drawing programs for &quot;COOH&quot;)..." alt="" coords="5,83,72,111"/>
+<area shape="rect" id="node5" href="$atom_8cpp.shtml" title="Handle OBAtom class." alt="" coords="96,83,165,111"/>
+<area shape="rect" id="node7" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="189,83,269,111"/>
+<area shape="rect" id="node9" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="293,83,357,111"/>
+</map>

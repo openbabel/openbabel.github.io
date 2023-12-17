@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classOpenBabel_1_1OBAtom.shtml" title="Atom class." alt="" coords="5,83,75,111"/>
+<area shape="rect" id="node5" href="$classOpenBabel_1_1OBBond.shtml" title="Bond class." alt="" coords="99,83,168,111"/>
+<area shape="rect" id="node7" href="$classOpenBabel_1_1OBGrid.shtml" title="A base grid class." alt="" coords="192,83,256,111"/>
+<area shape="rect" id="node13" href="$classOpenBabel_1_1OBMol.shtml" title="Molecule Class." alt="" coords="280,83,341,111"/>
+<area shape="rect" id="node15" href="$classOpenBabel_1_1OBReaction.shtml" title="Used to store chemical reactions (i.e., reactants &#45;&gt; products)." alt="" coords="365,83,451,111"/>
+<area shape="rect" id="node17" href="$classOpenBabel_1_1OBResidue.shtml" title="Residue information." alt="" coords="475,83,557,111"/>
+<area shape="rect" id="node19" href="$classOpenBabel_1_1OBText.shtml" title="An object containing just text." alt="" coords="581,83,645,111"/>
+<area shape="rect" id="node9" href="$classOpenBabel_1_1OBFloatGrid.shtml" title="Handle double precision floating point 3D grids (e.g., charge density around an OBMol)..." alt="" coords="121,161,212,189"/>
+<area shape="rect" id="node11" href="$classOpenBabel_1_1OBProxGrid.shtml" title="A grid for determining the proximity of a given point to atoms in an OBMol." alt="" coords="236,161,324,189"/>
+</map>

@@ -1,0 +1,24 @@
+<area shape="rect" href="$classOpenBabel_1_1AliasData.shtml" title="Indicate atoms as aliases for larger functional groups." alt="" coords="209,6,292,32">
+<area shape="rect" href="$classOpenBabel_1_1OBAngleData.shtml" title="Used to hold all angles in a molecule as generic data for OBMol." alt="" coords="199,56,303,83">
+<area shape="rect" href="$classOpenBabel_1_1OBAtomClassData.shtml" title="Handle atom classes in reaction SMILES/SMIRKS." alt="" coords="183,107,319,134">
+<area shape="rect" href="$classOpenBabel_1_1OBChiralData.shtml" title="Used to hold chiral inforamtion about the atom as OBGenericData." alt="" coords="197,158,304,184">
+<area shape="rect" href="$classOpenBabel_1_1OBCommentData.shtml" title="Used to store a comment string (can be multiple lines long)." alt="" coords="187,208,315,235">
+<area shape="rect" href="$classOpenBabel_1_1OBConformerData.shtml" title="Used to hold data on conformers or geometry optimization steps." alt="" coords="184,259,317,286">
+<area shape="rect" href="$classOpenBabel_1_1OBExternalBondData.shtml" title="Used to store information on external bonds (e.g., in SMILES fragments)." alt="" coords="175,310,327,336">
+<area shape="rect" href="$classOpenBabel_1_1OBGridData.shtml" title="Store values for numeric grids such as orbitals or electrostatic potential." alt="" coords="203,360,299,387">
+<area shape="rect" href="$classOpenBabel_1_1OBMatrixData.shtml" title="Used to hold a 3x3 matrix item (e.g., a quadrupole moment)." alt="" coords="197,411,304,438">
+<area shape="rect" href="$classOpenBabel_1_1OBNasaThermoData.shtml" title="Thermodynamic data in old style NASA polynomial form for OBMol." alt="" coords="176,462,325,488">
+<area shape="rect" href="$classOpenBabel_1_1OBPairData.shtml" title="Used to store arbitrary text attribute/value relationships." alt="" coords="204,512,297,539">
+<area shape="rect" href="$classOpenBabel_1_1OBPairTemplate.shtml" title="Used to store arbitrary attribute/value relationsips of any type." alt="" coords="189,563,312,590">
+<area shape="rect" href="$classOpenBabel_1_1OBRateData.shtml" title="Holds rate constant data for OBReaction." alt="" coords="201,614,300,640">
+<area shape="rect" href="$classOpenBabel_1_1OBRingData.shtml" title="Used to store the SSSR set (filled in by OBMol::GetSSSR())." alt="" coords="201,664,300,691">
+<area shape="rect" href="$classOpenBabel_1_1OBRotamerList.shtml" title="Supports a set of rotamer coordinate sets for some number of potentially rotatable..." alt="" coords="193,715,308,742">
+<area shape="rect" href="$classOpenBabel_1_1OBRotationData.shtml" title="Used to hold the rotational constants and symmetry numbers." alt="" coords="191,766,311,792">
+<area shape="rect" href="$classOpenBabel_1_1OBSerialNums.shtml" title="Defines a map between serial numbers (e.g., in a PDB file) and OBAtom objects inside..." alt="" coords="195,816,307,843">
+<area shape="rect" href="$classOpenBabel_1_1OBSetData.shtml" title="Used to store arbitrary attribute/set relationships. Should be used to store a set..." alt="" coords="205,867,296,894">
+<area shape="rect" href="$classOpenBabel_1_1OBSymmetryData.shtml" title="Used to hold the point&#45;group and/or space&#45;group symmetry." alt="" coords="185,918,316,944">
+<area shape="rect" href="$classOpenBabel_1_1OBTorsionData.shtml" title="Used to hold torsions as generic data for OBMol." alt="" coords="193,968,308,995">
+<area shape="rect" href="$classOpenBabel_1_1OBUnitCell.shtml" title="Used for storing information about periodic boundary conditions with conversion to/from..." alt="" coords="207,1019,295,1046">
+<area shape="rect" href="$classOpenBabel_1_1OBVectorData.shtml" title="Used to hold a 3D vector item (e.g., a dipole moment)." alt="" coords="196,1070,305,1096">
+<area shape="rect" href="$classOpenBabel_1_1OBVibrationData.shtml" title="Used to hold the normal modes of a molecule, etc." alt="" coords="188,1120,313,1147">
+<area shape="rect" href="$classOpenBabel_1_1OBVirtualBond.shtml" title="Used to temporarily store bonds that reference an atom that has not yet been added..." alt="" coords="195,1171,307,1198">

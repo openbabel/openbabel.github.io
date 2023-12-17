@@ -1,0 +1,8 @@
+<area shape="rect" href="$classOpenBabel_1_1OBAtom.shtml" title="Atom class." alt="" coords="7,82,79,109">
+<area shape="rect" href="$classOpenBabel_1_1OBBond.shtml" title="Bond class." alt="" coords="103,82,175,109">
+<area shape="rect" href="$classOpenBabel_1_1OBGrid.shtml" title="A base grid class." alt="" coords="199,82,266,109">
+<area shape="rect" href="$classOpenBabel_1_1OBMol.shtml" title="Molecule Class." alt="" coords="290,82,354,109">
+<area shape="rect" href="$classOpenBabel_1_1OBReaction.shtml" title="Used to store chemical reactions (i.e., reactants &#45;&gt; products)." alt="" coords="378,82,474,109">
+<area shape="rect" href="$classOpenBabel_1_1OBResidue.shtml" title="Residue information." alt="" coords="498,82,589,109">
+<area shape="rect" href="$classOpenBabel_1_1OBFloatGrid.shtml" title="Handle floating&#45;point 3D grids (e.g., charge density around an OBMol)." alt="" coords="122,157,221,184">
+<area shape="rect" href="$classOpenBabel_1_1OBProxGrid.shtml" title="A grid for determining the proximity of a given point to atoms in an OBMol." alt="" coords="245,157,341,184">

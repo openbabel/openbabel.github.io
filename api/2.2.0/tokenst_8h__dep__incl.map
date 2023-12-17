@@ -1,0 +1,15 @@
+<area shape="rect" href="$base_8h.shtml" title="Base classes to build a graph." alt="" coords="395,80,456,107">
+<area shape="rect" href="$tokenst_8cpp.shtml" title="Tokenize a string." alt="" coords="480,80,571,107">
+<area shape="rect" href="$atom_8h.shtml" title="Handle atoms." alt="" coords="107,229,171,256">
+<area shape="rect" href="$bond_8h.shtml" title="Handle bonds." alt="" coords="56,304,120,331">
+<area shape="rect" href="$mol_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="211,379,267,405">
+<area shape="rect" href="$builder_8h.shtml" title="Class to build 3D structures." alt="" coords="76,453,151,480">
+<area shape="rect" href="$forcefield_8h.shtml" title="Handle forcefields." alt="" coords="538,453,626,480">
+<area shape="rect" href="$atomclass_8h.shtml" title="Handle atom classes in reaction SMILES/SMIRKS." alt="" coords="670,155,763,181">
+<area shape="rect" href="$generic_8h.shtml" title="Handle generic data classes. Custom data for atoms, bonds, etc." alt="" coords="387,155,464,181">
+<area shape="rect" href="$descriptor_8cpp.shtml" title="Base class for molecular descriptors." alt="" coords="438,229,544,256">
+<area shape="rect" href="$griddata_8h.shtml" title="OBGenericData class to connect numeric grids (e.g., orbitals, electrostatic potential)..." alt="" coords="619,304,702,331">
+<area shape="rect" href="$obiter_8h.shtml" title="STL&#45;style iterators for Open Babel." alt="" coords="246,229,312,256">
+<area shape="rect" href="$op_8h.shtml" title="Base plugin class for operations on molecules." alt="" coords="787,155,835,181">
+<area shape="rect" href="$residue_8h.shtml" title="Defines for residue properties, names, etc." alt="" coords="176,155,254,181">
+<area shape="rect" href="$base_8cpp.shtml" title="Implementation of base classes." alt="" coords="859,155,934,181">

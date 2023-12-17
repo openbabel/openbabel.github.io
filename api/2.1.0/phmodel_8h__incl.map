@@ -1,0 +1,18 @@
+<area shape="rect" href="$parsmart_8h.shtml" title="Read pH rules and assign charges." alt="" coords="144,312,298,338">
+<area shape="rect" href="$data_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="733,185,861,212">
+<area shape="rect" href="$mol_8h.shtml" title="Daylight SMARTS parser." alt="" coords="346,1026,469,1053">
+<area shape="rect" href="$atom_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="732,768,862,794">
+<area shape="rect" href="$base_8h.shtml" title="Handle atoms." alt="" coords="1132,1122,1260,1149">
+<area shape="rect" href="$generic_8h.shtml" title="Base classes to build a graph." alt="" coords="1310,1224,1454,1250">
+<area shape="rect" href="$vector3_8h.shtml" title="Handle generic data classes. Custom data for atoms, bonds, etc." alt="" coords="1505,1528,1684,1554">
+<area shape="rect" href="$residue_8h.shtml" title="Handle atoms." alt="" coords="937,565,1081,592">
+<area shape="rect" href="$bond_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="522,1058,653,1085">
+<area shape="rect" href="$chains_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="518,1426,657,1453">
+<area shape="rect" href="$bitvec_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="1314,920,1450,946">
+<area shape="rect" href="$ring_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="1134,1528,1257,1554">
+<area shape="rect" href="$typer_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="522,210,653,237">
+<area shape="rect" href="$oberror_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="1310,1376,1454,1402">
+<area shape="rect" href="$obiter_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="942,970,1076,997">
+<area shape="rect" href="$internalcoord_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="706,1325,888,1352">
+<area shape="rect" href="$obutil_8h.shtml" title="Handle generic data classes. Custom data for atoms, bonds, etc." alt="" coords="1528,1274,1661,1301">
+<area shape="rect" href="$rand_8h.shtml" title="Handle 3D coordinates." alt="" coords="1734,1502,1862,1529">

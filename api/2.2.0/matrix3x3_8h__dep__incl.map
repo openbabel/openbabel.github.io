@@ -1,0 +1,11 @@
+<area shape="rect" href="$transform3d_8h.shtml" title="Handle 3D transformations in space groups." alt="" coords="72,80,179,107">
+<area shape="rect" href="$atom_8cpp.shtml" title="Handle OBAtom class." alt="" coords="203,80,280,107">
+<area shape="rect" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="304,80,392,107">
+<area shape="rect" href="$chiral_8cpp.shtml" title="Detect chiral atoms and molecules." alt="" coords="416,80,496,107">
+<area shape="rect" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="520,80,621,107">
+<area shape="rect" href="$generic_8cpp.shtml" title="Handle OBGenericData classes. Custom data for atoms, bonds, etc." alt="" coords="645,80,736,107">
+<area shape="rect" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="760,80,829,107">
+<area shape="rect" href="$obutil_8cpp.shtml" title="Various utility methods." alt="" coords="853,80,933,107">
+<area shape="rect" href="$matrix3x3_8cpp.shtml" title="Handle 3D rotation matrix." alt="" coords="957,80,1064,107">
+<area shape="rect" href="$spacegroup_8h.shtml" title="Handle Crystallographic Space Groups." alt="" coords="5,155,109,182">
+<area shape="rect" href="$transform3d_8cpp.shtml" title="Handle 3D transformations in space groups." alt="" coords="133,155,253,182">
