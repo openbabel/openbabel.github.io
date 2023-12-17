@@ -1,2 +1,3 @@
+'api/2.3/index' 'api/2.3.0/index'
 'api/index.rst' 'api/3.0/index'
 'dev-api/index.rst' 'api/3.0/index'
