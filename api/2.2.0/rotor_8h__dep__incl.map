@@ -1,0 +1,6 @@
+<area shape="rect" href="$rotamer_8h.shtml" title="Handle rotamer list data." alt="" coords="188,80,268,107">
+<area shape="rect" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="6,155,94,182">
+<area shape="rect" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="118,155,219,182">
+<area shape="rect" href="$rotor_8cpp.shtml" title="Rotate dihedral angles according to rotor rules." alt="" coords="292,80,367,107">
+<area shape="rect" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="243,155,312,182">
+<area shape="rect" href="$rotamer_8cpp.shtml" title="Handle rotamer list data." alt="" coords="336,155,430,182">

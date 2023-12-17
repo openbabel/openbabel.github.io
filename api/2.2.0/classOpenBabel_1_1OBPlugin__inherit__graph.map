@@ -1,0 +1,9 @@
+<area shape="rect" href="$classOpenBabel_1_1OBDescriptor.shtml" title="Base class for molecular properties, descriptors or features." alt="" coords="15,80,119,107">
+<area shape="rect" href="$classOpenBabel_1_1OBFingerprint.shtml" title="The base class for fingerprints." alt="" coords="143,80,249,107">
+<area shape="rect" href="$classOpenBabel_1_1OBForceField.shtml" title="Base class for molecular mechanics force fields." alt="" coords="273,80,380,107">
+<area shape="rect" href="$classOpenBabel_1_1OBFormat.shtml" title="Base class for file formats." alt="" coords="404,80,489,107">
+<area shape="rect" href="$classOpenBabel_1_1OBOp.shtml" title="Operations to modify molecules before output." alt="" coords="544,80,603,107">
+<area shape="rect" href="$classOpenBabel_1_1OBGroupContrib.shtml" title="Handle group contribution algorithms." alt="" coords="5,155,128,182">
+<area shape="rect" href="$classOpenBabel_1_1OBMoleculeFormat.shtml" title="An OBFormat convenience subclass for conversion to/from OBMol data." alt="" coords="221,155,360,182">
+<area shape="rect" href="$classOpenBabel_1_1XMLBaseFormat.shtml" title="Abstract class containing common functionality for XML formats." alt="" coords="384,155,509,182">
+<area shape="rect" href="$classOpenBabel_1_1OpTransform.shtml" title="Applies molecular transforms (OBChemTsfm class) read from a datafile." alt="" coords="637,155,739,182">

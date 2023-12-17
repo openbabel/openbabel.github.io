@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$canon_8cpp.shtml" title="Canonical numbering of SMILES, molecules and fragments." alt="" coords="5,83,80,111"/>
+<area shape="rect" id="node5" href="$graphsym_8cpp.shtml" title="XXXX." alt="" coords="104,83,200,111"/>
+<area shape="rect" id="node7" href="$isomorphism_8cpp.shtml" title="isomorphism.cpp" alt="" coords="224,83,336,111"/>
+<area shape="rect" id="node9" href="$kekulize_8cpp.shtml" title="Alternate algorithm to kekulize a molecule (OBMol::NewPerceiveKekuleBonds())." alt="" coords="360,83,448,111"/>
+<area shape="rect" id="node11" href="$align_8cpp.shtml" title="Handle 3D coordinates." alt="" coords="472,83,541,111"/>
+</map>

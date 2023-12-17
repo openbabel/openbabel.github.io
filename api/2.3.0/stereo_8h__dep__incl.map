@@ -1,0 +1,20 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$builder_8h.shtml" title="Class to build 3D structures." alt="" coords="186,83,255,111"/>
+<area shape="rect" id="node7" href="$atom_8cpp.shtml" title="Handle OBAtom class." alt="" coords="23,161,92,189"/>
+<area shape="rect" id="node9" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="222,238,302,266"/>
+<area shape="rect" id="node13" href="$graphsym_8h.shtml" title="XXXX." alt="" coords="718,161,800,189"/>
+<area shape="rect" id="node25" href="$tetranonplanar_8h.shtml" title="tetranonplanar.h" alt="" coords="512,83,619,111"/>
+<area shape="rect" id="node33" href="$parsmart_8cpp.shtml" title="Implementation of Daylight SMARTS parser." alt="" coords="632,238,723,266"/>
+<area shape="rect" id="node35" href="$tetraplanar_8h.shtml" title="tetraplanar.h" alt="" coords="400,83,488,111"/>
+<area shape="rect" id="node49" href="$depict_8cpp.shtml" title="depict.cpp" alt="" coords="744,83,819,111"/>
+<area shape="rect" id="node5" href="$alias_8cpp.shtml" title="OBGenericData class to for atom alias data (e.g., in 2D drawing programs for &quot;COOH&quot;)..." alt="" coords="116,161,183,189"/>
+<area shape="rect" id="node11" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="326,238,390,266"/>
+<area shape="rect" id="node15" href="$canon_8cpp.shtml" title="Canonical numbering of SMILES, molecules and fragments." alt="" coords="534,238,608,266"/>
+<area shape="rect" id="node17" href="$graphsym_8cpp.shtml" title="XXXX." alt="" coords="414,238,510,266"/>
+<area shape="rect" id="node19" href="$isomorphism_8cpp.shtml" title="isomorphism.cpp" alt="" coords="840,238,952,266"/>
+<area shape="rect" id="node21" href="$kekulize_8cpp.shtml" title="Alternate algorithm to kekulize a molecule (OBMol::NewPerceiveKekuleBonds())." alt="" coords="976,238,1064,266"/>
+<area shape="rect" id="node23" href="$align_8cpp.shtml" title="Handle 3D coordinates." alt="" coords="747,238,816,266"/>
+<area shape="rect" id="node27" href="$tetrahedral_8h.shtml" title="tetrahedral.h" alt="" coords="527,161,615,189"/>
+<area shape="rect" id="node37" href="$cistrans_8h.shtml" title="cistrans.h" alt="" coords="431,161,503,189"/>
+<area shape="rect" id="node43" href="$squareplanar_8h.shtml" title="squareplanar.h" alt="" coords="308,161,407,189"/>
+</map>

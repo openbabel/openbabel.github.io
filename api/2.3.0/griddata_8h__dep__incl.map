@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$forcefield_8h.shtml" title="Handle forcefields." alt="" coords="100,83,183,111"/>
+<area shape="rect" id="node9" href="$griddata_8cpp.shtml" title="OBGenericData class to connect numeric grids (e.g., orbitals, electrostatic potential)..." alt="" coords="207,83,295,111"/>
+<area shape="rect" id="node5" href="$conformersearch_8cpp.shtml" title="conformersearch.cpp" alt="" coords="5,161,139,189"/>
+<area shape="rect" id="node7" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="163,161,259,189"/>
+</map>

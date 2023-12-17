@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$generic_8h.shtml" title="Handle generic data classes. Custom data for atoms, bonds, etc." alt="" coords="187,83,257,111"/>
+<area shape="rect" id="node13" href="$obutil_8cpp.shtml" title="Various utility methods." alt="" coords="338,238,413,266"/>
+<area shape="rect" id="node20" href="$matrix3x3_8cpp.shtml" title="Handle 3D rotation matrix." alt="" coords="415,83,514,111"/>
+<area shape="rect" id="node22" href="$spacegroup_8cpp.shtml" title="Handle Crystallographic Space Groups." alt="" coords="538,83,642,111"/>
+<area shape="rect" id="node24" href="$vector3_8cpp.shtml" title="Handle 3D coordinates." alt="" coords="666,83,749,111"/>
+<area shape="rect" id="node5" href="$kinetics_8h.shtml" title="OBRateData and OBNasaThermoData classes." alt="" coords="143,161,215,189"/>
+<area shape="rect" id="node7" href="$mol_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="239,161,290,189"/>
+<area shape="rect" id="node9" href="$rotamer_8h.shtml" title="Handle rotamer list data." alt="" coords="42,238,114,266"/>
+<area shape="rect" id="node11" href="$generic_8cpp.shtml" title="Handle OBGenericData classes. Custom data for atoms, bonds, etc." alt="" coords="226,238,309,266"/>
+<area shape="rect" id="node16" href="$descriptor_8cpp.shtml" title="Base class for molecular descriptors." alt="" coords="23,161,119,189"/>
+</map>

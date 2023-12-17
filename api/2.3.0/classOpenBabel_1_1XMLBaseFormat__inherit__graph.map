@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node7" href="$classOpenBabel_1_1XMLMoleculeFormat.shtml" title="Abstract class for XML formats which represent molecules." alt="" coords="5,238,144,266"/>
+<area shape="rect" id="node2" href="$classOpenBabel_1_1OBFormat.shtml" title="Base class for file formats." alt="" coords="36,83,113,111"/>
+<area shape="rect" id="node4" href="$classOpenBabel_1_1OBPlugin.shtml" title="Base class for all types of dynamic classes discovered at runtime." alt="" coords="37,6,112,34"/>
+</map>

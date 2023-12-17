@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$conformersearch_8h.shtml" title="conformersearch.h" alt="" coords="12,161,132,189"/>
+<area shape="rect" id="node7" href="$rotamer_8h.shtml" title="Handle rotamer list data." alt="" coords="257,83,329,111"/>
+<area shape="rect" id="node10" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="156,161,236,189"/>
+<area shape="rect" id="node12" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="457,161,553,189"/>
+<area shape="rect" id="node20" href="$rotor_8cpp.shtml" title="Rotate dihedral angles according to rotor rules." alt="" coords="404,83,473,111"/>
+<area shape="rect" id="node5" href="$conformersearch_8cpp.shtml" title="conformersearch.cpp" alt="" coords="5,238,139,266"/>
+<area shape="rect" id="node14" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="369,161,433,189"/>
+<area shape="rect" id="node16" href="$rotamer_8cpp.shtml" title="Handle rotamer list data." alt="" coords="260,161,345,189"/>
+</map>

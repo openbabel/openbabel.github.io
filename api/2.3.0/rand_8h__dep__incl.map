@@ -1,0 +1,19 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$obutil_8h.shtml" title="Various utility methods." alt="" coords="197,83,259,111"/>
+<area shape="rect" id="node24" href="$vector3_8h.shtml" title="Handle 3D coordinates." alt="" coords="644,83,713,111"/>
+<area shape="rect" id="node45" href="$rand_8cpp.shtml" title="Pseudo random number generator." alt="" coords="737,83,804,111"/>
+<area shape="rect" id="node5" href="$generic_8h.shtml" title="Handle generic data classes. Custom data for atoms, bonds, etc." alt="" coords="441,161,511,189"/>
+<area shape="rect" id="node15" href="$obutil_8cpp.shtml" title="Various utility methods." alt="" coords="337,315,412,343"/>
+<area shape="rect" id="node18" href="$matrix3x3_8cpp.shtml" title="Handle 3D rotation matrix." alt="" coords="5,238,104,266"/>
+<area shape="rect" id="node20" href="$spacegroup_8cpp.shtml" title="Handle Crystallographic Space Groups." alt="" coords="47,161,151,189"/>
+<area shape="rect" id="node22" href="$vector3_8cpp.shtml" title="Handle 3D coordinates." alt="" coords="225,161,308,189"/>
+<area shape="rect" id="node7" href="$mol_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="557,238,608,266"/>
+<area shape="rect" id="node9" href="$grid_8h.shtml" title="Handle grids of values." alt="" coords="652,315,705,343"/>
+<area shape="rect" id="node11" href="$align_8h.shtml" title="align.h" alt="" coords="560,315,616,343"/>
+<area shape="rect" id="node13" href="$align_8cpp.shtml" title="Handle 3D coordinates." alt="" coords="633,393,703,421"/>
+<area shape="rect" id="node26" href="$atom_8h.shtml" title="Handle atoms." alt="" coords="585,161,641,189"/>
+<area shape="rect" id="node29" href="$chargemodel_8h.shtml" title="Base class for molecular partial charge models." alt="" coords="817,161,916,189"/>
+<area shape="rect" id="node32" href="$griddata_8h.shtml" title="OBGenericData class to connect numeric grids (e.g., orbitals, electrostatic potential)..." alt="" coords="940,161,1015,189"/>
+<area shape="rect" id="node36" href="$matrix3x3_8h.shtml" title="Handle 3D Rotation matrix." alt="" coords="332,161,417,189"/>
+<area shape="rect" id="node41" href="$depict_8h.shtml" title="depict.h" alt="" coords="1039,161,1103,189"/>
+</map>

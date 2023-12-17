@@ -1,0 +1,29 @@
+<area shape="rect" href="$atom_8h.shtml" title="Handle atoms." alt="" coords="1175,155,1239,181">
+<area shape="rect" href="$bond_8h.shtml" title="Handle bonds." alt="" coords="1016,229,1080,256">
+<area shape="rect" href="$mol_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="909,304,965,331">
+<area shape="rect" href="$builder_8h.shtml" title="Class to build 3D structures." alt="" coords="1459,379,1533,405">
+<area shape="rect" href="$forcefield_8h.shtml" title="Handle forcefields." alt="" coords="539,379,627,405">
+<area shape="rect" href="$atomclass_8h.shtml" title="Handle atom classes in reaction SMILES/SMIRKS." alt="" coords="111,155,204,181">
+<area shape="rect" href="$generic_8h.shtml" title="Handle generic data classes. Custom data for atoms, bonds, etc." alt="" coords="760,229,837,256">
+<area shape="rect" href="$descriptor_8cpp.shtml" title="Base class for molecular descriptors." alt="" coords="576,304,683,331">
+<area shape="rect" href="$griddata_8h.shtml" title="OBGenericData class to connect numeric grids (e.g., orbitals, electrostatic potential)..." alt="" coords="469,304,552,331">
+<area shape="rect" href="$obiter_8h.shtml" title="STL&#45;style iterators for Open Babel." alt="" coords="243,229,309,256">
+<area shape="rect" href="$op_8h.shtml" title="Base plugin class for operations on molecules." alt="" coords="1649,304,1697,331">
+<area shape="rect" href="$residue_8h.shtml" title="Defines for residue properties, names, etc." alt="" coords="1063,80,1140,107">
+<area shape="rect" href="$base_8cpp.shtml" title="Implementation of base classes." alt="" coords="1509,80,1584,107">
+<area shape="rect" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="1136,453,1224,480">
+<area shape="rect" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="772,453,873,480">
+<area shape="rect" href="$atom_8cpp.shtml" title="Handle OBAtom class." alt="" coords="1163,379,1240,405">
+<area shape="rect" href="$grid_8cpp.shtml" title="Handle grids of values." alt="" coords="1264,379,1333,405">
+<area shape="rect" href="$pointgroup_8cpp.shtml" title="Brute&#45;force point group detection." alt="" coords="1027,379,1139,405">
+<area shape="rect" href="$residue_8cpp.shtml" title="Handle macromolecule residues." alt="" coords="1091,304,1181,331">
+<area shape="rect" href="$optransform_8h.shtml" title="Operations to change molecules using a datafile of chemical transformations OBChemTsfm..." alt="" coords="1685,379,1792,405">
+<area shape="rect" href="$rotamer_8h.shtml" title="Handle rotamer list data." alt="" coords="821,379,901,405">
+<area shape="rect" href="$generic_8cpp.shtml" title="Handle OBGenericData classes. Custom data for atoms, bonds, etc." alt="" coords="197,379,288,405">
+<area shape="rect" href="$griddata_8cpp.shtml" title="OBGenericData class to connect numeric grids (e.g., orbitals, electrostatic potential)..." alt="" coords="651,379,747,405">
+<area shape="rect" href="$obiter_8cpp.shtml" title="STL&#45;style iterators for Open Babel." alt="" coords="312,379,392,405">
+<area shape="rect" href="$ops_8cpp.shtml" title="Base plugin class for operations on molecules." alt="" coords="1816,379,1885,405">
+<area shape="rect" href="$transform_8cpp.shtml" title="Perform command&#45;line requested transformations for OBMol and SMARTS filtering." alt="" coords="1557,379,1661,405">
+<area shape="rect" href="$RDKitConv_8h.shtml" title="Allow conversion from OBMol to RDKit RWMol." alt="" coords="416,379,515,405">
+<area shape="rect" href="$kinetics_8h.shtml" title="OBRateData and OBNasaThermoData classes." alt="" coords="757,304,835,331">
+<area shape="rect" href="$obmolecformat_8cpp.shtml" title="Subclass of OBFormat for conversion of OBMol." alt="" coords="208,304,344,331">

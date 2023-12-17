@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$classOpenBabel_1_1OBMoleculeFormat.shtml" title="An OBFormat convenience subclass for conversion to/from OBMol data." alt="" coords="145,161,273,189"/>
+<area shape="rect" id="node11" href="$classOpenBabel_1_1XMLBaseFormat.shtml" title="Abstract class containing common functionality for XML formats." alt="" coords="297,161,412,189"/>
+<area shape="rect" id="node2" href="$classOpenBabel_1_1OBPlugin.shtml" title="Base class for all types of dynamic classes discovered at runtime." alt="" coords="244,6,319,34"/>
+<area shape="rect" id="node7" href="$classOpenBabel_1_1InChICompareFormat.shtml" title="InChICompareFormat" alt="" coords="5,238,144,266"/>
+<area shape="rect" id="node9" href="$classOpenBabel_1_1InChIFormat.shtml" title="InChIFormat" alt="" coords="168,238,259,266"/>
+<area shape="rect" id="node13" href="$classOpenBabel_1_1XMLMoleculeFormat.shtml" title="Abstract class for XML formats which represent molecules." alt="" coords="285,238,424,266"/>
+</map>

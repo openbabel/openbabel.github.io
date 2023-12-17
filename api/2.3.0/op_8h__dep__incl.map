@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$optransform_8h.shtml" title="Operations to change molecules using a datafile of chemical transformations OBChemTsfm..." alt="" coords="5,83,101,111"/>
+<area shape="rect" id="node5" href="$alias_8cpp.shtml" title="OBGenericData class to for atom alias data (e.g., in 2D drawing programs for &quot;COOH&quot;)..." alt="" coords="125,83,192,111"/>
+<area shape="rect" id="node7" href="$op_8cpp.shtml" title="op.cpp" alt="" coords="216,83,272,111"/>
+<area shape="rect" id="node9" href="$transform_8cpp.shtml" title="Perform command&#45;line requested transformations for OBMol and SMARTS filtering." alt="" coords="296,83,392,111"/>
+</map>

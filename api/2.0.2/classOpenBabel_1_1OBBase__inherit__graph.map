@@ -1,0 +1,8 @@
+base referer
+rect $classOpenBabel_1_1OBEdgeBase.shtml 7,82 111,109
+rect $classOpenBabel_1_1OBGraphBase.shtml 135,82 245,109
+rect $classOpenBabel_1_1OBNodeBase.shtml 269,82 373,109
+rect $classOpenBabel_1_1OBReaction.shtml 397,82 493,109
+rect $classOpenBabel_1_1OBBond.shtml 23,157 95,184
+rect $classOpenBabel_1_1OBMol.shtml 158,157 222,184
+rect $classOpenBabel_1_1OBAtom.shtml 285,157 357,184

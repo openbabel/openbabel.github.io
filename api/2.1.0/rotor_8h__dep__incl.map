@@ -1,0 +1,5 @@
+<area shape="rect" href="$rotamer_8h.shtml" title="Rotate torsional according to rotor rules." alt="" coords="121,58,201,85">
+<area shape="rect" href="$forcefield_8cpp.shtml" title="Handle rotamer list data." alt="" coords="250,8,354,34">
+<area shape="rect" href="$rotor_8cpp.shtml" title="Rotate torsional according to rotor rules." alt="" coords="124,109,198,136">
+<area shape="rect" href="$mol_8cpp.shtml" title="Handle rotamer list data." alt="" coords="268,58,337,85">
+<area shape="rect" href="$rotamer_8cpp.shtml" title="Handle rotamer list data." alt="" coords="256,109,349,136">

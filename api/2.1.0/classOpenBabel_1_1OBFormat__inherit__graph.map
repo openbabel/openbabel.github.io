@@ -1,0 +1,3 @@
+<area shape="rect" href="$classOpenBabel_1_1OBMoleculeFormat.shtml" title="An OBFormat convenience subclass for conversion to/from OBMol data." alt="" coords="8,82,146,109">
+<area shape="rect" href="$classOpenBabel_1_1XMLBaseFormat.shtml" title="Abstract class containing common functionality for XML formats." alt="" coords="170,82,296,109">
+<area shape="rect" href="$classOpenBabel_1_1XMLMoleculeFormat.shtml" title="Abstract class for XML formats which represent molecules." alt="" coords="158,157,308,184">

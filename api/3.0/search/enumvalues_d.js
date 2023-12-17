@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['n',['n',['../classOpenBabel_1_1OBRateData.shtml#a3a2d440e7729afe454180909de5cee32afe0cb765d0bfc2535a3f5b124ec8f887',1,'OpenBabel::OBRateData']]],
+  ['nad',['NAD',['../namespaceOpenBabel_1_1OBResidueIndex.shtml#a385c44f6fb256e5716a2302a5b940388a713023b44f020a4922d6ed25c196eebb',1,'OpenBabel::OBResidueIndex']]],
+  ['nap',['NAP',['../namespaceOpenBabel_1_1OBResidueIndex.shtml#a385c44f6fb256e5716a2302a5b940388ac8aeed951dea0c630a06a9c1cba5fe87',1,'OpenBabel::OBResidueIndex']]],
+  ['ndp',['NDP',['../namespaceOpenBabel_1_1OBResidueIndex.shtml#a385c44f6fb256e5716a2302a5b940388a909002bfb278911ff711c2ab422309c2',1,'OpenBabel::OBResidueIndex']]],
+  ['negative',['NEGATIVE',['../namespaceOpenBabel_1_1OBAminoAcidProperty.shtml#abed82baf7f470b522273a3e37c24c600a62d66a51fa7574c652597716f7709865',1,'OpenBabel::OBAminoAcidProperty']]],
+  ['neutral',['NEUTRAL',['../namespaceOpenBabel_1_1OBAminoAcidProperty.shtml#abed82baf7f470b522273a3e37c24c600af46d14eb9d5d71afc9f6e747689fcb56',1,'OpenBabel::OBAminoAcidProperty']]],
+  ['newton2num',['Newton2Num',['../structOpenBabel_1_1LineSearchType.shtml#adf764cbdea00d65edcd07bb9953ad2b7a38e70ed84d1b5d7404464b69c8e5093a',1,'OpenBabel::LineSearchType']]],
+  ['no_5fexocyclic_5fatom',['NO_EXOCYCLIC_ATOM',['../namespaceOpenBabel.shtml#a8e1b8f7ba587a6b568a5184684d26132a60f9e472dff738b043862a5461ed8f52',1,'OpenBabel']]],
+  ['no_5freactionrole',['NO_REACTIONROLE',['../namespaceOpenBabel.shtml#a819755731290d520479685a9b791955da92f0769059e9ed5adc2863b910417479',1,'OpenBabel']]],
+  ['nomargin',['noMargin',['../classOpenBabel_1_1OBDepict.shtml#a976bded296a67e09242af85291a639d6a5d8c37b495f7528d43704ddb9fa8b90c',1,'OpenBabel::OBDepict']]],
+  ['nonormalization',['NoNormalization',['../classOpenBabel_1_1OBSpectrophore.shtml#ad9c1e7eefe89ff43132aa6b91db020e1ae37dd5adc75b50bc02e9b39b636d1508',1,'OpenBabel::OBSpectrophore']]],
+  ['nonpolarhydrogen',['NonPolarHydrogen',['../namespaceOpenBabel.shtml#ac39166fa6f7c8df04002d2a94043d74caf4f0a00a8690e1ea23a90fac8d818e47',1,'OpenBabel']]],
+  ['noref',['NoRef',['../structOpenBabel_1_1OBStereo.shtml#a16af7b253440dadd46a80a4b9fddba4da7295d9aeb6e0e6f3a5b77aa0ce7ed0db',1,'OpenBabel::OBStereo']]],
+  ['normalizationtowardsunitstd',['NormalizationTowardsUnitStd',['../classOpenBabel_1_1OBSpectrophore.shtml#ad9c1e7eefe89ff43132aa6b91db020e1a103d10ad601d0d7bebf3460cb25494ea',1,'OpenBabel::OBSpectrophore']]],
+  ['normalizationtowardszeromean',['NormalizationTowardsZeroMean',['../classOpenBabel_1_1OBSpectrophore.shtml#ad9c1e7eefe89ff43132aa6b91db020e1ab305061930877b89678f77d475f1a7e8',1,'OpenBabel::OBSpectrophore']]],
+  ['normalizationtowardszeromeanandunitstd',['NormalizationTowardsZeroMeanAndUnitStd',['../classOpenBabel_1_1OBSpectrophore.shtml#ad9c1e7eefe89ff43132aa6b91db020e1aa4cf06bf72d33156066fc2c260f7b5b9',1,'OpenBabel::OBSpectrophore']]],
+  ['nostereospecificprobes',['NoStereoSpecificProbes',['../classOpenBabel_1_1OBSpectrophore.shtml#a013281b33f013bacf84b2f27813cc913af78e6a5d32a0518ad69d0b3639b831cb',1,'OpenBabel::OBSpectrophore']]],
+  ['not_5fradical',['NOT_RADICAL',['../namespaceOpenBabel.shtml#a72592847f366c075df1e274d18194bfea6727f6f6f528b4ae04b114891d685e8c',1,'OpenBabel']]],
+  ['notstereo',['NotStereo',['../structOpenBabel_1_1OBStereo.shtml#a90087c9021331c97c28e9a8329f41e97ad207f41315a26ce638464caf613b60a1',1,'OpenBabel::OBStereo']]],
+  ['nowedgehashgen',['noWedgeHashGen',['../classOpenBabel_1_1OBDepict.shtml#a976bded296a67e09242af85291a639d6a7780c03195f3b8f3ef7bcbfe222999f7',1,'OpenBabel::OBDepict']]],
+  ['nucleardata',['NuclearData',['../namespaceOpenBabel_1_1OBGenericDataType.shtml#a06fc87d81c62e9abb8790b6e5713c55badd3a99a5a7d554d150d7241368f2ba1d',1,'OpenBabel::OBGenericDataType']]],
+  ['nucleic_5fbackbone',['NUCLEIC_BACKBONE',['../namespaceOpenBabel_1_1OBResidueAtomProperty.shtml#ab04a0655cd1e3bcac5e8f48c18df1a57a2505e9d847c6234e636e78bee5021e2a',1,'OpenBabel::OBResidueAtomProperty']]],
+  ['nucleo',['NUCLEO',['../namespaceOpenBabel_1_1OBResidueProperty.shtml#abc5c98fcc1211af2b80116dd6e0a035da9ed11fa43eaab3cb44b9a9f0146c5042',1,'OpenBabel::OBResidueProperty']]]
+];

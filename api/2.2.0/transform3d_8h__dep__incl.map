@@ -1,0 +1,4 @@
+<area shape="rect" href="$spacegroup_8h.shtml" title="Handle Crystallographic Space Groups." alt="" coords="52,80,156,107">
+<area shape="rect" href="$transform3d_8cpp.shtml" title="Handle 3D transformations in space groups." alt="" coords="180,80,300,107">
+<area shape="rect" href="$generic_8h.shtml" title="Handle generic data classes. Custom data for atoms, bonds, etc." alt="" coords="5,155,83,182">
+<area shape="rect" href="$spacegroup_8cpp.shtml" title="Handle Crystallographic Space Groups." alt="" coords="107,155,224,182">

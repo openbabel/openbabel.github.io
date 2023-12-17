@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$inchiformat_8h.shtml" title="inchiformat.h" alt="" coords="5,161,99,189"/>
+<area shape="rect" id="node5" href="$obmolecformat_8h.shtml" title="Subclass of OBFormat for conversion of OBMol." alt="" coords="129,83,241,111"/>
+<area shape="rect" id="node8" href="$xml_8h.shtml" title="Declaration of XMLConversion, declaration and definition of XMLBaseFormat and XMLMoleculeFormat..." alt="" coords="272,161,323,189"/>
+<area shape="rect" id="node13" href="$alias_8cpp.shtml" title="OBGenericData class to for atom alias data (e.g., in 2D drawing programs for &quot;COOH&quot;)..." alt="" coords="316,83,383,111"/>
+<area shape="rect" id="node15" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="407,83,487,111"/>
+<area shape="rect" id="node17" href="$mcdlutil_8cpp.shtml" title="mcdlutil.cpp" alt="" coords="511,83,599,111"/>
+<area shape="rect" id="node19" href="$obconversion_8cpp.shtml" title="Implementation of OBFormat and OBConversion classes." alt="" coords="623,83,737,111"/>
+<area shape="rect" id="node21" href="$query_8cpp.shtml" title="query.cpp" alt="" coords="761,83,836,111"/>
+<area shape="rect" id="node23" href="$example_8cpp.shtml" title="example.cpp" alt="" coords="860,83,948,111"/>
+<area shape="rect" id="node10" href="$obmolecformat_8cpp.shtml" title="Subclass of OBFormat for conversion of OBMol." alt="" coords="123,161,248,189"/>
+</map>

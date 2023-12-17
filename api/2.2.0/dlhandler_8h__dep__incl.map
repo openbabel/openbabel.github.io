@@ -1,0 +1,7 @@
+<area shape="rect" href="$obconversion_8h.shtml" title="Handle file conversions. Declaration of OBFormat, OBConversion." alt="" coords="148,80,263,107">
+<area shape="rect" href="$dlhandler__unix_8cpp.shtml" title="Dynamic loader for UNIX (handles file format shared obj.)." alt="" coords="287,80,423,107">
+<area shape="rect" href="$dlhandler__win32_8cpp.shtml" title="Dynamic loader for Win32 (handles file format DDLs)." alt="" coords="447,80,594,107">
+<area shape="rect" href="$obmolecformat_8h.shtml" title="Subclass of OBFormat for conversion of OBMol." alt="" coords="6,155,128,181">
+<area shape="rect" href="$xml_8h.shtml" title="Declaration of XMLConversion, declaration and definition of XMLBaseFormat and XMLMoleculeFormat..." alt="" coords="88,229,144,256">
+<area shape="rect" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="203,155,291,181">
+<area shape="rect" href="$obconversion_8cpp.shtml" title="Implementation of OBFormat and OBConversion classes." alt="" coords="315,155,443,181">

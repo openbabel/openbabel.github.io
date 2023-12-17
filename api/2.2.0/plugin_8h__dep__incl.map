@@ -1,0 +1,15 @@
+<area shape="rect" href="$descriptor_8h.shtml" title="Base class for molecular descriptors." alt="" coords="211,80,304,107">
+<area shape="rect" href="$fingerprint_8h.shtml" title="Declaration of OBFingerprint base class and fastsearch classes." alt="" coords="631,80,724,107">
+<area shape="rect" href="$forcefield_8h.shtml" title="Handle forcefields." alt="" coords="755,80,843,107">
+<area shape="rect" href="$format_8h.shtml" title="Declarations for OBFormat." alt="" coords="887,80,959,107">
+<area shape="rect" href="$op_8h.shtml" title="Base plugin class for operations on molecules." alt="" coords="483,80,531,107">
+<area shape="rect" href="$plugin_8cpp.shtml" title="Simplify &#39;plugin&#39; classes to be discovered and/or loaded at runtime." alt="" coords="983,80,1066,107">
+<area shape="rect" href="$groupcontrib_8h.shtml" title="Handle group contribution algorithms." alt="" coords="6,155,115,182">
+<area shape="rect" href="$descriptor_8cpp.shtml" title="Base class for molecular descriptors." alt="" coords="139,155,246,182">
+<area shape="rect" href="$transform_8cpp.shtml" title="Perform command&#45;line requested transformations for OBMol and SMARTS filtering." alt="" coords="270,155,374,182">
+<area shape="rect" href="$fingerprint_8cpp.shtml" title="Definitions for OBFingerprint base class and fastsearch classes." alt="" coords="622,155,728,182">
+<area shape="rect" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="752,155,854,182">
+<area shape="rect" href="$obconversion_8h.shtml" title="Handle file conversions. Declaration of OBFormat, OBConversion." alt="" coords="878,155,992,182">
+<area shape="rect" href="$format_8cpp.shtml" title="Base class OBFormat for file formats." alt="" coords="1016,155,1102,182">
+<area shape="rect" href="$optransform_8h.shtml" title="Operations to change molecules using a datafile of chemical transformations OBChemTsfm..." alt="" coords="398,155,504,182">
+<area shape="rect" href="$ops_8cpp.shtml" title="Base plugin class for operations on molecules." alt="" coords="528,155,598,182">

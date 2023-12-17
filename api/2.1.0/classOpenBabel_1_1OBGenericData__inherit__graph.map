@@ -1,0 +1,18 @@
+<area shape="rect" href="$classOpenBabel_1_1OBAngleData.shtml" title="Used to hold all angles in a molecule as generic data for OBMol." alt="" coords="8,82,112,109">
+<area shape="rect" href="$classOpenBabel_1_1OBChiralData.shtml" title="Used to hold chiral inforamtion about the atom as OBGenericData." alt="" coords="136,82,242,109">
+<area shape="rect" href="$classOpenBabel_1_1OBCommentData.shtml" title="Used to store a comment string (can be multiple lines long)." alt="" coords="266,82,394,109">
+<area shape="rect" href="$classOpenBabel_1_1OBConformerData.shtml" title="Used to hold data on conformers or geometry optimization steps." alt="" coords="418,82,554,109">
+<area shape="rect" href="$classOpenBabel_1_1OBExternalBondData.shtml" title="Used to store information on external bonds (e.g., in SMILES fragments)." alt="" coords="578,82,730,109">
+<area shape="rect" href="$classOpenBabel_1_1OBNasaThermoData.shtml" title="Thermodynamic data in old style NASA polynomial form for OBMol." alt="" coords="754,82,904,109">
+<area shape="rect" href="$classOpenBabel_1_1OBPairData.shtml" title="Used to store arbitrary text attribute/value relationships." alt="" coords="928,82,1021,109">
+<area shape="rect" href="$classOpenBabel_1_1OBPairTemplate.shtml" title="Used to store arbitrary attribute/value relationsips of any type." alt="" coords="1045,82,1168,109">
+<area shape="rect" href="$classOpenBabel_1_1OBRateData.shtml" title="Holds rate constant data for OBReaction." alt="" coords="1192,82,1290,109">
+<area shape="rect" href="$classOpenBabel_1_1OBRingData.shtml" title="Used to store the SSSR set (filled in by OBMol::GetSSSR())." alt="" coords="1314,82,1413,109">
+<area shape="rect" href="$classOpenBabel_1_1OBRotamerList.shtml" title="Supports a set of rotamer coordinate sets for some number of potentially rotatable..." alt="" coords="1437,82,1552,109">
+<area shape="rect" href="$classOpenBabel_1_1OBSerialNums.shtml" title="Defines a map between serial numbers (e.g., in a PDB file) and OBAtom objects inside..." alt="" coords="1576,82,1688,109">
+<area shape="rect" href="$classOpenBabel_1_1OBSetData.shtml" title="Used to store arbitrary attribute/set relationships. Should be used to store a set..." alt="" coords="1712,82,1802,109">
+<area shape="rect" href="$classOpenBabel_1_1OBSymmetryData.shtml" title="Used to hold the point&#45;group and/or space&#45;group symmetry." alt="" coords="1826,82,1957,109">
+<area shape="rect" href="$classOpenBabel_1_1OBTorsionData.shtml" title="Used to hold torsions as generic data for OBMol." alt="" coords="1981,82,2098,109">
+<area shape="rect" href="$classOpenBabel_1_1OBUnitCell.shtml" title="Used for storing information about periodic boundary conditions with conversion to/from..." alt="" coords="2122,82,2210,109">
+<area shape="rect" href="$classOpenBabel_1_1OBVibrationData.shtml" title="Used to hold the normal modes of a molecule, etc." alt="" coords="2234,82,2360,109">
+<area shape="rect" href="$classOpenBabel_1_1OBVirtualBond.shtml" title="Used to temporarily store bonds that reference an atom that has not yet been added..." alt="" coords="2384,82,2496,109">

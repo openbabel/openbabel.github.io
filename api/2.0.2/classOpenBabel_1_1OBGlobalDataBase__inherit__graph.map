@@ -1,0 +1,10 @@
+base referer
+rect $classOpenBabel_1_1OBAromaticTyper.shtml 197,8 328,34
+rect $classOpenBabel_1_1OBAtomTyper.shtml 209,58 316,85
+rect $classOpenBabel_1_1OBBondTyper.shtml 209,109 316,136
+rect $classOpenBabel_1_1OBElementTable.shtml 200,160 325,186
+rect $classOpenBabel_1_1OBIsotopeTable.shtml 202,210 322,237
+rect $classOpenBabel_1_1OBPhModel.shtml 214,261 310,288
+rect $classOpenBabel_1_1OBResidueData.shtml 202,312 322,338
+rect $classOpenBabel_1_1OBRotorRules.shtml 208,362 317,389
+rect $classOpenBabel_1_1OBTypeTable.shtml 210,413 314,440

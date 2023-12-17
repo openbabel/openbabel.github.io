@@ -1,0 +1,18 @@
+<area shape="rect" href="$bondtyper_8h.shtml" title="Bond typer to perceive connectivity and bond orders/types." alt="" coords="63,230,156,256">
+<area shape="rect" href="$groupcontrib_8h.shtml" title="Handle group contribution algorithms." alt="" coords="187,304,296,331">
+<area shape="rect" href="$phmodel_8h.shtml" title="Read pH rules and assign charges." alt="" coords="497,230,583,256">
+<area shape="rect" href="$rotor_8h.shtml" title="Rotate torsional according to rotor rules." alt="" coords="987,230,1048,256">
+<area shape="rect" href="$typer_8h.shtml" title="Open Babel atom and aromaticity typer." alt="" coords="769,80,833,107">
+<area shape="rect" href="$parsmart_8cpp.shtml" title="Implementation of Daylight SMARTS parser." alt="" coords="1181,304,1283,331">
+<area shape="rect" href="$bondtyper_8cpp.shtml" title="Bond typer to perceive connectivity and bond orders/types." alt="" coords="56,304,163,331">
+<area shape="rect" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="501,379,571,406">
+<area shape="rect" href="$optransform_8h.shtml" title="Operations to change molecules using a datafile of chemical transformations OBChemTsfm..." alt="" coords="371,304,477,331">
+<area shape="rect" href="$atom_8cpp.shtml" title="Handle OBAtom class." alt="" coords="501,304,579,331">
+<area shape="rect" href="$phmodel_8cpp.shtml" title="Read pH rules and assign charges." alt="" coords="603,304,701,331">
+<area shape="rect" href="$rotamer_8h.shtml" title="Handle rotamer list data." alt="" coords="928,304,1008,331">
+<area shape="rect" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="1021,379,1109,406">
+<area shape="rect" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="896,379,997,406">
+<area shape="rect" href="$rotor_8cpp.shtml" title="Rotate dihedral angles according to rotor rules." alt="" coords="1083,304,1157,331">
+<area shape="rect" href="$mol_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header..." alt="" coords="711,230,767,256">
+<area shape="rect" href="$typer_8cpp.shtml" title="Open Babel atom and aromaticity typer." alt="" coords="827,304,904,331">
+<area shape="rect" href="$ring_8h.shtml" title="Deal with rings, find smallest set of smallest rings (SSSR)." alt="" coords="773,155,829,182">
