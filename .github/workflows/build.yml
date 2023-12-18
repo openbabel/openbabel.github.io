@@ -39,7 +39,7 @@ jobs:
     - name: Build Sphinx
       run: |
         mkdir public
-        cp -pr api public
+        cp -pr api CNAME public
         cd source
         sphinx-build -j auto -E . ../public
         cd ..
