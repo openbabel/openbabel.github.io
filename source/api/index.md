@@ -8,3 +8,7 @@ Older API docs for historical purposes
 - [2.2](/api/2.2.0/index.html)
 - [2.1](/api/2.1.0/index.html)
 - [2.0](/api/2.0.2/index.html)
+
+extra :
+-----------
+NOTE : This has been edited in Github by user BriceCore ( me ) as part of my exploration of OpenBabel .
