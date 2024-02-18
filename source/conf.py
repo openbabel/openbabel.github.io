@@ -121,7 +121,7 @@ html_theme_options = {
         {
             "name": "Twitter",
             "url": "https://twitter.com/OpenBabel",
-            "icon": "fa-brands fa-square-twitter",
+            "icon": "fa-brands fa-square-x-twitter",
         },
     ],
 }
