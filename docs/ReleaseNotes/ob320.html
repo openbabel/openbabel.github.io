@@ -1,0 +1,707 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Open Babel 3.1.0 &#8212; Open Babel openbabel-3-2-0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
+
+    <script src="../../_static/documentation_options.js?v=7b42b422"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/ReleaseNotes/ob320';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://openbabel.github.io/docs/ReleaseNotes/ob320.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Open Babel 3.1.0" href="ob310.html" />
+    <link rel="prev" title="Release Notes" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="openbabel-3-2-0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Babel</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openbabel/openbabel" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/OpenBabel" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/install.html">Install Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/babel.html">obabel - Convert, Filter and Manipulate Chemical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI/GUI.html">The Open Babel GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUITutorial/GUITutorial.html">Tutorial on using the GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fingerprints/intro.html">Molecular fingerprints and similarity searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Command-line_tools/Rosetta.html">obabel vs Chemistry Toolkit Rosetta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Depiction/depiction.html">2D Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3DStructureGen/Overview.html">3D Structure Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Forcefields/Overview.html">Molecular Mechanics and Force Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UseTheLibrary/intro.html">Write software using the Open Babel library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cheminf101/index.html">Cheminformatics 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stereochemistry/stereo.html">Stereochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Aromaticity/Aromaticity.html">Handling of aromaticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Features/Radicals.html">Radicals and SMILES extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing/Contributing.html">Contributing to Open Babel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WritePlugins/index.html">Adding plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FileFormats/Overview.html">Supported File Formats and Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Descriptors/descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Charges/charges.html">Charge models</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Release Notes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Open Babel 3.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob310.html">Open Babel 3.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob300.html">Open Babel 3.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob240.html">Open Babel 2.4.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob231.html">Open Babel 2.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob230.html">Open Babel 2.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob223.html">Open Babel 2.2.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob222.html">Open Babel 2.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob221.html">Open Babel 2.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob220.html">Open Babel 2.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob211.html">Open Babel 2.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob210.html">Open Babel 2.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob202.html">Open Babel 2.0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob201.html">Open Babel 2.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob200.html">Open Babel 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob1.100.2.html">Open Babel 1.100.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob1.100.1.html">Open Babel 1.100.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob1.100.0.html">Open Babel 1.100.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ob1.99.html">Open Babel 1.99</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Release Notes</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Open Babel 3.1.0</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="open-babel-3-1-0">
+<h1>Open Babel 3.1.0<a class="headerlink" href="#open-babel-3-1-0" title="Link to this heading">#</a></h1>
+<p>Released on 2026-05-26.</p>
+<p>This release reflects the latest stable version, including multiple feature enhancements and many, many bug fixes. It is backwards compatible with 3.0 and 3.1.</p>
+<p>We anticipate more bug-fix releases over the course of 2026 and appreciate the many contributions and reports from everyone.</p>
+<p>## Major Features and Fixes</p>
+<ul class="simple">
+<li><p>Many memory and crash bugs fixed, thanks to OSS-Fuzz (Google) for infrastructure, including Cisco TALOS, Trail of Bits, ADA Logics, and Claude Mythos for bug reports. At the moment, all reported bugs are fixed.</p></li>
+<li><p><strong>L-BFGS optimizer</strong> added to <cite>OBForceField</cite> (internal <cite>LBFGS.h</cite>); <cite>gen3d</cite> and conformer search now use L-BFGS by default (with CG fallback when Eigen is unavailable). &#64;ghutchis (#2933)</p></li>
+<li><p><strong>New macrocycle ring builder</strong> with <strong>Dale codes</strong> for cycloalkanes with n &gt; 24, plus a post-pass crown builder for unmatched rings up to n ≤ 24. Substantially improves initial 3D geometry for macrocycles. &#64;ghutchis (#2923)</p></li>
+<li><p><strong>Distance-geometry improvements</strong>: faster, vectorized implementation ensuring stereochemistry is preserved &#64;ghutchis (#2896, #2897)</p></li>
+<li><p><strong>KET format</strong> (Ketcher JSON) read/write, including aromatic-bond preservation and alias expansion for clean round-trip. &#64;romanbsd (#2909)</p></li>
+<li><p><strong>ChemicalJSON (`.cjson`)</strong> format support — Avogadro’s native format — with rich metadata: total charge &amp; spin multiplicity, NMR and electronic spectra, conformer energies, unit-cell vectors, and space-group info. &#64;ghutchis (#2486, #2491, #2516, #2640, #2654)</p></li>
+<li><p><strong>InChI bumped to 1.07.5</strong>; library version now reported in the format description. &#64;e-kwsm &#64;ghutchis (#2857, #2947)</p></li>
+<li><p><strong>Python 2 dropped</strong>; Python 3.13 supported (distutils removed). &#64;e-kwsm &#64;chrisjonesBSU (#2924, #2809) Integrated PyPI binary wheels &#64;njzjz #2925</p></li>
+<li><p><strong>CMake 4 compatibility</strong>, <cite>FindPython</cite> refactor, Eigen 2 dropped, <cite>Eigen3::Eigen</cite> imported target adopted. &#64;PPN-SD &#64;e-kwsm (#2784, #2753, #2858)</p></li>
+<li><p><strong>OBRandomMT</strong>: new <cite>std::mt19937_64</cite>-based PRNG wrapper (opt-in via <cite>USE_RANDOMMT</cite>, default on); <cite>OB_RANDOM_SEED</cite> environment variable documented for reproducibility. &#64;e-kwsm (#2241)</p></li>
+</ul>
+<p>## New Features and Improvements</p>
+<ul class="simple">
+<li><p><strong>WLN (Wiswesser Line Notation) reader additions.</strong> &#64;baoilleach &#64;michaelblakey (#2510)</p></li>
+<li><p><strong>PDBQT</strong>: Meeko-compatible VDW radii &#64;bmp192529 (#2798); data-block output &#64;dkoes (#2796); implicit H assignment on read &#64;fredrikw (#2553); partial-charge column alignment fix &#64;flatstik (#2601).</p></li>
+<li><p><strong>PDB</strong>: segment-name parsing/retention &#64;dkoes (#2637); more robust reading &#64;dkoes (#2395).</p></li>
+<li><p><strong>Tinker</strong>: custom atom-class read &#64;mquevill (#2355); multi-word titles and optional comment line &#64;mquevill (#2354).</p></li>
+<li><p><strong>ORCA</strong>: retain <em>all</em> conformers on read &#64;ghutchis (#2922); ORCA 5 vibration header handled &#64;ghutchis (#2521).</p></li>
+<li><p><strong>xtb</strong>: handle “Gaussian”-style vibration output (Raman = 0.0). &#64;ghutchis (#2653)</p></li>
+<li><p><strong>Turbomole</strong>: write <cite>$lattice</cite> block when a unit cell is present. &#64;e-kwsm (#2823)</p></li>
+<li><p><strong>CIF</strong>: atomic coordinates are no longer wrapped into the unit cell by default. &#64;ghutchis (#2629)</p></li>
+<li><p><strong>COF</strong>: new version-numbering scheme (old files still readable). &#64;pbecherer (#2840)</p></li>
+<li><p><strong>CML/CMLR</strong>: support conversion to CMLR &#64;romanbsd (#2694); dangling-reference fix in the reaction writer &#64;romanbsd (#2926).</p></li>
+<li><p><strong>STL</strong>: bond visualization, improved color export, <cite>-s</cite> scale option, modernized source. &#64;TheRealSami (#2814)</p></li>
+<li><p><strong>FASTA</strong>: actually connect atoms on conversion &#64;fredrikw (#2371); retain chains/residues &#64;ghutchis (#2734).</p></li>
+<li><p><strong>Ruby SWIG wrapper</strong>: reactions &#64;romanbsd (#2748) and tautomers &#64;romanbsd (#2943) now supported.</p></li>
+<li><p><strong>obrms</strong>: parameter docs added to help text and man page; length-of-RMSDs sanity check &#64;e-kwsm (#2942); improvements &#64;dkoes (#2608).</p></li>
+<li><p><strong>`obabel`</strong>: <cite>–separate</cite> no longer breaks on EOL when reading from stdin. &#64;matterhorn103 (#2721)</p></li>
+<li><p><strong>`CorrectForPH`</strong> now respects perceived chains. &#64;fredrikw (#2648)</p></li>
+<li><p><strong>C++ syntax</strong>: <cite>OBAtom::GetNbrs()</cite> and range-based for loops &#64;timvdm (#2635); <cite>override</cite> annotations &#64;e-kwsm (#2175); <cite>noexcept</cite> for deprecated <cite>throw()</cite> &#64;e-kwsm (#2859); <cite>OB_DEPRECATED</cite> macros &#64;e-kwsm (#2002).</p></li>
+</ul>
+<p>## Bug Fixes</p>
+<ul class="simple">
+<li><p>Stereo leak in SMILES parser &#64;ghutchis (#2908); tautomer assertion / code bugs.</p></li>
+<li><p>Canonical-label generation now has a 5-second timeout to avoid hangs on pathological inputs. &#64;ghutchis (#2921)</p></li>
+<li><p>CDXML: clear <cite>ImplicitHydrogens</cite> between fragments (fixes segfault, #2696) &#64;fredrikw (#2697); implicit-H handling generally improved (#2416) &#64;StashOfCode (#2400).</p></li>
+<li><p>CDJSON: implicit-valence handling on read; <cite>“l”</cite> field deserialization; <cite>“h”</cite> field respected. &#64;gregmagdits (#2769)</p></li>
+<li><p>libxml2 ≥ 2.12.7 compatibility. &#64;merkys (#2702)</p></li>
+<li><p>InChI: memory leaks &#64;romanbsd (#2706, #2772) and crashes &#64;romanbsd (#2717, #2747) fixed; crash converting some bad CML → InChI fixed.</p></li>
+<li><p>CML parsing crash on specific inputs. &#64;romanbsd (#2705)</p></li>
+<li><p>AOFORCE parser memory issues. &#64;tyler92 (#2749)</p></li>
+<li><p>SSSR/RingSearch: ring-pruning bug &#64;fredrikw (#2684); ring iteration with no rings &#64;dkoes (#2295).</p></li>
+<li><p>pybel: missing atom properties &#64;dkoes (#2293); <cite>pybel.draw</cite> file-write check; removed <cite>_png2</cite> requirement for coordinate generation.</p></li>
+<li><p>SMILES: H-suppression bug when specifying output atom order. &#64;baoilleach (#2287)</p></li>
+<li><p>SMILES crashes from malformed input. &#64;tyler92 (#2746)</p></li>
+<li><p><cite>obthermo</cite> crash from pointgroup code. &#64;dspoel (#2285)</p></li>
+<li><p>GRO format: first residue index 0 no longer crashes. &#64;DStarEpoch (#2598)</p></li>
+<li><p>VASP and Turbomole format fixes. &#64;e-kwsm (#2563)</p></li>
+<li><p><cite>obminimize</cite> help text and docs. (#2519)</p></li>
+<li><p><cite>CopySubstructure</cite> segfault with option <cite>2</cite>. &#64;baoilleach (#2449)</p></li>
+<li><p>Bond perception of ring nitrogens &#64;dkoes (Nbondfix branch); azete bond order &#64;dkoes (#2379); ammonium XYZ parsing &#64;dkoes (#2380).</p></li>
+<li><p>MDL v3000 coordinate rounding (<cite>%.4f</cite> 2D, <cite>%.6f</cite> 3D). &#64;ghutchis (#2929)</p></li>
+<li><p>Uninitialized arrays / infinite-loop fixes. &#64;Crivella (#2850, #2851)</p></li>
+<li><p>Big-endian / s390x portability fixes. &#64;pranavkaruvally (#2816)</p></li>
+<li><p>PQR debug output cleanup. &#64;crabby-rathbun (#2854)</p></li>
+<li><p>Examples build fix for GCC / libstdc++ 8.3. &#64;jcbollinger (#2235)</p></li>
+<li><p>Misc undefined-behavior and memory leak fixes. &#64;jcbollinger (#2224, #2227, #2228), &#64;afonari (#2220, #2225, #2226, #2232, #2233)</p></li>
+<li><p>Initialize allocated memory to zero. &#64;afonari (#2248)</p></li>
+<li><p><cite>OBMol::NumHvyAtoms()</cite> const + <cite>OBResidue::GetNumHvyAtoms()</cite>. (#2300, #2299)</p></li>
+</ul>
+<p>## Security and Fuzz Hardening</p>
+<ul class="simple">
+<li><p><strong>CVE-2022 (Cisco TALOS)</strong>: 14 CVEs across MOL2 (CVE-2022-43607), CSR, GRO, PQS, MSI, ORCA, Gaussian, and MOPAC formats — including 5 <cite>translationVectors[]</cite> OOB writes. &#64;ghutchis (#2883, #2884, #2885, #2886, #2887)</p></li>
+<li><p><strong>CVE-2026 batch</strong>: CIF <cite>transform3d::DescribeAsString</cite> OOB read, MOL2 <cite>SetFormalCharge</cite> NULL deref, CDXML NULL deref. &#64;VedantMadane (#2862)</p></li>
+<li><p><strong>CVE-2025</strong>: GAMESS use-after-free (CVE-2025-10994), zipstream overlapping memcpy (CVE-2025-10995), SMILES heap-buffer-overflow (CVE-2025-10996), ChemKin (CVE-2025-10997/10998), CACAO (CVE-2025-10999), PQS (CVE-2025-11000). &#64;ghutchis (#2913)</p></li>
+<li><p><strong>OSS-Fuzz / Trail of Bits / ADA Logics / Claude Mythos / TALOS</strong>: dozens of fixes across MCDL, ChemDraw CDX, Chemkin, abinit, cacao, Gaussian (incl. z-matrix and cube), Molpro, POV-Ray, Tinker, SMARTS, MDL V3000, SDF, CIF, and the SMILES canonicalizer (OOM on hypervalent / high-permutation molecules). &#64;ghutchis (#2891, #2910, #2916–#2918, #2921, #2928, #2937, #2938, #2939, #2944, #2948, #2949, #2950, #2954)</p></li>
+<li><p><strong>Hardening</strong>: stack-smashing recursion in <cite>FindRings</cite> converted to an iterative loop; bond-loop and atom-count bounds checks; charge bounds (±999); rejection of recursive SMARTS <cite>((</cite> depth &gt; 1000; bound on heavy atoms (MCDL &gt; 200); guards on tokenize/<cite>vs</cite> access; rejection of elements &gt; 118; <cite>std::unique_ptr</cite> adoption to fix leaks/use-after-free.</p></li>
+<li><p><strong>MCDL hardening</strong> (Arthur Chan / ADA Logics report). &#64;ghutchis (#2883)</p></li>
+<li><p><strong>`SECURITY` policy</strong> and fuzz <strong>regression tests</strong> added. &#64;ghutchis (#2882)</p></li>
+<li><p><strong>New fuzz harnesses</strong>: three new harnesses by &#64;DavidKorczynski (#2874), plus <cite>fuzz_convert</cite> by &#64;tyler92 (#2737). Initial OSS-Fuzz integration by &#64;catenacyber (#2342).</p></li>
+</ul>
+<p>## Build Improvements</p>
+<ul class="simple">
+<li><p><strong>CI</strong>: CIFuzz GitHub Action &#64;DavidKorczynski (#2551); CodeQL workflow &#64;lgtm-migrator (#2546); Dependabot for GitHub Actions &#64;ghutchis (#2739); <strong>cibuildwheel</strong> workflow producing relocatable Python wheels for Windows / macOS / Linux / Linux ARM64 &#64;ghutchis (#2946); Linux ARM64 ASAN+UBSAN test build &#64;ghutchis (#2898); Python lint with safety policy.</p></li>
+<li><p><strong>CMake 4 compatibility</strong> end-to-end &#64;PPN-SD (#2784); replaced deprecated <cite>exec_program</cite> and other modernization &#64;e-kwsm (#2507); <cite>OpenBabel3Config.cmake</cite> retains include info &#64;e-kwsm (#2802); public/private include-dir hygiene &#64;pinotree (#2315); Windows config-install location fix &#64;nicolasfella (#2463); CMake-version bumps for Python &#64;chrisjonesBSU (#2809).</p></li>
+<li><p><strong>`FindPython`</strong> adopted; Python install path/prefix modernized &#64;e-kwsm (#2753, #2927); per-language <cite>*_INSTDIR</cite> variables (Python, Java, R, Perl, Ruby, C#, PHP) made configurable &#64;cygwin-lem (#2289).</p></li>
+<li><p><strong>Eigen</strong>: drop Eigen 2; find <cite>Eigen3</cite> in config mode and link <cite>Eigen3::Eigen</cite>; ensure <cite>HAVE_EIGEN3</cite> is set at configure &#64;e-kwsm (#2858).</p></li>
+<li><p><strong>Dependencies</strong>: InChI 1.07.5 &#64;e-kwsm (#2857); maeparser 1.3.3 &#64;e-kwsm (#2899); coordgen pinned to <cite>v3.0.2-10-gd20e735</cite> &#64;e-kwsm (#2901), with template-file lookup removed &#64;bsiegert (#2297).</p></li>
+<li><p><strong>Compiler/portability</strong>: include <cite>&lt;ctime&gt;</cite> for GCC 12+/C++17 &#64;KunhuanLiu (#2844); CMake time-check typo for GCC 12 &#64;thesamesam (#2493); drop <cite>register</cite> &#64;e-kwsm (#2920); drop deprecated <cite>&lt;ciso646&gt;</cite> &#64;e-kwsm (#2860); replace <cite>std::random_shuffle</cite> with <cite>std::shuffle</cite> &#64;e-kwsm (#2931); remove deprecated C headers &#64;e-kwsm (#2388); MSVC2015 <cite>back_inserter</cite> include &#64;baoilleach (#2230); Intel build uses IPO and strip at link in Release; big-endian / s390x fixes &#64;pranavkaruvally (#2816).</p></li>
+<li><p><strong>Modernization</strong>: SWIG 4.x support and Javadoc/Pydoc bindings &#64;baoilleach (#2242, #2243); <cite>std::unordered_map</cite> adoption &#64;e-kwsm (#2500); always use <cite>std::shared_ptr</cite> (#2501); remove deprecated <cite>std::bind1st</cite>/<cite>bind2nd</cite>/<cite>binary_function</cite> &#64;e-kwsm (#2569, #2001, #2464); replace deprecated throw spec with <cite>noexcept</cite> &#64;e-kwsm (#2859); <cite>IOError</cite> → <cite>OSError</cite> in Python tests &#64;e-kwsm (#2466).</p></li>
+<li><p><strong>Misc.</strong>: <cite>.gitattributes</cite> + EOL renormalization &#64;e-kwsm (#2489); updated built-in data files &#64;dkoes (#2328); debug/sanitizer build variants skip slow tests &#64;ghutchis (#2907); many internal deprecation warnings removed in a final refactor &#64;ghutchis (#2937).</p></li>
+</ul>
+<p>## Contributors</p>
+<p>Many thanks to everyone who contributed code, bug reports, and reviews
+for 3.2. Full shortlog: <cite>git shortlog -sn openbabel-3-1-1..openbabel-3-2-0</cite>.</p>
+<p>Top contributors by commit count:
+&#64;ghutchis, &#64;e-kwsm, &#64;fredrikw, &#64;romanbsd, &#64;dkoes, &#64;baoilleach,
+&#64;afonari, &#64;cygwin-lem, &#64;chrisjonesBSU, &#64;jcbollinger, &#64;pinotree,
+&#64;TheRealSami, &#64;timvdm, &#64;yishutu, &#64;szlepermarcin, &#64;mquevill, &#64;tyler92,
+&#64;Crivella, &#64;DavidKorczynski, &#64;VedantMadane, &#64;bmp192529, &#64;pbecherer,
+&#64;matterhorn103, &#64;merkys, &#64;StashOfCode, &#64;gregmagdits, &#64;PPN-SD,
+&#64;pranavkaruvally, &#64;dspoel, &#64;bsiegert, &#64;KunhuanLiu, &#64;thesamesam,
+&#64;nicolasfella, &#64;flatstik, &#64;crabby-rathbun, &#64;catenacyber, &#64;njzjz-bot.</p>
+<p>Also via fuzzing reports: OSS-Fuzz, Cisco TALOS, Trail of Bits,
+ADA Logics (Arthur Chan), and Claude Mythos / Claude Security.</p>
+<p>## New Contributors
+* &#64;jcbollinger made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2228">openbabel/openbabel#2228</a>
+* &#64;lemniscati made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2292">openbabel/openbabel#2292</a>
+* &#64;pinotree made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2315">openbabel/openbabel#2315</a>
+* &#64;bsiegert made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2297">openbabel/openbabel#2297</a>
+* &#64;catenacyber made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2342">openbabel/openbabel#2342</a>
+* &#64;imgbot[bot] made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2345">openbabel/openbabel#2345</a>
+* &#64;StashOfCode made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2400">openbabel/openbabel#2400</a>
+* &#64;GregCT made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2383">openbabel/openbabel#2383</a>
+* &#64;nicolasfella made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2463">openbabel/openbabel#2463</a>
+* &#64;szlepermarcin made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2477">openbabel/openbabel#2477</a>
+* &#64;SebastianWellig made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2456">openbabel/openbabel#2456</a>
+* &#64;cclauss made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2405">openbabel/openbabel#2405</a>
+* &#64;mquevill made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2354">openbabel/openbabel#2354</a>
+* &#64;nbehrnd made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2307">openbabel/openbabel#2307</a>
+* &#64;ioadong made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2460">openbabel/openbabel#2460</a>
+* &#64;thesamesam made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2493">openbabel/openbabel#2493</a>
+* &#64;DanielSabo made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2519">openbabel/openbabel#2519</a>
+* &#64;Mblakey made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2510">openbabel/openbabel#2510</a>
+* &#64;zhongxiang117 made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2509">openbabel/openbabel#2509</a>
+* &#64;magnusrahm made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2596">openbabel/openbabel#2596</a>
+* &#64;flatstik made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2601">openbabel/openbabel#2601</a>
+* &#64;DStarEpoch made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2598">openbabel/openbabel#2598</a>
+* &#64;romanbsd made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2706">openbabel/openbabel#2706</a>
+* &#64;matterhorn103 made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2721">openbabel/openbabel#2721</a>
+* &#64;tyler92 made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2737">openbabel/openbabel#2737</a>
+* &#64;lgtm-com[bot] made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2546">openbabel/openbabel#2546</a>
+* &#64;DavidKorczynski made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2551">openbabel/openbabel#2551</a>
+* &#64;dependabot[bot] made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2740">openbabel/openbabel#2740</a>
+* &#64;correaa made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2574">openbabel/openbabel#2574</a>
+* &#64;chrisjonesBSU made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2809">openbabel/openbabel#2809</a>
+* &#64;PPN-SD made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2784">openbabel/openbabel#2784</a>
+* &#64;KunhuanLiu made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2844">openbabel/openbabel#2844</a>
+* &#64;Crivella made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2850">openbabel/openbabel#2850</a>
+* &#64;Marti2203 made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2793">openbabel/openbabel#2793</a>
+* &#64;VedantMadane made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2862">openbabel/openbabel#2862</a>
+* &#64;pranavk made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2847">openbabel/openbabel#2847</a>
+* &#64;TheRealSami made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2814">openbabel/openbabel#2814</a>
+* &#64;crabby-rathbun made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2854">openbabel/openbabel#2854</a>
+* &#64;gregmagdits made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2769">openbabel/openbabel#2769</a>
+* &#64;pranavkaruvally made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2816">openbabel/openbabel#2816</a>
+* &#64;bmp192529 made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2798">openbabel/openbabel#2798</a>
+* &#64;njzjz-bot made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2925">openbabel/openbabel#2925</a>
+* &#64;ostueker made their first contribution in <a class="github reference external" href="https://github.com/openbabel/openbabel/pull/2540">openbabel/openbabel#2540</a></p>
+<p><strong>Full Changelog</strong>: <a class="reference external" href="https://github.com/openbabel/openbabel/compare/openbabel-3-1-1...openbabel-3-2-0">https://github.com/openbabel/openbabel/compare/openbabel-3-1-1…openbabel-3-2-0</a></p>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Release Notes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ob310.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Open Babel 3.1.0</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/openbabel/openbabel.github.io/edit/main/source/docs/ReleaseNotes/ob320.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright ©2026 The Open Babel Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.18.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
