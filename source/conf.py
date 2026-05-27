@@ -25,7 +25,7 @@ try:
     response = requests.get("https://api.github.com/repos/openbabel/openbabel/releases/latest")
     release = response.json()['tag_name']
 except requests.exceptions.ConnectionError:
-    release = "3.1.1"
+    release = "3.2.0"
 version = release
 
 year = date.today().year
@@ -119,9 +119,9 @@ html_theme_options = {
     },
     "icon_links": [
         {
-            "name": "Twitter",
-            "url": "https://twitter.com/OpenBabel",
-            "icon": "fa-brands fa-square-twitter",
+            "name": "X",
+            "url": "https://x.com/OpenBabel_org",
+            "icon": "fa-brands fa-square-x-twitter",
         },
     ],
 }
